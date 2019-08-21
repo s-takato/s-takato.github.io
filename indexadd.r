@@ -140,19 +140,44 @@ tmp=gsub("月","/",tmp,fixed=T)
 date=gsub("日","",tmp,fixed=T)
 datehead='<font size="5">&emsp;&emsp;'
 Lines=c()
-
+Tails=c()
 fileflg=0
 if(file.exists(wfile)){
   file.rename(wfile,bkup)
   Lines=readLines(bkup)
   numberv=1:length(Lines)
   tmp=numberv[Lines[numberv]=="</table></br>"]
-  nn=max(tmp)+1
-  if(nn<=length(Lines)){
+  nn=max(tmp) #190702
+  if(nn<length(Lines)){
     Tails=Lines[(nn+1):length(Lines)]
     Lines=Lines[1:nn]
-  }else{
-    Tails=c()
+    while(nn>0){  #190702from
+      if(nchar(Lines[nn])==0){
+        nn=nn-1
+      }else{
+        Lines=Lines[1:nn]
+        Lines[nn+1]=""
+        break
+      }
+    }
+    nn=1
+    while(nn<100){
+      if(nchar(Tails[nn])==0){
+        nn=nn+1
+      }else{
+        Tails=Tails[nn:(length(Tails))]
+        break
+      }
+    }
+    nn=length(Tails)
+    while(nn>0){
+      if(nchar(Tails[nn])==0){
+        nn=nn-1
+      }else{
+        Tails=Tails[1:nn]
+        break
+      }
+    }  #190702to
   }
   for(nn in 1:length(Lines)){
     if(substring(Lines[nn],1,nchar(datehead))==datehead){
