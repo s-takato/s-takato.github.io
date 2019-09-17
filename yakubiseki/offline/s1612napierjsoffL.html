@@ -78,6 +78,9 @@ Ketinit(work,sy,rangex,rangey,strictsep):=(////190831to
   YMAX=rangey_2/SCALEY;
   StrictSep=strictsep; //190831
   Setwindow("Msg=n"); // 16.05.31
+  forall(remove(allpoints(),[SW,NE]),Strictmove(#.name)); //190917
+  KETJSOP=[]; //190916
+  JSBODY=[[],[]]; //190916
 );
 Indexall(str,key):=(
   regional(rest,out,flg,tmp,tmp1,);
@@ -105,16 +108,16 @@ Setwindow(str):=(
   tmp=indexof(str,"="); // 16.02.10
   tmp1=Toupper(substring(str,tmp,tmp+1));
   if(tmp1=="N",msg="n");
+  Strictmove("SW"); Strictmove("NE"); // ketjs //190909
   if((ispoint(SW) & ispoint(NE)),
-    tmp1=Lcrd(SW);
-    tmp2=Lcrd(NE);
+    tmp1=LLcrd(Ptpos(SW));//190912[2lines]
+    tmp2=LLcrd(Ptpos(NE));
     XMIN=tmp1_1; XMAX=tmp2_1;
     YMIN=tmp1_2; YMAX=tmp2_2;
   ,
     Putpoint("SW",Pcrd([XMIN,YMIN]));
-    Putpoint("NE", Pcrd([XMAX,YMAX])); 
+    Putpoint("NE", Pcrd([XMAX,YMAX]));
   );
-  Strictmove("SW"); Strictmove("NE"); //
 );
 Setwindow(xrange,yrange):=(
   XMIN=xrange_1;
@@ -140,29 +143,34 @@ Toupper(str):=(
   );
   out;
 );
-Lcrd(pt):=(
+LLcrd(pt):=(
   regional(tmp);
   if(ispoint(pt),
-    tmp=[pt.x/SCALEX,pt.y/SCALEY];
+    tmp=pt.xy
   ,
     tmp=pt;
   );
+  tmp=[tmp_1/SCALEX,tmp_2/SCALEY];
   tmp;
 );
-Pcrd(pt):=(
-  regional(tmp);
-  if(ispoint(pt),
-    tmp=re(pt.xy); // 15.07.24
+Ptpos(pt):=Ptpos(pt,[]);
+Ptpos(ptorg,pos):=(
+  regional(pt,out,tmp);
+  if(ispoint(ptorg),pt=ptorg,pt=parse(ptorg));
+  if(length(pos)==0,
+    tmp=pt.name+"position";
+    out=parse(tmp);
+    if(!islist(out),
+      tmp=tmp+"="+Textformat(pt.xy,6)+";";
+      parse(tmp);
+    );
   ,
-    tmp=[pt_1*SCALEX,pt_2*SCALEY];
+    pt.xy=pos;
+    tmp=pt.name+"position="+Textformat(pt.xy,6)+";";
+    parse(tmp);
+    out=pt.xy;
   );
- tmp;
-);
-Putpoint(name,Pt):=Putpoint(name,Pt,Pt);
-Putpoint(name,Ptinit,Pt):=(
-  regional(ptstr);
-    ptstr=name+".xy="+Textformat(Pcrd(Pt),5)+";";
-    parse(ptstr);
+  out;
 );
 Textformat(value,dig):=(
   regional(vv,tmp,tmp1);
@@ -183,6 +191,21 @@ Textformat(value,dig):=(
     );
   );
   tmp1;
+);
+Pcrd(pt):=(
+  regional(tmp);
+  if(ispoint(pt),
+    tmp=re(pt.xy); // 15.07.24
+  ,
+    tmp=[pt_1*SCALEX,pt_2*SCALEY];
+  );
+ tmp;
+);
+Putpoint(name,Pt):=Putpoint(name,Pt,Pt);
+Putpoint(name,Ptinit,Pt):=(
+  regional(ptstr);
+    ptstr=name+".xy="+Textformat(Pcrd(Pt),5)+";";
+    parse(ptstr);
 );
 Strictmove(pC):=Strictmove(pC,StrictSep); //190831
 Strictmove(pCorg,sep):=(
@@ -500,7 +523,6 @@ Slider(ptstr,p1,p2,options):=(//190120
   );
   Listplot(pA+pB,[p1,p2],["Msg=n","notex",color,thick]);
   Putonseg(pC,parse("sg"+pA+pB));
-  Strictmove(pC);
 );
 Listplot(list):=Listplot(list,[]);
 Listplot(Arg1,Arg2):=(
@@ -778,6 +800,15 @@ Pointdata(nm,listorg,options):=(
   );
   ptlist;
 );
+Lcrd(pt):=(
+  regional(tmp);
+  if(ispoint(pt),
+    tmp=[pt.x/SCALEX,pt.y/SCALEY];
+  ,
+    tmp=pt;
+  );
+  tmp;
+);
 Measuredepth(list):=( //190423
   regional(str,nn,tmp,tmp1,tmp2);
   str=text(list);
@@ -839,83 +870,11 @@ Putonseg(name,p1org,p2org,options):=(
     parse(name+".x="+tmp+";"); //190415
   ); //190120to
 );
-LLcrd(pt):=(
-  regional(tmp);
-  if(ispoint(pt),
-    tmp=pt.xy
-  ,
-    tmp=pt;
-  );
-  tmp=[tmp_1/SCALEX,tmp_2/SCALEY];
-  tmp;
-);
 Textedit(no):=(
   regional(tmp,tmp1,tmp2);
   tmp="Text"+text(no)+".currenttext";
   tmp1=parse(tmp);
   tmp1;
-);
-Defvar(varstr):=(
-  regional(name,value,tmp,tmp1);
-  if(isstring(varstr),
-    parse(varstr+";");
-    tmp=indexof(varstr,"=");
-    name=substring(varstr,0,tmp-1);
-    value=substring(varstr,tmp,length(varstr));
-    value=parse(value);
-    tmp1=select(1..length(VLIST),VLIST_#_1==name);
-    if(length(tmp1)>0,
-      tmp=tmp1_1;
-      VLIST_tmp=[name,value];
-    ,
-      VLIST=prepend([name,value],VLIST);
-    );
-  ,
-    forall(1..(length(varstr)/2), // 16.11.16from
-      name=varstr_(2*#-1);
-      value=varstr_(2*#);
-      Defvar(name,value);
-    ); // 16.11.16until
-  );
-);
-Defvar(name,value):=(
-  regional(tmp,tmp1);
-  if(islist(value),
-    tmp1="[";
-    forall(value,
-      if(isstring(#), // 16.11.14
-        tmp1=tmp1+Dq+#+Dq+","; // 16.11.14
-      ,
-        tmp1=tmp1+format(#,5)+",";
-      );
-    );
-    tmp1=substring(tmp1,0,length(tmp1)-1)+"]";
-  ,
-    tmp1=format(value,5);
-  );
-  tmp=name+"="+tmp1+";"; // 15.02.06//190415
-  parse(tmp);
-  VLIST=select(VLIST,#_1!=name); // 15.02.08
-  VLIST=prepend([name,value],VLIST);
-);
-Ptpos(pt):=Ptpos(pt,[]);
-Ptpos(ptorg,pos):=(
-  regional(pt,out,tmp);
-  if(ispoint(ptorg),pt=ptorg,pt=parse(ptorg));
-  if(length(pos)==0,
-    tmp=pt.name+"position";
-    out=parse(tmp);
-    if(!islist(out),
-      tmp=tmp+"="+Textformat(pt.xy,6)+";";
-      parse(tmp);
-    );
-  ,
-    pt.xy=pos;
-    tmp=pt.name+"position="+Textformat(pt.xy,6)+";";
-    parse(tmp);
-    out=pt.xy;
-  );
-  out;
 );
 Plotdata(name1,func,variable):=Plotdata(name1,func,variable,[]);
 Plotdata(name1,func,variable,options):=(
@@ -1332,7 +1291,6 @@ Windispg():=(
 );
 Windispg(gcLorg):=( //190125
   regional(gcL,Nj,Nk,Dt,Vj,tmp,tmp1,tmp2,tmp3,tmp4,opcindy);
-  forall(remove(allpoints(),[SW,NE]),Strictmove(#.name));  //
   gcL=gcLorg; //190125from
   if(length(gcL)>0,
     if(!islist(gcL_1),gcL=[gcL]);
@@ -1707,7 +1665,6 @@ if(length(str)>0,
 ,
   aa=Ptpos(A)_1+2;
 );
-Defvar("aa",aa);
 
 Expr([-3,3.1],"w","a=",["Size=1.4","notex"]);
 Expr(Ptpos(A)+[0,0.1],"n","a="+format(aa,10),["Size=1.5"]);
@@ -1747,7 +1704,7 @@ var cdy = CindyJS({
     id: "CSCanvas",
     width: 647,
     height: 506,
-    transform: [{visibleRect: [-3.6478360699418366, 4.277754591504412, 3.8419816854162585, -1.5798153995484405]}],
+    transform: [{visibleRect: [-3.6407228501702025, 4.277415240502034, 3.8490949051878927, -1.580154750550819]}],
     axes: false,
     grid: 1.0,
     snap: true,
@@ -1759,6 +1716,6 @@ var cdy = CindyJS({
     </script>
 </head>
 <body>
-    <p><font size="10">&emsp;Napier's Constant</font></p>
+    <p><font size="10">_Napier's Constant</font></p>
     <div id="CSCanvas"></div>
 </html>
