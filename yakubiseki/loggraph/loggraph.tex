@@ -31,26 +31,30 @@
 数値計算の分野ではよく用いられる．
 
 \begin{example}
-$\log_{10} 1=0,\ \log_{10} 10=1,\ \log_{10}100 =2,\ %
+$\log_{10} 1=0,\ \log_{15} 10=1,\ \log_{10}100 =2,\ %
 \log_{10}0.1 =\log_{10}10^{-1}=-1$
 \end{example}
 
-\begin{mawarikomi}[+1](1.2cm,-.2cm){6.5cm}{\input{fig/fig1_3_katataisu_1pr.tex}}
+\begin{layer}{130}{0}
+\putnotese{65}{20}{\input{fig/fig1_3_katataisu_1pr.tex}}
+\end{layer}
+
+\begin{mawarikomi}<2>[18]{6.5cm}{}
 $f(x)>0$であるとき，関数$y=f(x)$のグラフを，縦軸方向には値$y$の常用対数
-$\log_{10}y$の値をとって描くことがある．これを{\bf 片対数グラフ}という．
+$\log_{10}y$の値をとってかくことがある．これを{\bf 片対数グラフ}という．
+
 片対数グラフでは，真数の値を縦軸の目盛りにするのが普通である．また，
 $\log_{10} 1=0$より，目盛り1の横線を横軸とする．
 目盛り1, 10, 100などに対応する横線の間隔はすべて等しいから，
 横軸をどこにとってもよい．
-\end{mawarikomi}
-
 \begin{example}
-$y=2\cdot 5^{2-x}$において
-\[
-x=0,\ 1,\ 2,\ 3\quad\text{のとき}\quad y=50,\ 10,\ 2,\ 0.4
-\]
+$y=2\cdot 5^{2-x}$において\\
+\hspace*{1zw}$x=0,\ 1,\ 2,\ 3$のとき\\
+\hspace*{3zw}$y=50,\ 10,\ 2,\ 0.4$\\
 このときの点は図のようになる．
 \end{example}
+
+\end{mawarikomi}
 
 指数関数$y=c\,a^x$\ \ ($c,\ a$は正の定数，$a\neqq 1$)について
 \begin{equation}\label{logの等式}
@@ -73,11 +77,10 @@ x=0,\ 1,\ 2,\ 3\quad\text{のとき}\quad y=50,\ 10,\ 2,\ 0.4
 
 \begin{solution}
 \begin{mawarikomi}[10]{60mm}{}
-片対数グラフを描いたとき，
+片対数グラフをかいたとき，
 2点の実際の座標は$(0,\ \log_{10}1.6)$\vspace{1mm}および
 $(2,\log_{10}10)$となるから，直線の傾き$m$
 および切片$b$は
-
 \begin{align*}
 m&=\frac{\log_{10}10-\log_{10}1.6}{2-0}\\
 &=\frac{1}{2}\log_{10}\dfrac{10}{1.6}=\log_{10}(2.5)\\
@@ -103,5 +106,11 @@ y=1.6\,(2.5)^x\tag*{\qed}
 $(0,\ 1),\ (5,\ 0.1)$を通る関数のグラフは片対数グラフでは直線となる．
 この関数を定めよ．ただし，$10^{-0.2}=0.63$とする．
 \end{question}
+
+\newpage
+
+\begin{center}
+{\large\bf 解　答}
+\end{center}
 
 \end{document}

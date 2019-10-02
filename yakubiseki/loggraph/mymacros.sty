@@ -1,0 +1,141 @@
+\definecolor{gray60}{cmyk}{0,0,0,.6}
+
+
+%% 例題
+\newcounter{exer}[chapter]
+\renewcommand{\theexer}{\thechapter.\arabic{exer}}
+\def\exercise{\vskip.7\Cvs\par%
+\refstepcounter{exer}
+\trivlist\itemindent1zw\item\relax\@ifnextchar[{\@ex}{\@@ex}}
+\def\@ex[#1]{\hbox to\linewidth{{\bf\<［例題\theexer］}
+({\bf#1})\hfill}\par\kern4\p@\parindent1zw}
+\def\@@ex{\hbox to\linewidth{{\bf\<［例題\theexer］}\hfill}
+\par\kern4\p@\parindent1zw}
+\def\endexercise{\endtrivlist}
+
+%% 解答
+\newenvironment{solution}{\vspace{-5mm}
+\list{\small\bf\<［解］}{%
+\leftmargin2.5zw\labelwidth1.5zw\labelsep.2zw\itemindent-.8zw}
+\item\relax\small\parindent1zw}{\endlist}
+
+%% 注意
+\newenvironment{remark}{\trivlist\item\relax\leftskip2zw{\bf\<［注意］}
+\parindent1zw\small}{\endtrivlist\par}
+
+%% 証明
+\newenvironment{proof}{\trivlist\item\relax\leftskip1zw{\bf\<［証明］}
+\parindent1zw\small}{\endtrivlist\par}
+\def\qed{\hfill\fboxsep0pt\fbox{\phantom{S}}}
+
+%% 問
+\newcounter{ques}[chapter]
+\renewcommand{\theques}{\thechapter.\arabic{ques}}
+\def\question{\par\vskip3\p@\refstepcounter{ques}%
+\trivlist\item\relax\noindent{\small\bf 問\theques}\hskip.8zw\nobreak}
+\def\endquestion{\endtrivlist}
+
+%% 例
+\newcounter{exam}[chapter]
+\renewcommand{\theexam}{\thechapter.\arabic{exam}}
+\def\example{\par\vskip3\p@\refstepcounter{exam}%
+\trivlist\item\relax\noindent{\small\bf 例\theexam}\hskip.8zw\nobreak}
+\def\endexample{\endtrivlist}
+
+%% 公式
+\newcounter{form}[chapter]
+\renewcommand{\theform}{\thechapter.\arabic{form}}
+\def\hr{\rule{.11\p@}{1.2\p@}}
+\def\formula{\vskip.7\Cvs\par%
+\refstepcounter{form}
+\trivlist\itemindent1zw\item\relax\@ifnextchar[{\@frm}{\@@frm}}
+\def\@frm[#1]{\hbox to\linewidth{{\bf 公式\theform}({\bf#1})\hskip5\p@
+\nobreak\leaders\hbox to.1\p@{\hss\raise.3zh\hbox{\hr}\hss}\hfill}
+\par\kern4\p@\parindent1zw}
+\def\@@frm{\hbox to\linewidth{{\bf 公式\theform}\hskip5\p@
+\nobreak\leaders\hbox to.1\p@{\hss\raise.35zh\hbox{\hr}\hss}\hfill}
+\par\kern4\p@\parindent1zw}
+\def\endformula{\par\kern-2mm\noindent\rule{\textwidth}{1.2\p@}\par
+\endtrivlist}
+
+%% 定理
+\newcounter{thm}[chapter]
+\renewcommand{\thethm}{\thechapter.\arabic{thm}}
+\def\theorem{\vskip3mm\par%
+\refstepcounter{thm}\fboxsep.8zw
+\breakbox\@ifnextchar[\@thm\@@thm}
+\def\@thm[#1]{\noindent{\bf 定理\thethm}\hskip.5zw({\bf #1})\hskip1zw}
+\def\@@thm{\noindent{\bf 定理\thethm}\hskip1zw}
+\def\endtheorem{\endbreakbox\par\vskip3mm}
+
+%% 章末問題
+\newenvironment{enumber}{\ifnum \@enumdepth >3\relax\@toodeep\else
+   \advance\@enumdepth\@ne
+   \edef\@enumctr{enum\romannumeral\the\@enumdepth}%
+   \let\linewidth\fullwidth
+   \list{\csname label\@enumctr\endcsname}{%
+         \topsep\z@\listparindent1zw\parskip\z@ \itemsep4\p@ \parsep\z@
+         \leftmargin2.5zw\labelwidth0zw\labelsep1zw\itemindent\labelsep
+         \usecounter{\@enumctr}%
+         \def\makelabel##1{\hss\llap{##1}}}%
+    \fi}{\endlist}
+\def\sectil{\ifodd\c@page\hskip\z@\else\hskip-11zw\fi
+\hbox to\fullwidth{\hfil\fboxsep4\p@\colorbox{gray60}{%
+\textcolor{white}{\quad\fontsize{10.7}{16}\selectfont
+\bf 章末問題\thechapter\quad}}\hfil}}
+%
+\newenvironment{syomatu}{\vskip1.6\baselineskip\par%
+\sectil\vskip.1\Cvs
+\addcontentsline{toc}{section}{\protect\numberline{}章末問題 \thechapter}
+\markboth{\leftmark}{章末問題 \thechapter}
+\begingroup\small}{\endgroup}
+%
+\newenvironment{mondai}[2]{\vskip.5\Cvs%
+\def\labelenumi{\bf\thechapter.\arabic{enumi}}
+\hbox to\fullwidth{\ifodd\c@page\hskip\z@\else\hskip12zw\fi
+{\bf --- #2 ---}\hfill}
+\begin{enumber}\leftskip-1zw\setcounter{enumi}{#1}}{\end{enumber}}
+%
+\newenvironment{ecquestion}{%
+\def\labelenumi{\bf\thechapter.\arabic{enumi}}
+\begin{enumber}\leftskip-1zw\small}
+{\end{enumber}}
+%
+\newenvironment{eecquestion}[1]{%
+\def\labelenumi{\bf\thechapter.\arabic{enumi}}
+\begin{enumber}\setcounter{enumi}{#1}\leftskip-1zw\small}
+{\end{enumber}}
+
+%% fullpage環境
+\newdimen\ftwidth
+\setlength\ftwidth{\fullwidth}
+\addtolength{\ftwidth}{-\textwidth}
+\newenvironment{fline}{\textwidth\fullwidth\hsize\fullwidth%
+\list{}{\ifodd\thepage\leftmargin\z@\rightmargin-\ftwidth\else
+\leftmargin-\ftwidth\rightmargin\z@\fi}\item\relax\parindent1zw}
+{\endlist}
+
+\newenvironment{fullpage}{%
+\clearpage
+  \textwidth=\fullwidth
+  \setlength\evensidemargin{.25\ftwidth}
+  \ftwidth=\z@
+  \hsize=\fullwidth
+  \linewidth=\fullwidth
+}{\clearpage}
+
+%% 演習問題解答
+\newenvironment{toikaito}[2]{%\vskip8\p@
+\hbox to\fullwidth{\hfil\normalsize\bf 第{#1}章\hskip1zw #2\hfil}
+\vskip3\p@
+\def\labelenumi{\bf 問#1.\arabic{enumi}}
+\begin{enumber}\leftskip.3zw\small}{\end{enumber}}
+%
+\newenvironment{kaito}[1]{\vskip8\p@%
+\hbox to\fullwidth{\hfil\normalsize\bf 章末問題#1\hfil}
+\vskip3\p@
+\def\labelenumi{\bf#1.\arabic{enumi}}
+\begin{enumber}\leftskip-1zw\small}{\end{enumber}}
+
+
+\endinput
