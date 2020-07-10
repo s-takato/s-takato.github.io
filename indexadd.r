@@ -188,7 +188,7 @@ if(file.exists(wfile)){
   fileflg=1
 }else{
   maintitle=thismaintitle()
-  Lines=c("<html>","<head>",paste("<title>",maintitle,"</title>",sep=""))
+  Lines=c("<html>","<head>",'<meta charset="utf-8">',paste("<title>",maintitle,"</title>",sep=""))
   Lines=c(Lines,"</head>","<body>",paste('<p><font size="10">&emsp;',maintitle,'</font>',sep=""))
   Lines=c(Lines,paste(datehead,date,"</font></p>",sep=""))
 }

@@ -1,0 +1,35 @@
+タイトル::slide0
+
+%%%%%%%%%%%%
+new::対数関数$y=\log_a x$のグラフ
+%repeat=,para=exp2log:{0}:se{67}{10}:input:0.5
+\slidepage
+
+itemize
+item::対数の意味は　\fbox{$y=\log_a x\Longleftrightarrow x=a^y$}
+item::$y=a^x$の$x,y$を交換
+item::$x$軸と$y$軸も入れ替わる
+item::$x$軸が横，$y$軸が縦になるようにする
+item::下にある「対数関数のグラフ」を実行してみよう
+end
+
+%%%%%%%%%%%%
+new::指数関数と対数関数
+%repeat=4
+\slidepage
+
+layer::{120}{0}
+%[1]::putnote::se{65}{0}::taisuu3,0.45
+%[2]::putnote::se{65}{0}::taisuu5,0.45
+%[3]::putnote::se{65}{0}::taisuu10,0.45
+%[4,-]::putnote::se{65}{0}::taisuum2,0.45
+end
+
+itemize
+item::$y=a^x$と$y=\log_a x$は\\$y=x$に関して対称
+item::このような関数を互いに\\{\color{red}逆関数}という
+item::対数関数と指数関数は\\
+\hspace*{2zw}逆関数どうし
+item::下にある「指数関数と対数関数」を実行してみよう
+end
+

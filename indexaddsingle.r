@@ -141,12 +141,10 @@ date=gsub("日","",tmp,fixed=T)
 datehead='<font size="5">&emsp;&emsp;'
 Lines=c()
 Tails=c()
-#  maintitle=thismaintitle()
-  maintitle=path
-  Lines=c("<html>","<head>",paste("<title>",maintitle,"</title>",sep=""))
-  Lines=c(Lines,'<meta charset="utf-8">')
-  Lines=c(Lines,"</head>","<body>",paste('<p><font size="10">&emsp;',maintitle,'</font>',sep=""))
-  Lines=c(Lines,paste(datehead,date,"</font></p>",sep=""))
+maintitle=thismaintitle()
+Lines=c("<html>","<head>",'<meta charset="utf-8">',paste("<title>",maintitle,"</title>",sep=""))
+Lines=c(Lines,"</head>","<body>",paste('<p><font size="10">&emsp;',maintitle,'</font>',sep=""))
+Lines=c(Lines,paste(datehead,date,"</font></p>",sep=""))
 cat(Lines[1],"\n",file=wfile,sep="",append=F)
 for(nn in 2:length(Lines)){
   cat(Lines[nn],"\n",file=wfile,sep="",append=T)
@@ -176,8 +174,8 @@ for(Pno in 1:1){ #200602
   title=maintitle
   cmdL=c(cmdL, paste("<!-- ",title," -->",sep="")) #190618
   cmdL=c(cmdL,'<table border="1" height="30">')
-  tmp='    <tr><th colspan="2" align="left"><font size="5">&emsp;'
-  tmp=paste(tmp,title,'</font></th></tr>',sep="")
+  tmp=' <!--   <tr><th colspan="2" align="left"><font size="5">&emsp;'
+  tmp=paste(tmp,title,'</font></th></tr>','-->',sep="")
   cmdL=c(cmdL,tmp)
   image=Flist[thisimageno(length(Flist))]
   tmp=strsplit(image,".",fixed=T)
@@ -195,7 +193,7 @@ for(Pno in 1:1){ #200602
     if((str=="end")||(str=="next")){break}
     if(is.numeric(str)){
       str=Flist[str]
-      name <- readline("Name ")
+      name <- readline("Subtitle ")
       if(nchar(name)==0){
         tmp=strsplit(str,".",fixed=T)
         tmp=tmp[[1]]
@@ -212,7 +210,7 @@ for(Pno in 1:1){ #200602
       }
     }
   }
-  tmp=paste('    <tr><td align="center" width="80"></td></tr>',sep="")
+  tmp=paste('    <tr><td align="center" width="100"></td></tr>',sep="")
   cmdL=c(cmdL,tmp)
   tmp=paste("</table></br>",sep="")
   cmdL=c(cmdL,tmp)
