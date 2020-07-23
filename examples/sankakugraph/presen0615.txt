@@ -1,0 +1,230 @@
+Title::slide0
+::\newcommand{\hako}[4][6]{\fbox{\raisebox{#2 mm}{$\mathstrut$}\raisebox{-#3 mm}{$\mathstrut$}\Ctab{#1 mm}{#4}}}
+::\def\rad{\;\mathrm{rad}}
+
+\renewcommand{\hako}[4][-1]{%
+\setcounter{ketpicctra}{#2}%
+\divide\value{ketpicctra} by 2%
+\setcounter{ketpicctrb}{#3}%
+\divide\value{ketpicctrb} by 2%
+\setcounter{ketpicctrc}{\theketpicctrb}%
+\addtocounter{ketpicctrc}{#1}%
+\def\kettmp{
+\begin{picture}%
+(#2, #3)(0,0)%
+\settowidth{\Width}{#4}\setlength{\Width}{-0.5\Width}%
+\settoheight{\Height}{#4}\settodepth{\Depth}{#4}\setlength{\Height}{-0.5\Height}\setlength{\Depth}{0.5\Depth}\addtolength{\Height}{\Depth}%
+\put(\theketpicctra,\theketpicctrb){\hspace*{\Width}\raisebox{\Height}{#4}}%
+\end{picture}%
+}%
+{\unitlength=1mm%
+\raisebox{-\theketpicctrc mm}{\fbox{\kettmp}}%
+}
+}
+
+%%%%%%%%%%%%
+main::弧度法
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::弧度法(ラジアン)
+%repeat=2
+\slidepage
+
+layer::{120}{0}
+putnote::se{87}{10}::radian0
+end
+
+itemize
+item::弧の長さ$l$と半径$r$の比\ $\theta=\dfrac{l}{r}$\vspace{-1mm}
+item::$\mbox{半周の角}(180^{\circ})=\pi$\vspace{-1mm}
+item::\fbox{$y=\dfrac{\pi}{180}\;x$}（$x$度$\Rightarrow$$y$ラジアン）\\
+\fbox{$x=\dfrac{180}{\pi}\;y$}（$y$ラジアン$\Rightarrow$$x$度）\vspace{-1mm}
+%thin[2]::item::[例)]1(ラジアン)$＝\dfrac{180}{\pi}\times 1=\dfrac{180}{\pi}=\dfrac{180}{3.14}\fallingdotseq57.3$(度)
+end
+
+%%%%%%%%%%%%
+new::ラジアンの意味
+%repeat=2
+\slidepage
+
+layer::{120}{0}
+putnote::sw{125}{18}::radian,0.8
+end
+
+itemize
+item::$\theta=\dfrac{l}{r}$で，半径$r=1$とすると　$\theta=l$
+item::{\color{red}ラジアンは弧の長さそのもの}
+item::1ラジアン（$\fallingdotseq 57.3$度）
+end
+
+%%%%%%%%%%%%
+new::弧度法(ラジアン)
+%repeat=,para=unitrad:{0}:sw{125}{18}:input:0.8
+\slidepage
+
+itemize
+item::$\theta=\dfrac{l}{r}$で，半径$r=1$とすると　$\theta=l$
+item::{\color{red}ラジアンは弧の長さそのもの}
+item::1ラジアン（$\fallingdotseq 57.3$度）
+end
+
+%%%%%%%%%%%%
+new::課題１（弧度法）
+%%repeat=,para=unitrad:{0}:sw{125}{18}:input:0.8
+\slidepage
+
+\vspace{5mm}
+...
+
+(1), (2)の角度をラジアンで求めよ．
+
+layer::{120}{0}
+putnote::se{80}{-20}::radianjs,0.5
+end
+
+\vfill
+...
+
+{\small 
+\begin{center}
+\url{https://s-takato.github.io/polytec/n103/1radianjsmainoff.html}
+\end{center}
+}
+
+%%%%%%%%%%%%
+main::三角関数
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::$y=\sin x$のグラフ(正弦曲線)
+%repeat=2
+\slidepage
+
+itemize
+item::角（{\color{red}ラジアン}）を$x$に$\sin x$値$y$を対応\\
+　$y=\sin x$
+%thin[2,-]::item::半径$1$の円上の点Pを$\mathrm{P}(X,\ Y)$と書く\\
+%thin[2,-]::　$\sin x=\dfrac{Y}{r}=Y$
+end
+
+%%%%%%%%%%%%
+new::正弦曲線のかき方
+%repeat=,para=drawsine:{0}:s{65}{8}:input:0.8
+\slidepage
+
+%%\href{file:///presen0615flip1.pdf}{pdf}
+%%\end{document}
+
+layer::{120}{0}
+%[1]::\putnotee{10}{10}{$x=\dfrac{l}{r}=l$}
+%[1]::\putnotec{53.5}{26}{\color{red}\small $x$}
+%[22]::\putnotee{56}{18}{\small $x$}
+end
+
+%%%%%%%%%%%%
+new::$y=\sin x$のグラフ
+%repeat=,para=sinecurve:{0}:s{65}{20}:input
+\slidepage
+
+%%%%%%%%%%%%
+new::課題2（$y=\sin x$の値）
+\slidepage
+
+\vspace{5mm}
+...
+
+表の$y$に値を入れよ．
+
+\begin{center}
+\input{fig/sinetable.tex}
+\end{center}
+
+\vfill
+...
+
+{\small 
+\begin{center}
+\url{https://s-takato.github.io/polytec/n103/2trigcalc2mainoff.html}
+\end{center}
+}
+
+%%%%%%%%%%%%
+new::課題3（$y=\sin x$の描画）
+\slidepage
+
+\vfill
+...
+
+{\small 
+\begin{center}
+\url{https://s-takato.github.io/polytec/n103/3drawsinecurvemainoff.html}
+\end{center}
+}
+
+%%%%%%%%%%%%
+new::$y=\sin x$のグラフの特徴）
+%repeat=3
+\slidepage
+
+itemize
+item::{\color{red}周期}は$2\pi$（$2\pi$で元に戻る）
+%thin[2,-]::item::{\color{red}振幅}は$1$（値の範囲は$-1$から$1$）
+%thin[3,-]::item::原点対称
+end
+
+%%%%%%%%%%%%
+new::$y=\cos x$のグラフ(余弦曲線)
+%repeat=5
+\slidepage
+
+layer::{120}{0}
+putnote::s{62}{6}::graphcos
+\putnoten{118}{6}{\small $y=\cos x$}
+%[5,-]::putnote::s{62}{6}::graphsinadd
+%[5,-]::\putnoten{80}{6}{\color{red}\small $y=\sin x$}
+end
+
+\vspace*{28mm}
+
+itemize
+%thin[2,-]::item::{\color{red}周期}は$2\pi$（$2\pi$で元に戻る）\vspace{-1mm}
+%thin[3,-]::item::{\color{red}振幅}は$1$（値の範囲は$-1$から$1$）\vspace{-1mm}
+%thin[4,-]::item::$\cos x$は$y$軸対称\vspace{-1mm}
+%thin[5,-]::item::$\cos x$は$\sin x$を左に$\frac{\pi}{2}$平行移動（{\color{red}位相}が$\frac{\pi}{2}$進む）
+end
+
+
+%%%%%%%%%%%%
+new::振幅・位相・周期
+%%repeat=1
+\slidepage
+
+itemize
+item::$y=\sin x$の振幅は$1$，周期は$2\pi$
+item::$y=A \sin x$の振幅は\hako{6}{6}{}，周期は\hako{6}{6}{}
+item::$y=\sin(x+c)$の位相は，$y=\sin x$から\hako{25}{6}{}
+item::$y=\sin(bx)$の振幅は\hako{6}{6}{}，周期は\hako{6}{6}{}
+end
+
+\vfill
+...
+
+{\small 
+\begin{center}
+\url{https://s-takato.github.io/polytec/n103/4amplietcmainoff.html}
+\end{center}
+}
+
+%%%%%%%%%%%%
+new::グラフをかく問題
+%%repeat=1
+\slidepage
+
+次のグラフをかけ．
+
+enumerate::[(1)]
+item::$y=3\sin x$
+item::$y=\sin(x+\dfrac{\pi}{4})$
+item::$y=\sin(2x)$
+end
