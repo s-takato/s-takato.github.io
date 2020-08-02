@@ -1,0 +1,16 @@
+2020.08.03
+   displaytex3 started  ( multi input)
+2020.08.02
+　=> int(a,b,f(x),dx)
+2020.07.30
+　a^sqr(b)
+2020.07.29
+  Sla2fraをバグ修正
+  sp,dotを追加
+2020.07.26
+  ipad(iphone)では，「'」「"」「--」が  non ascii
+  RepLを２段階にした
+
+2020.07.26
+ gboardは共通だが，querty配列にする方法？
+  
