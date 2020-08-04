@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+    <title>displaytex3linear.cdy</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #CSConsole {
+            background-color: #FAFAFA;
+            border-top: 1px solid #333333;
+            bottom: 0px;
+            height: 200px;
+            overflow-y: scroll;
+            position: fixed;
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cindyjs.org/dist/v0.8/CindyJS.css">
+    <script type="text/javascript" src="https://cindyjs.org/dist/v0.8/Cindy.js"></script>
+    <script type="text/javascript" src="https://cindyjs.org/dist/v0.8/KetCindyPlugin.js"></script>
+<script id="csinit" type="text/x-cindyscript">
+use("KetCindyPlugin");
+Dircdy=loaddirectory;
+setdirectory(gethome());
+import("ketcindy.ini");
+;
+</script>
+<script id="cskeytyped" type="text/x-cindyscript">
+if(key()=="?" % keydownlist()==[32],
+  if(!isreal(NumTyped),NumTyped=0);
+  if(NumTyped==0,
+    DispStr=
+     "Figure(1) Parent(2) Parapara(3) Movie(4) Surf(5)";
+  );
+  if(NumTyped==1,
+    DispStr=
+     "Shift+ Title(T) Para(P) Slide(S) Digest(D)";
+  );
+  if(NumTyped==2,
+    DispStr="Shift+ Meshlab(M)";
+  );
+  if(NumTyped==3,
+    DispStr=
+     "Ch : disp(0) chg(9) N(+,-) add(<) rmv(>)";
+  );
+  drawtext(mouse().xy,DispStr,size->24);
+  NumTyped=mod(NumTyped+1,4);
+,
+  NumTyped=0;  
+);
+if(key()=="1",//Mkfigure
+  Viewtex();
+  kc();
+);
+if(key()=="2",//Mkparent
+  Viewparent();
+);
+if(key()=="3",//Flipbook(Parapara)
+  Flipbook();
+);
+if(key()=="4",//Texmovie
+  Texmovie();
+  kc();
+);
+if(key()=="5",//Surface
+  Cheader();
+  Cmain();
+  kcC();
+  if(ChNum>0,
+    Ch=[ChNum];
+  ,
+    Ch=[1];
+  );
+  ChNum=0;
+);
+if(key()=="T",//Title
+  Maketitle();
+);
+if(key()=="P",//ParaF
+  Parafolder();
+);
+if(key()=="S",//Slide 
+  Mkslides();
+);
+if(key()=="D",//Digest(Summary)
+  Mkslidesummary();
+);
+if(key()=="M",//Meshlab
+  Mkviewobj(OCNAME,OBJCMD,OCOPTION);
+);
+
+if(key()=="0",
+  Dispchoice();
+);
+if(key()=="9",
+  if(length(Ch)==0,
+    Ch=[ChNum];
+  ,
+    if(!contains(Ch,ChNum),
+      Ch=append(Ch,ChNum);
+      ChNum=Ch_(length(Ch)-1);
+      Ch=remove(Ch,[ChNum]);
+      Ch=sort(Ch);
+    );
+  );
+  Dispchoice();
+);
+if(key()=="+",
+  ChNum=ChNum+1;
+  Dispchoice();
+);
+if(key()=="-",
+  ChNum=ChNum-1;
+  Dispchoice();
+);
+if(key()=="<",
+  if(length(select(Ch,#==ChNum))==0,
+    Ch=append(Ch,ChNum);
+    Ch=sort(Ch);
+    ChNum=ChNum+1;
+  );
+  Dispchoice();
+);
+if(key()=="^",
+  if(length(Ch)==0,
+    Ch=[ChNum];
+  ,
+    if(!contains(Ch,ChNum),
+      Ch=Ch_(1..(length(Ch)-1));
+      Ch=append(Ch,ChNum);
+      Ch=sort(Ch);
+    );
+  );
+  ChNum=ChNum+1;
+  Dispchoice();
+);
+if(key()=="~",
+  if(length(Ch)==0,
+    Ch=[ChNum];
+  ,
+    if(!contains(Ch,ChNum),
+      Ch=Ch_(1..(length(Ch)-1));
+      Ch=append(Ch,ChNum);
+      Ch=sort(Ch);
+    );
+  );
+  ChNum=max(ChNum-1,1);
+  Dispchoice();
+);
+if(key()==">",
+  if(length(Ch)>0,
+    ChNum=Ch_(length(Ch));
+    Ch=Remove(Ch,[ChNum]);
+  );
+  Dispchoice();
+);
+;
+</script>
+<script id="csdraw" type="text/x-cindyscript">
+Ketinit();
+Setketcindyjs(["Nolabel=all"]);//no ketjs on
+
+td(str):=td(1,str);
+td(col,str):=(
+ regional(out);
+ out="<td align="+Dqq("center");
+ if(col>1,
+  out=out+" colspan="+Dqq(text(col));
+ );
+ out=out+">"+str+"</td>";
+ out;
+);
+eL=[
+ "$\pi$","$\frac{b}{a}$","$a^x$","$\sqrt{a}$",
+ "$\sqrt[b]{a}$","$\log_a\!\!x$","$\sin x$","$\sin^2 x$",
+ "$\alpha$","$\beta$","$\theta$","$\cdot$","$\times$",
+ "space","$\leq$","$\geq$","$\Leftrightarrow$",
+ "代用",
+ "+","=","^","$<$","$>$",
+
+ "$\mathbf{a}$","$\large\cdot$","$\small\circ$","${}^{t}A$",
+ "$\left(\begin{array}{cc}a&b\\c&d\end{array}\right)$",
+ "$\left|\begin{array}{cc}a&b\\c&d\end{array}\right|$",
+];
+kL=[
+ "pi","fr(b,a)","a^x","sq(a)",
+ "sq(b,a)","log(a,x)","sin(x)","sin(2,x)",
+ "Ga","Gb","Gt","dot","crs",
+ "sp","(=","=)","(==)",
+ "",
+ "${\tiny -\,-}$","::","hat","(.",".)",
+
+ "V(a)","Dot","cir","tra(A)",
+ "mat(a;b,c;d)","det(a;b,c;d)"
+];
+width=[1,2,2,2, 2,2,2,2, 1,1,1,1,1, 2,1,1,2];
+width=concat(width,[2]);
+width=concat(width,[1,1,1,1,1]);
+width=concat(width,[1,1,2,2,1,2]);
+eor1=1..17;
+eor2=19..23;
+eor3=24..29;
+est1=""; kst1="";
+est2=""; kst2="";
+est3=""; kst3="";
+forall(eor1,
+ est1=est1+td(width_#,eL_#);
+ kst1=kst1+td(width_#,kL_#);
+);
+est1=est1+"<td rowspan="+Dqq("2")+" align="+Dqq("center")+">代用</td>";
+forall(eor2,
+ est2=est2+td(width_#,eL_#);
+ kst2=kst2+td(width_#,kL_#);
+);
+forall(eor3,
+ est3=est3+td(width_#,eL_#);
+ kst3=kst3+td(width_#,kL_#);
+);
+Ketcindyjsmain([
+ "<pf4/fp>数式はASCII文字（半角文字）のみ．改行は//，分数を$\;/\;$で表すときは括弧に注意　a+b/c+d$\;=a+\frac{b}{c}+d$",
+ "<table class="+Dqq("wide")+" border="+Dqq("1")+" width="+Dqq("300")+">",
+ " <tr>"+est1+est2+"</tr>",
+ " <tr height="+Dqq("30")+">"+kst1+kst2+"</tr>",
+ "</table>",
+ "</br>",
+ "<table class="+Dqq("narrow")+" border="+Dqq("1")+" width="+Dqq("300")+">",
+ " <tr>"+est3+"</tr>",
+ " <tr height="+Dqq("30")+">"+kst3+"</tr>",
+ "</table>"
+ ]);
+
+Seteditable(50,["","Size=20","Width=600"]);
+Seteditable(51,["","Size=20","Width=600"]);
+Seteditable(52,["","Size=20","Width=600"]);
+Seteditable(53,["","Size=20","Width=600"]);
+//no ketjs off
+
+RepL1=[
+  ["hat","^"],["crs","\times"],["cross","\times"],
+  ["--","+"],["- -","+"],["::","="],["dot","\cdot "],["sp ","\; "],
+  ["Dot","{\large\cdot}"],["cir","{\small\circ}"]
+];
+RepL2=[
+ [" ^","^"],["(.","<"],[".)",">"],["(=","<="],["=)","=>"],
+ ["Ga","\alpha"],["Gb","\beta"],["Gt","\theta"]
+];
+RepL3=[
+ ["^ ","^"],["<==>"," \Leftrightarrow "],
+ ["==>"," \Rightarrow "],["<=="," \Leftarrow "],
+ ["<="," \leq "],["=>"," \geq "],[">="," \geq "]
+];
+
+Addax(0);
+
+pos=3;
+pos2=3;
+dposy=3.3;
+win=50..53;
+Setwindow([-3,20.2],[-8.5,6]);
+
+Noascii(str):=(
+  regional(ascii,out,tmp,tmp1);
+  ascii=apply(32..126,unicode(text(#),base->10));
+  out="";
+  forall(1..(length(str)),
+    tmp=Op(#,str);
+    if(!contains(ascii,tmp),
+      out=out+tmp;
+    );
+  );
+  out;    
+);
+
+Sla2fra(str):=(
+  regional(alpha,numer,sep,s,flg,out,parL,flg,nn,nu,de,finish,
+      tmp,tmp1,tmp2);
+  tmp1=32..126;
+  tmp=(65..90)++(97..122);
+  tmp1=remove(tmp1,tmp);
+  alpha=apply(tmp,unicode(text(#),base->10));
+  tmp=[46]++(48..57);
+  tmp1=remove(tmp1,tmp);
+  numer=apply(tmp,unicode(text(#),base->10));
+  sep=apply(tmp1,unicode(text(#),base->10));
+  out="";
+  stL=Strsplit(str,"/");
+  forall(1..(length(stL)-1),nn,
+    finish=0;
+    s=stL_(nn);
+    parL=Bracket(s,"()");
+    tmp=Op(length(s),s);
+    if(tmp==")",
+      tmp=select(parL,#_1==length(s));
+      tmp=tmp_1_2;
+      tmp=select(parL,#_2==-tmp);
+      tmp=tmp_(-1)_1;
+      nu=substring(s,tmp-1,length(s));
+      tmp1=substring(s,0,tmp-1);
+      tmp2=tmp-1;
+      while(tmp2>0,
+        tmp=Op(tmp2,s);
+        if(contains(alpha,tmp),
+          nu=tmp+nu;
+          tmp1=substring(s,0,tmp2-1);
+          tmp2=tmp2-1;
+        ,
+          tmp1=substring(s,0,tmp2);
+          tmp2=0;
+        );
+      );
+      finish=1;
+    );  
+    if(finish==0,
+      nu=tmp;
+      tmp2=length(s)-1;
+      tmp1=substring(s,0,tmp2);
+      if(contains(numer,tmp),
+        while(tmp2>0,
+          tmp=Op(tmp2,s);
+          if(contains(numer,tmp),
+            nu=tmp+nu;
+            tmp1=substring(s,0,tmp2-1);
+            tmp2=tmp2-1;
+          ,
+            tmp1=substring(s,0,tmp2);
+            tmp2=0;
+          );
+        );
+        finish=1;
+      );
+    );
+    if(finish==0,
+      if(contains(alpha,tmp),
+        nu=tmp;
+        while(tmp2>0,
+          tmp=Op(tmp2,s);
+          if(contains(alpha,tmp),
+            nu=tmp+nu;
+            tmp1=substring(s,0,tmp2-1);
+            tmp2=tmp2-1;
+          ,
+            tmp1=substring(s,0,tmp2);
+            tmp2=0;
+          );
+        );
+        finish=1;
+      );
+    );
+    if(substring(nu,0,1)=="(",nu=substring(nu,1,length(nu)-1));
+    out=out+tmp1+"fr("+nu+",";
+    finish=0;
+    s=stL_(nn+1);
+    parL=Bracket(s,"()");
+    tmp=Op(1,s);
+    if(tmp=="(",
+      tmp=select(parL,#_2==-1);
+      tmp=tmp_1_1;
+      de=substring(s,1,tmp-1);
+      tmp1=substring(s,tmp,length(s));
+      finish=1;
+    );
+    if(finish==0,
+      de=tmp;
+      tmp1="";
+      tmp2=2;
+      if(contains(numer,tmp),
+        while(tmp2<=length(s),
+          tmp=Op(tmp2,s);
+          if(contains(numer,tmp),
+            de=de+tmp;
+            tmp1=substring(s,tmp2,length(s));
+            tmp2=tmp2+1;
+          ,
+            tmp1=substring(s,tmp2-1,length(s));
+            tmp2=length(s)+1;
+          );
+        );
+        finist=1;
+      );
+    );
+    if(finish==0,
+      if(contains(alpha,tmp),
+        while(tmp2<=length(s),
+          tmp=Op(tmp2,s);
+          if(contains(alpha,tmp),
+            de=de+tmp;
+            tmp1=substring(s,tmp2,length(s));
+            tmp2=tmp2+1;
+          ,
+            if(tmp!="(",
+              tmp1=substring(s,tmp2-1,length(s));
+            ,              
+              tmp=select(parL,#_1==tmp2);
+              tmp=tmp_1_2;
+              tmp=select(parL,(#_1>tmp2)&(#_2==-tmp));
+              tmp=tmp_1_1;
+              de=de+substring(s,tmp2-1,tmp);
+              tmp1=substring(s,tmp,length(s));
+            );
+            tmp2=length(s)+1;
+          );
+        );
+        finist=1;
+      );
+    );
+    out=out+de+")";
+    stL_(nn+1)=tmp1;
+  );
+  out=out+stL_(-1);
+  out;
+);
+
+Addat(str):=(
+  regional(ascii,out,flg,tmp);
+  ascii=apply(32..126,unicode(text(#),base->10));
+  ascii=remove(ascii,["@"]);
+  out="";
+  flg=0;
+  forall(1..(length(str)),
+    tmp=str_#;
+    if(tmp=="@",
+      flg=1-flg
+    ,
+      if(!contains(ascii,tmp),
+        if(flg==0,
+          tmp="@"+tmp+"@";
+        );
+      );
+    );
+    out=out+tmp;
+  );
+  out=replace(out,"@@","");
+  out;
+);
+
+Sepchar(strorg):=(
+  regional(str,out,flg,err,tmp,tmp1,tmp2);
+  str=Addat(strorg);
+  err="";
+  out=[];
+  tmp1=Indexall(str,"@");
+  tmp=length(tmp1);
+  if((length(str)==0)%(tmp==0)%(mod(tmp,2)==1),
+    if((length(str)==0)%(tmp==0),
+      if(length(str)==0,out=[],out=[str]);
+    ,
+      err="@の数";
+    );
+  ,
+    tmp=tmp1_1;
+    if(tmp>1,
+      out=[substring(str,0,tmp-1)];
+    );
+    start=tmp;
+    flg=1;
+    forall(2..(length(tmp1)),
+      if(flg==1,
+        tmp2=substring(str,start-1,tmp1_#-1);
+      ,
+        tmp2=substring(str,start,tmp1_#-1);
+      );
+      out=append(out,tmp2);
+      start=tmp1_#;
+      flg=1-flg;
+    );
+    if(start<length(str),
+      tmp2=substring(str,start,length(str));
+      out=append(out,tmp2);
+    );
+  );
+  [out,err];
+);
+
+Moretotex(str):=(
+  regional(repL,parL,symL,sym,np,subL,nn,out,
+     head,tmp,tmp1,tmp2,tmp3);
+  out=str;
+  symL=[
+    ["int(xx,yy)","\int xx\,yy"],
+    ["int(xx,yy,zz,ww)","\int_{xx}^{yy} zz\,ww"],
+    ["lim(xx,yy,zz)","\displaystyle\lim_{{xx} \to {yy}}{zz}"],
+    ["tra(xx)","{}^t xx"],["V(xx)","{\mathbf xx}"]
+  ];
+  repL=["xx","yy","zz","ww"];
+  forall(symL,sym,
+    tmp=indexof(sym_1,"(");
+    head=substring(sym_1,0,tmp);
+    np=length(Indexall(sym_1,","))+1;
+    subL=tokenize(out,head);
+    subL=apply(subL,if(isstring(#),#,text(#)));
+    forall(2..(length(subL)),nn,
+      tmp1=head+subL_nn;
+      parL=Bracket(tmp1,"()");
+      tmp=select(parL,#_2==-1);
+      tmp=tmp_1_1;
+      subL_nn=substring(tmp1,tmp,length(tmp1));
+      tmp1=substring(tmp1,0,tmp);
+      tmp=replace(tmp1,head,"");
+      tmp=substring(tmp,0,length(tmp)-1);
+      tmp2=Strsplit(tmp,",");
+      if(length(tmp2)==np,
+        tmp1=sym_2;
+        if(head=="int(",
+          tmp=tmp2_(-1);
+          if(substring(tmp,0,1)!="d",tmp="d"+tmp);
+          tmp2_(-1)=tmp;
+        );
+        forall(1..np,
+          tmp1=replace(tmp1,repL_#,tmp2_#);
+        );
+      );
+      subL_nn=tmp1+subL_nn;
+    );
+    out="";
+    forall(subL,out=out+#);
+  );
+  tmp1=Indexall(out,"]_");
+  if(length(tmp1)>0,
+    tmp1=append(tmp1,length(out)+1);
+    tmp2=substring(out,0,tmp1_1-1);
+    parL=Bracket(out,"()");
+    forall(1..(length(tmp1)-1),nn,
+      tmp2=tmp2+"]_";
+      if(Op(tmp1_nn+2,out)=="(",
+        tmp=select(parL,#_1==tmp1_nn+2);
+        tmp=tmp_1;
+        tmp=select(parL,(#_1>tmp1_nn+1)&(#_2==-tmp_2));
+        tmp=tmp_1_1;
+        tmp2=tmp2+"{"+substring(out,tmp1_nn+2,tmp-1)+"}^";
+        tmp3=tmp+1;
+      ,
+        tmp2=tmp2+"{"+Op(tmp1_nn+2,out)+"}^";
+        tmp3=tmp1_nn+3;
+      );
+    );
+    tmp2=tmp2+substring(out,tmp3,length(out));
+    out=tmp2;
+  );  
+  out;
+);
+
+//Framedata2("1",[[0,3.4],[8,3.7]],["Msg=n"]);
+
+//str="int(x,0,1,dx)=[1/2 x^2]_0^1=1/2";
+str1="V(a)"; //no ketjs on
+str2="";
+str3="";
+str4=""; //no ketjs off
+//str1=Textedit(win_1);//only ketjs on
+//str2=Textedit(win_2);
+//str3=Textedit(win_3);
+//str4=Textedit(win_4);//only ketjs off
+stredit=[str1,str2,str3,str4];
+forall(stredit,str,
+  strL=tokenize(str,"//");
+  forall(1..(length(strL)),
+    if(!isstring(strL_#),strL_#=text(strL_#));
+    strL_#=Removespace(strL_#);
+  );
+  forall(strL,str,
+    err="";
+    tmp=Sepchar(str);
+    subL=tmp_1;
+    err=tmp_2;
+    str1="";
+    forall(subL,
+      if(substring(#,0,1)=="@",
+        str1=str1+substring(#,1,length(#));
+      ,
+        tmp2=#;
+        err=Noascii(tmp2);
+        if(length(err)>0,err="ASCII以外"+err);
+        tmp2=Sla2fra(tmp2);
+        str2=replace(tmp2,RepL1);
+        str2=replace(str2,RepL2);
+        str2=replace(str2,RepL3);
+        tstr=Totexform(str2);
+        tstr=Moretotex(tstr);
+        str1=str1+"$"+tstr+"$";
+        if(indexof(tstr,"?")>0,
+          if(indexof(tstr,"?)-")>0,
+            err=") 多い";
+          );
+          if(indexof(tstr,"?+)")>0,
+            err=") 少ない";
+          );
+        );
+      );
+      if(length(err)==0,
+        Letter([0.5,pos],"e",str1,["Size=2"]);
+      ,
+        Letter([0.5,pos],"e",str,["Size=1.8"]);
+        Letter([0,pos],"w",err,["Color=red","Size=1.8"]);
+      );
+    );
+    pos=pos-dposy;
+  );
+);
+
+Windispg();
+
+
+;
+</script>
+    <script type="text/javascript">
+var cdy = CindyJS({
+  scripts: "cs*",
+  defaultAppearance: {
+    dimDependent: 0.7,
+    fontFamily: "sans-serif",
+    lineSize: 1,
+    pointSize: 5.0,
+    textsize: 12.0
+  },
+  angleUnit: "°",
+  geometry: [
+    {name: "SW", type: "Free", pos: [-1.411764705882353, -4.0, 0.47058823529411764], color: [1.0, 0.0, 0.0], labeled: true},
+    {name: "NE", type: "Free", pos: [4.0, 1.188118811881188, 0.19801980198019803], color: [1.0, 0.0, 0.0], labeled: true},
+    {name: "Text53", type: "EditableText", pos: [0.09302325581395349, -4.0, 0.6968036357869993], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, minwidth: 600, textsize: 20.0},
+    {name: "Text50", type: "EditableText", pos: [-0.08053691275167786, -4.0, -0.8552816863876789], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, minwidth: 600, textsize: 20.0},
+    {name: "Text51", type: "EditableText", pos: [-0.35294117647058826, -4.0, -3.525006628098938], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, minwidth: 600, textsize: 20.0},
+    {name: "Text52", type: "EditableText", pos: [0.17647058823529413, -4.0, 1.762503314049469], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, minwidth: 600, textsize: 20.0},
+    {name: "Text1", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [1.0, 0.286, 0.286], fillalpha: 0.27272728085517883, script: "Viewtex();\nkc();", text: "Figure", textsize: 18.0, dock: {corner: "UL", offset: [10.0, -20.0]}},
+    {name: "Text12", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 0.27272728085517883, script: "if(length(Shellparent)>0,\n  Makeshell(),Makebat();\n);\nif(indexof(Libname,\"sci\")>0,\n  writetosci(2),writetoRS(2)\n);\nkc();", text: "Parent", textsize: 18.0, dock: {corner: "UL", offset: [77.0, -20.0]}},
+    {name: "Text3", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [1.0, 0.929, 0.6], fillalpha: 0.27272728085517883, script: "Parafolder();", text: "ParaF", textsize: 18.0, dock: {corner: "UL", offset: [295.0, -20.0]}},
+    {name: "Text4", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [0.51, 0.949, 1.0], fillalpha: 0.27272728085517883, script: "Mkanimation();", text: "Anime", textsize: 18.0, dock: {corner: "UL", offset: [355.0, -20.0]}},
+    {name: "Text5", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [0.0, 0.0, 1.0], fillalpha: 0.27272728085517883, script: "Mkflipanime();", text: "Flip", textsize: 18.0, dock: {corner: "UL", offset: [423.0, -20.0]}},
+    {name: "Text21", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 1.0], fillalpha: 0.5726495726495726, script: "Mkketcindyjs(append(KETJSOP,\"Web=y\"));", text: "Ketjson", textsize: 18.0, dock: {corner: "UL", offset: [144.0, -20.0]}},
+    {name: "Text22", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 1.0], fillalpha: 0.4358974358974359, script: "Mkketcindyjs(append(KETJSOP,\"Web=n\"));", text: "Ketjsoff", textsize: 18.0, dock: {corner: "UL", offset: [218.0, -20.0]}}
+  ],
+  ports: [{
+    id: "CSCanvas",
+    width: 813,
+    height: 443,
+    transform: [{visibleRect: [-4.922810935487278, 5.990810596067569, 22.211055441130735, -8.794309705090832]}],
+    grid: 1.0,
+    background: "rgb(168,176,192)"
+  }],
+  csconsole: false,
+  use: ["katex"],
+  cinderella: {build: 1952, version: [3, 0, 1952]}
+});
+    </script>
+</head>
+<body>
+    <div id="CSCanvas"></div>
+</body>
+</html>
