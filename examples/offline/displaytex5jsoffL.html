@@ -1311,7 +1311,7 @@ Addfun(name):=(
   regional(out,tmp);
   out="";
   if(name=="frac",out="fr(aa,bb)");
-  if(name=="power",out="(aa)^(bb)");
+  if(name=="power",out="(aa)^{bb}");
   if(name=="sqrt",out="sq(aa,bb)");
   if(name=="sin",out="sin(aa,(xx))");
   if(name=="cos",out="cos(aa,(xx))");
@@ -1321,7 +1321,7 @@ Addfun(name):=(
   if(name=="equal",out="=");
   if(name=="less",out="<");
   if(name=="great",out=">");
-  if(name=="under",out="_(aa)");
+  if(name=="under",out="_{aa}");
   if(name=="hat",out="^(aa)");
   if(name=="prime",out="'");
   if(name=="pi",out="pi");
@@ -1563,6 +1563,7 @@ Moretotex(str):=(
      head,tmp,tmp1,tmp2,tmp3);
   out=str;
   symL=[
+    ["_(xx)","_{xx}"],
     ["int(xx,yy)","\int xx\,yy"],
     ["int(xx,yy,zz,ww)","\int_{xx}^{yy} zz\,ww"],
     ["lim(xx,yy,zz)","\displaystyle\lim_{{xx} \to {yy}}{zz}"]
@@ -1654,7 +1655,6 @@ if(funflg==0, //
   str4=Textedit(win_4);
 ); // 
 stredit=[str1,str2,str3,str4];
-
 add="";
 if(funflg==1,
   add=Addfun(name);
@@ -1828,9 +1828,9 @@ var cdy = CindyJS({
   ],
   ports: [{
     id: "CSCanvas",
-    width: 924,
-    height: 559,
-    transform: [{visibleRect: [-5.938799778909119, 6.0661735007087785, 23.4845299568122, -11.734304120793622]}],
+    width: 914,
+    height: 557,
+    transform: [{visibleRect: [-5.938799778909119, 6.0661735007087785, 23.166095652313054, -11.670617259893792]}],
     grid: 1.0,
     background: "rgb(247,247,247)"
   }],
