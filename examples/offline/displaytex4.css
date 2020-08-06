@@ -1,8 +1,8 @@
 table.wide {
    table-layout: fixed;
-   width: 960px;
+   width: 95%;
 }
 .narrow {
 table-layout: fixed;
-width: 500px;
+width: 60%;
 }
