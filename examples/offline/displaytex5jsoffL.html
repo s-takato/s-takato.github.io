@@ -227,6 +227,17 @@ Toupper(str):=(
   );
   out;
 );
+Op(n,object):=( //  16.05.25
+  regional(out);
+  if(islist(object),
+    out=object_n;
+  ,
+    if(isstring(object),
+      out=substring(object,n-1,n);
+    );
+  );
+  out;
+);
 Indexall(str,key):=(
   regional(rest,out,flg,tmp,tmp1,);
   out=[];
@@ -265,17 +276,6 @@ Bracket(str,br):=(
       level=level-1;
     );
     out=append(out,tmp);
-  );
-  out;
-);
-Op(n,object):=( //  16.05.25
-  regional(out);
-  if(islist(object),
-    out=object_n;
-  ,
-    if(isstring(object),
-      out=substring(object,n-1,n);
-    );
   );
   out;
 );
@@ -1606,28 +1606,6 @@ Moretotex(str):=(
   
   tmp=[["Ga","\alpha"],["Gb","\beta"],["Gt","\theta"]];
   out=replace(out,tmp);
-  tmp1=Indexall(out,"]_");
-  if(length(tmp1)>0,
-    tmp1=append(tmp1,length(out)+1);
-    tmp2=substring(out,0,tmp1_1-1);
-    parL=Bracket(out,"()");
-    forall(1..(length(tmp1)-1),nn,
-      tmp2=tmp2+"]_";
-      if(Op(tmp1_nn+2,out)=="(",
-        tmp=select(parL,#_1==tmp1_nn+2);
-        tmp=tmp_1;
-        tmp=select(parL,(#_1>tmp1_nn+1)&(#_2==-tmp_2));
-        tmp=tmp_1_1;
-        tmp2=tmp2+"{"+substring(out,tmp1_nn+2,tmp-1)+"}^";
-        tmp3=tmp+1;
-      ,
-        tmp2=tmp2+"{"+Op(tmp1_nn+2,out)+"}^";
-        tmp3=tmp1_nn+3;
-      );
-    );
-    tmp2=tmp2+substring(out,tmp3,length(out));
-    out=tmp2;
-  );  
   out;
 );
 
@@ -1828,9 +1806,9 @@ var cdy = CindyJS({
   ],
   ports: [{
     id: "CSCanvas",
-    width: 926,
+    width: 910,
     height: 557,
-    transform: [{visibleRect: [-5.938799778909119, 6.0661735007087785, 23.54821681771203, -11.670617259893792]}],
+    transform: [{visibleRect: [-5.938799778909119, 6.0661735007087785, 23.038721930513393, -11.670617259893792]}],
     grid: 1.0,
     background: "rgb(247,247,247)"
   }],
