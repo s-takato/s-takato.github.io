@@ -1944,21 +1944,25 @@ ops=["Size=10","Color=red","Msg=n"];
 if(rowno==0,rowno=1);
 if((varctr==0)&(rowno==1),
   str1=Text50.currenttext+add;
+  str1=replace(str1,"null","");
   Text50.currenttext=str1;
   Pointdata("1",[mrkx,3],ops);
 );
 if((varctr==0)&(rowno==2),
   str2=Text51.currenttext+add;
+  str2=replace(str2,"null","");
   Text51.currenttext=str2;
   Pointdata("1",[mrkx,-0.5],ops);
 );
 if((varctr==0)&(rowno==3),
   str3=Text52.currenttext+add;
+  str3=replace(str3,"null","");
   Text52.currenttext=str3;
   Pointdata("1",[mrkx,-4.2],ops);
 );
 if((varctr==0)&(rowno==4),
   str4=Text53.currenttext+add;
+  str4=replace(str4,"null","");
   Text53.currenttext=str4;
   Pointdata("1",[mrkx,-7.9],ops);
 );
@@ -2034,7 +2038,8 @@ forall(1..nall,nn,
     if(!isstring(strL_#),strL_#=text(strL_#));
     strL_#=Removespace(strL_#);
   );
-  forall(strL,str,
+  forall(1..(length(strL)),ns,
+    str=strL_ns;
     err="";
     tmp=Sepchar(str);
     subL=tmp_1;
@@ -2063,18 +2068,17 @@ forall(1..nall,nn,
           );
         );
       );
-      tmp=pos-dpos*(nn-1);
+      tmp=pos-(nn+ns-2)*dposy;
       if(length(err)==0,
-        Letter([0.5,pos],"e",str1,["Size=2"]);
+        Letter([0.5,tmp],"e",str1,["Size=2"]);
         if(length(str1)>0,
           if(nn==1,texstr=str1,texstr=texstr+"\\"+str1);
         );
       ,
-        Letter([0.5,pos],"e",str,["Size=1.8"]);
-        Letter([20,pos],"e",err,["Color=red","Size=1.8"]);
+        Letter([0.5,tmp],"e",str,["Size=1.8"]);
+        Letter([20,tmp],"e",err,["Color=red","Size=1.8"]);
       );
     );
-    pos=pos-dposy;
   );
 );
 if(funflg==2,
@@ -2178,9 +2182,9 @@ var cdy = CindyJS({
   ],
   ports: [{
     id: "CSCanvas",
-    width: 986,
-    height: 612,
-    transform: [{visibleRect: [-6.049055501781243, 6.060052826198529, 21.550982730979868, -11.071005387239401]}],
+    width: 997,
+    height: 618,
+    transform: [{visibleRect: [-6.032259877444239, 6.032259877444239, 21.87568953235579, -11.266749887105828]}],
     grid: 1.0,
     background: "rgb(247,247,247)"
   }],
