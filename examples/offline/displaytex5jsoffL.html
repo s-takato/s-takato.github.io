@@ -2044,21 +2044,21 @@ forall(1..nall,nn,
     tmp=Sepchar(str);
     subL=tmp_1;
     err=tmp_2;
-    str1="";
+    strt1="";
     forall(subL,
       if(substring(#,0,1)=="@",
-        str1=str1+substring(#,1,length(#));
+        strt1=strt1+substring(#,1,length(#));
       ,
         tmp2=#;
         err=Noascii(tmp2);
         if(length(err)>0,err="ASCII以外"+err);
         tmp2=Sla2fra(tmp2);
-        str2=replace(tmp2,RepL1);
-        str2=replace(str2,RepL2);
-        str2=replace(str2,RepL3);
-        tstr=Totexform(str2);
+        strt2=replace(tmp2,RepL1);
+        strt2=replace(strt2,RepL2);
+        strt2=replace(strt2,RepL3);
+        tstr=Totexform(strt2);
         tstr=Moretotex(tstr);
-        str1=str1+"$"+tstr+"$";
+        strt1=strt1+"$"+tstr+"$";
         if(indexof(tstr,"?")>0,
           if(indexof(tstr,"?)-")>0,
             err=") 多い";
@@ -2070,9 +2070,9 @@ forall(1..nall,nn,
       );
       tmp=pos-(nn+ns-2)*dposy;
       if(length(err)==0,
-        Letter([0.5,tmp],"e",str1,["Size=2"]);
-        if(length(str1)>0,
-          if(nn==1,texstr=str1,texstr=texstr+"\\"+str1);
+        Letter([0.5,tmp],"e",strt1,["Size=2"]);
+        if(length(strt1)>0,
+          if(nn==1,texstr=strt1,texstr=texstr+"\\"+strt1);
         );
       ,
         Letter([0.5,tmp],"e",str,["Size=1.8"]);
@@ -2183,8 +2183,8 @@ var cdy = CindyJS({
   ports: [{
     id: "CSCanvas",
     width: 997,
-    height: 618,
-    transform: [{visibleRect: [-6.032259877444239, 6.032259877444239, 21.87568953235579, -11.266749887105828]}],
+    height: 601,
+    transform: [{visibleRect: [-6.022772431254129, 6.004437953135632, 22.224158726784733, -11.02305013711648]}],
     grid: 1.0,
     background: "rgb(247,247,247)"
   }],
