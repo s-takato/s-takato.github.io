@@ -4,5 +4,5 @@ table.wide {
 }
 .narrow {
 table-layout: fixed;
-width: 65%;
+width: 60%;
 }

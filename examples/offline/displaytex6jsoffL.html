@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     
-    <title>displaytex5.cdy</title>
+    <title>displaytex6.cdy</title>
     <style type="text/css">
         * {
             margin: 0px;
@@ -1508,6 +1508,7 @@ vstr2="bb=";
 vstr3="yy=";
 vstr4="xx=";
 varedit=[vstr1,vstr2,vstr3,vstr4];
+
 ;
 </script>
 <script id="csdraw" type="text/x-cindyscript">
@@ -1532,10 +1533,10 @@ Addfun(name):=(
   if(name=="frac",out="fr(aa,bb)");
   if(name=="power",out="(aa)^(bb)");
   if(name=="sqrt",out="sq(aa,bb)");
-  if(name=="sin",out="sin(aa,(xx))");
-  if(name=="cos",out="cos(aa,(xx))");
-  if(name=="tan",out="tan(aa,(xx))");
-  if(name=="log",out="log(aa,(xx))");
+  if(name=="sin",out="(sin((aa)))^(bb)");
+  if(name=="cos",out="(cos((aa)))^(bb)");
+  if(name=="tan",out="(tan((aa)))^(bb)");
+  if(name=="log",out="log(aa,(bb))");
   if(name=="hat",out="^");
   if(name=="under",out="_(aa)");
   if(name=="plus",out="+");
@@ -1920,6 +1921,28 @@ Resetvar():=(
   Text59.currenttext=vstr4;
 );
 
+Removebb(str):=(
+  regional(ctr,out,tmp,tmp1,tmp2,tmp3);
+  out=str;
+  res="";
+  tmp=indexof(out,")^(bb)");
+  ctr=1;
+  while((tmp>0)&(ctr<=10),
+    tmp3=Bracket(out,"()");
+    tmp1=select(tmp3,#_1==tmp);
+    tmp1=tmp1_1;
+    tmp2=select(tmp3,((#_1)<tmp1_1)&(#_2==-tmp1_2));
+    tmp2=tmp2_(-1)_1;
+    tmp1=tmp1_1;
+    tmp=substring(out,0,tmp2-1);
+    tmp=tmp+substring(out,tmp2,tmp1-1);
+    out=tmp+substring(out,tmp1+5,length(out));
+    tmp=indexof(out,")^(bb)");
+    ctr=ctr+1;
+  );
+  out;
+);
+
 
 pos=1.2;
 pos2=1.2;
@@ -1977,7 +2000,8 @@ varname=["aa","bb","yy","xx"];
 mrkx=-5.3;
 yst=4.2; ymv=0.9;
 ops=["Size=10","Color=blue","Msg=n"];
-if(varctr>0,add=Addfun(name));
+
+
 if(varctr==1,
   Pointdata("1",[mrkx,yst],ops);
   vstr1=vstr1+Addfun(name);
@@ -2007,7 +2031,7 @@ if(varctr==4,
 );
 varedit=[vstr1,vstr2,vstr3,vstr4];
 if(varset==1,
-  forall(1..(length(varname)),
+  forall(1..(length(varedit)),
     tmp=Strsplit(varedit_#,"=");
     tmp1=tmp_1;
     tmp2=tmp_2;
@@ -2016,21 +2040,26 @@ if(varset==1,
       if(rowno==2,str2=replace(str2,tmp1,tmp2));
       if(rowno==3,str3=replace(str3,tmp1,tmp2));
       if(rowno==4,str4=replace(str4,tmp1,tmp2));
+    );
   );
-  forall(["sin","cos","tan","sq","log"],
+  forall(["sq","log"],
     tmp1=#+"(aa,"; tmp2=#+"(";
     str1=replace(str1,[[tmp1+"bb,",tmp2],[tmp1,tmp2]]);
     str2=replace(str2,[[tmp1+"bb,",tmp2],[tmp1,tmp2]]);
     str3=replace(str3,[[tmp1+"bb,",tmp2],[tmp1,tmp2]]);
     str4=replace(str4,[[tmp1+"bb,",tmp2],[tmp1,tmp2]]);
   );
-  varset=0;
-);
+  str1=Removebb(str1);
+  str2=Removebb(str2);
+  str3=Removebb(str3);
+  str4=Removebb(str4);
   if(rowno==1,Text50.currenttext=str1);
   if(rowno==2,Text51.currenttext=str2);
   if(rowno==3,Text52.currenttext=str3);
   if(rowno==4,Text53.currenttext=str4);
+  varset=0;
 );
+
 stredit=[str1,str2,str3,str4];
 texstr="";
 if(texflg==0,nall=4,nall=3);
@@ -2094,6 +2123,7 @@ if(texflg==2,
   Text53.currenttext="";
   texflg=0;
 );
+
 
 Windispg();
 ;
@@ -2187,9 +2217,9 @@ var cdy = CindyJS({
   ],
   ports: [{
     id: "CSCanvas",
-    width: 1028,
+    width: 1032,
     height: 642,
-    transform: [{visibleRect: [-5.903424506730453, 6.034903894408192, 21.12873759981256, -10.847049483413418]}],
+    transform: [{visibleRect: [-5.574458649433059, 6.082442890868206, 22.017106464307552, -11.082077267098336]}],
     axes: true,
     grid: 1.0,
     background: "rgb(247,247,247)"

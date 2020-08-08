@@ -1,8 +1,0 @@
-table.wide {
-   table-layout: fixed;
-   width: 900px;
-}
-.narrow {
-table-layout: fixed;
-width: 500px;
-}
