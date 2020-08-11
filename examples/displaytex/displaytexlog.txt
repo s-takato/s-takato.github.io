@@ -1,6 +1,11 @@
+2020.08.11
+   cursor操作
+   関数をketlibへ
 2020.08.09
    displaytex6 started
    ( sin^2 x => sin(x)^2
+   ボタン配列を変更
+   CPY,PSTを追加
 2020.08.08
    displaytex5 added
    ( ボタン追加,配置)
