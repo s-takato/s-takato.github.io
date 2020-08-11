@@ -1953,13 +1953,12 @@ rx=0.4;
 ryL=[2.8,-0.5,-3.8,-7];
 vx=-5.3;
 vyL=[2.6,1.8,1,0.2];
+add="";
 
-if(funflg==0,
   str1=Text50.currenttext; //
   str2=Text51.currenttext;
   str3=Text52.currenttext;
   str4=Text53.currenttext; //
-);
 stredit=[str1,str2,str3,str4];
 vstr1=Textedit(var_1); //
 vstr2=Textedit(var_2);
@@ -1968,15 +1967,12 @@ vstr4=Textedit(var_4); //
 varedit=[vstr1,vstr2,vstr3,vstr4];
 
 stredit=apply(stredit,replace(#,"null",""));
-stredit=apply(stredit,replace(#,"|",""));
-
 
 if(cursorflg==1,
   strcsr=stredit_(rowno);
   if(cursor==-1,cursor=length(strcsr));
 );
 
-add="";
 if(funflg==1,
   add=Addfun(name);
   name="";
@@ -2231,9 +2227,9 @@ var cdy = CindyJS({
   ],
   ports: [{
     id: "CSCanvas",
-    width: 1088,
-    height: 622,
-    transform: [{visibleRect: [-6.0506896982625635, 6.025530905338395, 21.32207700323294, -9.623238293494515]}],
+    width: 1035,
+    height: 642,
+    transform: [{visibleRect: [-6.0506896982625635, 6.025530905338395, 19.988660978252003, -10.126414151977887]}],
     axes: true,
     grid: 1.0,
     background: "rgb(247,247,247)"
