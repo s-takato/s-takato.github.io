@@ -1948,7 +1948,7 @@ pos2=1.2;
 dposy=3.3;
 win=1..4;
 var=6..9;
-Setwindow([-3,16.1],[-10,6]);
+Setwindow([-3,16.2],[-10,6]);
 Addax(0);
 
 rx=0.4;
@@ -2063,6 +2063,7 @@ if(varset==1,
     );
   );
   Resetvar();
+  varctr=0;
   varset=0;
 );
 
@@ -2151,10 +2152,10 @@ var cdy = CindyJS({
   angleUnit: "°",
   geometry: [
     {name: "SW", type: "Free", pos: [-1.2, -4.0, 0.4], color: [1.0,1.0,1.0], labeled: false, size: 2.0, border:false },
-    {name: "NE", type: "Free", pos: [4.0, 1.4906832298136645, 0.2484472049689441], color: [1.0,1.0,1.0], labeled: false, size: 2.0, border:false },
+    {name: "NE", type: "Free", pos: [4.0, 1.4814814814814814, 0.24691358024691357], color: [1.0,1.0,1.0], labeled: false, size: 2.0, border:false },
     {name: "Text4", type: "EditableText", pos: [0.5294113787567132, -4.0, 0.5462558965978218], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, minwidth: 560, textsize: 20.0},
     {name: "Text1", type: "EditableText", pos: [-1.5604164443909154, -4.0, -1.6100649100110338], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, minwidth: 560, textsize: 20.0},
-    {name: "Text2", type: "EditableText", pos: [4.0, -3.4332897524987422, 3.8103630573059144], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, minwidth: 560, textsize: 20.0},
+    {name: "Text2", type: "EditableText", pos: [3.9765156196241738, -3.546622039124263, 4.0], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, minwidth: 560, textsize: 20.0},
     {name: "Text3", type: "EditableText", pos: [0.9472831945575222, -4.0, 0.951056954585161], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, minwidth: 560, textsize: 20.0},
     {name: "Text9", type: "EditableText", pos: [4.0, -0.0206627485120182, -0.8297475207368464], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, minwidth: 130, text: "xx=", textsize: 16.0},
     {name: "Text6", type: "EditableText", pos: [4.0, -2.0168027689676356, -0.8255220627200276], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, minwidth: 130, text: "aa=", textsize: 16.0},
@@ -2257,8 +2258,8 @@ var cdy = CindyJS({
   ports: [{
     id: "CSCanvas",
     width: 828,
-    height: 602,
-    transform: [{visibleRect: [-6.110646216922933, 6.044428101336842, 16.136346573947442, -10.130317864972296]}],
+    height: 598,
+    transform: [{visibleRect: [-6.08568099895186, 6.031944301389371, 16.161311791918518, -10.035328269794789]}],
     axes: true,
     grid: 1.0,
     background: "rgb(247,247,247)"
