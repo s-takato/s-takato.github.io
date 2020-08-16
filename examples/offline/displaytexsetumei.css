@@ -1,0 +1,12 @@
+table.wide {
+   table-layout: fixed;
+   width: 95%;
+}
+.narrow {
+table-layout: fixed;
+width: 60%;
+}
+h1 {
+    /*線の種類（実線） 太さ 色*/
+    border-bottom: solid 3px black;
+}

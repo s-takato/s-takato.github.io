@@ -1,3 +1,5 @@
+2020.08.15
+　欄を狭くしたsmartphone用を作成
 2020.08.11
    cursor操作
    関数をketlibへ

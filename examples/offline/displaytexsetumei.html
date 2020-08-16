@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Page of displaytex</title>
+<script src="ketcindyjs/jquery.min.js"></script>
+<link rel="stylesheet" href="ketcindyjs/katex/katex11.min.css" />
+<script src="ketcindyjs/katex/katex11.min.js"></script>
+<script src="ketcindyjs/auto-render11.min.js"></script>
+<script>$(document).ready(function(){renderMathInElement(document.body,{delimiters: [{left: "[[", right: "]]", display: true},{left: "$", right: "$", display: false}]})});</script>
+<link rel="stylesheet" type="text/css" href="displaytexsetumei.css" />
+</head>
+<body>
+<h1>数式入力システムの使い方</h1>
+
+<p><font size="4">
+<ul>
+<li>数式はASCII文字（半角文字）のみ</li>
+<li>非ASCII文字は数式外とみなされる．　１辺がaの正方形の面積はa^2$\Rightarrow$１辺が$a$の正方形の面積は$a^2$</li>
+<li>ASCII文字を数式外で使うときは@で囲む．　a sp @m@ $\Rightarrow a\text{ m}$</li>
+<li>分数はfr(ac)を推奨　fr(a+b,c+d) $=\frac{a+b}{c+d}$</br>
+　　$\;/\;$を用いるときは括弧に注意　a+b/c+d$\;=a+\frac{b}{c}+d$</li>
+<li>sinxなどと続けると$sinx$という変数名になってしまう．sin(x)と書くこと，</li>
+<li>$sin^2 x$などはsin(2,x)で表示されるが，(sin(x))^2とした方が間違えにくい．</li>
+<li>改行は//　a+b//c+d $\Longrightarrow$ 現在の欄に$a+b$，次の欄に$c+d$が表示される．</li>
+<li>キーボードでは，$+$, $=$, ^, $<$, $>$を$\;$-$\;$-, $\;::\;$, hat, $\;$(.$\:$, $\;$.)$\;$で代用してもよい．
+</ul></font></p>
+<table class="wide" border="1" width="300">
+<tr><td align="center">$\pi$</td><td align="center" colspan="2">$\frac{b}{a}$</td><td align="center" colspan="2">$a^x$</td><td align="center" colspan="2">$\sqrt{a}$</td><td align="center" colspan="2">$\sqrt[b]{a}$</td><td align="center" colspan="2">$\log_a\!\!x$</td><td align="center" colspan="2">$\sin x$</td><td align="center" colspan="2">$\sin^2 x$</td><td align="center">$\alpha$</td><td align="center">$\beta$</td><td align="center">$\theta$</td><td align="center">$\cdot$</td><td align="center">$\times$</td><td align="center" colspan="2">space</td><td align="center">$\leq$</td><td align="center">$\geq$</td><td align="center" colspan="2">$\Leftrightarrow$</td><!--<td rowspan="2" align="center">
+代用</td><td align="center">+</td><td align="center">=</td><td align="center">^</td><td align="center">$<$</td><td align="center">$>$</td>--></tr>
+<tr height="30"><td align="center">pi</td><td align="center" colspan="2">fr(b,a)</td><td align="center" colspan="2">a^x</td><td align="center" colspan="2">sq(a)</td><td align="center" colspan="2">sq(b,a)</td><td align="center" colspan="2">log(a,x)</td><td align="center" colspan="2">sin(x)</td><td align="center" colspan="2">sin(2,x)</td><td align="center">Ga</td><td align="center">Gb</td><td align="center">Gt</td><td align="center">dt</td><td align="center">crs</td><td align="center" colspan="2">sp</td><td align="center">(=</td><td align="center">=)</td><td align="center" colspan="2">(==)</td><!--<td align="center">${\tiny -\,-}$</td><td align="center">::</td><td align="center">hat</td><td align="center">(.</td><td align="center">.)</td>--></tr>
+</table>
+</br>
+<table class="narrow" border="1" width="300">
+<tr><td align="center" colspan="2">$\displaystyle\lim_{x \to a}f(x)$</td><td align="center" colspan="2">$\int f(x)dx$</td><td align="center" colspan="2">$\int_a^b f(x)dx$</td><td align="center" colspan="2">$[f(x)]_a^b$</td></tr>
+<tr height="30"><td align="center" colspan="2">lim(x,a,f(x))</td><td align="center" colspan="2">int(f(x),dx)</td><td align="center" colspan="2">int(a,b,f(x),dx)</td><td align="center" colspan="2">[f(x)]_(a)^(b)</td></tr>
+</table>
+<p></p>
+<!--<p align="center"><iframe src="displaytex3jsoffL.html" width="811" height="441"></iframe></p>-->
+<p></p>
+</body>
+</html>
