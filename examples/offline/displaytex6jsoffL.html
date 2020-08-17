@@ -1803,9 +1803,9 @@ Moretotex(str):=(
   symL=[
     ["dt","\cdot "],["sp ","\; "],
     ["Ga","\alpha"],["Gb","\beta"],["Gt","\theta"],
-    ["_(xx)","_{xx}"],
+    ["_(aa)","_{aa}"],
     ["int(yy,xx)","\int (yy)\,dxx"],
-    ["int(aa,bb,yy,xx)","\int_{aa}^{bb}(yy)\,xx"],
+    ["int(aa,bb,yy,xx)","\int_{aa}^{bb}(yy)\,dxx"],
     ["lim(aa,bb,yy)","\displaystyle\lim_{{aa} \to {bb}}{(yy)}"]
   ];
   forall(1..(length(symL)),
@@ -2239,8 +2239,8 @@ var cdy = CindyJS({
   ports: [{
     id: "CSCanvas",
     width: 1014,
-    height: 587,
-    transform: [{visibleRect: [-6.107099058366558, 6.08037214782666, 20.993988229089414, -9.608324339093118]}],
+    height: 604,
+    transform: [{visibleRect: [-6.1338259689064545, 6.08037214782666, 20.967261318549514, -10.062681818271374]}],
     axes: true,
     grid: 1.0,
     background: "rgb(247,247,247)"
