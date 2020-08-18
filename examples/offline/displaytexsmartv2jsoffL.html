@@ -517,112 +517,115 @@ Assign(funstr,varname,rep,precise):=(
   funstr=tmp2+funstr;
   funstr;
 );
-Letter(Pt,Dr,St):=Letter([Pt,Dr,St]);
-Letter(list):=Letter(list,[]);
-Letter(Pt,Dr,St,options):=Letter([Pt,Dr,St],options);//181218
-Letter(list,options):=(
-  regional(Nj,Pos,Dir,Str,Off,Dmv,Xmv,Ymv,Noflg,opcindy,
-      opL,aln,sz,clr,bld,ita,tmp,tmp1,tmp2,color,color4,eqL);
+Pointdata(nm,list):=Pointdata(nm,list,[]);
+Pointdata(nm,listorg,optionsorg):=(
+  regional(list,name,opstr,opcindy,Msg,options,Ltype,Noflg,eqL,color,color4,
+      size,inside,incolor,ratio,tmp,tmp1,tmp2,tmp3);
+  if(substring(nm,0,1)=="-", //200510[2lines]
+    name=substring(nm,1,length(nm));
+  ,
+    name="pt"+nm;
+  );
+  options=optionsorg; //200512
   tmp=Divoptions(options);
-  eqL=tmp_5; //190209
+  Ltype=tmp_1;
   Noflg=tmp_2;
-  color=tmp_(length(tmp)-2); color4=Colorrgb2cmyk(color); //200618
-  opL=select(options,indexof(#,"->")>0); //16.10.09from
-  tmp=select(opL,indexof(#,"color"));
-  sz=12;
-  bld=false;
-  ita=false;
-  aln="left";
-  forall(opL,
-    tmp=indexof(#,"->");
-    tmp1=Removespace(substring(#,0,tmp-1));
-    tmp2=substring(#,tmp+1,length(#));
-    if(tmp1=="size",sz=parse(tmp2));
-    if(tmp1=="color",clr=parse(tmp2));
-    if(tmp1=="bold",bld=parse(tmp2));
-    if(tmp1=="ita",ita=parse(tmp2));
-  );//16.10.09to
-  forall(eqL, //190209from
+  eqL=tmp_5;
+  opstr=tmp_(length(tmp)-1);
+  color=tmp_(length(tmp)-2);
+  opcindy=""; //tmp_(length(tmp));
+  size="1";
+  dispflg="Y";
+  inside="Y"; //200512
+  incolor=""; //200519
+  ratio=0.95; //200708,0813
+  border="Y";
+  Msg="Y";
+ Msg="N"; //
+  forall(eqL,
     tmp=Strsplit(#,"=");
     tmp1=Toupper(substring(tmp_1,0,1));
     if(tmp1=="S",
-      sz=round(parse(tmp_2)*12);
+      size=tmp_2; //190406from
+      tmp1=parse(size);
+      opcindy=opcindy+",size->"+text(tmp1); //190409to
+      options=remove(options,[#]);
     );
-  ); //190209to
-  Off=-4;
-  Dmv=8;
-  Nj=1;
-  if(Ketcindyjsfigure>0,sz=round(sz*Ketcindyjsscale) ); // 
-  while(Nj+2<=length(list),
-    Pos=list_Nj;
-    Dir=list_(Nj+1);
-    Str=list_(Nj+2);
-    if(!isstring(Str),Str=format(Str,5)); // 16.09.30,10.09
-    tmp=replace(Str,".xy","");
-    tmp=replace(tmp,".x","(1)");
-    Str=replace(tmp,".y","(2)");
-    Str=RSslash(Str); // 17.09.24
-    Str=replace(Str,"`","'");//180303
-    tmp=Dq+","+Dq+Str+Dq+")";
-    if(Noflg<2,
-      Xmv=0;//16.10.13
-      Ymv=-4;
-      tmp1=[]; //200619from
-      forall(1..10,
-        tmp=substring(Dir,#-1,#);
-        if(contains(["n","s","e","w"],tmp),
-          tmp1=append(tmp1,[tmp,#]);
-        );
-      );
-      tmp1=append(tmp1,["",length(Dir)+1]);
-      tmp2=[];
-      forall(1..(length(tmp1)-1),
-        tmp=substring(Dir,tmp1_#_2,tmp1_(#+1)_2-1);
-        if(length(tmp)>0,tmp=MARKLEN*parse(tmp),tmp=0);
-        tmp2=append(tmp2,[tmp1_#_1,tmp]);
-      );
-      if(indexof(Dir,"n")>0,
-        Ymv=Dmv/2;
-        tmp=select(tmp2,#_1=="n"); //200619[2lines]
-        Pos=Pos+[0,tmp_1_2];
-      ); //200619to
-      if(indexof(Dir,"s")>0,
-        Ymv=-Dmv*3/2;
-        tmp=select(tmp2,#_1=="s"); //200619[2lines]
-        Pos=Pos-[0,tmp_1_2];
-      );
-      if(indexof(Dir,"e")>0,
-        Xmv=Dmv/2;
-        Off=0;
-        aln="left"; 
-        tmp=select(tmp2,#_1=="e"); //200619[2lines]
-        Pos=Pos+[tmp_1_2,0];
-      );
-      if(indexof(Dir,"w")>0, 
-        Xmv=-Dmv/2;
-        Off=0; // 16.09.30from
-        aln="right"; 
-        tmp=select(tmp2,#_1=="w"); //200619[2lines]
-        Pos=Pos-[tmp_1_2,0];
-      );
-      if(indexof(Dir,"c")>0,
-        Xmv=0;//16.10.13
-        Off=0;
-        if(Ymv==0,Ymv=-4);//16.10.08
-        aln="mid"; // 16.09.30until
-      );
-      if(Ketcindyjsfigure>0, // 
-        Off=round(Off*Ketcindyjsscale);
-        Xmv=round(Xmv*Ketcindyjsscale);
-        Ymv=round(Ymv*Ketcindyjsscale);
-      ); // 
-      Str=list_(Nj+2);  //17.10.17
-      if(length(color)==4,color=Colorcmyk2rgb(color)); //200523
-      drawtext(Pcrd(Pos),Str,offset->[Off+Xmv,Off+Ymv],
-         size->sz,color->color,align->aln,bold->bld,italics->ita);
+    if(tmp1=="D", //181030from
+      dispflg=Toupper(substring(tmp_2,0,1));
+      options=remove(options,[#]);
     );
-    Nj=Nj+3;
+    if(tmp1=="I", //190628from
+      inside=Toupper(substring(tmp_2,0,1));
+      tmp2=indexof(tmp_2,","); //200708from
+      if(tmp2>0,
+        ratio=parse(substring(tmp_2,tmp2,length(tmp_2)));
+        tmp_2=substring(tmp_2,0,tmp2-1);
+      ); //200708to
+      if(contains(["0","N","NO","1","Y","YES"],inside), //200519from
+        if(contains(["0","N","NO"],Inside),inside="N",inside="Y");
+      ,
+        inside="N";
+        incolor=tmp_2;
+      ); //200519to
+      options=remove(options,[#]);
+    );
+    if(tmp1=="M", //190206from
+      Msg=Toupper(substring(tmp_2,0,1));
+    ); //190206to
   );
+  if(dispflg=="Y", 
+    if(Msg=="Y", //190206
+      println("generate pointdata "+name);
+    );
+  ); //181030to
+  if(isstring(listorg),
+    list=parse(listorg);
+  ,
+    list=listorg;
+  ); //17.10.23
+  if(!islist(list),list=[list]); //200510from
+  list=apply(list,if(ispoint(#),Lcrd(#),#));
+  if(Measuredepth(list)==0,list=[list]);
+  tmp1=Textformat(list,6);
+  if(length(list)>1,tmp2=apply(list,[#]),tmp2=list); //200524
+  tmp2=Textformat(tmp2,6);
+  tmp=name+"="+tmp2+";"; //190415
+  parse(tmp);
+  if(Noflg<3,
+    tmp=RSform(tmp1,2);
+  );
+  if(Noflg<3, //190818
+    tmp1=parse(size)*TenSizeInit; //200512from
+    tmp2=round(10*sqrt(parse(size)));
+    if(Noflg==0,options=[Ltype,"Color="+text(color),"Num="+format(tmp2,6)]);
+    if(Noflg==1,options=["notex",Ltype,"Color="+text(color),"Num="+format(tmp2,6)]);
+    if(Noflg==2,options=["nodisp"]);
+    forall(1..(length(list)),
+      if(inside=="N",
+        if(length(incolor)>0, //200519from
+          Circledata(text(#)+name+"i",[list_#,tmp1*ratio],["nodisp","Msg=n"]); //200523,0708
+          tmp="cr"+text(#)+name+"i";
+          if(isstring(incolor),incolor=Colorname2cmyk(incolor)); // 
+          if(length(incolor)==4,incolor=Colorcmyk2rgb(incolor));
+          opcindy=opcindy+",color->"+text(incolor);
+          tmp=parse(tmp);
+          tmp="fillpoly("+Textformat(tmp,5)+opcindy+");";
+          parse(tmp); // 
+        );
+      ,
+        Circledata(text(#)+name,[list_#,tmp1],["nodisp","Msg=n"]); //200523
+        tmp="cr"+text(#)+name;
+          if(length(color)==4,color=Colorcmyk2rgb(color)); // 
+          opcindy=opcindy+",color->"+text(color);
+        tmp=parse(tmp); // 
+        tmp="fillpoly("+Textformat(tmp,5)+opcindy+");";
+        parse(tmp); // 
+      );
+      Circledata(text(#)+name,[list_#,tmp1],append(options,"Msg=n")); //200523
+    ); //200519to
+  );
+  list;
 );
 Divoptions(options):=(
   regional(Ltype,Noflg,Inflg,Outflg,eqL,realL,strL,
@@ -791,132 +794,6 @@ Colorcmyk2rgb(clr):=(
   );
   clrnew;
 );
-Colorrgb2cmyk(clr):=(
-  regional(clrnew,tmp,black);
-  if(length(clr)==3, //200618
-    tmp=apply(clr,1-#);
-    black=min(tmp);
-    if(black!=1, //181112from
-      tmp=apply(clr,(1-#-black)/(1-black));
-      clrnew=append(tmp,black);
-    ,
-      clrnew=[0,0,0,1];  //200618
-    ); //181112to
-  ,
-    clrnew=clr;
-  );
-  clrnew;
-);
-Pointdata(nm,list):=Pointdata(nm,list,[]);
-Pointdata(nm,listorg,optionsorg):=(
-  regional(list,name,opstr,opcindy,Msg,options,Ltype,Noflg,eqL,color,color4,
-      size,inside,incolor,ratio,tmp,tmp1,tmp2,tmp3);
-  if(substring(nm,0,1)=="-", //200510[2lines]
-    name=substring(nm,1,length(nm));
-  ,
-    name="pt"+nm;
-  );
-  options=optionsorg; //200512
-  tmp=Divoptions(options);
-  Ltype=tmp_1;
-  Noflg=tmp_2;
-  eqL=tmp_5;
-  opstr=tmp_(length(tmp)-1);
-  color=tmp_(length(tmp)-2);
-  opcindy=""; //tmp_(length(tmp));
-  size="1";
-  dispflg="Y";
-  inside="Y"; //200512
-  incolor=""; //200519
-  ratio=0.95; //200708,0813
-  border="Y";
-  Msg="Y";
- Msg="N"; //
-  forall(eqL,
-    tmp=Strsplit(#,"=");
-    tmp1=Toupper(substring(tmp_1,0,1));
-    if(tmp1=="S",
-      size=tmp_2; //190406from
-      tmp1=parse(size);
-      opcindy=opcindy+",size->"+text(tmp1); //190409to
-      options=remove(options,[#]);
-    );
-    if(tmp1=="D", //181030from
-      dispflg=Toupper(substring(tmp_2,0,1));
-      options=remove(options,[#]);
-    );
-    if(tmp1=="I", //190628from
-      inside=Toupper(substring(tmp_2,0,1));
-      tmp2=indexof(tmp_2,","); //200708from
-      if(tmp2>0,
-        ratio=parse(substring(tmp_2,tmp2,length(tmp_2)));
-        tmp_2=substring(tmp_2,0,tmp2-1);
-      ); //200708to
-      if(contains(["0","N","NO","1","Y","YES"],inside), //200519from
-        if(contains(["0","N","NO"],Inside),inside="N",inside="Y");
-      ,
-        inside="N";
-        incolor=tmp_2;
-      ); //200519to
-      options=remove(options,[#]);
-    );
-    if(tmp1=="M", //190206from
-      Msg=Toupper(substring(tmp_2,0,1));
-    ); //190206to
-  );
-  if(dispflg=="Y", 
-    if(Msg=="Y", //190206
-      println("generate pointdata "+name);
-    );
-  ); //181030to
-  if(isstring(listorg),
-    list=parse(listorg);
-  ,
-    list=listorg;
-  ); //17.10.23
-  if(!islist(list),list=[list]); //200510from
-  list=apply(list,if(ispoint(#),Lcrd(#),#));
-  if(Measuredepth(list)==0,list=[list]);
-  tmp1=Textformat(list,6);
-  if(length(list)>1,tmp2=apply(list,[#]),tmp2=list); //200524
-  tmp2=Textformat(tmp2,6);
-  tmp=name+"="+tmp2+";"; //190415
-  parse(tmp);
-  if(Noflg<3,
-    tmp=RSform(tmp1,2);
-  );
-  if(Noflg<3, //190818
-    tmp1=parse(size)*TenSizeInit; //200512from
-    tmp2=round(10*sqrt(parse(size)));
-    if(Noflg==0,options=[Ltype,"Color="+text(color),"Num="+format(tmp2,6)]);
-    if(Noflg==1,options=["notex",Ltype,"Color="+text(color),"Num="+format(tmp2,6)]);
-    if(Noflg==2,options=["nodisp"]);
-    forall(1..(length(list)),
-      if(inside=="N",
-        if(length(incolor)>0, //200519from
-          Circledata(text(#)+name+"i",[list_#,tmp1*ratio],["nodisp","Msg=n"]); //200523,0708
-          tmp="cr"+text(#)+name+"i";
-          if(isstring(incolor),incolor=Colorname2cmyk(incolor)); // 
-          if(length(incolor)==4,incolor=Colorcmyk2rgb(incolor));
-          opcindy=opcindy+",color->"+text(incolor);
-          tmp=parse(tmp);
-          tmp="fillpoly("+Textformat(tmp,5)+opcindy+");";
-          parse(tmp); // 
-        );
-      ,
-        Circledata(text(#)+name,[list_#,tmp1],["nodisp","Msg=n"]); //200523
-        tmp="cr"+text(#)+name;
-          if(length(color)==4,color=Colorcmyk2rgb(color)); // 
-          opcindy=opcindy+",color->"+text(color);
-        tmp=parse(tmp); // 
-        tmp="fillpoly("+Textformat(tmp,5)+opcindy+");";
-        parse(tmp); // 
-      );
-      Circledata(text(#)+name,[list_#,tmp1],append(options,"Msg=n")); //200523
-    ); //200519to
-  );
-  list;
-);
 Lcrd(pt):=(
   regional(tmp);
   if(ispoint(pt),
@@ -1042,6 +919,22 @@ Circledata(nm,cenrad,options):=(
     GCLIST=append(GCLIST,[name,Ltype,opcindy]);
   );
   Out;
+);
+Colorrgb2cmyk(clr):=(
+  regional(clrnew,tmp,black);
+  if(length(clr)==3, //200618
+    tmp=apply(clr,1-#);
+    black=min(tmp);
+    if(black!=1, //181112from
+      tmp=apply(clr,(1-#-black)/(1-black));
+      clrnew=append(tmp,black);
+    ,
+      clrnew=[0,0,0,1];  //200618
+    ); //181112to
+  ,
+    clrnew=clr;
+  );
+  clrnew;
 );
 Listplot(list):=Listplot(list,[]);
 Listplot(Arg1,Arg2):=(
@@ -1492,6 +1385,113 @@ Expr(listorg,options):=( //16.10.09
     list_(3*#)=str;
   );
   Letter(list,options);
+);
+Letter(Pt,Dr,St):=Letter([Pt,Dr,St]);
+Letter(list):=Letter(list,[]);
+Letter(Pt,Dr,St,options):=Letter([Pt,Dr,St],options);//181218
+Letter(list,options):=(
+  regional(Nj,Pos,Dir,Str,Off,Dmv,Xmv,Ymv,Noflg,opcindy,
+      opL,aln,sz,clr,bld,ita,tmp,tmp1,tmp2,color,color4,eqL);
+  tmp=Divoptions(options);
+  eqL=tmp_5; //190209
+  Noflg=tmp_2;
+  color=tmp_(length(tmp)-2); color4=Colorrgb2cmyk(color); //200618
+  opL=select(options,indexof(#,"->")>0); //16.10.09from
+  tmp=select(opL,indexof(#,"color"));
+  sz=12;
+  bld=false;
+  ita=false;
+  aln="left";
+  forall(opL,
+    tmp=indexof(#,"->");
+    tmp1=Removespace(substring(#,0,tmp-1));
+    tmp2=substring(#,tmp+1,length(#));
+    if(tmp1=="size",sz=parse(tmp2));
+    if(tmp1=="color",clr=parse(tmp2));
+    if(tmp1=="bold",bld=parse(tmp2));
+    if(tmp1=="ita",ita=parse(tmp2));
+  );//16.10.09to
+  forall(eqL, //190209from
+    tmp=Strsplit(#,"=");
+    tmp1=Toupper(substring(tmp_1,0,1));
+    if(tmp1=="S",
+      sz=round(parse(tmp_2)*12);
+    );
+  ); //190209to
+  Off=-4;
+  Dmv=8;
+  Nj=1;
+  if(Ketcindyjsfigure>0,sz=round(sz*Ketcindyjsscale) ); // 
+  while(Nj+2<=length(list),
+    Pos=list_Nj;
+    Dir=list_(Nj+1);
+    Str=list_(Nj+2);
+    if(!isstring(Str),Str=format(Str,5)); // 16.09.30,10.09
+    tmp=replace(Str,".xy","");
+    tmp=replace(tmp,".x","(1)");
+    Str=replace(tmp,".y","(2)");
+    Str=RSslash(Str); // 17.09.24
+    Str=replace(Str,"`","'");//180303
+    tmp=Dq+","+Dq+Str+Dq+")";
+    if(Noflg<2,
+      Xmv=0;//16.10.13
+      Ymv=-4;
+      tmp1=[]; //200619from
+      forall(1..10,
+        tmp=substring(Dir,#-1,#);
+        if(contains(["n","s","e","w"],tmp),
+          tmp1=append(tmp1,[tmp,#]);
+        );
+      );
+      tmp1=append(tmp1,["",length(Dir)+1]);
+      tmp2=[];
+      forall(1..(length(tmp1)-1),
+        tmp=substring(Dir,tmp1_#_2,tmp1_(#+1)_2-1);
+        if(length(tmp)>0,tmp=MARKLEN*parse(tmp),tmp=0);
+        tmp2=append(tmp2,[tmp1_#_1,tmp]);
+      );
+      if(indexof(Dir,"n")>0,
+        Ymv=Dmv/2;
+        tmp=select(tmp2,#_1=="n"); //200619[2lines]
+        Pos=Pos+[0,tmp_1_2];
+      ); //200619to
+      if(indexof(Dir,"s")>0,
+        Ymv=-Dmv*3/2;
+        tmp=select(tmp2,#_1=="s"); //200619[2lines]
+        Pos=Pos-[0,tmp_1_2];
+      );
+      if(indexof(Dir,"e")>0,
+        Xmv=Dmv/2;
+        Off=0;
+        aln="left"; 
+        tmp=select(tmp2,#_1=="e"); //200619[2lines]
+        Pos=Pos+[tmp_1_2,0];
+      );
+      if(indexof(Dir,"w")>0, 
+        Xmv=-Dmv/2;
+        Off=0; // 16.09.30from
+        aln="right"; 
+        tmp=select(tmp2,#_1=="w"); //200619[2lines]
+        Pos=Pos-[tmp_1_2,0];
+      );
+      if(indexof(Dir,"c")>0,
+        Xmv=0;//16.10.13
+        Off=0;
+        if(Ymv==0,Ymv=-4);//16.10.08
+        aln="mid"; // 16.09.30until
+      );
+      if(Ketcindyjsfigure>0, // 
+        Off=round(Off*Ketcindyjsscale);
+        Xmv=round(Xmv*Ketcindyjsscale);
+        Ymv=round(Ymv*Ketcindyjsscale);
+      ); // 
+      Str=list_(Nj+2);  //17.10.17
+      if(length(color)==4,color=Colorcmyk2rgb(color)); //200523
+      drawtext(Pcrd(Pos),Str,offset->[Off+Xmv,Off+Ymv],
+         size->sz,color->color,align->aln,bold->bld,italics->ita);
+    );
+    Nj=Nj+3;
+  );
 );
 Ketcindyjsfigure=0;
 Ketcindyjsscale=1;
@@ -1974,8 +1974,8 @@ Paste():=(
 <script id="csdraw" type="text/x-cindyscript">
 Ketinit("");
 
-pos=0;
-pos2=0;
+pos=-0.1;
+pos2=-0.1;
 dposy=3.3;
 win=1..4;
 var=6..9;
@@ -2086,13 +2086,13 @@ forall(1..nall,nn,
       );
       tmp=pos-(nn+ns-2)*dposy;
       if(length(err)==0,
-        Letter([0.5,tmp],"e",strt1,["Size=2"]);
+        drawtext([0.5,tmp],strt1,size->30);
         if(length(strt1)>0,
           if(nn==1,texstr=strt1,texstr=texstr+"\\"+strt1);
         );
       ,
-        drawtext([0.5,tmp],str,size->24);
-        drawtext([13,tmp],err,color->[1,0,0],size->24);
+        drawtext([0.5,tmp],str,size->30);
+        drawtext([13,tmp],err,color->[1,0,0],size->30);
       );
     );
   );
@@ -2243,8 +2243,8 @@ var cdy = CindyJS({
   ports: [{
     id: "CSCanvas",
     width: 945,
-    height: 673,
-    transform: [{visibleRect: [-5.960493621012301, 7.0755971046760715, 19.12933476142255, -10.792608716888642]}],
+    height: 674,
+    transform: [{visibleRect: [-5.960493621012301, 7.0755971046760715, 19.12933476142255, -10.819158799833017]}],
     background: "rgb(247,247,247)"
   }],
   csconsole: false,
