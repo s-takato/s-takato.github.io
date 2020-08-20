@@ -1806,7 +1806,7 @@ Moretotex(str):=(
     ["Ga","\alpha"],["Gb","\beta"],["Gt","\theta"],
     ["_(aa)","_{aa}"],
     ["int(yy,xx)","\int (yy)\,dxx"],
-    ["int(aa,bb,yy,xx)","\int_{aa}^{bb}(yy)\,xx"],
+    ["int(aa,bb,yy,xx)","\int_{aa}^{bb}(yy)\,dxx"],
     ["lim(aa,bb,yy)","\displaystyle\lim_{{aa} \to {bb}}{(yy)}"]
   ];
   forall(1..(length(symL)),
@@ -2120,6 +2120,7 @@ if(texflg==2,
 );
 
 Windispg();
+
 ;
 </script>
     <script type="text/javascript">
@@ -2242,9 +2243,9 @@ var cdy = CindyJS({
   ],
   ports: [{
     id: "CSCanvas",
-    width: 945,
+    width: 944,
     height: 674,
-    transform: [{visibleRect: [-5.960493621012301, 7.0755971046760715, 19.12933476142255, -10.819158799833017]}],
+    transform: [{visibleRect: [-5.960493621012301, 7.0755971046760715, 19.102784678478177, -10.819158799833017]}],
     background: "rgb(247,247,247)"
   }],
   csconsole: false,
