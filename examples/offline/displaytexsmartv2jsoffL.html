@@ -2137,12 +2137,12 @@ forall(1..nall,nn,
         tmp2=Sla2fra(tmp2);
         strt2=replace(tmp2,RepL1);
         strt2=replace(strt2,RepL2);
-        tstr=replace(strt2,RepL3);
-        tstr=Totexform(tstr);
-        tstr=Moretotex(tstr);
+        strt2=replace(strt2,RepL3);
         if(varset==1,
-          tstr=Setvar(tstr);
+          strt2=Setvar(strt2);
         );
+        tstr=Totexform(strt2);
+        tstr=Moretotex(tstr);
         strt1=strt1+"$"+tstr+"$";
         if(indexof(tstr,"?")>0,
           if(indexof(tstr,"?)-")>0,
@@ -2311,9 +2311,10 @@ var cdy = CindyJS({
   ],
   ports: [{
     id: "CSCanvas",
-    width: 944,
+    width: 942,
     height: 674,
-    transform: [{visibleRect: [-5.960493621012301, 7.0755971046760715, 19.102784678478177, -10.819158799833017]}],
+    transform: [{visibleRect: [-5.960493621012301, 7.0755971046760715, 19.049684512589423, -10.819158799833017]}],
+    grid: 1.0,
     background: "rgb(247,247,247)"
   }],
   csconsole: false,
