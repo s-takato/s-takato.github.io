@@ -395,9 +395,9 @@ Totexformpart(str):=( //190514
     ["log",["{\log{xx}}","{\log_{xx} yy}"]],
     ["sqrt",["{\sqrt{xx}}","{\sqrt[xx]{yy}}"]],
     ["pow",["","{xx}^{yy}"]],
-    ["sin",["{\sin{xx}}","{\sin^{xx}{yy}}"]], 
-    ["cos",["{\cos{xx}}","{\cos^{xx}{yy}}"]],
-    ["tan",["{\tan{xx}}","{\tan^{xx}{yy}}"]]  //200730to
+    ["sin",["{\sin{xx}}","{\sin^{xx}\!{yy}}"]], //200823[3lines]
+    ["cos",["{\cos{xx}}","{\cos^{xx}\!{yy}}"]],
+    ["tan",["{\tan{xx}}","{\tan^{xx}\!{yy}}"]]  //200730to
   ];
   funL=apply(repL,substring(#_1,0,2)); //190515to
   out="";
@@ -2223,7 +2223,7 @@ var cdy = CindyJS({
     {name: "Text115", type: "Button", pos: [4.0, 1.450628366247756, 0.27048233938953836], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"lim\";\n\n", text: "lim", textsize: 24.0},
     {name: "Text93", type: "Button", pos: [4.0, -3.288888888888889, -1.115990096592392], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 0.0, 0.0], fillalpha: 0.5042735042735043, script: "Delete();", text: "DEL", textsize: 24.0},
     {name: "Text86", type: "Button", pos: [-2.5205479452054798, -4.0, 2.063817301917437], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 0.0, 0.0], fillalpha: 0.5042735042735043, script: "funflg=0;\nResetvar();\nif(varctr==0,\n  if(rowno==1,Text1.currenttext=\"\");\n  if(rowno==2,Text2.currenttext=\"\");\n  if(rowno==3,Text3.currenttext=\"\");\n  if(rowno==4,Text4.currenttext=\"\");\n  cursorflg=0;\n  cursor=-1;\n,\n  varctr=1;\n);\n\n", text: "AC", textsize: 24.0},
-    {name: "Text871", type: "ToggleButton", pos: [4.0, -1.9234972677595625, 0.27442379424403074], color: [0.0, 0.0, 0.0], fillcolor: [0.098, 0.62, 0.306], fillalpha: 0.4444444444444444, script: "texflg=texflg+1;", text: "TeX", textsize: 24.0, border: true },
+    {name: "Text871", type: "ToggleButton", pos: [4.0, -1.9234972677595625, 0.27442379424403074], color: [0.0, 0.0, 0.0], fillcolor: [0.098, 0.62, 0.306], fillalpha: 0.4444444444444444, script: "texflg=texflg+1;", text: "TeX", textsize: 20.0, border: true },
     {name: "Text107", type: "Button", pos: [-1.02, -4.0, -0.7532933151998643], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"sin\";\n", text: "sin", textsize: 24.0},
     {name: "Text109", type: "Button", pos: [-1.1719745222929938, -4.0, -0.9596093187259419], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"cos\";\n", text: "cos", textsize: 24.0},
     {name: "Text111", type: "Button", pos: [-1.8181818181818181, -4.0, -1.3696242094542987], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"tan\";", text: "tan", textsize: 24.0},
@@ -2310,9 +2310,9 @@ var cdy = CindyJS({
   ],
   ports: [{
     id: "CSCanvas",
-    width: 942,
+    width: 941,
     height: 674,
-    transform: [{visibleRect: [-5.960493621012301, 7.0755971046760715, 19.049684512589423, -10.819158799833017]}],
+    transform: [{visibleRect: [-5.960493621012301, 7.0755971046760715, 19.023134429645047, -10.819158799833017]}],
     grid: 1.0,
     background: "rgb(247,247,247)"
   }],
