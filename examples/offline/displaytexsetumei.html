@@ -16,7 +16,8 @@
 <p><font size="4">
 <ul>
 <li>数式はASCII文字（半角文字）のみ</li>
-<li>非ASCII文字は数式外とみなされる．　１辺がaの正方形の面積はa^2$\Rightarrow$１辺が$a$の正方形の面積は$a^2$</li>
+<li>非ASCII文字は数式外とみなされる．</br>
+　　１辺がaの正方形の面積はa^2$\Rightarrow$１辺が$a$の正方形の面積は$a^2$</li>
 <li>ASCII文字を数式外で使うときは@で囲む．　a sp @m@ $\Rightarrow a\text{ m}$</li>
 <li>分数はfr(ac)を推奨　fr(a+b,c+d) $=\frac{a+b}{c+d}$</br>
 　　$\;/\;$を用いるときは括弧に注意　a+b/c+d$\;=a+\frac{b}{c}+d$</li>
@@ -28,17 +29,41 @@
 　　このような場合は，Varボタンを押し，aa, bbなどの値を入れてからSetを押す．</br>
 </ul></font></p>
 <table class="wide" border="1" width="300">
-<tr><td align="center">$\pi$</td><td align="center" colspan="2">$\frac{b}{a}$</td><td align="center" colspan="2">$a^x$</td><td align="center" colspan="2">$\sqrt{a}$</td><td align="center" colspan="2">$\sqrt[b]{a}$</td><td align="center" colspan="2">$\log_a\!\!x$</td><td align="center" colspan="2">$\sin x$</td><td align="center" colspan="2">$\sin^2 x$</td><td align="center">$\alpha$</td><td align="center">$\beta$</td><td align="center">$\theta$</td><td align="center">$\cdot$</td><td align="center">$\times$</td><td align="center" colspan="2">space</td><td align="center">$\leq$</td><td align="center">$\geq$</td><td align="center" colspan="2">$\Leftrightarrow$</td><!--<td rowspan="2" align="center">
-代用</td><td align="center">+</td><td align="center">=</td><td align="center">^</td><td align="center">$<$</td><td align="center">$>$</td>--></tr>
-<tr height="30"><td align="center">pi</td><td align="center" colspan="2">fr(b,a)</td><td align="center" colspan="2">a^(x)</td><td align="center" colspan="2">sq(a)</td><td align="center" colspan="2">sq(b,a)</td><td align="center" colspan="2">log(a,x)</td><td align="center" colspan="2">sin(x)</td><td align="center" colspan="2">sin(2,x)</td><td align="center">Ga</td><td align="center">Gb</td><td align="center">Gt</td><td align="center">Dot</td><td align="center">Crs</td><td align="center" colspan="2">sp</td><td align="center"><=</td><td align="center">>=</td><td align="center" colspan="2"><==></td><!--<td align="center">${\tiny -\,-}$</td><td align="center">::</td><td align="center">hat</td><td align="center">(.</td><td align="center">.)</td>--></tr>
+<tr><td align="center">$\pi$</td><td align="center" colspan="2">$\frac{b}{a}$</td><td align="center" colspan="2">$a^x$</td><td align="center" colspan="2">$\sqrt{a}$</td><td align="center" colspan="2">$\sqrt[b]{a}$</td><td align="center" colspan="2">$\log_a\!\!x$</td><td align="center" colspan="2">$\sin x$</td><td align="center" colspan="2">$\sin^2 x$</td><td align="center">$\alpha$</td><td align="center">$\beta$</td><td align="center">$\theta$</td><td align="center">$\cdot$</td><td align="center">$\times$</td><td align="center">$\circ$</td><td align="center" colspan="2">space</td><td align="center">$\leq$</td><td align="center">$\geq$</td><td align="center" colspan="2">$\Leftrightarrow$</td>
+</tr>
+<tr height="30"><td align="center">pi</td><td align="center" colspan="2">fr(b,a)</td><td align="center" colspan="2">a^(x)</td><td align="center" colspan="2">sq(a)</td><td align="center" colspan="2">sq(b,a)</td><td align="center" colspan="2">log(a,x)</td><td align="center" colspan="2">sin(x)</td><td align="center" colspan="2">sin(2,x)</td><td align="center">Ga</td><td align="center">Gb</td><td align="center">Gt</td><td align="center">Dot</td><td align="center">Crs</td><td align="center">Cir</td><td align="center" colspan="2">sp</td><td align="center"><=</td><td align="center">>=</td><td align="center" colspan="2"><==></td>
+</tr>
 </table>
 </br>
 <table class="narrow" border="1" width="300">
-<tr><td align="center" colspan="2">$\displaystyle\lim_{x \to a}f(x)$</td><td align="center" colspan="2">$\int f(x)dx$</td><td align="center" colspan="2">$\int_a^b f(x)dx$</td><td align="center" colspan="2">$[f(x)]_a^b$</td></tr>
-<tr height="30"><td align="center" colspan="2">lim(x,a,f(x))</td><td align="center" colspan="2">int(f(x),dx)</td><td align="center" colspan="2">int(a,b,f(x),dx)</td><td align="center" colspan="2">[f(x)]_(a)^(b)</td></tr>
+<tr><td align="center" colspan="2">$\displaystyle\lim_{x \to a}f(x)$</td><td align="center" colspan="2">$\int f(x)dx$</td><td align="center" colspan="2">$\int_a^b f(x)dx$</td><td align="center" colspan="2">$\sum_{k=a}^b f(k)$</td></tr>
+<tr height="30"><td align="center" colspan="2">lim(x,a,f(x))</td><td align="center" colspan="2">int(f(x),dx)</td><td align="center" colspan="2">int(a,b,f(x),dx)</td><td align="center" colspan="2">sum(k=a,b,f(k))</td></tr>
 </table>
-<p></p>
-<!--<p align="center"><iframe src="displaytex3jsoffL.html" width="811" height="441"></iframe></p>-->
+<p><font size="4">
+<ul>
+<li>TeX のコマンドは \ から始める．</br>
+　　主なコマンドは以下の通り</li>
+</ul></font></p>
+<table class="narrow" border="1" width="300">
+<tr>
+<td align="center" colspan="1">$\infty$</td>
+<td align="center" colspan="1">$\to$</td>
+<td align="center" colspan="1">$\nearrow$</td>
+<td align="center" colspan="1">$\searrow$</td>
+<td align="center" colspan="1">$\cdots$</td>
+<td align="center" colspan="1">$\pm$</td>
+<td align="center" colspan="1">$\mp$</td>
+</tr>
+<tr height="30">
+<td align="center" colspan="1">\infty</td>
+<td align="center" colspan="1">\to</td>
+<td align="center" colspan="1">\nearrow</td>
+<td align="center" colspan="1">\searrow</td>
+<td align="center" colspan="1">\cdots</td>
+<td align="center" colspan="1">\pm</td>
+<td align="center" colspan="1">\mp</td>
+</tr>
+</table>
 <p></p>
 </body>
 </html>

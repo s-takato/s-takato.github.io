@@ -1,3 +1,7 @@
+2020.08.26
+　displaytexsmartをv3へ
+　vec, sum, neqを追加
+　main blockを削除
 2020.08.22
 　a^bを削除，sin*をsin(bb,aa)に戻す
 　varsetの位置を修正
