@@ -1530,7 +1530,7 @@ RepL2=[
  [" ^","^"],["(.","<"],[".)",">"],["(=","<="],["=)","=>"]
 ];
 RepL3=[
- ["^ ","^"],["<==>"," \Leftrightarrow "],
+ ["pi","pi "],["^ ","^"],["<==>"," \Leftrightarrow "],
  ["==>"," \Rightarrow "],["<=="," \Leftarrow "],
  ["<="," \leq "],["=>"," \geq "],[">="," \geq "]
 ];
@@ -1558,7 +1558,7 @@ Addfun(name):=(
     "tan((aa))","tan(bb,(aa))","log(bb,(aa))","{Ne}",
     "log((aa))","^","^(","_(","+","-","(",")",
     ",","G","Cap","=","<",">","'",
-    "\;","{pi}",".","{Dot}","*","/",";",
+    "\;","pi",".","{Dot}","*","/",";",
     "{Cir}","0","1","2","3","4","5","6","7","8","9",
     "a","b","c","d","e","f","g","h","i","j","k",
     "l","m","n","o","p","q","r","s","t","u","v",
@@ -1590,159 +1590,70 @@ Noascii(str):=(
   out;
 );
 
+tmp1=32..126;
+tmp=(65..90)++(97..122);
+tmp1=remove(tmp1,tmp);
+alpha=apply(tmp,unicode(text(#),base->10));
+tmp=[46]++(48..57);
+tmp1=remove(tmp1,tmp);
+numer=apply(tmp,unicode(text(#),base->10));
+
 Sla2fra(str):=(
-  regional(alpha,numer,sep,s,flg,out,parL,parflg,nn,nu,de,finish,
-      tmp,tmp1,tmp2);
-  tmp1=32..126;
-  tmp=(65..90)++(97..122);
-  tmp1=remove(tmp1,tmp);
-  alpha=apply(tmp,unicode(text(#),base->10));
-  tmp=[46]++(48..57);
-  tmp1=remove(tmp1,tmp);
-  numer=apply(tmp,unicode(text(#),base->10));
-  sep=apply(tmp1,unicode(text(#),base->10));
+  regional(out,rest,ctr,sla,par,nstr,dstr,
+    tmp,tmp1,tmp2,tmp3,tmp4);
+  rest=str;
   out="";
-  stL=Strsplit(str,"/");
-  forall(1..(length(stL)-1),nn,
-    finish=0;
-    s=stL_(nn);
-    parL=Bracket(s,"()");
-    parflg=0;
-    tmp=Op(length(s),s);
-    if(tmp==")",
-      tmp=select(parL,#_1==length(s));
-      tmp=tmp_1_2;
-      tmp=select(parL,#_2==-tmp);
-      tmp=tmp_(-1)_1;
-      nu=substring(s,tmp-1,length(s));
-      tmp1=substring(s,0,tmp-1);
-      tmp2=tmp-1;
-      while(tmp2>0,
-        tmp=Op(tmp2,s);
-        if(contains(alpha,tmp),
-          nu=tmp+nu;
-          tmp1=substring(s,0,tmp2-1);
-          tmp2=tmp2-1;
-        ,
-          tmp1=substring(s,0,tmp2);
-          tmp2=0;
-        );
-      );
-      finish=1;
-    );  
-    if(finish==0,
-      nu=tmp;
-      tmp2=length(s)-1;
-      tmp1=substring(s,0,tmp2);
-      if(contains(numer,tmp),
-        while(tmp2>0,
-          tmp=Op(tmp2,s);
-          if(contains(numer,tmp),
-            nu=tmp+nu;
-            tmp1=substring(s,0,tmp2-1);
-            tmp2=tmp2-1;
-          ,
-            if((tmp=="-")&(tmp2>1),
-              if(Op(tmp2-1,s)=="(",
-                nu=tmp+nu;
-                stL_(nn+1)="("+stL_(nn+1);
-                tmp1=substring(s,1,tmp2-1);
-              ,
-                tmp1=substring(s,0,tmp2-1);
-              );
-            ,
-              if(tmp=="(",
-                tmp1=substring(s,0,tmp2);
-              ,
-                tmp1=substring(s,0,tmp2-1);
-              );
-            );
-            tmp2=0;
-          );
-        );
-        finish=1;
-      );
-    );
-    if(finish==0,
-      if(contains(alpha,tmp),
-        nu=tmp;
-        while(tmp2>0,
-          tmp=Op(tmp2,s);
-          if(contains(alpha,tmp),
-            nu=tmp+nu;
-            tmp1=substring(s,0,tmp2-1);
-            tmp2=tmp2-1;
-          ,
-            tmp1=substring(s,0,tmp2);
-            tmp2=0;
-          );
-        );
-        finish=1;
-      );
-    );
-    if(substring(nu,0,1)=="(",
-      nu=substring(nu,1,length(nu)-1);
-    );
-    out=out+tmp1+"fr("+nu+",";
-    finish=0;
-    s=stL_(nn+1);
-    parL=Bracket(s,"()");
-    tmp=Op(1,s);
-    if(tmp=="(",
-      tmp=select(parL,#_2==-1);
-      tmp=tmp_1_1;
-      de=substring(s,1,tmp-1);
-      tmp1=substring(s,tmp,length(s));
-      finish=1;
-    );
-    if(finish==0,
-      de=tmp;
-      tmp1="";
-      tmp2=2;
-      if(contains(numer,tmp),
-        while(tmp2<=length(s),
-          tmp=Op(tmp2,s);
-          if(contains(numer,tmp),
-            de=de+tmp;
-            tmp1=substring(s,tmp2,length(s));
-            tmp2=tmp2+1;
-          ,
-            tmp1=substring(s,tmp2-1,length(s));
-            tmp2=length(s)+1;
-          );
-        );
-        finist=1;
-      );
-    );
-    if(finish==0,
-      if(contains(alpha,tmp),
-        while(tmp2<=length(s),
-          tmp=Op(tmp2,s);
-          if(contains(alpha,tmp),
-            de=de+tmp;
-            tmp1=substring(s,tmp2,length(s));
-            tmp2=tmp2+1;
-          ,
-            if(tmp!="(",
-              tmp1=substring(s,tmp2-1,length(s));
-            ,              
-              tmp=select(parL,#_1==tmp2);
-              tmp=tmp_1_2;
-              tmp=select(parL,(#_1>tmp2)&(#_2==-tmp));
-              tmp=tmp_1_1;
-              de=de+substring(s,tmp2-1,tmp);
-              tmp1=substring(s,tmp,length(s));
-            );
-            tmp2=length(s)+1;
-          );
-        );
-        finist=1;
-      );
-    );
-    out=out+de+")";
-    stL_(nn+1)=tmp1;
+  sla=indexof(rest,"/");
+  ctr=0;
+  while((sla>0)&(ctr<20),
+   if(rest_(sla+1)=="/",
+     out=out+substring(rest,0,sla+1);
+     rest=substring(rest,sla+1,length(rest));
+   ,
+     par=Bracket(rest,"()");
+     tmp1=sla-1;
+     if(rest_(tmp1)==")",
+       tmp=select(par,#_1==tmp1);
+       tmp=tmp_1_2;
+       tmp2=select(par,(#_1<tmp1)&(#_2==-tmp));
+       tmp2=tmp2_(-1)_1;
+       nstr=substring(rest,tmp2,tmp1-1);
+       tmp2=tmp2-1;
+     ,
+       if(contains(numer,rest_(tmp1)),
+         tmp2=select(1..(tmp1),!contains(numer,rest_#));
+         if(length(tmp2)>0,tmp2=tmp2_(-1),tmp2=0);
+         nstr=substring(rest,tmp2,tmp1);
+       ,
+         nstr=rest_(tmp1);
+         tmp2=tmp1-1;
+       );
+     );
+     tmp3=sla+1;
+     if(rest_(tmp3)=="(",
+       tmp=select(par,#_1==tmp3);
+       tmp=tmp_1_2;
+       tmp4=select(par,(#_1>tmp3)&(#_2==-tmp));
+       tmp4=tmp4_1_1;
+       dstr=substring(rest,tmp3,tmp4-1);
+     ,
+       if(contains(numer,rest_(tmp3)),
+         tmp4=select((tmp3)..(length(rest)),
+           !contains(numer,rest_#));
+         if(length(tmp4)>0,tmp4=tmp4_1-1,tmp4=length(rest));
+         dstr=substring(rest,tmp3-1,tmp4);
+       ,
+         tmp4=tmp3;
+         dstr=rest_(tmp4);
+       );
+     );
+   );
+   out=out+substring(rest,0,tmp2)+"fr("+nstr+","+dstr+")";
+   rest=substring(rest,tmp4,length(rest));
+   sla=indexof(rest,"/");
+   ctr=ctr+1;
   );
-  out=out+stL_(-1);
+  out=out+rest;
   out;
 );
 
@@ -2142,6 +2053,7 @@ if(varctr==0,
 );
 texstr="";
 if(texflg==0,nall=4,nall=3);
+
 forall(1..nall,nn,
   str=stredit_nn;
   strL=tokenize(str,"//");
@@ -2367,9 +2279,9 @@ var cdy = CindyJS({
   ],
   ports: [{
     id: "CSCanvas",
-    width: 945,
+    width: 935,
     height: 674,
-    transform: [{visibleRect: [-6.047703050487625, 7.089029403551719, 19.18443550452697, -10.907226031453398]}],
+    transform: [{visibleRect: [-6.047703050487625, 7.089029403551719, 18.917428747331048, -10.907226031453398]}],
     grid: 1.0,
     background: "rgb(247,247,247)"
   }],
