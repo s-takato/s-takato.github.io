@@ -1512,6 +1512,28 @@ vstr4="xx=";
 varedit=[vstr1,vstr2,vstr3,vstr4];
 
 
+Togreek(chr):=(
+  regional(alph,Alph,grk,Grk,out,tmp);
+  alph="abgdezhtiklmnxprstufcqov";
+  grk=["alpha","beta","gamma","delta","epsilon","zeta",
+       "eta","theta","iota","kappa","lambda","mu","nu",
+       "xi","pi","rho","sigma","tau","upsilon",
+       "phi","chi","psi","omega","varphi"];
+  Alph="GDTLPSFQO";
+  Grk=["Gamma","Delta","Theta","Lambda","Pi",
+       "Sigma","Phi","Psi","Omega"];
+  out=chr;
+  tmp=indexof(alph,chr);
+  if(tmp>0,
+    out="\"+grk_(tmp);
+  ,
+    tmp=indexof(Alph,chr);
+    if(tmp>0,
+      out="\"+Grk_(tmp);
+    );
+  );
+  out;
+);
 
 str1="";
 str2="";
@@ -1557,7 +1579,7 @@ Addfun(name):=(
     "sin((aa))","sin(bb,(aa))","cos((aa))","cos(bb,(aa))",
     "tan((aa))","tan(bb,(aa))","log(bb,(aa))","{Ne}",
     "log((aa))","^","^(","_(","+","-","(",")",
-    ",","G","Cap","=","<",">","'",
+    ",","{G}","{C}","=","<",">","'",
     "\;","pi",".","{Dot}","*","/",";",
     "{Cir}","0","1","2","3","4","5","6","7","8","9",
     "a","b","c","d","e","f","g","h","i","j","k",
@@ -1761,8 +1783,8 @@ Moretotex(str):=(
   symL=[
     ["dt","\cdot"],["Dot","\cdot"],["Cir","\circ"],
     ["Crs","\times"],["Ne","=\!\!\!\!\! /\;\,"],
-    ["Ga","\alpha"],["Gb","\beta"],["Gt","\theta"],
-    ["GD","\Delta"]
+    ["{G}a","\alpha"],["{G}b","\beta"],["{G}t","\theta"],
+    ["{G}D","\Delta"]
   ];
   forall(1..(length(symL)),
     tmp=symL_#;
@@ -2083,14 +2105,24 @@ forall(1..nall,nn,
           strt2=Setvar(strt2);
         );
         tmp2=strt2;
-        tmp=indexof(tmp2,"Cap");
+        tmp=indexof(tmp2,"{C}");
         ctr=0;
         while((tmp>0)&(ctr<20),
           tmp3=substring(tmp2,tmp+2,tmp+3);
           tmp3=Toupper(tmp3);
           tmp3=substring(tmp2,0,tmp-1)+tmp3;
           tmp2=tmp3+substring(tmp2,tmp+3,length(tmp2));
-          tmp=indexof(tmp2,"Cap");
+          tmp=indexof(tmp2,"{C}");
+          ctr=ctr+1;
+        );
+        tmp=indexof(tmp2,"{G}");
+        ctr=0;
+        while((tmp>0)&(ctr<20),
+          tmp3=substring(tmp2,tmp+2,tmp+3);
+          tmp3=Togreek(tmp3);
+          tmp3=substring(tmp2,0,tmp-1)+tmp3;
+          tmp2=tmp3+substring(tmp2,tmp+3,length(tmp2));
+          tmp=indexof(tmp2,"{G}");
           ctr=ctr+1;
         );
         strt2=tmp2;
@@ -2279,15 +2311,15 @@ var cdy = CindyJS({
   ],
   ports: [{
     id: "CSCanvas",
-    width: 935,
+    width: 945,
     height: 674,
-    transform: [{visibleRect: [-6.047703050487625, 7.089029403551719, 18.917428747331048, -10.907226031453398]}],
+    transform: [{visibleRect: [-6.047703050487625, 7.089029403551719, 19.18443550452697, -10.907226031453398]}],
     grid: 1.0,
     background: "rgb(247,247,247)"
   }],
   csconsole: false,
   use: ["katex"],
-  cinderella: {build: 1952, version: [3, 0, 1952]}
+  cinderella: {build: 1959, version: [3, 0, 1959]}
 });
     </script>
 </head>
