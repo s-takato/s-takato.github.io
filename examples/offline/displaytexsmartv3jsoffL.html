@@ -1525,11 +1525,11 @@ Togreek(chr):=(
   out=chr;
   tmp=indexof(alph,chr);
   if(tmp>0,
-    out="\"+grk_(tmp);
+    out="{\"+grk_(tmp)+"}";
   ,
     tmp=indexof(Alph,chr);
     if(tmp>0,
-      out="\"+Grk_(tmp);
+      out="{\"+Grk_(tmp)+"}";
     );
   );
   out;
@@ -2311,9 +2311,9 @@ var cdy = CindyJS({
   ],
   ports: [{
     id: "CSCanvas",
-    width: 945,
+    width: 947,
     height: 674,
-    transform: [{visibleRect: [-6.047703050487625, 7.089029403551719, 19.18443550452697, -10.907226031453398]}],
+    transform: [{visibleRect: [-6.047703050487625, 7.089029403551719, 19.237836855966155, -10.907226031453398]}],
     grid: 1.0,
     background: "rgb(247,247,247)"
   }],
