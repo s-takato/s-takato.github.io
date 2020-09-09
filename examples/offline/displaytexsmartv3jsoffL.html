@@ -1889,7 +1889,7 @@ Setvar(str):=(
             out=tmp4+substring(tmp3,tmp+1,length(tmp3));
             strcsr=out;
             stredit_3=out;
-            Text3.currenttext=stredit_1;//
+            Text3.currenttext=stredit_3;//
           );
         );
         if(rowno==4,
@@ -1901,7 +1901,7 @@ Setvar(str):=(
             out=tmp4+substring(tmp3,tmp+1,length(tmp3));
             strcsr=out;
             stredit_4=out;
-            Text4.currenttext=stredit_1;//
+            Text4.currenttext=stredit_4;//
           );
         );
       );
@@ -1950,7 +1950,7 @@ Delete():=(
   if(varctr==0,
     tmp=stredit_(rowno);
     if(length(tmp)>0,
-      if(cursor==-1,
+      if((cursor==-1)%(cursorflg==0),
         tmp=substring(tmp,0,length(tmp)-1);
         stredit_(rowno)=tmp;
         cursor=length(tmp);
@@ -2004,7 +2004,7 @@ Paste():=(
 </script>
 <script id="csdraw" type="text/x-cindyscript">
 Ketinit("");
-
+Ketcindyjsbody([],["<footer>","<p><small>&copy; 2020 Setsuo Takato</small></p>","</footer>"]);
 pos=-0.1;
 pos2=-0.1;
 dposy=3.3;
@@ -2077,8 +2077,8 @@ texstr="";
 if(texflg==0,nall=4,nall=3);
 
 forall(1..nall,nn,
-  str=stredit_nn;
-  strL=tokenize(str,"//");
+  str0=stredit_nn;
+  strL=tokenize(str0,"//");
   forall(1..(length(strL)),
     if(!isstring(strL_#),strL_#=text(strL_#));
     strL_#=Removespace(strL_#);
@@ -2311,9 +2311,9 @@ var cdy = CindyJS({
   ],
   ports: [{
     id: "CSCanvas",
-    width: 947,
+    width: 945,
     height: 674,
-    transform: [{visibleRect: [-6.047703050487625, 7.089029403551719, 19.237836855966155, -10.907226031453398]}],
+    transform: [{visibleRect: [-6.047703050487625, 7.089029403551719, 19.18443550452697, -10.907226031453398]}],
     grid: 1.0,
     background: "rgb(247,247,247)"
   }],
@@ -2325,4 +2325,8 @@ var cdy = CindyJS({
 </head>
 <body>
     <div id="CSCanvas"></div>
+    <footer>
+    <p><small>&copy; 2020 Setsuo Takato</small></p></p>
+    </footer>
+</body>
 </html>
