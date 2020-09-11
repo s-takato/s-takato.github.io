@@ -1036,18 +1036,21 @@ Getlinestyle(str,name):=(
   );
   if(tmp1=="DA",
     if(length(tmp2)==0,tmp2="1,1"); //190125
+    if(indexof(tmp2,",")==0,tmp2=tmp2+",1"); //200911
     Ltype=[1,tmp2];  //190119
     if(noflg==0 & subflg==0, // 16.02.29
     );
   );
   if(tmp1=="ID",
     if(length(tmp2)==0,tmp2="1,1"); //190125
+    if(indexof(tmp2,",")==0,tmp2=tmp2+",1"); //200911
     Ltype=[2,tmp2];  //190119
     if(noflg==0 & subflg==0, // 16.02.29
     );
   );
   if(tmp1=="DO",
     if(length(tmp2)==0,tmp2="1,1"); //190125
+    if(indexof(tmp2,",")==0,tmp2=tmp2+",1"); //200911
     Ltype=[3,tmp2];  //190119
     if(noflg==0 & subflg==0, // 16.02.29
     );
@@ -1580,7 +1583,7 @@ Addfun(name):=(
     "tan((aa))","tan(bb,(aa))","log(bb,(aa))","{Ne}",
     "log((aa))","^","^(","_(","+","-","(",")",
     ",","{G}","{C}","=","<",">","'",
-    "\;","pi",".","{Dot}","*","/",";",
+    "\;","{pi}",".","{Dot}","* ","/",";",
     "{Cir}","0","1","2","3","4","5","6","7","8","9",
     "a","b","c","d","e","f","g","h","i","j","k",
     "l","m","n","o","p","q","r","s","t","u","v",
@@ -1632,9 +1635,12 @@ Sla2fra(str):=(
      out=out+substring(rest,0,sla+1);
      rest=substring(rest,sla+1,length(rest));
    ,
-     par=Bracket(rest,"()");
+     par1=Bracket(rest,"()");
+     par2=Bracket(rest,"{}");
      tmp1=sla-1;
-     if(rest_(tmp1)==")",
+     tmp=rest_(tmp1);
+     if((tmp==")")%(tmp=="}"),
+       if(tmp==")",par=par1,par=par2);
        tmp=select(par,#_1==tmp1);
        tmp=tmp_1_2;
        tmp2=select(par,(#_1<tmp1)&(#_2==-tmp));
@@ -1652,7 +1658,9 @@ Sla2fra(str):=(
        );
      );
      tmp3=sla+1;
-     if(rest_(tmp3)=="(",
+     tmp=rest_(tmp3);
+     if((tmp=="(")%(tmp=="{"),
+       if(tmp=="(",par=par1,par=par2);
        tmp=select(par,#_1==tmp3);
        tmp=tmp_1_2;
        tmp4=select(par,(#_1>tmp3)&(#_2==-tmp));
@@ -2325,8 +2333,8 @@ var cdy = CindyJS({
 </head>
 <body>
     <div id="CSCanvas"></div>
-    <footer>
-    <p><small>&copy; 2020 Setsuo Takato</small></p></p>
-    </footer>
+<footer>
+<p><small>&copy; 2020 Setsuo Takato</small></p>
+</footer>
 </body>
 </html>
