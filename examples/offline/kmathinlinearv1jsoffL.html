@@ -1526,13 +1526,15 @@ Togreek(chr):=(
   Grk=["Gamma","Delta","Theta","Lambda","Pi",
        "Sigma","Phi","Psi","Omega"];
   out=chr;
-  tmp=indexof(alph,chr);
-  if(tmp>0,
-    out="{\"+grk_(tmp)+"}";
-  ,
-    tmp=indexof(Alph,chr);
+  if(length(chr)>0,
+    tmp=indexof(alph,chr);
     if(tmp>0,
-      out="{\"+Grk_(tmp)+"}";
+      out="{\"+grk_(tmp)+"}";
+    ,
+      tmp=indexof(Alph,chr);
+      if(tmp>0,
+        out="{\"+Grk_(tmp)+"}";
+      );
     );
   );
   out;
@@ -1592,7 +1594,7 @@ Addfun(name):=(
     "@","!","|","{Crs}","\{","\}","delta(aa)",
     "lim(aa,bb,yy)","int(yy,xx)","int(aa,bb,yy,xx)",
     "vec(aa)","vec0(aa)","sum(aa,bb,yy)",
-    "{B}","mat(","det(","overline(aa)"
+    "{B}","mat(","det(","over(aa)"
   ];
   tmp=select(1..(length(nameL)),nameL_#==name);
   if(length(tmp)>0,
@@ -1837,7 +1839,7 @@ Moretotex(str):=(
   symL=[
     "_(","^(","delta(","int(","lim(",
     "vec(","vec0(","sum(",
-    "mat(","det(","overline(",
+    "mat(","det(","over(",
   ];
   forall(symL,sym,
     rest=out;
@@ -1913,7 +1915,7 @@ Moretotex(str):=(
         );
         tmp=tmp+"\end{array}\right|";
       );
-      if(sym=="overline(",
+      if(sym=="over(",
         tmp="\overline{"+tmp3_1+"}";
       );
       out=out+tmp1+tmp;
@@ -1924,7 +1926,6 @@ Moretotex(str):=(
   );
   out;
 );
-
 
 Setvar(str):=(
   regional(out,tmp,tmp1,tmp2,tmp3,tmp4);
