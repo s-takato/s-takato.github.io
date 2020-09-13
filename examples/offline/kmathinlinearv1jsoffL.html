@@ -1652,7 +1652,7 @@ Charstyle(str):=(
   ctr=0;
   while((tmp>0)&(ctr<20),
     tmp3=substring(out,tmp+2,tmp+3);
-    tmp3="mathbf{"+tmp3+"}";
+    tmp3="\mathbf{"+tmp3+"}";
     tmp3=substring(out,0,tmp-1)+tmp3;
     out=tmp3+substring(out,tmp+3,length(out));
     tmp=indexof(out,"{B}");
@@ -2365,9 +2365,9 @@ var cdy = CindyJS({
   ],
   ports: [{
     id: "CSCanvas",
-    width: 945,
+    width: 941,
     height: 674,
-    transform: [{visibleRect: [-6.047703050487625, 7.089029403551719, 19.18443550452697, -10.907226031453398]}],
+    transform: [{visibleRect: [-6.047703050487625, 7.089029403551719, 19.0776328016486, -10.907226031453398]}],
     grid: 1.0,
     background: "rgb(247,247,247)"
   }],
