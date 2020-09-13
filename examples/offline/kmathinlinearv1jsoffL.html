@@ -1576,7 +1576,7 @@ Addfun(name):=(
     "Lw","Lx","Ly","Lz","backs","bral","brar","colon",
     "atmark","excl","pipe","cross","bracel","bracer","delta",
     "lim","inti","intd","vec","vec0","sum",
-    "bold","mat","det"
+    "bold","mat","det","overline"
   ];
   outL=[
     "fr(aa,bb)","fr(","(aa)^(bb)","sq(aa)","sq(bb,aa)",
@@ -1592,7 +1592,7 @@ Addfun(name):=(
     "@","!","|","{Crs}","\{","\}","delta(aa)",
     "lim(aa,bb,yy)","int(yy,xx)","int(aa,bb,yy,xx)",
     "vec(aa)","vec0(aa)","sum(aa,bb,yy)",
-    "{B}","mat(","det("
+    "{B}","mat(","det(","overline(aa)"
   ];
   tmp=select(1..(length(nameL)),nameL_#==name);
   if(length(tmp)>0,
@@ -1837,7 +1837,7 @@ Moretotex(str):=(
   symL=[
     "_(","^(","delta(","int(","lim(",
     "vec(","vec0(","sum(",
-    "mat(","det("
+    "mat(","det(","overline(",
   ];
   forall(symL,sym,
     rest=out;
@@ -1912,6 +1912,9 @@ Moretotex(str):=(
           tmp=tmp+tmp2;
         );
         tmp=tmp+"\end{array}\right|";
+      );
+      if(sym=="overline(",
+        tmp="\overline{"+tmp3_1+"}";
       );
       out=out+tmp1+tmp;
       tmp=indexof(rest,sym);
@@ -2263,42 +2266,42 @@ var cdy = CindyJS({
     {name: "Text6", type: "EditableText", pos: [4.0, -1.3989071038251364, -0.8232713827320921], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, minwidth: 120, text: "aa=", textsize: 20.0},
     {name: "Text7", type: "EditableText", pos: [4.0, -0.6739130434782609, -0.818797081738983], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, minwidth: 120, text: "bb=", textsize: 20.0},
     {name: "Text8", type: "EditableText", pos: [4.0, 0.04371584699453551, -0.8232713827320921], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, minwidth: 120, text: "yy=", textsize: 20.0},
-    {name: "Text105", type: "Button", pos: [2.4358974358974357, -4.0, -0.9657606605126465], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"frac\";\n", text: "fr", textsize: 24.0},
-    {name: "Text104", type: "Button", pos: [0.05063291139240506, -4.0, -0.9535358420251447], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"sq2\";", text: "sq*", textsize: 24.0},
-    {name: "Text108", type: "Button", pos: [-2.0, -4.0, -0.7458349655444202], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"sin2\";\n", text: "sin*", textsize: 24.0},
+    {name: "Text105", type: "Button", pos: [-0.28205128205128205, -4.0, -0.9603137355138551], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"frac\";\n", text: "fr", textsize: 24.0},
+    {name: "Text104", type: "Button", pos: [0.0594059405940594, -4.0, -0.7416284294067397], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"sq2\";", text: "sq*", textsize: 24.0},
+    {name: "Text108", type: "Button", pos: [-1.9603960396039606, -4.0, -0.7416284294067397], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"sin2\";\n", text: "sin*", textsize: 24.0},
     {name: "Text110", type: "Button", pos: [-2.5732484076433124, -4.0, -0.9596093187259419], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"cos2\";\n", text: "cos*", textsize: 24.0},
     {name: "Text112", type: "Button", pos: [-3.63963963963964, -4.0, -1.3572852526123684], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"tan2\";", text: "tan*", textsize: 24.0},
     {name: "Text93", type: "Button", pos: [4.0, 2.6122448979591835, -3.0573253620441103], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 0.0, 0.0], fillalpha: 0.5042735042735043, script: "Delete();", text: "Del", textsize: 24.0},
     {name: "Text86", type: "Button", pos: [-2.45, -4.0, 1.8726117842520176], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 0.0, 0.0], fillalpha: 0.5042735042735043, script: "funflg=0;\nResetvar();\nif(varctr==0,\n  if(rowno==1,Text1.currenttext=\"\");\n  if(rowno==2,Text2.currenttext=\"\");\n  if(rowno==3,Text3.currenttext=\"\");\n  if(rowno==4,Text4.currenttext=\"\");\n  cursorflg=0;\n  cursor=-1;\n,\n  varctr=1;\n);\n\n", text: "AC", textsize: 24.0},
     {name: "Text94", type: "ToggleButton", pos: [4.0, -1.9124579124579124, 0.252203607306669], color: [0.0, 0.0, 0.0], fillcolor: [0.098, 0.62, 0.306], fillalpha: 0.4444444444444444, script: "texflg=texflg+1;", text: "TeX", textsize: 20.0, border: true },
-    {name: "Text107", type: "Button", pos: [-1.02, -4.0, -0.7532933151998643], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"sin\";\n", text: "sin", textsize: 24.0},
+    {name: "Text107", type: "Button", pos: [-0.9900990099009902, -4.0, -0.7416284294067397], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"sin\";\n", text: "sin", textsize: 24.0},
     {name: "Text109", type: "Button", pos: [-1.2229299363057324, -4.0, -0.9596093187259419], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"cos\";\n", text: "cos", textsize: 24.0},
     {name: "Text111", type: "Button", pos: [-1.8181818181818181, -4.0, -1.3696242094542987], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"tan\";", text: "tan", textsize: 24.0},
-    {name: "Text103", type: "Button", pos: [-0.15920398009950248, -4.0, -0.7495455872635467], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"sq\";", text: "sq", textsize: 24.0},
-    {name: "Text87", type: "Button", pos: [2.450980392156863, -4.0, -0.7385228580390827], color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 1.0], fillalpha: 0.5042735042735043, script: "Copy();", text: "cp", textsize: 24.0},
+    {name: "Text103", type: "Button", pos: [0.8118811881188119, -4.0, -0.7416284294067397], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"sq\";", text: "sq", textsize: 24.0},
+    {name: "Text87", type: "Button", pos: [3.450980392156863, -4.0, -0.7343575624517716], color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 1.0], fillalpha: 0.5042735042735043, script: "Copy();", text: "cp", textsize: 24.0},
     {name: "Text89", type: "Button", pos: [4.0, -2.4395604395604393, -0.8277948518679829], color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 1.0], fillalpha: 0.5042735042735043, script: "cursor=max([0,cursor-1]);", text: "<-", textsize: 20.0},
-    {name: "Text88", type: "Button", pos: [1.6666666666666665, -4.0, -0.7385228580390827], color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 1.0], fillalpha: 0.5042735042735043, script: "Paste();", text: "ps", textsize: 24.0},
+    {name: "Text88", type: "Button", pos: [2.6600985221674875, -4.0, -0.7379750873899577], color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 1.0], fillalpha: 0.5042735042735043, script: "Paste();", text: "ps", textsize: 24.0},
     {name: "Text90", type: "Button", pos: [4.0, -3.5730337078651684, -0.8463969833706342], color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 1.0], fillalpha: 0.5042735042735043, script: "if(rowno==1,cursor=min([cursor+1,length(str1)]));\nif(rowno==2,cursor=min([cursor+1,length(str2)]));\nif(rowno==3,cursor=min([cursor+1,length(str3)]));\nif(rowno==4,cursor=min([cursor+1,length(str4)]));\n", text: "->", textsize: 24.0},
     {name: "Text91", type: "Button", pos: [3.337579617834395, -4.0, -0.9596093187259419], color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 1.0], fillalpha: 0.5042735042735043, script: "if(cursorflg==0,\n  cursorflg=1;\n  cursor=-1;\n,\n  cursorflg=0;\n);\n", text: "cs", textsize: 24.0},
-    {name: "Text92", type: "Button", pos: [3.453658536585366, -4.0, -0.7349203075120627], color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 1.0], fillalpha: 0.5042735042735043, script: "cursor=0;", text: "<<", textsize: 24.0},
+    {name: "Text92", type: "Button", pos: [4.0, -3.1884057971014497, -1.0855720488417493], color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 1.0], fillalpha: 0.5042735042735043, script: "cursor=0;", text: "<<", textsize: 24.0},
     {name: "Text81", type: "Button", pos: [-3.95170000649964, 1.7088432460538985, 4.0], color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 1.0], fillalpha: 0.5042735042735043, script: "rowno=rowno+1;\nif(rowno==4,rowno=1);", text: "▼", textsize: 20.0},
     {name: "Text83", type: "Button", pos: [4.0, 1.6795580110497237, -0.8323683040882479], color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 1.0], fillalpha: 0.5042735042735043, script: "varctr=varctr+1;\nif(varctr==5,varctr=1);\nops=[\"Size=10\",\"Color=blue\",\"Msg=n\"];\nPointdata(\"1\",[vx,vyL_(varctr)],ops);\n", text: "Var", textsize: 24.0},
     {name: "Text80", type: "Button", pos: [2.6666666666666665, -4.0, -2.510977717332881], color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 1.0], fillalpha: 0.8205128205128205, script: "varctr=0;\nops=[\"Size=10\",\"Color=red\",\"Msg=n\"];\nPointdata(\"1\",[rx,ryL_(rowno)],ops);\n", text: "Rw", textsize: 24.0},
-    {name: "Text101", type: "Button", pos: [1.605095541401274, -4.0, -0.9596093187259419], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"log\";\n", text: "log*", textsize: 24.0},
-    {name: "Text102", type: "Button", pos: [0.8514851485148515, -4.0, -0.7458349655444202], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"ln\";\n", text: "log", textsize: 24.0},
+    {name: "Text101", type: "Button", pos: [2.358974358974359, -4.0, -0.9603137355138551], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"log\";\n", text: "log*", textsize: 24.0},
+    {name: "Text102", type: "Button", pos: [1.821782178217822, -4.0, -0.7416284294067397], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"ln\";\n", text: "log", textsize: 24.0},
     {name: "Text84", type: "Button", pos: [4.0, 2.412698412698413, -1.1957036749204195], color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 0.0], fillalpha: 0.9145299145299145, script: "varset=1;\n", text: "Set", textsize: 24.0},
     {name: "Text64", type: "Button", pos: [4.0, 2.4984615384615387, 0.4635651170460704], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"equal\";\n", text: "=", textsize: 24.0},
-    {name: "Text71", type: "Button", pos: [0.509090909090909, -4.0, -1.3696242094542987], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"hat\";\n", text: "^(", textsize: 24.0},
-    {name: "Text63", type: "Button", pos: [4.0, 0.9473684210526315, 0.33039180491222125], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"less\";\n", text: "<", textsize: 24.0},
+    {name: "Text71", type: "Button", pos: [1.9819819819819822, -4.0, -1.3496301147762289], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"hat\";\n", text: "^(", textsize: 24.0},
+    {name: "Text63", type: "Button", pos: [4.0, 0.9490022172949002, 0.3321706047453689], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"less\";\n", text: "<", textsize: 24.0},
     {name: "Text52", type: "Button", pos: [4.0, 1.6537678207739306, 0.30684045425656387], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"prime\";\n", text: "'", textsize: 24.0},
-    {name: "Text76", type: "Button", pos: [4.0, 0.8503937007874014, 0.2948994935829949], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"pi\";\n", text: "pi", textsize: 24.0},
+    {name: "Text76", type: "Button", pos: [-0.43636363636363634, -4.0, -1.3618994794560126], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"pi\";\n", text: "pi", textsize: 24.0},
     {name: "Text54", type: "Button", pos: [4.0, 2.6930693069306932, 0.49722331036294687], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"rpar\";\n", text: ")", textsize: 24.0},
     {name: "Text59", type: "Button", pos: [4.0, 2.2569832402234637, 0.4208342543016002], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"period\";\n", text: ".", textsize: 24.0},
     {name: "Text46", type: "Button", pos: [4.0, 2.12275688019542, 0.3948148411499585], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"space\";\n", text: "SP", textsize: 24.0},
-    {name: "Text62", type: "Button", pos: [4.0, 0.8834355828220859, 0.3080954254396174], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"semi\";\n", text: ";", textsize: 24.0},
+    {name: "Text62", type: "Button", pos: [4.0, 0.8907216494845359, 0.3088844180209513], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"semi\";\n", text: ";", textsize: 24.0},
     {name: "Text57", type: "Button", pos: [4.0, 2.9, 0.5380666537141888], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"comma\";\n", text: ",", textsize: 24.0},
     {name: "Text65", type: "Button", pos: [4.0, 1.3626373626373627, 0.3292504236047503], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"great\";\n", text: ">", textsize: 24.0},
-    {name: "Text72", type: "Button", pos: [1.6727272727272728, -4.0, -1.3696242094542987], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"under\";\n", text: "_(", textsize: 24.0},
+    {name: "Text72", type: "Button", pos: [3.1999999999999997, -4.0, -1.3618994794560126], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"under\";\n", text: "_(", textsize: 24.0},
     {name: "Text77", type: "Button", pos: [4.0, 1.9063064727441394, 0.3545568944995376], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"greek\";\n", text: "G", textsize: 24.0},
     {name: "Text20", type: "Button", pos: [4.0, 2.5322580645161294, 0.6040683175006508], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"La\";\n", text: "a", textsize: 24.0},
     {name: "Text21", type: "Button", pos: [4.0, 2.27536231884058, 0.5427860244208746], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"Lb\";\n", text: "b", textsize: 24.0},
@@ -2309,8 +2312,8 @@ var cdy = CindyJS({
     {name: "Text39", type: "Button", pos: [4.0, 1.5544554455445545, 0.37081421470336984], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"Lt\";\n", text: "t", textsize: 24.0},
     {name: "Text67", type: "Button", pos: [-0.70700390263361, -4.0, 0.5535117476034302], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"atmark\";", text: "@ ", textsize: 24.0},
     {name: "Text17", type: "Button", pos: [4.0, 1.1989100817438691, 0.4105140682288089], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"n7\";\n", text: "7", textsize: 24.0},
-    {name: "Text19", type: "Button", pos: [4.0, 1.0186915887850467, 0.3520062220560114], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"n9\";\n", text: "9", textsize: 24.0},
-    {name: "Text18", type: "Button", pos: [4.0, 1.1055276381909547, 0.37853935437179115], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"n8\";\n", text: "8", textsize: 24.0},
+    {name: "Text19", type: "Button", pos: [4.0, 1.0331753554502368, 0.3549974946449322], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"n9\";\n", text: "9", textsize: 24.0},
+    {name: "Text18", type: "Button", pos: [4.0, 1.1224489795918366, 0.3821656702555138], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"n8\";\n", text: "8", textsize: 24.0},
     {name: "Text14", type: "Button", pos: [4.0, 1.5571428571428572, 0.5380666537141888], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"n4\";\n", text: "4", textsize: 24.0},
     {name: "Text15", type: "Button", pos: [4.0, 1.4110032362459548, 0.48756848880250125], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"n5\";\n", text: "5", textsize: 24.0},
     {name: "Text16", type: "Button", pos: [4.0, 1.2899408284023668, 0.44573568946737535], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"n6\";\n", text: "6", textsize: 24.0},
@@ -2344,16 +2347,16 @@ var cdy = CindyJS({
     {name: "Text61", type: "Button", pos: [-1.3267392651760495, -4.0, 0.5514612684346977], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"colon\";", text: ":", textsize: 24.0},
     {name: "Text47", type: "Button", pos: [-1.0193381680343963, -4.0, 0.5535117476034302], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"excl\";", text: "!", textsize: 24.0},
     {name: "Text38", type: "Button", pos: [-3.1189427312775333, -4.0, 0.6636945508368849], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"Ls\";\n", text: "s", textsize: 24.0},
-    {name: "Text56", type: "Button", pos: [-3.168316831683168, -4.0, -0.7458349655444202], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"plus\";\n", text: "+", textsize: 24.0},
+    {name: "Text56", type: "Button", pos: [-3.1840796019900495, -4.0, -0.74531812308538], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"plus\";\n", text: "+", textsize: 24.0},
     {name: "Text58", type: "Button", pos: [-3.8226600985221677, -4.0, -0.7421609016747432], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"minus\";\n", text: "-", textsize: 24.0},
     {name: "Text45", type: "Button", pos: [4.0, 2.810810810810811, 0.6786426263061842], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"Lz\";\n", text: "z", textsize: 24.0},
     {name: "Text11", type: "Button", pos: [4.0, 2.2797927461139897, 0.7806148344040045], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"n1\";\n", text: "1", textsize: 24.0},
     {name: "Text44", type: "Button", pos: [4.0, 3.216494845360825, 0.7765910465977984], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"Ly\";\n", text: "y", textsize: 24.0},
     {name: "Text53", type: "Button", pos: [4.0, 3.196850393700788, 0.5931443426770586], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"lpar\";\n", text: "(", textsize: 24.0},
-    {name: "Text106", type: "Button", pos: [3.1192660550458715, -4.0, -1.382189569174063], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"fr(\";\n", text: "fr(", textsize: 24.0},
+    {name: "Text106", type: "Button", pos: [0.7741935483870968, -4.0, -0.9665093080010412], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"fr(\";\n", text: "fr(", textsize: 24.0},
     {name: "Text96", type: "Button", pos: [4.0, 1.198443579766537, 0.29145708704311557], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"cross\";\n", text: "x", textsize: 24.0, textbold: true},
     {name: "Text120", type: "Button", pos: [4.0, 1.3668341708542713, 0.25093625249608276], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"vec0\";\n\n", text: "vec0", textsize: 24.0},
-    {name: "Text78", type: "Button", pos: [-0.7636363636363637, -4.0, -1.3618994794560126], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"hat0\";\n", text: "^", textsize: 24.0},
+    {name: "Text78", type: "Button", pos: [0.6486486486486487, -4.0, -1.3496301147762289], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"hat0\";\n", text: "^", textsize: 24.0},
     {name: "Text97", type: "Button", pos: [-1.6706010400000268, -4.0, 0.4726667375997434], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"neq\";", text: "/=", textsize: 24.0},
     {name: "Text74", type: "Button", pos: [-1.6318712391996797, -4.0, 0.5494259251575674], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"bracer\";", text: "}", textsize: 24.0},
     {name: "Text73", type: "Button", pos: [-1.9490909090909092, -4.0, 0.5478496837817196], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"bracel\";", text: "{", textsize: 24.0},
@@ -2361,7 +2364,8 @@ var cdy = CindyJS({
     {name: "Text119", type: "Button", pos: [4.0, 1.4698354661791593, 0.27387375272424386], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"vec\";\n\n", text: "vec", textsize: 24.0},
     {name: "Text119'", type: "Button", pos: [4.0, 1.468235294117647, 0.3524916299768503], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"bold\";\n", text: "B", textsize: 24.0},
     {name: "Text121", type: "Button", pos: [4.0, 1.1512915129151293, 0.27640026335823137], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"mat\";\n\n", text: "mat", textsize: 24.0},
-    {name: "Text122", type: "Button", pos: [4.0, 0.7999999999999999, 0.2748787940186448], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"det\";\n\n", text: "det", textsize: 24.0}
+    {name: "Text122", type: "Button", pos: [4.0, 0.7884267631103075, 0.2709022472697313], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"det\";\n\n", text: "det", textsize: 24.0},
+    {name: "Text123", type: "Button", pos: [4.0, 0.8441814595660748, 0.2954811493888785], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 1.0, script: "funflg=1;\nname=\"overline\";\n\n", text: "Ov", textsize: 24.0}
   ],
   ports: [{
     id: "CSCanvas",
