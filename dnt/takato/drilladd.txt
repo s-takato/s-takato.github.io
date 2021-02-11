@@ -1,0 +1,36 @@
+if(newflg==1,
+  queL=[];
+  corL=[];
+  forall(1..5,
+    a=randomint(99)+1;
+    b=randomint(99)+1;
+    c=randomint(2);
+    if(c==1,c="+",c="-");
+    tmp=text(a)+c+text(b);
+    queL=append(queL,tmp);
+    corL=append(corL,parse(tmp));
+  );
+  newflg=0;
+);
+
+px=3.5;
+if(qno>0,
+  Expr([px,4.5],"w",queL_qno+"=",["Size=1.8"]);
+  ans=Textedit(3,"");
+  if((score==1)&(length(ans)>0),
+    if(parse(ans)==corL_qno,
+      msg="正解"; pt="1";
+    ,
+      msg="誤答"; pt="0";
+    );
+    Letter([px,2.5],"w",msg,["Size=1.8"]);
+    recL_qno=text(qno)+","+queL_qno+","+ans+","+pt;
+  );
+);
+
+if(record==1,
+  tmp=sum(recL);
+  Subsedit(4,tmp);
+  record=0;
+);
+

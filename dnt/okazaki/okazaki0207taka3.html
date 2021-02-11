@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+    <title>okazaki0207taka3.cdy</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #CSConsole {
+            background-color: #FAFAFA;
+            border-top: 1px solid #333333;
+            bottom: 0px;
+            height: 200px;
+            overflow-y: scroll;
+            position: fixed;
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cindyjs.org/dist/v0.8/CindyJS.css">
+    <script type="text/javascript" src="https://cindyjs.org/dist/v0.8/Cindy.js"></script>
+    <script type="text/javascript" src="https://cindyjs.org/dist/v0.8/KetCindyPlugin.js"></script>
+<script id="csinit" type="text/x-cindyscript">
+use("KetCindyPlugin");
+Dircdy=loaddirectory;
+setdirectory(gethome());
+import("ketcindy.ini");
+//a1=3-randomint(6);
+//a2=3-randomint(6);
+//a3=3-randomint(6);
+Reflag=1;
+</script>
+<script id="csdraw" type="text/x-cindyscript">
+Ketinit();
+
+//Setketcindyjs(["Label=[]","Color=offwhite"]);//no ketjs
+//注）どちらもデフォルト値だから書かなくても良い．
+
+Seteditable(0,["x=","Size=24","Width=200"]);
+//ss=Animationparam(pi/6,2,[0,2*pi+pi/6]);
+Addax(0);
+//Arrowdata("1",[[0,0],3*[cos(ss),sin(ss)]]);
+
+if(Reflag==1,
+a1=3-randomint(6);
+a2=3-randomint(6);
+a3=3-randomint(6);
+Reflag=0;
+);
+
+b=-(a1+a2+a3);//corrected
+c=a1*a2+a2*a3+a3*a1;
+d=-a1*a2*a3;//corrected
+//println([b,c,d]);
+eq1=Assign("x^3+b*x^2+c*x+d=0",["b",b,"c",c,"d",d]);
+eq2=Assign("x^3+b*x^2+c*x+d=0",
+       ["b",text(b),"c",text(c),"d",text(d)]);
+//println([eq1,eq2]);
+tmp=replace(eq2,"*","");//println(tmp);
+tmp=replace(tmp,"+-","-");//println(tmp);
+tmp=replace(tmp,"+0x^2","");//println(tmp);
+tmp=replace(tmp,"+0x","");//println(tmp);
+tmp=replace(tmp,"+0","");//println(tmp);
+tmp=replace(tmp,"1","");//println(tmp);
+eq3="$"+tmp+"$";
+
+//if(d>1,
+//  eq3="$"+tmp+"$";
+//,
+//  eq3="$"+tmp+"+1$";
+//);
+
+Letter([A,"e",eq3+"を解け"],["size=4"]);
+
+tmp=Assign("a1,a2,a3",
+      ["a1",text(a1),"a2",text(a2),"a3",text(a3)]);
+Letter([[A.x,A.y-4],"e","解は $"+tmp+"$"],["size=4"]);
+ans=sort([a1,a2,a3]);
+
+str="x=1,2,3";
+//str=Textedit(0); //only ketjs
+tmp1=Strsplit(str,"=");
+tmp=tmp1_2;
+if(length(tmp)>0,
+ tmp="["+tmp+"]";
+ tmp=parse(tmp);
+ stans=sort(tmp);
+ if(stans==ans,
+   Letter([[A.x,A.y-6],"e","正解"],["size=4","Color=blue"]);
+ ,
+   Letter([[A.x,A.y-6],"e","不正解"],["size=4","Color=red"]);
+ );
+);
+
+
+Windispg();
+;
+</script>
+    <script type="text/javascript">
+var cdy = CindyJS({
+  scripts: "cs*",
+  defaultAppearance: {
+    dimDependent: 0.7,
+    fontFamily: "sans-serif",
+    lineSize: 1,
+    pointSize: 5.0,
+    textsize: 12.0
+  },
+  angleUnit: "°",
+  geometry: [
+    {name: "SW", type: "Free", pos: [4.0, 2.263345195729568, -0.4720848989043191], color: [1.0, 0.0, 0.0], labeled: true},
+    {name: "NE", type: "Free", pos: [4.0, 2.059405940593965, 0.3283560806735539], color: [1.0, 0.0, 0.0], labeled: true},
+    {name: "A", type: "Free", pos: [4.0, -3.3012048192769825, -0.7991316662175294], color: [1.0, 0.0, 0.0], labeled: true},
+    {name: "Text0", type: "EditableText", pos: [-3.0588235294117645, -4.0, -1.9508214204723178], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 1.0, minwidth: 200, text: "x=", textsize: 24.0},
+    {name: "Text1", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [1.0, 0.286, 0.286], fillalpha: 0.27272728085517883, script: "Viewtex();\nkc();", text: "Figure", textsize: 18.0, dock: {corner: "UL", offset: [10.0, -20.0]}},
+    {name: "Text2", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 0.27272728085517883, script: "if(length(Shellparent)>0,\n  Makeshell(),Makebat();\n);\nif(indexof(Libname,\"sci\")>0,\n  writetosci(2),writetoRS(2)\n);\nkc();", text: "Parent", textsize: 18.0, dock: {corner: "UL", offset: [77.0, -20.0]}},
+    {name: "Text3", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [1.0, 0.929, 0.6], fillalpha: 0.48717948717948717, script: "Parafolder();", text: "ParaF", textsize: 18.0, dock: {corner: "UL", offset: [297.0, -20.0]}},
+    {name: "Text4", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [0.51, 0.949, 1.0], fillalpha: 0.27272728085517883, script: "Mkanimation();", text: "Anime", textsize: 18.0, dock: {corner: "UL", offset: [353.0, -20.0]}},
+    {name: "Text5", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [0.0, 0.0, 1.0], fillalpha: 0.27272728085517883, script: "Mkflipanime();", text: "Flip", textsize: 18.0, dock: {corner: "UL", offset: [422.0, -20.0]}},
+    {name: "Text21", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 1.0], fillalpha: 0.5726495726495726, script: "Mkketcindyjs(append(KETJSOP,\"Web=y\"));", text: "Ketjson", textsize: 18.0, dock: {corner: "UL", offset: [144.0, -20.0]}},
+    {name: "Text22", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 1.0], fillalpha: 0.4358974358974359, script: "Mkketcindyjs(append(KETJSOP,\"Web=n\"));", text: "Ketjsoff", textsize: 18.0, dock: {corner: "UL", offset: [218.0, -20.0]}},
+    {name: "Text6", type: "Button", pos: [4.0, -1.8795180722891565, -0.7991316662175761], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 1.0], fillalpha: 0.27272728085517883, script: "Reflag=1;", text: "新しい問題"}
+  ],
+  ports: [{
+    id: "CSCanvas",
+    width: 1025,
+    height: 454,
+    transform: [{visibleRect: [-12.287433377418289, 7.613685712388019, 18.61960763326575, -6.07587196453935]}],
+    axes: true,
+    grid: 1.0,
+    background: "rgb(168,176,192)"
+  }],
+  csconsole: false,
+  use: ["katex"],
+  cinderella: {build: 1976, version: [3, 0, 1976]}
+});
+    </script>
+</head>
+<body>
+    <div id="CSCanvas"></div>
+</body>
+</html>
