@@ -228,6 +228,9 @@ Toupper(str):=(
   );
   out;
 );
+Setmarklen(ratio):=(
+  MARKLEN=ratio*0.2;//16.11.01
+);
 Addax(param):=(
   ADDAXES=text(param);
 );
@@ -1158,6 +1161,46 @@ Dqq(str):=DqDq(str); //18.02.11
 DqDq(str):=(
   unicode("0022")+str+unicode("0022");
 );
+Htickmark(arglist):=Htickmark(arglist,[]); //190203
+Htickmark(arglist,options):=( //190203
+  regional(nn,tmp,tmp1,tmp2,mark);
+  mark=MARKLEN/SCALEY;
+  tmp1=select(1..(length(arglist)),!isstring(arglist_#)); //180710from
+  forall(tmp1,nn,
+    Listplot("ht"+text(nn),
+        [[arglist_nn,mark],[arglist_nn,-mark]],append(options,"Msg=n"));//191101
+    if(nn+2<=length(arglist),
+      tmp=arglist_(nn+2);
+      if(!isstring(tmp),
+        Expr([[arglist_nn,0],"s1",arglist_(nn+1)],options); //190203
+      ,
+        Expr([[arglist_nn,0],arglist_(nn+1),arglist_(nn+2)],options); //190203
+      );
+    ,
+      Expr([[arglist_nn,0],"s1",arglist_(nn+1)],options); //190203
+    );
+  );//180710to
+);
+Vtickmark(arglist):=Vtickmark(arglist,[]); //190203
+Vtickmark(arglist,options):=( //190203
+  regional(nn,tmp,tmp1,tmp2,mark);
+  mark=MARKLEN/SCALEX;
+  tmp1=select(1..(length(arglist)),!isstring(arglist_#)); //180710from
+  forall(tmp1,nn,
+    Listplot("vt"+text(nn),
+         [[mark,arglist_nn],[-mark,arglist_nn]],append(options,"Msg=n")); //191101
+    if(nn+2<=length(arglist),
+      tmp=arglist_(nn+2);
+      if(!isstring(tmp),
+        Expr([[0,arglist_nn],"w1",arglist_(nn+1)],options); //190203
+      ,
+        Expr([[0,arglist_nn],arglist_(nn+1),arglist_(nn+2)],options); //190203
+      );
+    ,
+      Expr([[0,arglist_nn],"w1",arglist_(nn+1)],options); //190203
+    );
+  );//180710to//  tmp=MakeRarg(arglist);
+);
 Circledata(cenrad):=Circledata(cenrad,[]);
 Circledata(para1,para2):=(
   regional(name,cenrad,options,str,n); 
@@ -1662,6 +1705,7 @@ dL=apply(q2L,length(text(#)));
 <script id="csdraw" type="text/x-cindyscript">
 Ketinit();
 
+Setmarklen(0.1);
 Addax(0);
 
 Slider("S",[0,-0.2],[3,-0.2]);
@@ -1695,10 +1739,15 @@ Listplot("2",[[XMIN,0],[XMIN,YMAX]],["Msg=n"]);
 s=sca(3*S.x);
 N=floor(3*S.x+1);
 
-Expr(A,"e","N="+text(N),["Size=3"]);
-
-Expr([[3/2,0],"s",format(3/(2*s),10)]);
-Expr([[0,1/2],"w",format(1/(2*s),10)]);
+tmp="";
+forall(1..N,
+ tmp=tmp+"\frac{1}{"+text(#)+"^{5}},";
+);
+tmp=substring(tmp,0,length(tmp)-1);
+Expr([0.1,1.5],"e",tmp,["Size=2"]);
+Letter([2.25,0.1],"e","Mag="+round(s),["Size=2"]);
+Htickmark([3/2,format(3/(2*s),10)]);
+Vtickmark([1/2,format(1/(2*s),10)]);
 
 tmp=cvL_N;
 tmp=fcc(tmp_2,tmp_3,s);
@@ -1719,8 +1768,7 @@ forall(1..N,n,
 );
 
 Windispg();
-
-apply(cr3,println(format(#,10)));
+;
 </script>
     <script type="text/javascript">
 var cdy = CindyJS({
@@ -1746,15 +1794,15 @@ var cdy = CindyJS({
   ],
   ports: [{
     id: "CSCanvas",
-    width: 859,
-    height: 482,
-    transform: [{visibleRect: [-0.48594432616597577, 1.7128987786574439, 3.2916681279206594, -0.40678597439233266]}],
+    width: 989,
+    height: 484,
+    transform: [{visibleRect: [-0.48594432616597577, 1.7128987786574439, 3.863367335174748, -0.41558134681162634]}],
     axes: true,
     grid: 0.25,
     background: "rgb(247,247,247)"
   }],
   csconsole: false,
-  cinderella: {build: 1981, version: [3, 0, 1981]}
+  cinderella: {build: 1984, version: [3, 0, 1984]}
 });
     </script>
 </head>

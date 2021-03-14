@@ -140,7 +140,7 @@ LLcrd(pt):=(
 Putpoint(name,Pt):=Putpoint(name,Pt,Pt);
 Putpoint(name,Ptinit,Pt):=(
   regional(ptstr); 
-    ptstr=name+".xy="+Textformat(Pcrd(Pt),5)+";";
+    ptstr=name+".xy="+Textformat(Pcrd(Pt),10)+";";
     parse(ptstr);
     Ptpos(name,Pcrd([Pt_1,Pt_2])); //200529
 );
@@ -228,6 +228,9 @@ Toupper(str):=(
   );
   out;
 );
+Setmarklen(ratio):=(
+  MARKLEN=ratio*0.2;//16.11.01
+);
 Addax(param):=(
   ADDAXES=text(param);
 );
@@ -263,7 +266,7 @@ Slider(ptstr,p1,p2,options):=(//190120
       tmp2=parse(pC).xy;
       if(|tmp2-p1|<0.1,tmp2=p1+0.1*(p2-p1)/|p2-p1|);
       if(|tmp2-p2|<0.1,tmp2=p2+0.1*(p1-p2)/|p1-p2|);
-      tmp=tmp1+"="+textformat(tmp2,6)+";";
+      tmp=tmp1+"="+textformat(tmp2,10)+";";
       parse(tmp);
       parse(pC).xy=tmp2;
     ); //190827to
@@ -716,14 +719,14 @@ Putonseg(name,p1org,p2org,options):=(
   p=parse(name+".xy");
   if(abs(dx)>abs(dy), //190120from
     if(p1_1>p2_1,tmp=p1;p1=p2;p2=tmp);
-    if(p_1<p1_1,parse(name+".xy="+Textformat(p1,5));p=p1);
-    if(p_1>p2_1,parse(name+".xy="+Textformat(p2,5));p=p2);
+    if(p_1<p1_1,parse(name+".xy="+Textformat(p1,10));p=p1);
+    if(p_1>p2_1,parse(name+".xy="+Textformat(p2,10));p=p2);
     tmp=(p2_2-p1_2)/(p2_1-p1_1)*(p_1-p1_1)+p1_2;
     parse(name+".y="+tmp+";"); //190415
   ,
     if(p1_2>p2_2,tmp=p1;p1=p2;p2=tmp);
-    if(p_2<p1_2,parse(name+".xy="+Textformat(p1,5));p=p1);
-    if(p_2>p2_2,parse(name+".xy="+Textformat(p2,5));p=p2);
+    if(p_2<p1_2,parse(name+".xy="+Textformat(p1,10));p=p1);
+    if(p_2>p2_2,parse(name+".xy="+Textformat(p2,10));p=p2);
     tmp=(p2_1-p1_1)/(p2_2-p1_2)*(p_2-p1_2)+p1_1;
     parse(name+".x="+tmp+";"); //190415
   ); //190120to
@@ -1012,7 +1015,7 @@ Expr(listorg,options):=( //16.10.09
         str=replace(str,"¥","\");
       ); 
     ,
-      str=format(str,5)
+      str=format(str,10)
     ); //200526to
     str="$"+str+"$"; //200526
     list_(3*#)=str;
@@ -1059,7 +1062,7 @@ Letter(list,options):=(
     Pos=list_Nj;
     Dir=list_(Nj+1);
     Str=list_(Nj+2);
-    if(!isstring(Str),Str=format(Str,5)); // 16.09.30,10.09
+    if(!isstring(Str),Str=format(Str,10)); // 16.09.30,10.09
     tmp=replace(Str,".xy","");
     tmp=replace(tmp,".x","(1)");
     Str=replace(tmp,".y","(2)");
@@ -1120,7 +1123,7 @@ Letter(list,options):=(
       ); // 
       Str=list_(Nj+2);  //17.10.17
       if(length(color)==4,color=Colorcmyk2rgb(color)); //200523
-      tmp="drawtext("+format(Pcrd(Pos),5)+","+Dqq(Str)+",offset->"+format([Off+Xmv,Off+Ymv],5)+","; //201004from
+      tmp="drawtext("+format(Pcrd(Pos),10)+","+Dqq(Str)+",offset->"+format([Off+Xmv,Off+Ymv],10)+","; //201004from
       tmp1="size->sz,color->colornow,align->aln,bold->bld,italics->ita";
       tmp1=Assign(tmp1,["sz",text(sz),"colornow",text(color),"aln",Dqq(aln),"bld",text(bld),"ita",text(ita)]);
       tmp=tmp+tmp1+");";
@@ -1157,6 +1160,46 @@ Removespace(str):=(
 Dqq(str):=DqDq(str); //18.02.11
 DqDq(str):=(
   unicode("0022")+str+unicode("0022");
+);
+Htickmark(arglist):=Htickmark(arglist,[]); //190203
+Htickmark(arglist,options):=( //190203
+  regional(nn,tmp,tmp1,tmp2,mark);
+  mark=MARKLEN/SCALEY;
+  tmp1=select(1..(length(arglist)),!isstring(arglist_#)); //180710from
+  forall(tmp1,nn,
+    Listplot("ht"+text(nn),
+        [[arglist_nn,mark],[arglist_nn,-mark]],append(options,"Msg=n"));//191101
+    if(nn+2<=length(arglist),
+      tmp=arglist_(nn+2);
+      if(!isstring(tmp),
+        Expr([[arglist_nn,0],"s1",arglist_(nn+1)],options); //190203
+      ,
+        Expr([[arglist_nn,0],arglist_(nn+1),arglist_(nn+2)],options); //190203
+      );
+    ,
+      Expr([[arglist_nn,0],"s1",arglist_(nn+1)],options); //190203
+    );
+  );//180710to
+);
+Vtickmark(arglist):=Vtickmark(arglist,[]); //190203
+Vtickmark(arglist,options):=( //190203
+  regional(nn,tmp,tmp1,tmp2,mark);
+  mark=MARKLEN/SCALEX;
+  tmp1=select(1..(length(arglist)),!isstring(arglist_#)); //180710from
+  forall(tmp1,nn,
+    Listplot("vt"+text(nn),
+         [[mark,arglist_nn],[-mark,arglist_nn]],append(options,"Msg=n")); //191101
+    if(nn+2<=length(arglist),
+      tmp=arglist_(nn+2);
+      if(!isstring(tmp),
+        Expr([[0,arglist_nn],"w1",arglist_(nn+1)],options); //190203
+      ,
+        Expr([[0,arglist_nn],arglist_(nn+1),arglist_(nn+2)],options); //190203
+      );
+    ,
+      Expr([[0,arglist_nn],"w1",arglist_(nn+1)],options); //190203
+    );
+  );//180710to//  tmp=MakeRarg(arglist);
 );
 Circledata(cenrad):=Circledata(cenrad,[]);
 Circledata(para1,para2):=(
@@ -1248,7 +1291,7 @@ Circledata(nm,cenrad,options):=(
       println("generate Circledata "+name);
     );
     tmp1=apply(Out,Pcrd(#));
-    tmp=name+"="+Textformat(tmp1,5)+";"; //190415
+    tmp=name+"="+Textformat(tmp1,10)+";"; //190415,210311
     parse(tmp);
   );
   if(Noflg<3, //190818
@@ -1316,7 +1359,7 @@ Translatedata(nm,plist,mov,optionorg):=(
       tmp1=append(tmp1,tmp);
     );
     if(length(tmp1)==1,tmp1=tmp1_1);
-    tmp=name+"="+Textformat(tmp1,5)+";"; //190415
+    tmp=name+"="+Textformat(tmp1,10)+";"; //190415
     parse(tmp);
   );
   if(Noflg<3, //190818
@@ -1379,7 +1422,7 @@ Windispg(gcLorg):=( //190125
               if(indexof(opcindy,"size")==0, 
                 tmp3=tmp3+",size->"+text(typeL_2);
               ); //190124to
-              tmp="connect("+Textformat(Nk,5)+tmp3+");";//190125
+              tmp="connect("+Textformat(Nk,10)+tmp3+");";//190125
               parse(tmp);
             );
             if((tmp1==1)%(tmp1==2),
@@ -1390,7 +1433,7 @@ Windispg(gcLorg):=( //190125
               );
               tmp3=",dashtype->1"+tmp3;
               forall(1..(length(Nk)-1),
-                tmp="draw("+Textformat([Nk_#,Nk_(#+1)],5)+tmp3+");";
+                tmp="draw("+Textformat([Nk_#,Nk_(#+1)],10)+tmp3+");";
                 parse(tmp);
               );
               if(typeL_(-1)!=1,
@@ -1405,7 +1448,7 @@ Windispg(gcLorg):=( //190125
               );
               tmp3=",dashtype->3"+tmp3;
               forall(1..(length(Nk)-1),
-                tmp="draw("+Textformat([Nk_#,Nk_(#+1)],5)+tmp3+");";
+                tmp="draw("+Textformat([Nk_#,Nk_(#+1)],10)+tmp3+");";
                 parse(tmp);
               );
               if(typeL_3!=1,
@@ -1662,16 +1705,20 @@ dL=apply(q2L,length(text(#)));
 <script id="csdraw" type="text/x-cindyscript">
 Ketinit();
 
+Setmarklen(0.1);
 Addax(0);
-Setwindow([0,3],[0,1.5]);
 
 Slider("S",[0,-0.2],[3,-0.2]);
-inspect(S,"ptsize",6);
+
+s0=[1,1,1,1,6,6,6,6,6,6];
+sL=[1];
+forall(2..(length(s0)),
+  tmp=sL_(-1)*s0_#;
+  sL=append(sL,tmp);
+);
 
 sca(s):=(
- regional(a,sL,psL,sgv,tmp,tmp1);
- a=6;
- sL=[1,1,1,1,a,a^2,a^3,a^4,a^5,a^6];
+ regional(psL,sgv,tmp,tmp1);
  psL=apply(1..(length(sL)),[#-1,sL_#]);
  tmp=psL_(-1)_2;
  sgv=[[s,0],[s,tmp]];
@@ -1692,10 +1739,15 @@ Listplot("2",[[XMIN,0],[XMIN,YMAX]],["Msg=n"]);
 s=sca(3*S.x);
 N=floor(3*S.x+1);
 
-Expr(A,"e","N="+text(N),["Size=3"]);
-
-Expr([[3/2,0],"s",format(3/(2*s),3)]);
-Expr([[0,1/2],"w",format(1/(2*s),3)]);
+tmp="";
+forall(1..N,
+ tmp=tmp+"\frac{1}{"+text(#)+"^{2}},";
+);
+tmp=substring(tmp,0,length(tmp)-1);
+Expr([0.1,1.5],"e",tmp,["Size=2"]);
+Letter([2.25,0.1],"e","Mag="+round(s),["Size=2"]);
+Htickmark([3/2,format(3/(2*s),10)]);
+Vtickmark([1/2,format(1/(2*s),10)]);
 
 tmp=cvL_N;
 tmp=fcc(tmp_2,tmp_3,s);
@@ -1728,8 +1780,7 @@ var cdy = CindyJS({
   geometry: [
     {name: "SW", type: "Free", pos: [0.0, 0.0, 4.0], color: [1.0,1.0,1.0], labeled: false, size: 2.0, border:false },
     {name: "NE", type: "Free", pos: [4.0, 2.0, 1.3333333333333333], color: [1.0,1.0,1.0], labeled: false, size: 2.0, border:false },
-    {name: "S", type: "Free", pos: [0.076447797592, -0.8, 4.0], color: [1.0, 0.0, 0.0], labeled: false, size: 6.0, border: true },
-    {name: "A", type: "Free", pos: [4.0, 3.461928934010034, 2.1248035043718274], color: [1.0, 0.0, 0.0], labeled: false, size: 0.0, border: true },
+    {name: "S", type: "Free", pos: [0.0, -0.8, 4.0], color: [1.0, 0.0, 0.0], labeled: false, size: 6.0, border: true },
     {name: "Text71", type: "Button", pos: [-2.3961352657004826, -4.0, 0.6408495487541914], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 0.737, 0.467], fillalpha: 0.5128205128205128, script: "resetclock();\nplayanimation();\nAnimeflg=1;\nDirflg=1;\nsorg=Current;\n", text: "Play", textsize: 18.0},
     {name: "Text72", type: "Button", pos: [-1.2560386473429952, -4.0, 0.6408495487541914], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 0.737, 0.467], fillalpha: 0.5213675213675214, script: "Animeflg=1-Animeflg;\nif(Animeflg==0,\n  pauseanimation();\n  sorg=sstart;\n,\n  resetclock();\n  playanimation();\n);\n", text: "Pause", textsize: 18.0},
     {name: "Text73", type: "Button", pos: [0.25, -4.0, 0.6377685413082578], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 0.737, 0.467], fillalpha: 0.4700854700854701, script: "sorg=sstart;\nDirflg=-Dirflg;\nAnimeflg=1;\nresetclock();\nplayanimation();\n", text: "Rev", textsize: 18.0},
@@ -1737,15 +1788,15 @@ var cdy = CindyJS({
   ],
   ports: [{
     id: "CSCanvas",
-    width: 855,
-    height: 465,
-    transform: [{visibleRect: [-0.4706317539210581, 1.9040279587567681, 3.6145474298607154, -0.3177361587385824]}],
+    width: 842,
+    height: 453,
+    transform: [{visibleRect: [-0.3891952295537453, 1.6953080338188566, 3.3136565589688933, -0.29684381915116165]}],
     axes: true,
-    grid: 1.0,
+    grid: 0.25,
     background: "rgb(247,247,247)"
   }],
   csconsole: false,
-  cinderella: {build: 1981, version: [3, 0, 1981]}
+  cinderella: {build: 1984, version: [3, 0, 1984]}
 });
     </script>
 </head>
