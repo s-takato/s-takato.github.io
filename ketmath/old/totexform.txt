@@ -1,0 +1,73 @@
+////%Totexform start////
+Totexform(str):=( //210803from[renew]
+//help:Totexform("fr(2,3)");
+  regional(plv,funL,repL,out,head,flg,rep,fun,pre,post,ctr,clv,nn,
+      tmp,tmp1,tmp2,tmp3,tmp4);
+  repL=[ //190515from
+    ["^(",["^{xx}"]], //210805
+    ["fr(",["","\frac{xx}{yy}"]], //210228from
+    ["log(",["\log xx ","\log_{xx} yy"]], //210405
+    ["sq(",["\sqrt{xx}","\sqrt[xx]{yy}"]],
+    ["po(",["","{xx}^{yy}"]],
+    ["sin(",["\sin xx ","\sin^{xx}\! yy "]], //200823[3lines]  //210405
+    ["cos(",["\cos xx ","\cos^{xx}\! yy "]], //210405
+    ["tan(",["\tan xx ","\tan^{xx}\! yy "]]  //210228to  //210405
+  ];
+  out=replace(str,"pi","\pi");
+  head="";
+  flg=0;
+  plv=Bracket(out,"()");
+  if(length(plv)>0,
+    if(plv_1_2==0,
+      head=substring(out,0,plv_1_1);
+      out=substring(out,plv_1_1,length(out));
+      if(substring(out,0,1)=="*",out=substring(out,1,length(out)));
+      plv=Bracket(out,"()");
+    );
+    tmp=plv_(-1);
+    if(tmp_2!=-1,
+      out=str;
+      flg=1;
+    );
+  );
+  if(flg==0,
+    forall(repL,rep,
+      fun=rep_1;
+      ctr=1;
+      tmp=indexof(out,fun);
+      while((tmp>0)&(ctr<40),
+println([39,fun,out]);
+        pre=substring(out,0,tmp-1);
+        out=substring(out,tmp-1,length(out));
+        plv=Bracket(out,"()");
+        tmp=select(plv,#_2==-1);
+        tmp=tmp_1;
+        post=substring(out,tmp_1,length(out));
+        out=substring(out,0,tmp_1);
+        clv=Getlevel(out);
+        clv=select(clv,#_2==1);
+        nn=length(clv)+1;
+println([50,nn,plv,out]);
+        if(nn==1,
+          tmp1=substring(out,plv_1_1,length(out)-1);
+println([53,out,plv,rep_2_1,tmp1]);
+          out=replace(rep_2_1,"xx",tmp1);
+println([54,out]);
+        );
+        if(nn==2,
+          tmp1=substring(out,plv_1_1,clv_1_1-1);
+          tmp2=substring(out,clv_1_1,length(out)-1);
+          tmp=replace(rep_2_2,"xx",tmp1);
+          out=replace(tmp,"yy",tmp2);
+        );
+        out=pre+out+post;
+        tmp=indexof(out,fun);
+        ctr=ctr+1;
+      );
+    );
+  );
+  out=head+out;
+  out=replace(out,"*"," ");
+  out;
+);
+////%Totexform end////

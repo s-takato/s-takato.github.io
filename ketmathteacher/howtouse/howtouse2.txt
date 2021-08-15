@@ -1,0 +1,112 @@
+タイトル::
+
+\setmargin{25}{150}{15}{100}%
+
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%
+new::作成情報
+\slidepage
+
+itemize
+item::[]\Ltab{7zw}{Title}使い方
+item::[]\Ltab{7zw}{Version}2
+item::[]\Ltab{7zw}{Author}高遠節夫
+item::[]\Ltab{7zw}{Date}2021.08.16
+end
+
+%%%%%%%%%%%%%
+new::準備
+%%repeat=3
+\slidepage
+
+enumerate::[(1)]
+item::学生リスト\verb|student.csv|を作成する．\\
+　　番号, 名前, メールアドレス\\
+　または\\
+　　番号, 学籍, 名前, ふりがな, 登録名(姓), 登録名(名), メールアドレス
+item::作業フォルダにmakeans.cdyとmakecard.cdyを入れる．
+item::サブフォルダ「data」を作成して，student.csvを入れる
+end
+
+%%%%%%%%%%%%%
+new::GCでのファイルの作成
+%repeat=3
+\slidepage
+
+layer::{120}{0}
+%[1]::\putnotese{50}{30}{\includegraphics[bb=0.00 0.00 983.00 388.00,width=80mm]{fig/situmon.pdf}}
+%[2]::\putnotese{50}{30}{\includegraphics[bb=0.00 0.00 913.00 600.00,width=75mm]{fig/gearcsv.pdf}}
+%[3]::\putnotese{50}{30}{\includegraphics[bb=0.00 0.00 882.00 591.00,width=75mm]{fig/kaitou.pdf}}
+%%\putnotese{50}{30}{\includegraphics[bb=0.00 0.00 983.00 388.00,width=75mm]{fig/situmon.pdf}}
+end
+
+enumerate::[(1)]
+%[1,-]::item::「質問」で作成する．\\
+%[1,-]::　例えば，\verb|0712-4 不定積分の計算(指数対数)|
+%[2,-]::item::採点を選び，ギヤマークで「これらの成績をcsv形式」\\
+%[2,-]::　例えば　\verb|07124_不定積分の計算指数対数.csv|ができる
+%[3,-]::item::回答のすべてを選択\\
+%[3,-]::textファイルで保存\\
+%[3,-]::　例えば，\verb|07124.txt|
+%[3,-]::item::(2)(3)のファイルを\\dataに入れる．
+end
+
+%%%%%%%%%%%%%
+new::一覧ファイルの作成
+%%repeat=3
+\slidepage
+
+layer::{120}{0}
+\putnotese{60}{-7}{\includegraphics[bb=0.00 0.00 825.00 373.00,width=65mm]{fig/ketgcdata.pdf}}
+end
+
+enumerate::[(1)]
+item::\verb|makeans.cdy|を立ち上げる\vspace{-1mm}
+item::カーソルで枠を順に選びクリック\\
+head(以下 07121とする)表示\vspace{-1mm}
+item::\verb|Mkdata, Makecsv|を押すと，次のファイルがdataにできる．\\
+　\Ltab{35mm}{ans07121.csv}学生名や回答のデータを入れた一覧表(タブ区切り)\\
+　\Ltab{35mm}{ansline07121.txt}すべてのデータを１行にしたファイル\vspace{-1mm}
+item::(2)(3)を繰り返す．\vspace{-1mm}
+item::すべてができたら，\verb|Makerec|を押すと，次のファイルがdataにできる．\\
+（後でrecord07121.csvなどを作成するときに用いる）\\
+　\Ltab{35mm}{rec0712.r}採点コメントを入れた１行データをタブ区切りに直す\\
+　\Ltab{35mm}{reckc0712...}上の実行バッチ(record0721.csvなどすべてを作成)
+end
+
+%%%%%%%%%%%%%
+new::採点コメントの追加
+%repeat=4
+\slidepage
+
+layer::{120}{0}
+%[1]::\putnotese{65}{5}{\includegraphics[bb=0.00 0.00 1043.00 487.00,width=65mm]{fig/ketmath1.pdf}}
+%[2]::\putnotese{65}{5}{\includegraphics[bb=0.00 0.00 1043.00 487.00,width=65mm]{fig/ketmath2.pdf}}
+%[3,-]::\putnotese{65}{5}{\includegraphics[bb=0.00 0.00 1043.00 487.00,width=65mm]{fig/ketmath3.pdf}}
+end
+
+enumerate::[(1)]
+item::ketmathtoffL.htmlを立ち上げる．\vspace{-0.5mm}
+item::ansline07121.txtのすべてを選択\\
+コピーして最下段の入力窓に入れる．\vspace{-0.5mm}
+%[2,-]::item::＜＞で学生番号を変えて得点(Sc) \\
+%[2,-]::とコメント(2段目)を追加する．\vspace{-0.5mm}
+%[3,-]::item::Recボタンを押すと最下段にすべてのデータ(1行形式)が入る．\vspace{-0.5mm}
+%[4,-]::item::すべてを選択してコピーする．\vspace{-0.5mm}
+%[4,-]::item::ansline07121.txtの2行目にコピーして保存する．\vspace{-0.5mm}
+%[4,-]::item::すべての問題番号で同様に行う．
+end
+
+%%%%%%%%%%%%%
+new::結果ファイル(配付)の作成
+%%repeat=4
+\slidepage
+
+enumerate::[(1)]
+item::dataのkcrec0712をダブルクリックするとすべての課題のcsvができる．\\
+　record071121.csv, ...
+item::makecard.cdyを立ち上げて，Makedata,Makefileを順に押す．\\
+・dataにcardフォルダができる．\\
+・各学生に配付する結果ファイルが入る．
+end

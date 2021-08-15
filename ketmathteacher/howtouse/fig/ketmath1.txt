@@ -1,0 +1,8 @@
+%%Title: ketmath1.pdf
+%%Creator: extractbb 20210318
+%%BoundingBox: 0 0 1043 487
+%%HiResBoundingBox: 0.000000 0.000000 1043.000000 487.000000
+%%PDFVersion: 1.4
+%%Pages: 1
+%%CreationDate: Mon Aug  9 13:24:30 2021
+

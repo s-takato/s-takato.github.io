@@ -1,0 +1,139 @@
+//         20210619
+
+Shift=0;
+keytype=1;
+capflg=0;
+greflg=0;
+boldflg=0;
+vecflg=0;
+
+nch=2;
+ch=2;
+posyL=[18,-3];
+px=-15;
+nt=4;
+tposL=apply(1..nt,[px,14-3.5*(#-1)]);
+
+//  only for kemath
+
+ // no ketjs on 
+Seteditable(1,["","Size=24","Width=850"]);
+Seteditable(2,["","Size=24","Width=850"]);
+//Seteditable(3,["File=","Size=24","Width=300"]);
+//Seteditable(4,["","Size=24","Width=900"]);
+// no ketjs off
+
+Keyname():=(
+  regional(nL,tmp1);
+  nL=[
+    ["°","＠","[","]","|","d","e","f","g","a","b","c","sin","sq",")","7","8","9","＋","lim"],
+    ["$\times$","!","{","}","$\neq$","h","i","j","k","x","y","z","cos","fr",",","4","5","6","ー","int"],
+    ["・",":",";","$\leq$","$\geq","l","m","n","o","r","s","t","tan","tfr","(","1","2","3","＊","'"],
+    ["\","$\pm$","$\mp$","<",">","p","q","u","v","w","_","=","log","pi","^","0",".","sp","／","$\infty$"]
+  ];
+  if(Shift==1,
+    nL_1_20="mat"; nL_2_20="det"; nL_3_20="$\sum$"; nL_4_20="$\circ$";
+  );
+  if(keytype==2,
+    tmp1=["D","E","F","G","A","B","C"]; forall(1..7,nL_1_(#+5)=tmp1_#);
+    tmp1=["H","I","J","K","X","Y","Z"]; forall(1..7,nL_2_(#+5)=tmp1_#);
+    tmp1=["L","M","N","O","R","S","T"]; forall(1..7,nL_3_(#+5)=tmp1_#);
+    tmp1=["P","Q","U","V","W"]; forall(1..5,nL_4_(#+5)=tmp1_#);
+  );
+  if(keytype==3,
+    tmp1=["$\Delta$","$\delta$","$\varepsilon$","$\varphi$","$\alpha$","$\beta$","$\gamma$"];
+    forall(1..7,nL_1_(#+5)=tmp1_#);
+    tmp1=["$\Theta$","$\theta$","$\chi$","$\xi$","$\kappa$","$\iota$","$\zeta$"];
+    forall(1..7,nL_2_(#+5)=tmp1_#);
+    tmp1=["$\lambda","$\mu$","$\nu$","$\omega$","$\rho$","$\sigma$","$\tau$"];
+    forall(1..7,nL_3_(#+5)=tmp1_#);
+    tmp1=["$\Psi$","$\psi$","$\Phi$","$\Lambda$","$\Omega$"];
+    forall(1..5,nL_4_(#+5)=tmp1_#);
+  );
+  if(keytype==4,
+    tmp1=apply(6..12,"$\mathbf{"+nL_1_#+"}$");
+    forall(1..7,nL_1_(#+5)=tmp1_#);
+    tmp1=apply(6..12,"$\mathbf{"+nL_2_#+"}$");
+    forall(1..7,nL_2_(#+5)=tmp1_#);
+    tmp1=apply(6..12,"$\mathbf{"+nL_3_#+"}$");
+    forall(1..7,nL_3_(#+5)=tmp1_#);
+    tmp1=apply(6..10,"$\mathbf{"+nL_4_#+"}$");
+    forall(1..5,nL_4_(#+5)=tmp1_#);
+  );
+  if(keytype==5,
+    tmp1=apply(6..12,"$\vec{"+nL_1_#+"}$");
+    forall(1..7,nL_1_(#+5)=tmp1_#);
+    tmp1=apply(6..12,"$\vec{"+nL_2_#+"}$");
+    forall(1..7,nL_2_(#+5)=tmp1_#);
+    tmp1=apply(6..12,"$\vec{"+nL_3_#+"}$");
+    forall(1..7,nL_3_(#+5)=tmp1_#);
+    tmp1=apply(6..10,"$\vec{"+nL_4_#+"}\;$");
+    forall(1..5,nL_4_(#+5)=tmp1_#);
+  );
+  nL;
+);
+
+
+
+///////
+Manifun=["Allclear()","Clearnow()","Delete()","Push()","Pull()"];
+
+Allclear():=(
+  StrL_ch="";
+  StrpL_ch="";
+  npos=0;
+  Subsedit(ch,"");
+);
+
+Clearnow():=(
+  StrL_ch="";
+  npos=0;
+  Subsedit(ch,"");
+);
+
+Delete():=(
+  regional(tmp1,tmp2,strnow);
+  if(npos>0,
+    strnow=StrL_ch;
+    tmp1=substring(strnow,0,npos-1);
+    tmp2=substring(strnow,npos,length(strnow));
+    StrL_ch=tmp1+tmp2;
+    strnow=StrL_ch;
+    Subsedit(ch,strnow);
+    npos=npos-1;
+    funflg=0;
+  ,
+    Pull();
+    npos=length(StrL_ch);
+    Delete();
+  );
+);
+
+Push():=(
+  regional(tmp,tmp1);
+  tmp1=StrL_ch;
+  tmp=indexof(tmp1,"//");
+  if(tmp==0,
+    StrpL_ch=StrpL_ch+tmp1+"//";
+    StrL_ch="";
+    npos=0;
+  ,
+    StrpL_ch=StrpL_ch+substring(tmp1,0,tmp+1);
+    StrL_ch=substring(tmp1,tmp+1,length(tmp1));
+    npos=max([0,npos-(tmp+1)]);
+  );
+  Subsedit(ch,StrL_ch);
+);
+
+Pull():=(
+  regional(tmp,tmp1,tmp2);
+  tmp1=StrpL_ch;
+  tmp=indexall(tmp1,"//");
+  if(length(tmp)>1,tmp=tmp_(-2)+1,tmp=0);
+  tmp2=substring(tmp1,0,tmp);
+  StrpL_ch=tmp2;
+  tmp1=substring(tmp1,tmp,length(tmp1));
+  StrL_ch=tmp1+StrL_ch;
+  npos=length(tmp1)+npos;
+  Subsedit(ch,StrL_ch);
+);

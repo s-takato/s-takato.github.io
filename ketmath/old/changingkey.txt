@@ -1,0 +1,115 @@
+// no ketjs on
+if(1==0,
+  txtkey=remove(allelements(),allpoints());
+  keyL=[];
+  forall(txtkey,
+    tmp=replace(#.name,"Text","");
+    tmp=parse(tmp);
+    keyL=append(keyL,
+      [tmp,#.name,inspect(#,"text.text"),inspect(#,"textsize")]);
+  );
+  keyL=sort(keyL,[#_1]);
+  if(!isexists(Dircdy,"keylist.csv"),
+    setdirectory(Dircdy);
+    fid=openfile("keylist.csv");
+    forall(keyL,
+      tmp=Assign("a,b,c,d",["a",#_1,"b",#_2,"c",#_3,"d",#_4]);
+      tmp=replace(tmp,"(","");
+      tmp=replace(tmp,")","");
+      println(tmp);
+      println(fid,tmp);
+    );
+    closefile(fid);
+  );
+);
+
+if(1==0,
+  tmp1=Readlines(Dircdy,"keylistnew.csv");
+  keyL=[];
+  forall(tmp1,
+    tmp=tokenize(#,",");
+    keyL=append(keyL,tmp);
+  );
+  keyL=select(keyL,(#_1>9)&(#_1<100));
+  forall(keyL,key,
+    tmp="inspect("+parse(key_2)+","+Dqq("textsize")+",18);";
+    parse(tmp);
+    tmp="inspect("+parse(key_2)+","+Dqq("text.text")+","+key_3+");";
+    parse(tmp);
+  );
+);
+
+if(1==0,
+key=[10,11,12,13,14,15,16,17,18,19,20,21,
+22,
+23,
+24,
+25,
+26,
+27,
+28,
+29,
+30,
+32,
+33,
+34,
+35,
+36,
+37,
+38,
+39,
+40,
+41,
+42,
+43,
+44,
+45,
+46,
+47,
+48,
+49,
+50,
+51,
+52,
+53,
+54,
+55,
+56,
+57,
+58,
+59,
+60,
+61,
+62,
+63,
+64,
+65,
+67,
+68,
+69,
+70,
+72,
+73,
+74,
+75,
+76,
+78,
+79,
+80,
+81,
+82,
+83,
+84,
+85,
+86,
+87,
+88,
+89,
+90];
+
+forall(key,
+  tmp1=parse("Text"+text(#));
+  inspect(tmp1,"fillalpha",0.1);
+);
+
+);// no ketjs off

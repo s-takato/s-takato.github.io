@@ -1,0 +1,379 @@
+//         20210514
+
+Modifyfortex(str):=(
+  regional(rep1L,rep2L,nn,tmp,tmp1,out);
+  rep1L=["(sp)","(cross)","(cdot)","(deg)","(neq)",
+         "(geq)","(leq)","(pm)","(mp)"];
+  rep2L=["\;","{\times} ","{\cdot} ","^{\circ} ","{\neq} ",
+         "{\geq} ","{\leq} ","{\pm} ","{\mp} "];
+  out=str;
+  forall(1..(length(rep1L)),nn,
+    out=replace(out,rep1L_nn,rep2L_nn);
+  );
+  out;
+);
+
+Togreek(str):=(
+  regional(chr,alph,Alph,grk,Grk,out,flg,tmp);
+  alph="abgdezhtiklmnxprstufcqov";
+  grk=["alpha","beta","gamma","delta","epsilon","zeta",
+       "eta","theta","iota","kappa","lambda","mu","nu",
+       "xi","pi","rho","sigma","tau","upsilon",
+       "phi","chi","psi","omega","varphi"];
+  Alph="GDTLPSFQO";
+  Grk=["Gamma","Delta","Theta","Lambda","Pi",
+       "Sigma","Phi","Psi","Omega"];
+  out="";
+  forall(1..(length(str)),
+    chr=str_#;
+    flg=0;
+    tmp=indexof(alph,chr);
+    if(tmp>0,
+      out=out+"\"+grk_(tmp)+" ";
+      flg=1;
+    );
+    if(flg==0,
+      tmp=indexof(Alph,chr);
+      if(tmp>0,
+        out=out+"\"+Grk_(tmp)+" ";
+        flg=1;
+      );
+    );
+    if(flg==0,out=out+chr);
+  );
+  out;
+);
+
+Noascii(str):=(
+  regional(ascii,out,tmp,tmp1);
+  ascii=apply(32..126,unicode(text(#),base->10));
+  out="";
+  forall(1..(length(str)),
+    tmp=Op(#,str);
+    if(!contains(ascii,tmp),
+      out=out+tmp;
+    );
+  );
+  out;
+);
+
+//tmp1=32..126;
+//tmp=(65..90)++(97..122);
+//tmp1=remove(tmp1,tmp);
+//alpha=apply(tmp,unicode(text(#),base->10));
+//tmp=[46]++(48..57);
+//tmp1=remove(tmp1,tmp);
+//numer=apply(tmp,unicode(text(#),base->10));
+
+Charstyle(str):=(
+  regional(ctr,tmp,tmp1,tmp2,tmp3,out);
+  out=str;
+  tmp=indexof(out,"{C}");
+  ctr=0;
+  while((tmp>0)&(ctr<20),
+    tmp3=substring(out,tmp+2,tmp+3);
+    tmp3=Toupper(tmp3);
+    tmp3=substring(out,0,tmp-1)+tmp3;
+    out=tmp3+substring(out,tmp+3,length(out));
+    tmp=indexof(out,"{C}");
+    ctr=ctr+1;
+  );
+  tmp=indexof(out,"{G}");
+  ctr=0;
+  while((tmp>0)&(ctr<20),
+    tmp3=substring(out,tmp+2,tmp+3);
+    tmp3=Togreek(tmp3);
+    tmp3=substring(out,0,tmp-1)+tmp3;
+    out=tmp3+substring(out,tmp+3,length(out));
+    tmp=indexof(out,"{G}");
+    ctr=ctr+1;
+  );
+  tmp=indexof(out,"{B}");
+  ctr=0;
+  while((tmp>0)&(ctr<20),
+    tmp3=substring(out,tmp+2,tmp+3);
+    tmp3="\mathbf{"+tmp3+"}";
+    tmp3=substring(out,0,tmp-1)+tmp3;
+    out=tmp3+substring(out,tmp+3,length(out));
+    tmp=indexof(out,"{B}");
+    ctr=ctr+1;
+  );
+  out;
+);
+
+Addat(str):=(
+  regional(ascii,out,flg,tmp);
+  ascii=apply(32..126,unicode(text(#),base->10));
+  ascii=remove(ascii,["@"]);
+  out="";
+  flg=0;
+  forall(1..(length(str)),
+    tmp=str_#;
+    if(tmp=="@",
+      flg=1-flg
+    ,
+      if(!contains(ascii,tmp),
+        if(flg==0,
+          tmp="@"+tmp+"@";
+        );
+      );
+    );
+    out=out+tmp;
+  );
+  out=replace(out,"@@","");
+  out;
+);
+
+Sepchar(strorg):=(
+  regional(str,out,flg,err,tmp,tmp1,tmp2);
+  str=Addat(strorg);
+  err="";
+  out=[];
+  tmp1=Indexall(str,"@");
+  tmp=length(tmp1);
+  if((length(str)==0)%(tmp==0)%(mod(tmp,2)==1),
+    if((length(str)==0)%(tmp==0),
+      if(length(str)==0,out=[],out=[str]);
+    ,
+      err="@の数";
+    );
+  ,
+    tmp=tmp1_1;
+    if(tmp>1,
+      out=[substring(str,0,tmp-1)];
+    );
+    start=tmp;
+    flg=1;
+    forall(2..(length(tmp1)),
+      if(flg==1,
+        tmp2=substring(str,start-1,tmp1_#-1);
+      ,
+        tmp2=substring(str,start,tmp1_#-1);
+      );
+      out=append(out,tmp2);
+      start=tmp1_#;
+      flg=1-flg;
+    );
+    if(start<length(str),
+      tmp2=substring(str,start,length(str));
+      out=append(out,tmp2);
+    );
+  );
+  [out,err];
+);
+
+Instr(key):=(
+  regional(out,tmp,tmp1);
+  if(length(key)==1,out=key);
+  if(length(key)==2,
+    tmp=substring(key,0,1);
+    tmp1=substring(key,1,2);
+    if((tmp=="L")%(tmp=="n"),
+      out=tmp1;
+      if(capflg==1,
+        if((out>="a")&(out<="z"),
+          out=Toupper(out);
+        );
+//        tmp=StrL_chno;
+//        StrL_chno=substring(tmp,0,length(tmp)-3);
+        capflg=0;
+      );
+    ,
+      out=key;
+    );
+  );
+  if(length(key)>=3,
+    out=key;
+    if(indexof(key,"()")>0,
+      if(indexof(key,"Delete")>0,out="";Delete());
+      if(indexof(key,"Allclear")>0,out="";Allclear());
+    );
+  );
+  out;
+);
+
+Greekletter(str):=(
+  regional(tmp,tmp1,tmp2,tmp3,tmp4,out,ctr);
+  out=replace(str,"g r(","gr(");
+  tmp2=indexof(out,"gr(");
+  ctr=1;
+  while((tmp2>0)&(ctr<100),
+    tmp=Bracket(out,"()");
+    tmp=select(tmp,(tmp2<#_1)&(#_2<0));
+    tmp3=tmp_1_1;
+    tmp=substring(out,tmp2+2,tmp3-1);
+    tmp4=Togreek(tmp);
+    tmp=substring(out,0,tmp2-1)+tmp4;
+    out=tmp+substring(out,tmp3,length(out));
+    tmp2=indexof(out,"gr(");
+    ctr=ctr+1;
+  );
+  out;
+);
+
+Capitalletter(str):=(
+  regional(tmp,tmp1,tmp2,tmp3,tmp4,out,ctr);
+  out=replace(str,"c a(","ca(");
+  tmp2=indexof(out,"ca(");
+  ctr=1;
+  while((tmp2>0)&(ctr<100),
+    tmp=Bracket(out,"()");
+    tmp=select(tmp,(tmp2<#_1)&(#_2<0));
+    tmp3=tmp_1_1;
+    tmp=substring(out,tmp2+2,tmp3-1);
+    tmp4=Toupper(tmp);
+    tmp=substring(out,0,tmp2-1)+tmp4;
+    out=tmp+substring(out,tmp3,length(out));
+    tmp2=indexof(out,"ca(");
+    ctr=ctr+1;
+  );
+  out;
+);
+
+Boldletter(str):=(
+  regional(tmp,tmp1,tmp2,tmp3,tmp4,out,ctr);
+  out=replace(str,"b o(","bo(");
+  tmp2=indexof(out,"bo(");
+  ctr=1;
+  while((tmp2>0)&(ctr<100),
+    tmp=Bracket(out,"()");
+    tmp=select(tmp,(tmp2<#_1)&(#_2<0));
+    tmp3=tmp_1_1;
+    tmp=substring(out,tmp2+2,tmp3-1);
+    tmp4="\mathbf{"+tmp+"}";
+    tmp=substring(out,0,tmp2-1)+tmp4;
+    out=tmp+substring(out,tmp3,length(out));
+    tmp2=indexof(out,"bo(");
+    ctr=ctr+1;
+  );
+  out;
+);
+
+Gettexform(str):=(
+  regional(err,subL,strt,tmp,tmp1,tmp2,tmp3,tmp4);
+  err="";
+  tmp=Sepchar(str);
+  subL=tmp_1;
+  err=tmp_2;
+  strt="";
+  forall(subL,
+    if(substring(#,0,1)=="@",
+      strt=strt+substring(#,1,length(#));
+    ,
+      tmp=#;
+      tmp=replace(#," ","(sp)");
+      tmp=Modifyfortex(tmp);
+      tmp=Addasterisk(tmp);
+      tmp1=Totexform(tmp);
+      tmp1=replace(tmp1,"c i r c","\circ");
+      tmp1=replace(tmp1,"\frac","\dfrac");
+      tmp1=Greekletter(tmp1); //210514[3lines]
+      tmp1=Capitalletter(tmp1);
+      tmp1=Boldletter(tmp1);
+      strt=strt+"$"+tmp1+"$";
+    );
+  );
+  strt;
+);
+
+Dispposition(pos,npos,str):=(
+  regional(tmp,tmp1,tmp2,dp,p1,p2,p3,p4);
+  dp=[0,3];
+  tmp=[0.1,0];
+  p1=pos-tmp;  p2=pos+tmp;
+  p3=p1+dp; p4=p2+dp;
+  Listplot("-disp",[p1,p2,p4,p3,p1],["nodisp"]);
+  Shade(["disp"],["Color=red"]);
+  if(length(str)>0,
+    tmp=max([0,npos-4]);
+    tmp1=substring(str,tmp,npos);
+    tmp=min([length(str),npos+4]);
+    tmp2=substring(str,npos,tmp);
+    p1=pos+1/3*dp;
+    drawtext(p1,tmp1,size->24,align->"right");
+    drawtext(p1,tmp2,size->24,align->"left");
+  );
+);
+
+Addfunstr(name,npos,strnow):=(
+  regional(str,tmp,out);
+  str=Instr(name);
+  tmp="";
+  tmp=substring(strnow,0,npos)+str;
+  tmp=tmp+substring(strnow,npos,length(strnow));
+  out=[tmp,npos+length(str)];
+  funflg=0;
+  out;
+);
+
+Keytable():=(
+  regional(xL,yL);
+  xL=apply(1..20,35);
+  yL=apply(1..4,30);
+  Tabledata("1",xL,yL,[],[0,"Setwin=n","Move=[SW.x+3.5,SW.y]",""]);
+  Tlistplot("t1",["c0r0","c20r0","c20r4","c0r4","c0r0"],["nodisp"]);
+  Shade(["sgt1"],["Color=yellow"]);
+  Tabledata("2",xL,yL,[],[0,"Setwin=n","Move=[SW.x+3.5,SW.y]"]);
+);
+
+chno=4;
+funflg=0;
+texflg=0;
+capflg=0;
+initflg=1;
+initpos=4;
+StrL=["","","",""];
+strnow="";
+npos=0;
+
+Allclear():=(
+  StrL_chno="";
+  strnow="";
+  npos=0;
+  Subsedit(chno,"");
+  funflg=0;
+);
+
+Delete():=(
+  regional(tmp1,tmp2);
+  if(npos>0,
+    tmp1=substring(strnow,0,npos-1);
+    tmp2=substring(strnow,npos,length(strnow));
+    StrL_chno=tmp1+tmp2;
+    strnow=StrL_chno;
+    Subsedit(chno,strnow);
+    npos=npos-1;
+    funflg=0;
+  );
+);
+
+//  only for kemath
+
+ // no ketjs on 
+Seteditable(1,["","Size=24","Width=800"]);
+Seteditable(2,["","Size=24","Width=800"]);
+Seteditable(3,["","Size=24","Width=800"]);
+Seteditable(4,["","Size=24","Width=920"]);
+//Seteditable(8,["","Size=24","Width=35"]);
+// no ketjs off
+//no ketjs on
+if(1==0, 
+  key=(10..90)++[94,95];
+  key=remove(key,[32,66,71,77]);
+  forall(key,
+    tmp=parse("Text"+#);
+    inspect(tmp,"textsize",22);
+  );
+);
+if(1==0,
+  key=101..104;
+  forall(key,
+    tmp=parse("Text"+#);
+    nn=#-100;
+    inspect(tmp,"button.script","chno="+text(nn)+";initflg=1;");
+  );
+);
+//no ketjs off
+
+
+

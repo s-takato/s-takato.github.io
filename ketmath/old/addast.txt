@@ -1,0 +1,184 @@
+////%Addasterisk start////
+Addasterisk(strorg):=(
+//help:Addasterisk("ax^2+bx+c");
+  regional(pL,sL,funL,fn,sgnL,numL,alphaL,type,res,res2,
+      str0,str,f,k,n1,n2,sub,tmp,tmp1,tmp2,ctr,out,s,flg,repL);
+  str0=replace(strorg,"  ","*");
+  str=str0;
+  repL=[];  //210405from
+  ctr=1;
+  tmp=indexof(str,"\"); //210514from
+  while((tmp>0)&(ctr<50),
+    res=substring(str,tmp,length(str));
+    str=substring(str,0,tmp-1);
+    tmp1="\";
+    flg=0;
+    while(flg==0,
+      flg=1;
+      if(length(res)>0,
+        tmp=Toupper(res_(1));
+        if((tmp>="A")&(tmp<="Z"),
+          tmp1=tmp1+res_(1);
+          res=substring(res,1,length(res));
+          flg=0;
+        );
+      );
+    );
+    if(substring(res,0,1)==" ",
+      res=substring(res,1,length(res));
+    );  //210514to
+    repL=append(repL,tmp1);
+    tmp="#"+text(length(repL))+"#";
+    str=str+tmp+res;
+    tmp=indexof(str,"\");
+    ctr=ctr+1;
+  );  //210405to
+  str=replace(str," ","*");
+  str=replace(str,"pi","%");
+  funL=["sin","cos","tan","log","fr","sq","exp"]; //210227to
+  sgnL=["+","-","*","/","^"];
+  numL=append(apply(0..9,text(#)),"."); //210226
+  tmp1=32..126;
+  tmp=(65..90)++(97..122);
+  tmp1=remove(tmp1,tmp);
+  alphaL=apply(tmp,unicode(text(#),base->10));
+  alphaL=concat(alphaL,["%"]);
+  str="$"+str;
+  pL=Bracket(str);
+  pL=concat(pL,[[length(str),0]]);
+  pL=concat([[1,0]],pL);
+  out=[];
+  forall(1..(length(pL)-1),k,
+    tmp=pL_k; n1=tmp_1; l1=tmp_2;
+    tmp=pL_(k+1); n2=tmp_1; l2=tmp_2;
+    sub=substring(str,n1-1,n2);
+    out=append(out,sub);
+  );
+  forall(1..(length(pL)-1),k,
+    sub=out_k;
+    if(length(sub)>0,
+      res=sub_(-1);
+      sub=substring(sub,0,length(sub)-1);
+    ,
+      res=""
+    );
+    forall(funL,f,
+      tmp=indexof(sub,f);
+      if(tmp>0,
+        res=substring(f,0,length(f))+"(";
+        sub=substring(sub,0,tmp-1);
+      );
+    );
+    ctr=1;
+    while((length(sub)>0)&(ctr<200),
+      tmp1=sub_(-1);
+      tmp2=res_1;
+      sub=substring(sub,0,length(sub)-1);
+      if(contains(alphaL,tmp2),
+        tmp=concat(alphaL,numL);
+        tmp=concat(tmp,[")"]);
+        if(contains(tmp,tmp1),
+          res="*"+res;
+        );
+      );
+      if(contains(numL,tmp2),
+        tmp=concat(aphaL,[")"]);
+        if(contains(tmp,tmp1),
+          res="*"+res;
+        );
+      );
+      res=tmp1+res;
+      ctr=ctr+1;
+    );
+    out_k=substring(res,1,length(res));
+  );
+  res="";
+  forall(out,
+    res=res+#;
+  );
+  out=replace(res,"%","pi");
+  out=replace(out,"$","");
+  forall(1..(length(repL)),n1,  //210405from
+    out=replace(out,"#"+text(n1)+"#",repL_n1);
+  ); //210405to
+  str0=out; //210716(moved)from
+  funL=["sin","cos","tan","log"]; 
+  sgnL=["-","+","*"];
+  forall(funL,f,
+    str="";
+    res=str0; res2="";
+    ctr=1;
+    while((indexof(res,f)>0)&(ctr<100),
+      tmp1=indexof(res,f);
+      str=str+substring(res,0,tmp1+2);
+      res=substring(res,tmp1+2,length(res));
+      if(res_1==" ",
+        str=str+"(";
+        res=substring(res,1,length(res));
+        tmp=indexof(res," ");
+        if(tmp>0,
+          str=str+substring(res,0,tmp-1)+")";
+          res=substring(res,tmp,length(res));
+        ,
+          str=str+res+")";
+          res="";
+        );
+      );
+      if(res_1=="(",
+        type=1;
+        tmp1=bracket(res,"()");
+        tmp=select(tmp1,#_2==-1); //210611from
+        if(length(tmp)>0,
+          tmp=tmp_1_1;
+          res2=substring(res,tmp,length(res));
+          res=substring(res,0,tmp);
+        ,
+          res2="";
+        );
+        tmp2=Indexall(res,","); //210611from
+        tmp2=Getlevel(res,",");
+        tmp2=select(tmp2,#_2==1);
+        if(length(tmp2)>0,
+          tmp2=tmp2_1_1;
+          str=str+substring(res,0,tmp2);
+          res="("+substring(res,tmp2,length(res));
+          tmp1=bracket(res,"()");
+          type=2;
+        );  //210611to
+        tmp1=select(tmp1,#_2==-1);
+        if(length(tmp1)>0,tmp1=tmp1_1_1,tmp1=0);
+        flg=0;
+        forall(sgnL,s,
+          if(flg==0,
+            tmp=substring(res,0,tmp1);
+            tmp2=Getlevel(tmp,s); //210405
+            if(length(tmp2)>0,
+              tmp2=select(tmp2,#_2==1);
+              if(length(tmp2)>0,tmp2=tmp2_1_1,tmp2=0);
+              if(tmp2<tmp1, //210302
+                if(type==2,
+                  res=substring(res,1,tmp1-1)+"))"+substring(res,tmp1,length(res)); //210611
+                  str=str+"("; //210611
+                ,
+                  res=substring(res,1,tmp1-1)+"))"+substring(res,tmp1,length(res)); //210611
+                  str=str+"(("; //210611
+                );
+                flg=1;
+              );
+            );
+          );
+        );
+        if((flg==0)&(type==2), //210611from
+          str=str+substring(res,1,tmp1);
+          res=substring(res,tmp1,length(res));
+        ); //210611to
+      );
+      res=res+res2;
+      ctr=ctr+1;
+    );
+    str0=str+res;
+  );
+  out=str0; //210716(moved)to
+  out;
+);
+////%Addasterisk end////

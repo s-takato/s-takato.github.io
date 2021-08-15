@@ -1,0 +1,163 @@
+//Ketinit("");
+Ketinit();
+
+Setketcindyjs(["Label=[]","Color=offwhite"]);//no ketjs on
+Ketcindyjsbody([],
+["<footer>","<p><small>&copy; 2021 Setsuo Takato</small></p>","</footer>"]);
+Seteditable(1,["","Size=24","Width=800"]);
+Seteditable(2,["","Size=24","Width=800"]);
+Seteditable(3,["","Size=24","Width=800"]);
+Seteditable(4,["","Size=24","Width=840"]);
+//Seteditable(8,["","Size=24","Width=35"]);
+// no ketjs off
+
+/////////////////////////////////////////////
+
+Setwindow([-20,50],[-17,15]);
+Addax(0);
+
+posx=-17;
+if(chno<=3,
+  posy=8;
+  dposy=2;
+,
+  posy=-0.2;
+  dposy=-2;
+);
+
+posyL=[17.3,14,11.3,-3];
+pos=[-17,posyL_chno];
+Circledata("1",[pos,0.5],["Num=20","Color=red","Msg=n"]);
+Shade(["cr1"],["Color=red"]);
+
+
+strL=[];
+forall([1,2,3,4],
+  strL=append(strL,Textedit(#,""));
+);
+
+//StrL=["sin(x)","",""];
+
+if(initpos==1,
+  npos=length(StrL_chno);
+  initpos=0;
+);
+
+if(funflg==1,
+  str=Instr(name);
+  tmp=StrL_chno;
+  tmp1=substring(tmp,0,npos);
+  tmp2=substring(tmp,npos,length(tmp));
+  StrL_chno=tmp1+str+tmp2;
+  npos=length(tmp1+str);
+  funflg=0;
+);
+
+Dispedit();
+Dispposition();
+
+texstr="";
+sL=[];
+forall(1..4,nn,
+  tmp=StrL_nn;
+  tmp1=tokenize(tmp,"//");
+  tmp1=apply(tmp1,if(isstring(#),#,text(#)));
+  sL=concat(sL,tmp1);
+);
+
+sL=select(sL,length(#)>0);
+forall(1..(length(sL)),nn,
+  str=sL_nn;
+  err="";
+  tmp=Sepchar(str);
+  subL=tmp_1;
+  err=tmp_2;
+  strt="";
+  forall(subL,
+    if(substring(#,0,1)=="@",
+      strt=strt+substring(#,1,length(#));
+    ,
+      tmp=#;
+//      err=Noascii(tmp);
+//      if(length(err)>0,err="ASCII以外"+err);
+      tmp=Modifyfortex(tmp);
+      tmp=Addasterisk(tmp);
+      tmp1=Totexform(tmp);
+      tmp1=replace(tmp1,"g r(","gr(");
+      tmp1=replace(tmp1,"\frac","\dfrac");
+      ctr=1;
+      tmp2=indexof(tmp1,"gr(");
+      while((tmp2>0)&(ctr<100),
+        tmp=Bracket(tmp1,"()");
+        tmp=select(tmp,(tmp2<#_1)&(#_2<0));
+        tmp3=tmp_1_1;
+        tmp=substring(tmp1,tmp2+2,tmp3-1);
+        tmp4=Togreek(tmp);
+        tmp=substring(tmp1,0,tmp2-1)+tmp4;
+        tmp1=tmp+substring(tmp1,tmp3,length(tmp1));
+        tmp2=indexof(tmp1,"gr(");
+        ctr=ctr+1;
+      );
+      tmp1=replace(tmp1,"c i r c()","\circ"); //210425
+      strt=strt+"$"+tmp1+"$";
+    );
+  );
+  drawtext([-15,posy],strt,size->24);posy=posy-dposy;
+  texstr=texstr+strt;
+  if(nn<length(sL),texstr=texstr+"\\");
+);
+
+xL=apply(1..20,35);
+yL=apply(1..4,30);
+Tabledata("1",xL,yL,[],[0,"Setwin=n","Move=[SW.x+3.5,SW.y]","nodisp"]);
+Tlistplot("t1",["c0r0","c20r0","c20r4","c0r4","c0r0"],["nodisp"]);
+Shade(["sgt1"],["Color=yellow"]);
+//Tabledata("2",xL,yL,[],[0,"Setwin=n","Move=[SW.x+3.5,SW.y]"]);
+
+//if(texflg==1,
+//  Subsedit(7,texstr);
+//);
+
+if(1==0,
+  txtkey=remove(allelements(),allpoints());
+  keyL=[];
+  forall(txtkey,
+    tmp=replace(#.name,"Text","");
+    tmp=parse(tmp);
+    keyL=append(keyL,
+      [tmp,#.name,inspect(#,"text.text"),inspect(#,"textsize")]);
+  );
+  keyL=sort(keyL,[#_1]);
+  if(!isexists(Dircdy,"keylist.csv"),
+    setdirectory(Dircdy);
+    fid=openfile("keylist.csv");
+    forall(keyL,
+      tmp=Assign("a,b,c,d",["a",#_1,"b",#_2,"c",#_3,"d",#_4]);
+      tmp=replace(tmp,"(","");
+      tmp=replace(tmp,")","");
+      println(tmp);
+      println(fid,tmp);
+    );
+    closefile(fid);
+  );
+);
+
+if(1==0,
+  tmp1=Readlines(Dircdy,"keylistnew.csv");
+  keyL=[];
+  forall(tmp1,
+    tmp=tokenize(#,",");
+    keyL=append(keyL,tmp);
+  );
+  keyL=select(keyL,(#_1>9)&(#_1<100));
+  forall(keyL,key,
+    tmp="inspect("+parse(key_2)+","+Dqq("textsize")+",18);";
+    parse(tmp);
+    tmp="inspect("+parse(key_2)+","+Dqq("text.text")+","+key_3+");";
+    parse(tmp);
+  );
+);
+
+Windispg();
+
+println(inspect(Text10,"textbutton"));
