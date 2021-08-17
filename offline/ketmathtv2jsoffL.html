@@ -3452,6 +3452,7 @@ if((gradingflg==0)&(length(str)>0),
   Subsedit(10,text(stn));
   tmp=dt_stn_8;Subsedit(1,tmp);
   tmp=dt_stn_7;Subsedit(2,tmp);
+  tmp=dt_stn_5;Subsedit(32,"Sc="+tmp);
   Subsedit(3,"");
   gradingflg=1;
 );
@@ -3476,6 +3477,17 @@ if(gradingflg==1,
     Subsedit(2,dt_stn_7);
     Subsedit(32,"Sc="+dt_stn_5);
     stnnow=stn;
+  ,
+    tmp1=Textedit(2,"","");
+    tmp=indexof(tmp1,"::");
+    if(tmp>0,
+      dt_stnnow_7=substring(tmp1,0,tmp-1);
+      dt_stnnow_5=substring(tmp1,tmp+1,length(tmp1));
+      Subsedit(32,"Sc="+dt_stnnow_5);
+      Subsedit(2,dt_stnnow_7);
+    ,
+      dt_stnnow_7=tmp1;
+    );
   );
   if(recflg==1,
     dt_stnnow_7=Textedit(2,"","");//210816from
@@ -3674,8 +3686,8 @@ var cdy = CindyJS({
   ports: [{
     id: "CSCanvas",
     width: 1041,
-    height: 472,
-    transform: [{visibleRect: [-28.60529954877182, 23.200376639378213, 77.55554476592145, -24.9340311574856]}],
+    height: 480,
+    transform: [{visibleRect: [-28.60529954877182, 23.200376639378213, 77.55554476592145, -25.749868577771426]}],
     grid: 5.0,
     background: "rgb(247,247,247)"
   }],
