@@ -1,0 +1,21 @@
+1							y'=e^(x(+xe^(x)//y'=e^xcos(x)-y'=e^(x)sin(x)//y'=log(x)//y'=2log(x)/x	昨日	y'=e∧(x(+xe∧(x)//y'=e∧xcos(x)-e∧(x)sin(x)//y'=log(x)//y'=2log(x)/x
+2							[1]e^x+xe^x//[2]e^xcosx-e^xsinx//[3]logx-2x+1//[4]fr(2logx,x)	昨日	1)e^x+xe^x//2)e^xcosx-e^xsinx//3)logx-2x+1//4)fr2(logx,x)
+3							[1]e^x+xe^x//[2]e^xcosx-e^xsinx//[3]logx-2x+1//[4]fr(2logx,x)	昨日	1)e^x+xe^x//2)e^xcosx-e^xsinx//3)logx-2x+1//4)fr2(logx,x)
+4							(1+x)e^x//sq(2)e^x cos(x-pi/4)//e^xcos(x)-e^xsin(x)//log(x)//fr(2log(x),x)	昨日	(1+x)e ^x//√2 e^x cos(x-π/4)    e^x･cosx-e^x･sinx//log(x)//fr(2logx,x)
+5							[1]3cos(3x+1)//[2]cos(x+pi)//[3]-cos(fr(pi,2)-x)//[3]//[4]y =-4sin(x)+5cos(x)	昨日	(2) 3cos(3x+1)//(1)cos(x+pi)//(3)-cos(fr(pi,2)-x)//0628-7 (4) y = -4sin(x)+5cos(x)//
+6							[1]fr(e^x,x)//[2]fr(e^x,x)//[3]log(x)//[4]xlog(x)	昨日	(1)fr(e^x,x)//(2)fr(e^x,x)//(3)logx//(4)xlogx
+7							2x//[e cos]//[logエックス二乗]//[2logエックス二乗]	昨日	2x//e cos//logエックス二乗//2logエックス二乗
+8							[1]y=xe//[2]y=a//[3]x^2//[4]	昨日	(1) y=xe//(2) y=a//(3) x² //(4)
+9							[※]//1.5//4.2//2.7	昨日	※//1.5//4.2//2.7
+10							e^x//-e^(x)sin(x)//1/x-1//2/x	昨日	e^x//-e^(x)sinx//1/x-1//2/x
+11							e^x+xe^x//e^xcos(x)-esinx(x)//log(x)//[？]	昨日	e^x+xe^x        e^xcos-esinx //log(x)               ？
+12							[1]e^x+xe^x//[2]e^x-sinx//[3]1-x//[4]fr(1,x^2)	昨日	(1)e^x+xe^x//(2)e^x-sinx//(3)1-x//(4)fr(1,x^2)
+13							[1] y =xe^(x)//[2] y = e^(x)cos(x) //[3] y = x log(x)−x [4] y = (log(x))^2	昨日	(1) y = xe^(x) (2) y = e^(x)cos(x) //(3) y = x log(x)−x (4) y = (log(x))^2
+14							[1] y'=e^(x)+xe^(x)//[2] y'=e^(x)cos(x)-e^(x)sin(x)//[3]y'=log(x)//[4]y'=fr(2log(x),x)	昨日	(1)y'=e^(x)+xe^(x)//(2)y'=e^(x)cos(x)-e^(x)sin(x)//(3)y'=log(x)//(4)y'=fr(2log(x),x)
+15							e^x+xe^x//e^x*cos(x)-e^x*sin(x)//log(x)//fr(2log(x),x)	昨日	e^x+xe^x//e^x*cosx-e^x*sinx//log(x)//fr(2log(x),x)
+16							[1]y’=e^(x)+(x)e^(x)//[2]e^(x)cos(x)-e^(x)sin(x)//[3]log(x)-x+1-x//[4]fr(2log(x),x)	昨日	(1)y’=e^(x)+(x)e^(x)////(2)e^(x)cos(x)-e^(x)sin(x)////(3)log(x)-x+1-x////(4)fr(2log(x),x)
+17							[1]e^x+xe^x//[2]e^xcos(x)-e^xsin(x)//[3]-1//[(4)fr(]	昨日	(1)e^x+xe^x//(2)e^xcos(x)-e^xsin(x)//(3)-1//(4)fr(
+18							[1]e^x+xe^x//[2]e^xcos(x)-e^xsin(x)//[3]log(x)-x+1-x//[4]fr(2logx,x)	昨日	1)e^x+xe^x//2)e^xcosx-e^xsinx//3)logx-x+1-x//4)fr2(logx,x)
+19							[1]xe^x//[2]e^x- sin(x)//[3]fr(1,x^x)-1//[4]fr(1,x^2)	昨日	(1)xe^x (2)e^x- sinx//(3)fr(1,x^x)-1 (4)fr(1,x^2)
+20						未提出			
+21							e^x(1+x)//e^x(cos(x)-sin(x))//log(x)//fr(2log(x),x)	昨日	e^x(1+x) e^x(cosx-sinx) logx fr(2logx,x)

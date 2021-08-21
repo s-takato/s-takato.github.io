@@ -1,0 +1,11 @@
+0705-4 積の微分(指数対数)
+次の関数を微分せよ.
+[1] y = xe^(x)
+[2] y = e^(x)cos(x) 
+[3] y = x log(x)−x
+[4] y = (log(x))^2
+Ans
+[1] e^x+xe^x=(1+x)e^x
+[2] e^x(cos(x)-sin(x))
+[3] 1log(x)+xfr(1,x)-1=log(x)
+[4] (log(x)log(x))'=fr(2log(x),x)
