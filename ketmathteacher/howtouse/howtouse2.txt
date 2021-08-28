@@ -1,18 +1,54 @@
 タイトル::
 
+\def\rad{\;\mathrm{rad}}
+\newcommand{\hako}[2][6mm]{\fbox{$\mathstrut$\Ctab{#1}{#2}}}
+\newcommand{\dint}{\displaystyle\int}
+\newcommand{\dlim}{\displaystyle\lim}
+
+
 \setmargin{25}{150}{15}{100}%
 
 \setcounter{page}{1}
 
 %%%%%%%%%%%%%
-new::作成情報
+new::KeTMath入力の使い方
+%%repeat=8
 \slidepage
 
 itemize
-item::[]\Ltab{7zw}{Title}使い方
-item::[]\Ltab{7zw}{Version}2
-item::[]\Ltab{7zw}{Author}高遠節夫
-item::[]\Ltab{7zw}{Date}2021.08.17
+item::Samples of KeTCindy\\
+　\url{https://s-takato.github.io/ketcindysample/}\\
+から\verb|KeTMath System|を選ぶ．
+item::数式入力（学生用または教師用）を立ち上げる．
+end
+
+%%%%%%%%%%%%
+new::数式の簡易記法1
+%%repeat=4,para
+\slidepage
+
+itemize
+item::文字定数(変数)は1文字とする．\vspace{-2mm}
+item::@と@で囲むとテキストになる（日本語は自動判定）
+item::\Ltab{4.5zw}{分数}$\frac{a}{b}\ \Longrightarrow$\ \verb|(a)/(b)|,\ \verb|fr(a,b)| \vspace{-2mm}
+item::\Ltab{4.5zw}{掛け算}$ab\ \Longrightarrow$\ \verb|ab|\vspace{-2mm}
+item::\Ltab{4.5zw}{べき乗}$a^b\ \Longrightarrow$\ \verb|a^(b)|\vspace{-2mm}
+item::\Ltab{4.5zw}{べき乗根}$\sqrt{a},\ \sqrt[3]{a}\ \Longrightarrow$\ \verb|sq(a), sq(3,a)|\vspace{-2mm}
+item::\Ltab{4.5zw}{三角関数}$\sin x, \sin^2x\ \Longrightarrow$\ \verb|sin(x), sin(2,x)|\vspace{-2mm}
+item::\Ltab{4.5zw}{円周率}$\pi \ \Longrightarrow$\ \verb|pi(x)|\vspace{-2mm}
+item::\Ltab{4.5zw}{対数関数}$\log x, \log_a x\ \Longrightarrow$\ \verb|log(x), log(s,x)|\vspace{-2mm}
+end
+
+%%%%%%%%%%%%
+new::数式の簡易記法2
+%%repeat=4,para
+\slidepage
+
+itemize
+item::\Ltab{4.5zw}{積分}$\dint x\,dx,\ \dint_a^b x\,dx \ \Longrightarrow$\ \verb|int()xdx, int(a,b)xdx|\vspace{-2mm}
+item::\Ltab{4.5zw}{極限}$\dlim_{x \to a}f(x) \ \Longrightarrow$\ \verb|lim(x,a)f(x)|\vspace{-2mm}
+item::\Ltab{4.5zw}{行列}$\begin{pmatrix}a&b\\c&d\end{pmatrix} \ \Longrightarrow$\ \verb|mat(a,b;c,d)|\vspace{-2mm}
+item::\Ltab{4.5zw}{行列式}$\left|\begin{array}{cc}a&b\\c&d\end{array}\right| \ \Longrightarrow$\ \verb|det(a,b;c,d)|\vspace{-2mm}
 end
 
 %%%%%%%%%%%%%
