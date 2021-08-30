@@ -1,8 +1,0 @@
-NIL
-(%i3) powerdisp:false
-(%i4) display2d:false
-(%i5) linel:1000
-/githubio.git/ketmathteacher/markmaximaans.max:5:47:incorrect syntax: 1 is not an infix operator
-(cos(x)-sin(x)),e 1*
-                  ^
-(%o6) "/githubio.git/ketmathteacher/markmaximaans.max"

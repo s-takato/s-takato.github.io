@@ -1,8 +1,0 @@
-writefile("/githubio.git/ketmathteacher/markmaximaans.txt")$/*##*/
-powerdisp:false$/*##*/
-display2d:false$/*##*/
-linel:1000$/*##*/
-ca:[e^x+x*e^x=(1+x)*e^x,e^x*(cos(x)-sin(x)),e 1*(c*d*o*t)*log(x)+x*(c*d*o*t)*(1)/(x)-1=log(x),(log(x)*log(x))'=(2*log(x))/(x)]$/*##*/
-disp(ca)$/*##*/
-closefile()$/*##*/
-quit()$/*##*/
