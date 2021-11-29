@@ -4,12 +4,24 @@ Text1
 
 Text2
 
+Text3
+
+Text4
+stninc=1;
+
+
+Text5
+stninc=-1;
 Text6
 "Mkketcindyjs(append(KETJSOP,"+Dqq("Web=y")+"));");
 Text7
 ch=1;initflg=1;
 Text8
 ch=2;initflg=1;
+Text9
+recflg=1;
+Text10
+
 Text11
 if(keytype!=2,keytype=2,keytype=1);
 Text12
@@ -52,6 +64,8 @@ Text30
 funflg=1;name="+";
 Text31
 funflg=1;if(Shift==0,name="lim(");if(Shift==1,name="mat(");
+Text32
+
 Text33
 if(keytype!=3,keytype=3,keytype=1);
 Text34
