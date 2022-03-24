@@ -1,0 +1,12 @@
+RCdiff(v,t)+v=Ecos(at)//
+diff(v,t)+kv=Ekcos(at)(sp)(sp)(k=fr(1,RC))//
+diff(v,t)+vk=0よりv=ce^(-kt)//
+v=ue^(-kt)とおくとdiff(u,t)=Eke^(kt)cos(at)//
+u=int(Eke^(kt)cos(at),t)=fr(Eke^(kt),k^2+a^2)(kcos(at)+asin(at))+c//
+v=fr(Ek,k^2+a^2)(kcos(at)+asin(at))+ce^(-kt)//
+t=0のときv=0より．c=-fr(Ek^2,k^2+a^2)//
+v=fr(Ek,k^2+a^2)(kcos(at)+asin(at))-fr(Ek^2,k^2+a^2)e^(-kt)//
+v=fr(Ek,k^2+a^2)(kcos(at)+asin(at)-ke^(-kt)
+
+
+v=fr(e^(-kt)(Ekae^(kt)sin(at)+Ek^2e^(kt)cos(at)-Ek^2),a^2+k^2)

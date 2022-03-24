@@ -1,0 +1,10 @@
+NIL
+(%i3) powerdisp:false
+(%i4) display2d:false
+(%i5) linel:1000
+(%i6) solg:ode2('diff(v,t) = (-k)*v+k*E,v,t)
+(%i7) sol:ic1(solg,t = 0,v = 0)
+(%i8) disp(sol)
+v = %e^-(k*t)*(E*%e^(k*t)-E)
+
+(%i9) closefile()

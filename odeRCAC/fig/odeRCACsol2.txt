@@ -1,0 +1,11 @@
+NIL
+(%i3) powerdisp:false
+(%i4) display2d:false
+(%i5) linel:1000
+(%i6) solg:ode2('diff(v,t) = (-k)*v+k*E*cos(omega*t),v,t)
+(%i7) solg:expand(solg)
+(%i8) sol:ic1(solg,t = 0,v = 0)
+(%i9) disp(sol)
+v = (%e^-(k*t)*(E*k*omega*%e^(k*t)*sin(omega*t)+E*k^2*%e^(k*t)*cos(omega*t)-E*k^2))/(omega^2+k^2)
+
+(%i10) closefile()

@@ -1,0 +1,10 @@
+writefile("/githubio.git/odeRCAC/fig/odeRCACsol2.txt")$/*##*/
+powerdisp:false$/*##*/
+display2d:false$/*##*/
+linel:1000$/*##*/
+solg:ode2('diff(v,t)=-k*v+k*E*cos(omega*t),v,t)$/*##*/
+solg:expand(solg)$/*##*/
+sol:ic1(solg,t=0,v=0)$/*##*/
+disp(sol)$/*##*/
+closefile()$/*##*/
+quit()$/*##*/
