@@ -1,0 +1,16 @@
+Ketinit();
+//Setax(["a"]);
+//Setwindow([-5,5],[-5,5]);
+//Setunitlen("1cm");
+//Fontsize("n");
+
+Ospline("1",[A,B,C,D,E],["Num=30"]);
+Putoncurve("P","bzo1");
+m=Derivative("bzo1","x=P.x");
+fun="m*(x-P.x)+P.y";
+fun1=Assign(fun,["m",m]);
+Plotdata("1",fun1,"x",["Color=red"]);
+
+Windispg();
+//Help("Ospline");
+//Help("Deriva");

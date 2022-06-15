@@ -1,0 +1,323 @@
+%%% Title presen220615
+\documentclass[landscape,10pt]{jarticle}
+\special{papersize=\the\paperwidth,\the\paperheight}
+\usepackage{ketpic,ketlayer}
+\usepackage{ketslide}
+\usepackage{amsmath,amssymb}
+\usepackage{bm,enumerate}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{color}
+\definecolor{slidecolora}{cmyk}{0.98,0.13,0,0.43}
+\definecolor{slidecolorb}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolorc}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolord}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolore}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolorf}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolori}{cmyk}{0.98,0.13,0,0.43}
+\def\setthin#1{\def\thin{#1}}
+\setthin{0}
+\newcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+\putnotee{122}{-\theketpicctra.05}{\small\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+\usepackage{pict2e}
+\usepackage{ketlayermorewith2e}
+\usepackage[dvipdfmx,colorlinks=true,linkcolor=blue,filecolor=blue]{hyperref}
+
+\setmargin{25}{145}{15}{100}
+
+\ketslideinit
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{layer}{120}{0}
+\putnotese{0}{0}{\input{fig/slide0.tex}}
+\end{layer}
+
+\def\mainslidetitley{22}
+\def\ketcletter{slidecolora}
+\def\ketcbox{slidecolorb}
+\def\ketdbox{slidecolorc}
+\def\ketcframe{slidecolord}
+\def\ketcshadow{slidecolore}
+\def\ketdshadow{slidecolorf}
+\def\slidetitlex{6}
+\def\slidetitlesize{1.3}
+\def\mketcletter{slidecolori}
+\def\mketcbox{yellow}
+\def\mketdbox{yellow}
+\def\mketcframe{yellow}
+\def\mslidetitlex{62}
+\def\mslidetitlesize{2}
+
+\color{black}
+\Large\bf\boldmath
+\addtocounter{page}{-1}
+
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\mainslide{ KeTCindyを使うまで}
+
+
+\slidepage[m]
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{インストール}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+\href{https://s-takato.github.io/ketcindyorg/indexj.html}{ketcindy home}で検索\vspace{-2mm}
+\item
+以下をインストール\vspace{-2mm}
+\begin{enumerate}[(1)]
+\item
+\Ltab{30mm}{Cinderella}DGSの１つ \href{https://www.youtube.com/watch?v=eAdhjGW438I}{YouTube}\vspace{-2mm}
+\item
+\Ltab{30mm}{KeTTeX}TeXLiveのコンパクト版\href{https://www.youtube.com/watch?v=_6zPk-3sAP8}{YouTube}\vspace{-2mm}
+\item
+\Ltab{30mm}{R}\href{https://cran.r-project.org}{統計ソフト(必須)}\vspace{-2mm}
+\item
+\Ltab{30mm}{Sumatra}\href{https://cran.r-project.org}{PDFビューア(Windowsのみ)}\vspace{-2mm}
+\item
+\Ltab{30mm}{KeTCindy}\href{https://www.youtube.com/watch?v=hVRXyeH31SM}{YouTube}\vspace{-2mm}
+\item
+\Ltab{30mm}{TeXWorks}\href{https://www.youtube.com/watch?v=H71sd1FvpIQ}{YouTube}\vspace{-2mm}
+\end{enumerate}
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{\ketcindy による\TeX 図の作成}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+ユーザホーム/ketcindy+日付 のcdyファイル利用\\
+　・ketcindyreference.pdf, samples, template\vspace{-2mm}
+\item
+ファイルを選び，作業フォルダにコピー，名称変更\vspace{-2mm}
+\item
+CindyScriptのDraw/Figuresを開く\vspace{-2mm}
+\item
+KetinitとWindispgの間にコマンド，ギアマーク\vspace{-2mm}
+\item
+Cindy画面で「要素を動かす」を確認\vspace{-2mm}
+\item
+Figureボタンを押すと，pdfが表示される\\
+　・Cinderellaを終了するときは「ファイル保存」
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{figフォルダのファイル群}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+Cindyファイルと同じ階層にfigフォルダができる\vspace{-2mm}
+\item
+ファイルの説明\vspace{-1mm}\\
+{\large
+\Ltab{50mm}{ex1.r}描画コマンド生成（R）\vspace{-0.5mm}\\
+\Ltab{50mm}{ex1.tex}\TeX 描画コマンドのファイル）\vspace{-0.5mm}\\
+\Ltab{50mm}{ex1main.aux}\TeX 参照用 \vspace{-0.5mm}\\
+\Ltab{50mm}{ex1main.log}\TeX 作業記録 \vspace{-0.5mm}\\
+\Ltab{50mm}{ex1main.pdf}出来上がりのPDF \vspace{-0.5mm}\\
+\Ltab{50mm}{ex1main.tex}\TeX 親ファイル（確認用））\vspace{-0.5mm}\\
+\Ltab{50mm}{kc.command(bat)}バッチファイル
+}
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\mainslide{ \TeX 文書の作成}
+
+
+\slidepage[m]
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{\TeX エディタの利用}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+\Ltab{50mm}{TeXWorksの設定}\href{https://www.youtube.com/watch?v=H71sd1FvpIQ}{YouTube}\vspace{-2mm}
+\item
+ Macの場合は，TeXShopも使いやすい\vspace{-2mm}
+\item
+ex1main.texをダブルクリックで開く\vspace{-2mm}
+{\normalsize
+\begin{verbatim}
+\documentclass{jarticle}
+\usepackage[dvipdfmx]{pict2e}
+\usepackage{ketpic2e}
+\usepackage{ketlayer2e}
+\usepackage{ketlayermorewith2e}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\setmargin{20}{20}{20}{20}
+\end{verbatim}
+}
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{\TeX エディタの利用(続)}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+[]
+{\normalsize
+\begin{verbatim}
+\begin{document}
+\verb|ex1| by \ketcindy
+\vspace{5mm}
+\input{ex1.tex}
+\end{document}
+\end{verbatim}
+}
+\item
+\verb|\begin{document}|と\verb|\end{document}|の間を編集
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{layer環境の利用(流れ)}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{layer}{120}{70}
+\end{layer}
+\begin{itemize}
+\item
+グリッドを描く\\
+　\verb|\begin{layer}{120}{70}|\\
+　．．．\\
+　\verb|\end{layer}|
+\item
+図を配置\\
+　\verb|\begin{layer}{120}{70}|\\
+　\verb|\putnotese{60}{15}{\input{fig/ex1.tex}}|\\
+　\verb|\end{layer}{140}{50}|
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{layer環境の利用(実際)}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{layer}{120}{70}
+\putnotese{60}{15}{\scalebox{0.5}{\input{fig/ex1.tex}}}
+\end{layer}
+\begin{itemize}
+\item
+図が(60,15)の位置から右下に配置される\\
+　・方向は　８方向(nsew)＋中心(c)
+\item
+適当な位置に移動する
+\item
+よければ\\
+　・第2引数を0とする\\
+　・グリッドが消える\\
+　・文字位置は変わらない
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{layer環境の利用(出来上がり)}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{layer}{120}{0}
+\putnotese{60}{15}{\scalebox{0.5}{\input{fig/ex1.tex}}}
+\end{layer}
+\begin{itemize}
+\item
+図が(60,15)の位置から右下に配置される\\
+　・方向は　８方向(nsew)＋中心(c)
+\item
+適当な位置に移動する
+\item
+よければ\\
+　・第2引数を0とする\\
+　・グリッドが消える\\
+　・文字位置は変わらない
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\mainslide{ \ketcindy JS}
+
+
+\slidepage[m]
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{\ketcindy JSの開発}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+2014年ミュンヘン工科大(TUM)のグループが\\
+\href{https://cindyjs.org}{CindyJS}を開発 \href{https://cindyjs.org/gallery/main}{ギャラリー}
+\item
+Cinderellaとほぼ互換なWeb作成システム
+\item
+2016年KeTCindyに\ketcindy JSとして組み込み
+\item
+\href{https://s-takato.github.io/ketcindysample/}{ketcindy sample}に多くのサンプルがある
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{簡易数式入力システムKeTMath}
+
+\vspace*{18mm}
+
+\slidepage
+\label{pageend}\mbox{}
+
+\end{document}

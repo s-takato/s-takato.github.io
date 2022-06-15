@@ -1,0 +1,182 @@
+Title::slide0
+
+%%%%%%%%%%%%
+main:: KeTCindyを使うまで
+\slidepage[m]
+
+%%%%%%%%%%%%%
+new::インストール
+\slidepage
+
+itemize
+item::\href{https://s-takato.github.io/ketcindyorg/indexj.html}{ketcindy home}で検索\vspace{-2mm}
+item::以下をインストール\vspace{-2mm}
+  enumerate::[(1)]
+  item::\Ltab{30mm}{Cinderella}DGSの１つ \href{https://www.youtube.com/watch?v=eAdhjGW438I}{YouTube}\vspace{-2mm}
+  item::\Ltab{30mm}{KeTTeX}TeXLiveのコンパクト版\href{https://www.youtube.com/watch?v=_6zPk-3sAP8}{YouTube}\vspace{-2mm}
+  item::\Ltab{30mm}{R}\href{https://cran.r-project.org}{統計ソフト(必須)}\vspace{-2mm}
+  item::\Ltab{30mm}{Sumatra}\href{https://cran.r-project.org}{PDFビューア(Windowsのみ)}\vspace{-2mm}
+  item::\Ltab{30mm}{KeTCindy}\href{https://www.youtube.com/watch?v=hVRXyeH31SM}{YouTube}\vspace{-2mm}
+  item::\Ltab{30mm}{TeXWorks}\href{https://www.youtube.com/watch?v=H71sd1FvpIQ}{YouTube}\vspace{-2mm}
+  end
+end
+
+%%%%%%%%%%%%%
+new::\ketcindy による\TeX 図の作成
+\slidepage
+
+itemize
+item::ユーザホーム/ketcindy+日付 のcdyファイル利用\\
+　・ketcindyreference.pdf, samples, template\vspace{-2mm}
+item::ファイルを選び，作業フォルダにコピー，名称変更\vspace{-2mm}
+item::CindyScriptのDraw/Figuresを開く\vspace{-2mm}
+item::KetinitとWindispgの間にコマンド，ギアマーク\vspace{-2mm}
+item::Cindy画面で「要素を動かす」を確認\vspace{-2mm}
+item::Figureボタンを押すと，pdfが表示される\\
+　・Cinderellaを終了するときは「ファイル保存」
+end
+
+%%%%%%%%%%%%%
+new::figフォルダのファイル群
+\slidepage
+
+itemize
+item::Cindyファイルと同じ階層にfigフォルダができる\vspace{-2mm}
+item::ファイルの説明\vspace{-1mm}\\
+{\large
+\Ltab{50mm}{ex1.r}描画コマンド生成（R）\vspace{-0.5mm}\\
+\Ltab{50mm}{ex1.tex}\TeX 描画コマンドのファイル）\vspace{-0.5mm}\\
+\Ltab{50mm}{ex1main.aux}\TeX 参照用 \vspace{-0.5mm}\\
+\Ltab{50mm}{ex1main.log}\TeX 作業記録 \vspace{-0.5mm}\\
+\Ltab{50mm}{ex1main.pdf}出来上がりのPDF \vspace{-0.5mm}\\
+\Ltab{50mm}{ex1main.tex}\TeX 親ファイル（確認用））\vspace{-0.5mm}\\
+\Ltab{50mm}{kc.command(bat)}バッチファイル
+}
+end
+
+%%%%%%%%%%%%
+main:: \TeX 文書の作成
+\slidepage[m]
+
+
+%%%%%%%%%%%%%
+new::\TeX エディタの利用
+\slidepage
+
+itemize
+item::\Ltab{50mm}{TeXWorksの設定}\href{https://www.youtube.com/watch?v=H71sd1FvpIQ}{YouTube}\vspace{-2mm}
+item:: Macの場合は，TeXShopも使いやすい\vspace{-2mm}
+item::ex1main.texをダブルクリックで開く\vspace{-2mm}
+{\normalsize
+\begin{verbatim}
+\documentclass{jarticle}
+\usepackage[dvipdfmx]{pict2e}
+\usepackage{ketpic2e}
+\usepackage{ketlayer2e}
+\usepackage{ketlayermorewith2e}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\setmargin{20}{20}{20}{20}
+\end{verbatim}
+}
+end
+
+%%%%%%%%%%%%%
+new::\TeX エディタの利用(続)
+\slidepage
+
+itemize
+item::[]
+{\normalsize
+\begin{verbatim}
+\begin{document}
+
+\verb|ex1| by \ketcindy
+\vspace{5mm}
+
+\input{ex1.tex}
+
+\end{document}
+\end{verbatim}
+}
+item::\verb|\begin{document}|と\verb|\end{document}|の間を編集
+end
+
+%%%%%%%%%%%%%
+new::layer環境の利用(流れ)
+\slidepage
+
+\begin{layer}{120}{70}
+
+\end{layer}
+
+itemize
+item::グリッドを描く\\
+　\verb|\begin{layer}{120}{70}|\\
+　．．．\\
+　\verb|\end{layer}|
+
+item::図を配置\\
+　\verb|\begin{layer}{120}{70}|\\
+　\verb|\putnotese{60}{15}{\input{fig/ex1.tex}}|\\
+　\verb|\end{layer}{140}{50}|
+end
+
+%%%%%%%%%%%%%
+new::layer環境の利用(実際)
+\slidepage
+
+\begin{layer}{120}{70}
+\putnotese{60}{15}{\scalebox{0.5}{\input{fig/ex1.tex}}}
+\end{layer}
+
+itemize
+item::図が(60,15)の位置から右下に配置される\\
+　・方向は　８方向(nsew)＋中心(c)
+item::適当な位置に移動する
+item::よければ\\
+　・第2引数を0とする\\
+　・グリッドが消える\\
+　・文字位置は変わらない
+end
+
+%%%%%%%%%%%%%
+new::layer環境の利用(出来上がり)
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{60}{15}{\scalebox{0.5}{\input{fig/ex1.tex}}}
+\end{layer}
+
+itemize
+item::図が(60,15)の位置から右下に配置される\\
+　・方向は　８方向(nsew)＋中心(c)
+item::適当な位置に移動する
+item::よければ\\
+　・第2引数を0とする\\
+　・グリッドが消える\\
+　・文字位置は変わらない
+end
+
+%%%%%%%%%%%%
+main:: \ketcindy JS
+\slidepage[m]
+
+%%%%%%%%%%%%%
+new::\ketcindy JSの開発
+\slidepage
+
+itemize
+item::2014年ミュンヘン工科大(TUM)のグループが\\
+\href{https://cindyjs.org}{CindyJS}を開発 \href{https://cindyjs.org/gallery/main}{ギャラリー}
+item::Cinderellaとほぼ互換なWeb作成システム
+item::2016年KeTCindyに\ketcindy JSとして組み込み
+item::\href{https://s-takato.github.io/ketcindysample/}{ketcindy sample}に多くのサンプルがある
+end
+
+%%%%%%%%%%%%%
+new::簡易数式入力システムKeTMath
+\slidepage
+
+
