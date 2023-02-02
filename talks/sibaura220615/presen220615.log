@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.euc) (TeX Live 2021) (preloaded format=platex 2022.3.23)  15 JUN 2022 09:57
+This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.euc) (TeX Live 2021) (preloaded format=platex 2022.3.23)  15 JUN 2022 12:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -432,19 +432,26 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
 (/Applications/KeTTeX.app/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
-(./fig/ex1.tex) (./fig/ex1.tex) (./fig/ex1.tex) [9] (./fig/ex1.tex)
-(./fig/ex1.tex) (./fig/ex1.tex) (./fig/ex1.tex) [10] [11] [12] [13]
-(./presen220615.aux)
-Package rerunfilecheck Info: File `presen220615.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
- ) 
+(./fig/ex1.tex) (./fig/ex1.tex) (./fig/ex1.tex)
+! Undefined control sequence.
+l.247 \punotec
+              {70}{30}{O}
+? 
+! Emergency stop.
+l.247 \punotec
+              {70}{30}{O}
+End of file on the terminal!
+
+ 
 Here is how much of TeX's memory you used:
- 9894 strings out of 480230
- 154072 string characters out of 5892785
- 683075 words of memory out of 5000000
+ 9884 strings out of 480230
+ 153942 string characters out of 5892785
+ 679075 words of memory out of 5000000
  28040 multiletter control sequences out of 15000+600000
  481327 words of font info for 77 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,10n,64p,282b,376s stack positions out of 5000i,500n,10000p,200000b,80000s
+Output written on presen220615.dvi (9 pages, 229424 bytes).
+5000i,500n,10000p,200000b,80000s
 
-Output written on presen220615.dvi (14 pages, 407732 bytes).
+Output written on presen220615.dvi (14 pages, 407760 bytes).

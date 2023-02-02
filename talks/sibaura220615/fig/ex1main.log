@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.euc) (TeX Live 2021) (preloaded format=platex 2022.3.23)  15 JUN 2022 08:18
+This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.euc) (TeX Live 2021) (preloaded format=platex 2022.3.23)  15 JUN 2022 11:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -229,12 +229,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] (./ex1main.aux) ) 
 Here is how much of TeX's memory you used:
- 2868 strings out of 480230
- 42772 string characters out of 5892785
+ 2865 strings out of 480230
+ 42742 string characters out of 5892785
  407472 words of memory out of 5000000
- 21165 multiletter control sequences out of 15000+600000
- 474997 words of font info for 54 fonts, out of 8000000 for 9000
+ 21163 multiletter control sequences out of 15000+600000
+ 474829 words of font info for 53 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  54i,5n,62p,287b,175s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on ex1main.dvi (1 page, 4460 bytes).
+Output written on ex1main.dvi (1 page, 4452 bytes).

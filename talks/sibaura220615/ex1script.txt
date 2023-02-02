@@ -14,3 +14,6 @@ Plotdata("1",fun1,"x",["Color=red"]);
 Windispg();
 //Help("Ospline");
 //Help("Deriva");
+
+
+//https://s-takato.github.io/talks/sibaura220615/
