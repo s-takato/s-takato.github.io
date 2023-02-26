@@ -1,0 +1,178 @@
+%%% タイトル sympo2303
+\documentclass[landscape,10pt]{ujarticle}
+\special{papersize=\the\paperwidth,\the\paperheight}
+\usepackage{ketpic,ketlayer}
+\usepackage{ketslide}
+\usepackage{amsmath,amssymb}
+\usepackage{bm,enumerate}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{color}
+\definecolor{slidecolora}{cmyk}{0.98,0.13,0,0.43}
+\definecolor{slidecolorb}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolorc}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolord}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolore}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolorf}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolori}{cmyk}{0.98,0.13,0,0.43}
+\def\setthin#1{\def\thin{#1}}
+\setthin{0}
+\newcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+\putnotee{122}{-\theketpicctra.05}{\small\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+\usepackage[dvipdfmx,colorlinks=true,linkcolor=blue,filecolor=blue]{hyperref}
+\newcommand{\hiduke}{0304}
+\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+\def\rad{\;\mathrm{rad}}
+\def\deg#1{#1^{\circ}}
+\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+\def\dlim{\displaystyle\lim}
+\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+\newcommand{\sfrac}[3][0.65]{\scalebox{#1}{$\frac{#2}{#3}$}}
+\newcommand{\phn}[1]{\phantom{#1}}
+\newcommand{\scb}[2][0.6]{\scalebox{#1}{#2}}
+\newcommand{\dsum}{\displaystyle\sum}
+\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+\def\dlim{\displaystyle\lim}
+\def\dint{\displaystyle\int}
+
+\setmargin{25}{145}{15}{100}
+
+\ketslideinit
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{layer}{120}{0}
+\putnotese{0}{0}{\input{fig/slide0.tex}}
+\end{layer}
+
+\def\mainslidetitley{22}
+\def\ketcletter{slidecolora}
+\def\ketcbox{slidecolorb}
+\def\ketdbox{slidecolorc}
+\def\ketcframe{slidecolord}
+\def\ketcshadow{slidecolore}
+\def\ketdshadow{slidecolorf}
+\def\slidetitlex{6}
+\def\slidetitlesize{1.3}
+\def\mketcletter{slidecolori}
+\def\mketcbox{yellow}
+\def\mketdbox{yellow}
+\def\mketcframe{yellow}
+\def\mslidetitlex{62}
+\def\mslidetitlesize{2}
+
+\color{black}
+\Large\bf\boldmath
+\addtocounter{page}{-1}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+\begin{layer}{118}{0}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+}
+\newcounter{ban}
+\setcounter{ban}{1}
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+}
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%
+}
+\newcounter{edawidth}
+\newcounter{edactr}
+\newcommand{\seteda}[1]{% 20220708 modified
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+\newcommand{\eda}[2][\theedawidth]{%
+\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{オンラインでの数式送受}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+数学系の授業では，数式は必須
+\item
+教員$\Longrightarrow$学生　は比較的容易\\
+　\TeX やワープロ文書をPDF化
+\item
+学生$\Longrightarrow$教員　は結構大変\\
+　ワープロ（簡単な数式でもソフト起動要）\\
+　手書き（PDF書き込み，スマホ撮影は処理が面倒）
+\item
+テキスト形式が軽くて処理もしやすい\\
+　しかし，\TeX 書式は慣れていないと難しい
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\newslide{KeTMathの開発}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+\TeX をベースとした1次元簡易数式ルールを作成\\
+　\verb|\frac{a}{b}| $\Rightarrow$ \verb|fr(a,b)|（\verb|\|や \verb|{ }|を使わない）\\
+　\verb|\sqrt{a},\sqrt[3]{a}| $\Rightarrow$ \verb|sq(a),sq(3,a)|\\
+　\verb|\sin x| $\Rightarrow$ \verb|sin(x)|（関数には必ず括弧）
+\item
+即時に2次元数式に変換するHTMLアプリKeTMathを
+KeTCindyJSで開発\\
+　\href{https://cindyjs.org}{CindyJS}はCinderellaのWebフレームワーク
+\item
+当初は数式をじかに入れる方式\\
+　$\Longrightarrow$ スマホだと非ascii文字を使う学生が多かった
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\newslide{KeTMathの改良と利用}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+キーボードを画面に配置（縦型）\\
+　スマホ対応
+\end{itemize}
+\label{pageend}\mbox{}
+
+\end{document}
