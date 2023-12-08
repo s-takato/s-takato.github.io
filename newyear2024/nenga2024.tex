@@ -1,0 +1,70 @@
+\documentclass[10pt,dvipdfmx]{ujarticle}
+\special{papersize=148mm,100mm}
+\usepackage{hyperref} 
+\usepackage{graphicx,color}
+\usepackage{amsmath,amssymb}
+\usepackage{qrcode}
+\usepackage{pict2e}
+\usepackage{ketpic2e}
+\usepackage{ketlayer2e}
+\usepackage{lmodern}
+
+\newcommand*{\myfont}[4]{{%
+  #1\fontseries{#2}\fontshape{#3}\selectfont
+  #4
+}}
+%\definecolor{slidecolora}{cmyk}{0.98,0.13,0,0.43}
+
+\setmargin{10}{10}{10}{10}
+
+\pagestyle{empty}
+
+\begin{document}
+
+%\begin{layer}{80}{0}
+%\putnotese{64}{6}{\scalebox{0.85}{\qrcode{https://s-takato.github.io/offline/ketmath2002vjsoffL.html}}}
+%\end{layer}
+
+%\putnotese{10}{44}{%
+%\begin{minipage}{70mm}
+%%\hfill 〒\!292-0041 木更津市清見台東3-29-25　\\
+%\hfill 髙遠節夫\vspace{-1mm}\\
+%%\hfill {\tt\small takato@asahi.email.ne.jp}
+%\end{minipage}}
+
+\begin{layer}{150}{0}
+\putnotese{0}{-5}{%
+\includegraphics[bb=0.00 0.00 457.00 490.00,width=70mm]{fig/kan-en.pdf}
+}
+\putnotese{68}{5}{%
+\begin{minipage}{55mm}
+　２５年ほど前に数式処理システムMapleで和算解法パッケージを作っていました．最近，久しぶりに動かしたところ，ちゃんと動いたので少し嬉しくなりました．現在，これをフリーのMaximaに移植して
+\ketcindy と連携する作業を進めています．図はそれを使って作成した環円問題のHTMLで，
+QRコードのWebサイトに行くと，実際に回転させることができます．
+そろそろ自分のしてきたことをまとめたいと
+思っています．\\
+　皆様のご健康をお祈りいたします．
+\end{minipage}
+}
+
+
+\putnotese{0}{63}{\scalebox{0.85}{\qrcode{https://s-takato.github.io/offline/ketmath2002vjsoffL.html}}}
+
+
+\putnotee{50}{77}{〒\!292-0041 木更津市清見台東3-29-25　髙遠節夫}
+
+\end{layer}
+
+%%
+
+%\vspace{2mm}
+%
+%\noindent
+%\begin{minipage}{76mm}
+%%\hfill〒\!292-0041 木更津市清見台東3-29-25　\\
+%\hfill 髙遠節夫\vspace{-1mm}\\
+%\end{minipage}
+
+
+
+\end{document}
