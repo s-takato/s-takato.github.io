@@ -1,0 +1,9 @@
+writefile("/Users/takatoosetsuo/polytech22.git/202-0704/fig/toolketmathall4res.txt")$/*##*/
+powerdisp:false$/*##*/
+display2d:false$/*##*/
+linel:1000$/*##*/
+dtLL:[[no,(-cos(x))/(),(-sin(x))/(),(cos(x))/(),(sin(x))/()],[no,(-cos(x))/(),(-sin(x))/(),(cos(x))/(),(sin(x))/()],[no,(4)/(),(3)/(),(2)/(),(1)/()],[no,(sin(x))/(),(-cos(x))/(),(cos(x))/(),(-sin(x))/()],[],[no,(-cos(x))/(),(-sin(x))/(),(cos(x))/(),(sin(x))/()],[no,(-cos(x))/(),(-sin(x))/(),(cos(x))/(),(sin(x))/()],[no,(-s*i*n)/(),(-c*o*s)/(),(s*i*n)/(),(c*o*s)/()],[no,(4)/(),(3)/(),(2)/(),(1)/()],[no,(-cos(x))/(),(-sin(x))/(),(cos(x))/(),(sin(x))/()],[no,(-cos(x))/(),(-sin(x))/(),(cos(x))/(),(sin(x))/()],[no,(-cos(x))/(),(-sin(x))/(),(cos(x))/(),(sin(x))/()],[],[],[],[]]$/*##*/
+res:ratsimp(dtLL)$/*##*/
+disp(res)$/*##*/
+closefile()$/*##*/
+quit()$/*##*/

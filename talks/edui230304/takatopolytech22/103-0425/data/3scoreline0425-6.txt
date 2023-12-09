@@ -1,0 +1,7 @@
+quline="Q06::「鈍角等の三角比」で三角比がどうなるかを考えよ";
+shline="Q06---	[]";
+caline="Q06::座標を用いる．";
+mrkline="	10";
+mxscline="	1";
+sqline="01KA	2CR02NI	2CR03VL	2CR04TO	2CR05RO	2CR06AK	2CR07YK	2CR08MT	2CR09HN	2CR10HH	2CR11KH	2CR12YM	2CR13TY	2CR14KK	2CR15YK	2CR16YT	2";
+ansline="1	01KA	未提出CR2	02NI	未提出CR3	03VL	未提出CR4	04TO	未提出CR5	05RO	042515:55:24	Q06---鈍角θが大きいほど点pが鋭角になる。CR6	06AK	042515:49:31	Q06---θ=0°の場合、sinθ=0、cosθ=1、tanθ=0となる。θ=90°の場合、sinθ=1、cosθ=0、tanθ=0となる。90°＜θ＜180°の場合、sinθは正、cosθとtanθは負となる。CR7	07YK	未提出CR8	08MT	未提出CR9	09HN	未提出CR10	10HH	042515:54:58	Q06---90度だとすべての値が0になるCR11	11KH	未提出CR12	12YM	未提出CR13	13TY	未提出CR14	14KK	未提出CR15	15YK	未提出CR16	16YT	未提出";

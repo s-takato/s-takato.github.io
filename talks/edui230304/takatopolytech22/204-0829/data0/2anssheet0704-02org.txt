@@ -1,0 +1,37 @@
+ViDurA LAkSHAn
+14:15
+‘VL’2022070451257;;Q02---;;[]y'=lim(z,x,!fr(z^(tfr(1,3))-x^(tfr(1,3)),z-x))= fr(1,3)X^fr(-2,3)
+
+BOOMER OK
+14:26
+Error: Missing operator at 1:4: ‘RO’;;Error: Missing operator at 1:4: ‘RO’2022070451994;;Q02---;;[]y'=lim(z,x,!fr(z^(tfr(1,3))-x^(tfr(1,3)),z-x))= lim(w,u,!fr(w-u,w^(3)-u^(3)))=lim(w,u,!fr(w-u,(w-u)(w^(2)+wu+u^(2))))=lim(w,u,!fr(1,u^(2)+u^(2)+u^(2)))=fr(1,3u^(2))=fr(1,3x^(fr(2,3)))
+
+yutto
+14:24
+y'=lim(z,x,!fr(z^(tfr(1,3))-x^(tfr(1,3)),z-x))= fr(1,4)x^(-fr(3,4))
+
+きむゆう
+14:15
+7;;72022070451340;;Q02---;;[]y'=lim(z,x,!fr(z^(tfr(1,3))-x^(tfr(1,3)),z-x))= fr(1,3x^(fr(2,3)))
+
+鎌田諄
+14:06
+6;;62022070450796;;Q02---;;[]y'=lim(z,x,!fr(z^(tfr(1,3))-x^(tfr(1,3)),z-x))= -3fr(1,x^(4))
+
+高橋正宗
+14:09
+8;;82022070450988;;Q02---;;[]y'=lim(z,x,!fr(z^(tfr(1,3))-x^(tfr(1,3)),z-x))= -3fr(1,x^(4))
+
+かっぱ
+
+こうき
+
+ぽこべんじゃー
+
+まやし
+
+山﨑友就
+
+大木翼
+
+ΞKATSUΞ

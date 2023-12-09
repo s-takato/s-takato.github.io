@@ -1,0 +1,13 @@
+Q051608
+次の単振動の和(差)を１つの単振動で表せ
+[1] sq(3)sin(x)+cos(x)
+[2] sin(x)+sq(3)cos(x)
+[3] sin(x)-cos(x)
+Sheet
+[1]= ::2
+[2]= ::2
+[3]= ::2
+Ans
+[1] 2sin(x+fr(pi,6))
+[2] 2sin(x+fr(pi,3))
+[3] sq(2)sin(x-fr(pi,4))

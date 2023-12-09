@@ -1,0 +1,10 @@
+NIL
+(%i3) powerdisp:false
+(%i4) display2d:false
+(%i5) linel:1000
+(%i6) dtLL:[[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[],[],[],[]]
+(%i7) res:ratsimp(dtLL)
+(%i8) disp(res)
+[[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[no,ns,ns,ns,ns,ns],[],[],[],[]]
+
+(%i9) closefile()

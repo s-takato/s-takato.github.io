@@ -1,0 +1,141 @@
+Scorelineall(fname):=(
+  regional(fname1,fname2,fname3,fid,dt,nn,
+     shL,sqL,ansL,out,flg,tmp,tmp1,tmp2);
+  //global Dirdata,posxy0,posxy,reset,mp,dispL
+  fname1=replace(fname,"question","1taskline");
+  fname2=replace(fname1,"1taskline","2anssheet");
+  fname3=replace(fname1,"1taskline","3scoreline");
+  println([8,fname,fname1,fname2,fname3]);
+  setdirectory(Dirdata);
+  Mkquline(fname);
+  out=["quline="+Dqq(quline)+";",
+          "shline="+Dqq(shline)+";",
+          "caline="+Dqq(caline)+";",
+          "mrkline="+Dqq(mrkline)+";",
+          "mxscline="+Dqq(mxscline)+";"
+         ];
+  import(fname1);
+  out=append(out,"sqline="+Dqq(sqline)+";");
+  sqL=Line2list(sqline);
+  tmp=Readlines(Dirdata,fname2);
+  tmp=select(tmp,indexof(#,";;")>0);
+  dt=apply(tmp,Strsplit(#,";;"));
+  dt=sort(dt,[parse(#_1)]);
+  ansL=[];
+  forall(1..(length(sqL)),nn,
+    tmp1=[text(nn),sqL_nn_1];
+    tmp=select(dt,#_1==text(nn));
+    if(length(tmp)>0,
+      tmp=tmp_1;
+      tmp2=tmp_(3..(length(tmp)));
+      tmp=Returndatetime(tmp_2);
+      tmp=tmp_2+tmp_3;
+      tmp2=prepend(tmp,tmp2);
+      tmp1=concat(tmp1,tmp2);
+    ,
+      tmp1=append(tmp1,"未提出");
+      tmp1=concat(tmp1,shL);
+    );
+    ansL=append(ansL,tmp1);
+  );
+  ansline=List2line(ansL);
+  tmp="ansline="+Dqq(ansline)+";";
+  out=append(out,tmp);
+  apply(out,println(#));
+//  fid=openfile(fname3);
+//  forall(out,
+//    println(fid,#);
+//  );
+//  closefile(fid);r
+  out;
+);
+
+Insertscoreline():=(
+  regional(cl,rw,out,fL,out,cl,rw,
+    fhtml,fnameL,hdata,hall,ldata,ls,le,
+    out,tmp,tmp1,tmp2);
+  //global mp,tb1,mv,reset,dispL
+
+  
+  
+  if(tmp_1>0,
+    if(indexof(tmp_2,"ketscore")>0,
+      numL=[tmp_2];
+    ,
+      if(length(numL)==1,
+        numL=append(numL,tmp_2);
+      );
+      if(length(numL)==2,
+        numL_2=tmp_2;
+      );
+    );
+  );
+  if(length(numL)==2,
+    fhtml=numL_1;
+    hdata=Readlines(Dircdy,fhtml);
+    hall=length(hdata);
+    fline=numL_2;
+    ldata=Readlines(Dirdata,fline);
+    ls=select(1..hall,
+      indexof(hdata_#,"linestart")>0);
+    ls=ls_1;
+    le=select(1..hall,
+      indexof(hdata_#,"lineend")>0);
+    le=le_1;
+    out=hdata_(1..ls);
+    out=concat(out,ldata);
+    out=concat(out,hdata_(le..hall));
+    [length(numL),fhtml,out];
+  ,
+    [length(numL),"",[]];
+  );
+);
+
+
+////////////////////
+
+if(scorelineflg==1,
+  Resetflg("scoreline");
+  Resetsetting();
+  fhtml="";
+  out=MakefileL(Dirdata,"1taskline");
+  out=sort(out);
+  Putcol(1,"l2",out);
+  if(allflg==1,
+    forall(fnameL,fname,
+      Scorelineall(fname);
+    );
+    dispL=append(dispL,
+        ["generate scorelines",clrb]);
+    reset=0;
+    scorelineflg=0;
+    allflg=0;
+  );
+);  
+
+if(insertscoreflg==1,
+  Resetflg("insertscoreline");
+  Resetsetting();
+  out=MakefileL(
+      [Dircdy,"ketscoreorg*html",
+       Dirdata,"scoreline"]);
+  tmp1=select(tmp,indexof(#,"ketscore")>0);
+  tmp2=select(tmp,indexof(#,"scoreline")>0);
+  out=concat(sort(tmp1),sort(tmp2));
+  res=Selectfile(out);
+  if((res_1>0)&(res_1)<=length(tmp1),
+    forg=res_2
+    dispL=[[forg,size]];
+    fnameL=tmp2;
+    if(allflg==1,
+      forall(fnameL,fname,
+        Scorelineall(fstu,fname);
+      );
+      dispL=append(dispL,
+         ["generate scorelines",clrb]);
+      reset=0;
+      scorelineflg=0;
+      allflg=0;
+    );
+  );  
+);  

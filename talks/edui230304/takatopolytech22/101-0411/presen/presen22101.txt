@@ -1,0 +1,381 @@
+Title::slide101
+::\newcommand{\hiduke}{0411}
+::\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+::\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+::\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+::\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+::\def\rad{\;\mathrm{rad}}
+::\def\deg#1{#1^{\circ}}
+::\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+
+
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+%\putnotee{122}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+
+\newcounter{ban}
+\setcounter{ban}{1}
+
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+%\addtocounter{ban}{1}%
+}
+
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%%210614
+}
+
+\newcounter{edawidth}
+\newcounter{edactr}
+
+\newcommand{\seteda}[1]{
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+
+\newcommand{\eda}[2][\theedawidth ]{%
+\noindent\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+
+%%%%%%%%%%%%
+main::Google Classroom(GC)
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::準備
+\slidepage
+
+enumerate::[(1)]
+item::Gmailのアカウントがない場合は作成する
+item::スマホ：GoogleClassroomのアプリを入手（無料）\\
+PC　：「GoogleClassroom ログイン」で検索
+item::\verb|Google Classroom|(以下GC)にログインする\\
+\hspace*{1zw}注）アカウント名とパスワードが必要
+item::右上か右下の「＋」を押して「クラスに参加」を選ぶ\\
+\hspace*{1zw}クラスコード {\color{red}6mxdy4j} を入力
+end
+
+%%%%%%%%%%%%
+new::授業(polytech22)のページ
+%repeat=1
+\slidepage
+
+layer::{120}{0}
+putnote::s{65}{2}::include[bb=0.00 0.00 2210.00 1540.00,width=90mm]::classroomtop.pdf
+end
+
+%%%%%%%%%%%%
+new::授業の方法
+%%repeat=4
+\slidepage
+
+itemize
+item::主にスライドを用いる
+item::ノートに要点をまとめ，問題を解く
+item::試験ではノートの持ち込みOK
+item::教材や課題の配付は，GCから%%\\
+%%\hspace*{1zw}HTML教材のときは，スマホを横置きで使う
+item::{\color{red}授業中は，指示した時以外スマホを使わないこと}
+end
+
+%%%%%%%%%%%%
+main::数式のやりとり
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::KeTMathの利用
+%repeat=4
+\slidepage
+
+itemize
+item::普通の数式(2次元記法)は見やすい．\\
+　$\dfrac{4}{9}$,\ $\sqrt{7}$,\ $5^3$
+%[2,-]::item::しかし，オンラインでのやりとりには向かない\\
+%[3,-]::　＝＞1次元記法の方がよい
+%[4,-]::item::KeTMath\\
+%[4,-]::　・1次元数式を入力すると即時に2次元数式を表示\\
+%[4,-]::　・問題の1次元数式を入力窓1にコピーして確認\\
+%[4,-]::　・解答を入力窓2に入力してよければGCにコピー
+end
+
+
+%%%%%%%%%%%%
+new::1次元数式の記法
+%%repeat=4
+\slidepage
+
+itemize
+item::\Ltab{8zw}{分数 (fraction)}$\dfrac{a}{b}\ \Longrightarrow$\ \verb|fr(a,b)| 
+item::\Ltab{8zw}{割り算}$a\div b\ \Longrightarrow$\ \verb|a {\div} b|\\
+\hfill（あまり使わない）
+item::\Ltab{6zw}{掛け算}$ab\ \Longrightarrow$\ \verb|ab, a*b, a(cdot)b, a(cross)b|
+item::\Ltab{10zw}{べき乗}$a^b\ \Longrightarrow$\ \verb|a^(b)|
+item::\Ltab{12zw}{平方根 (square root)}$\sqrt{a}\ \Longrightarrow$\ \verb|sq(a)|
+item::\Ltab{10zw}{円周率}$\pi\ \Longrightarrow$\ \verb|pi|
+end
+
+%%%%%%%%%%%%
+new::GCとKeTMath
+%%repeat=2
+\slidepage
+
+enumerate::[(1)]
+item::GCの質問にリンクがあるときはリンクをクリック\vspace{-2mm}
+item::課題を埋め込んだKeTMathが立ち上がる\vspace{-2mm}
+item::自分の番号を入れてOKを押す\vspace{-2mm}
+item::入力2に解答を入れる\vspace{-2mm}
+item::Recを押すと全ての解答が入力3に入る\vspace{-2mm}
+item::入力3の「すべてを選択」コピーする\vspace{-2mm}
+item::GCの回答欄にペーストして送信を押す
+end
+
+%%%%%%%%%%%%
+new::課題(KeTMathに慣れよう)
+%%repeat=2
+\slidepage
+itemize
+item::課題 \monban 次の1次元数式の2次元数式を書け．\seteda{55}\\
+\eda{fr(1+4,3)}\eda{a+b/c+d}\\
+\eda{3sq(6)}\eda{pir\^{}\!(2)}
+item::課題 \monban 次の数式を1次元数式で書け．\vspace{2mm}\seteda{55}\\
+\eda{$-\dfrac{3}{5}$}\eda{$\dfrac{xy}{x+y}$}\vspace{2mm}\\
+\eda{$\sqrt{3}-\sqrt{2}$}\eda{$\dfrac{\pi}{2}$}
+end
+
+%%%%%%%%%%%%
+main::数と式の計算
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::正負の数の足し算と引き算
+%repeat=3
+\slidepage
+
+itemize
+item::正の数$-$正の数\\
+\hspace*{2zw}$14-6=8$\\
+\hspace*{2zw}$6-8=-2$
+%[2,-]::item::正の数$+$負の数\\
+%[2,-]::\hspace*{2zw}$12+(-3)=12-3=9$\\
+%[2,-]::\hspace*{2zw}$(-5)+3=3+(-5)=3-5=-2$
+%[3,-]::item::負の数$+$負の数\\
+%[3,-]::\hspace*{2zw}$(-2)+(-3)=-(2+3)=-5$
+end
+
+%%%%%%%%%%%%
+new::正負の数の掛け算（割り算）
+%repeat=2
+\slidepage
+
+itemize
+item::正の数$\times$負の数$=$負の数\\
+\hspace*{2zw}$6\times(-3)=-18$
+%[2,-]::item::負の数$\times$負の数$=$正の数\\
+%[2,-]::\hspace*{2zw}$(-4)\times(-3)=12$\\
+%[2,-]::\hspace*{1zw}注）$(-4)(-3)$とか$(-4)\cdot(-3)$と書くこともある
+end
+
+%%%%%%%%%%%%
+new::計算問題
+%%repeat=2
+\slidepage
+
+\seteda{55}
+itemize
+item::課題\monban\\
+\eda{$-6+5$}\eda{$8-(-2)$}\\
+\eda{$(-7)(+8)$}\eda{$32\div(-4)\times 8$}
+\seteda{55}
+item::課題\monban\\
+\eda{$6-8\div (-4)$}\eda{$18\div(-6)-7\times(-2)$}\\
+\eda{$54\div(3^2-3)$}\eda{$3\times 23 + 3\times 77$}
+end
+
+%%%%%%%%%%%%
+new::分数の計算
+%repeat=4
+\slidepage
+
+itemize
+item::約分　分母と分子を同じ数で割る\vspace{1mm}\\
+\hspace*{2zw}$\dfrac{4}{6}=\dfrac{2}{3}$（分母と分子を$2$で割る）
+%[2,-]::item::通分　2つの分数の分母を同じにする
+%[3,-]::item::足し算（引き算）　通分してから分子どうしを計算\vspace{1mm}\\
+%[3,-]::\hspace*{2zw}$\dfrac{3}{4}+\dfrac{1}{6}=\dfrac{9}{12}+\dfrac{2}{12}=\dfrac{9+2}{12}=\dfrac{11}{12}$
+%[4,-]::item::掛け算　分母どうし，分子どうしを掛ける\vspace{1mm}\\
+%[4,-]::\hspace*{2zw}$\dfrac{2}{5}\times\dfrac{5}{6}=\dfrac{10}{30}=\dfrac{1}{3}$
+end
+
+%%%%%%%%%%%%
+new::分数の計算問題
+%%repeat=2,para
+\slidepage
+
+\seteda{55}
+itemize
+item::課題\monban\vspace{1mm}\\
+\eda{$\dfrac{1}{2}-\dfrac{1}{4}$}\eda{$\dfrac{2}{3}-\dfrac{5}{6}$}\vspace{1mm}\\
+\eda{$\dfrac{3}{10}-\dfrac{3}{5}$}\eda{$\dfrac{1}{2}+\dfrac{1}{3}$}
+item::課題\monban\vspace{1mm}\seteda{55}\\
+
+\eda{$\dfrac{4}{5}\times\dfrac{2}{3}$}\eda{$\dfrac{2}{5}\times\dfrac{3}{7}$}\vspace{1mm}\\
+\eda{$\dfrac{4}{3}\times\dfrac{9}{8}$}\eda{$\dfrac{4}{9}\times\dfrac{6}{5}$}
+end
+
+%%%%%%%%%%%%
+new::分数の割り算
+%%repeat=1
+\slidepage
+\seteda{55}
+
+itemize
+item::割る方の分母と分子をひっくり返して掛ける\vspace{1mm}\\
+\hspace*{2zw}$\dfrac{9}{26}\div\dfrac{3}{4}=\dfrac{9}{26}\times\dfrac{4}{3}=
+\dfrac{9\times 4}{26\times 3}=\dfrac{3 \times 2}{13}=\dfrac{6}{13}$
+item::課題\monban\vspace{1mm}\\
+\eda{$\dfrac{4}{7}\div\dfrac{2}{3}$}\eda{$\dfrac{2}{5}\div\dfrac{4}{7}$}\vspace{1mm}\\
+\eda{$\dfrac{7}{12}\div\dfrac{3}{8}$}\eda{$\dfrac{5}{4}\div\dfrac{15}{7}$}
+end
+
+%%%%%%%%%%%%
+new::文字式
+%repeat=3
+\slidepage
+
+layer::{120}{0}
+putnote::se{70}{14}::presen22101rope
+end
+
+\seteda{110}
+
+itemize
+item::長さ$a$のひもから長さ$x$のひもを切り取ったときの残りの長さを$b$とする．\\
+%[2,-]::\hspace*{4zw}$b=a-x$
+%[3,-]::item::課題\monbannoadd 次を文字式で表せ\hfill(TextP4)\\
+%[3,-]::\eda{1辺の長さが$a$\;cmである正方形の面積$S=$}\\
+%[3,-]::\eda{円周率$\pi$，半径が$r$である円の円周$L=$}
+end
+
+%[3]::\addban
+
+%%%%%%%%%%%%
+new::文字式の計算
+%repeat=6
+\slidepage
+
+itemize
+item::掛け算記号は省略　$x\cdot y,\ x\times y\ \Longrightarrow\ xy$
+%[2,-]::item::べき乗　$xx,\ xxx\ \Longrightarrow\ x^2,\ x^3$
+%[3,-]::item::数は文字の前におく　$x\cdot 3\cdot y\cdot 4=12xy$
+%[4,-]::item::計算は，数の場合と同様\\
+%[5,-]::\hspace*{2zw}$3a\times (-7a^2)=3\cdot(-7) aa^2=-21 a^3$
+%[6,-]::item::課題\monbannoadd 次の計算をせよ．\hfill(TextP5)\seteda{55}\\
+%[6,-]::\eda{$-\dfrac{9}{2}a\times\left(-\dfrac{5}{6}b\right)$}%
+%[6,-]::\eda{$\dfrac{2}{3}a\times(-3a)^2$}
+end
+%[6]::\addban
+
+%%%%%%%%%%%%
+main::関数
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::関数
+%repeat=3
+\slidepage
+
+itemize
+item::変数$x$の値を与えると変数$y$の値が求まる\\
+\hspace*{1zw}例）$y=2x+1,\ y=x^2+2x+1$
+%[2,-]::item::これを変数$x$の関数という
+%[3,-]::item::変数$x$の関数であることを$f(x)$などで表す\\
+%[3,-]::　例1）$f(x)=2x+1$（1次関数）\\
+%[3,-]::　例2）$g(x)=x^2+2x+1$（2次関数）
+end
+
+%%%%%%%%%%%%
+new::関数記号
+%repeat=2
+\slidepage
+
+\seteda{55}
+itemize
+item::関数$f(x)$の$x$に定数$a$を代入した値を$f(a)$で表す
+item::例）$f(x)=x^2+x-1$のとき\\
+　　　$f(2)=2^2+2-1=5$
+%[2,-]::item::課題\monban $f(x)=3x+1$のとき，次を求めよ．\\
+%[2,-]::\eda{$f(0)$}\eda{$f(2)$}\\
+%[2,-]::\eda{$f(-3)$}\eda{$f(a-1)$（$a$は定数）}\\
+%[2,-]::\hfill(TextP80問1,2)\\
+end
+
+
+%%%%%%%%%%%%
+new::関数のグラフ
+%%repeat=8,para
+\slidepage
+
+\vspace{5mm}
+...
+
+関数$y=f(x)$
+
+itemize
+item::$x$を変えるとき，点$\bigl(x,\ f(x)\bigr)$も変わる．
+item::[]例) 1次関数$y=2x+1$\vspace{1mm}\\
+\input{fig/table1a}
+item::この点の集まりを，その関数の{\color{red}グラフ}という．
+end
+
+\if 1=0 % to end
+
+
+%%%%%%%%%%%%
+new::1次関数のグラフ
+%repeat=3
+\slidepage
+
+例）$y=2x+1$
+
+layer::{120}{0}
+putnote::se{70}{-3}::table1b,0.5
+%[1]::putnote::s{60}{6}::graphpaper1,0.5
+%[2]::putnote::s{60}{6}::graphpaper2,0.5
+%[3]::putnote::s{60}{6}::graphpaper3,0.5
+end
+
+%%%%%%%%%%%%
+new::1次関数のグラフ
+%%repeat=3
+\slidepage
+
+資料の「関数のグラフ」で次の1次関数のグラフをかいてみよう．
+
+itemize
+item::$y=3x+3$（TextP81）
+item::$y=10-2x$（TextP81）
+item::$y=2x+2$（TextP81）
+item::$y=\dfrac{1}{2}x+1$
+end
+
+\fi %from 259

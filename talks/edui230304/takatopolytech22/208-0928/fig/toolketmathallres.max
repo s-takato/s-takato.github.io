@@ -1,0 +1,9 @@
+writefile("/Users/takatoosetsuo/polytech22.git/208-0928/fig/toolketmathallres.txt")$/*##*/
+powerdisp:false$/*##*/
+display2d:false$/*##*/
+linel:1000$/*##*/
+dtLL:___$/*##*/
+res:ratsimp(dtLL)$/*##*/
+disp(res)$/*##*/
+closefile()$/*##*/
+quit()$/*##*/

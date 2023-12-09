@@ -1,0 +1,4 @@
+LinkL=[
+  ["a href","loaded/drawgraphv3vlinejsoffL.html",  "関数のグラフ"],
+  ["a href","loaded/trigcalcv1jsoffLL.html",  "三角関数の値"]
+];

@@ -1,0 +1,131 @@
+1 01KA 0704
+Q05 y=sin(x),y=cos(x)の導関数を答えよ
+[1]  y=sin(x)
+　正解 y=cos(x)
+　答え cos(x)
+　得点 2
+[2]  y=cos(x)
+　正解 y=-sin(x)
+　答え -sin(x)
+　得点 2
+
+2 02NI 0704
+Q05 y=sin(x),y=cos(x)の導関数を答えよ
+[1]  y=sin(x)
+　正解 y=cos(x)
+　答え cos(x)
+　得点 2
+[2]  y=cos(x)
+　正解 y=-sin(x)
+　答え -sin(x)
+　得点 2
+
+3 03VL 0704
+Q05 y=sin(x),y=cos(x)の導関数を答えよ
+[1]  y=sin(x)
+　正解 y=cos(x)
+　答え cos(x)
+　得点 2
+[2]  y=cos(x)
+　正解 y=-sin(x)
+　答え -sin(x)
+　得点 2
+
+4 04TO 0704
+Q05 y=sin(x),y=cos(x)の導関数を答えよ
+[1]  y=sin(x)
+　正解 y=cos(x)
+　答え cos(x)
+　得点 2
+[2]  y=cos(x)
+　正解 y=-sin(x)
+　答え -sin(x)
+　得点 2
+
+5 05RO 未提出
+
+6 06AK 0704
+Q05 y=sin(x),y=cos(x)の導関数を答えよ
+[1]  y=sin(x)
+　正解 y=cos(x)
+　答え cos(x)
+　得点 2
+[2]  y=cos(x)
+　正解 y=-sin(x)
+　答え -sin(x)
+　得点 2
+
+7 07YK 0704
+Q05 y=sin(x),y=cos(x)の導関数を答えよ
+[1]  y=sin(x)
+　正解 y=cos(x)
+　答え cos(x)
+　得点 2
+[2]  y=cos(x)
+　正解 y=-sin(x)
+　答え -sin(x)
+　得点 2
+
+8 08MT 0704
+Q05 y=sin(x),y=cos(x)の導関数を答えよ
+[1]  y=sin(x)
+　正解 y=cos(x)
+　答え cos(x)
+　得点 2
+[2]  y=cos(x)
+　正解 y=-sin(x)
+　答え -sin(x)
+　得点 2
+
+9 09HN 0704
+Q05 y=sin(x),y=cos(x)の導関数を答えよ
+[1]  y=sin(x)
+　正解 y=cos(x)
+　答え cos(x)
+　得点 2
+[2]  y=cos(x)
+　正解 y=-sin(x)
+　答え -sin(x)
+　得点 2
+
+10 10HH 0704
+Q05 y=sin(x),y=cos(x)の導関数を答えよ
+[1]  y=sin(x)
+　正解 y=cos(x)
+　答え cos(x)
+　得点 2
+[2]  y=cos(x)
+　正解 y=-sin(x)
+　答え -sin(x)
+　得点 2
+
+11 11KH 0704
+Q05 y=sin(x),y=cos(x)の導関数を答えよ
+[1]  y=sin(x)
+　正解 y=cos(x)
+　答え cos(x)
+　得点 2
+[2]  y=cos(x)
+　正解 y=-sin(x)
+　答え -sin(x)
+　得点 2
+
+12 12YM 0704
+Q05 y=sin(x),y=cos(x)の導関数を答えよ
+[1]  y=sin(x)
+　正解 y=cos(x)
+　答え cos(x)
+　得点 2
+[2]  y=cos(x)
+　正解 y=-sin(x)
+　答え -sin(x)
+　得点 2
+
+13 13TY 未提出
+
+14 14KK 未提出
+
+15 15YK 未提出
+
+16 16YT 未提出
+

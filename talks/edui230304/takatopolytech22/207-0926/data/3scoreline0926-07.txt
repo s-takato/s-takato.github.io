@@ -1,0 +1,7 @@
+quline="Q07::y=sin(x)とy=cos(x)で囲まれる図形を考える．//ただし，0(leq) x (leq) 2piとする．	[1]:: 2曲線の交点のx座標を求めよ	[2]:: 面積Sを積分で表せ	[3]:: 面積Sを求めよ";
+shline="Q07---	[1]  	[2] int(a,b,f,x)= 	[3]  ";
+caline="Q07::	[1]::fr(pi,4),fr(5pi,4)	[2]::int(fr(pi,4),fr(5pi,4),sin(x)-cos(x),x)	[3]::sq(2)+1";
+mrkline="0	2	2	2";
+mxscline="0	1	-1	1";
+sqline="01KA	2	2	2	2CR02NI	2	2	2	2CR03VL	2	2	2	2CR04TO	2	2	2	2CR05RO	2	2	2	2CR06AK	2	2	2	2CR07YK	2	2	2	2CR08MT	2	2	2	2CR09HN	2	2	2	2CR10HH	2	2	2	2CR11KH	2	2	2	2CR12YM	2	2	2	2CR13TY	2	2	2	2CR14KK	2	2	2	2CR15YK	2	2	2	2CR16YT	2	2	2	2";
+ansline="1	01KA	未提出CR2	02NI	092615:20:32	Q07---	[1]  	[2] int(a,b,f,x)= fr(pi,4),fr(5,4)	[3]  int(fr(5,4)pi,fr(pi,4),sin(x)-cos(x),x)CR3	03VL	092615:4:8	Q07---	[1] fr(pi,4),fr(5pi,4) 	[2] int(a,b,f,x)=; fr(pi,4),fr(5pi,4),sin(x)-cos(x)CR4	04TO	未提出CR5	05RO	未提出CR6	06AK	092615:54:0	Q07---	[1]  	[2] int(a,b,f,x)= x=fr(pi,4),fr(5,4)pi	[3]  int(fr(pi,4),fr(5,4)pi,sin(x)-cos(x),x)	[4]  sq(2)+1CR7	07YK	未提出CR8	08MT	092615:24:26	Q06---	[1] x= -2,1	[2] int(a,b,f,x)= int(-2,1,-x^(2)+2-x,x)	[3]  fr(9,2)CR9	09HN	未提出CR10	10HH	未提出CR11	11KH	092615:20:16	Q07---	[1]  	[2] int(a,b,f,x)= fr(pi,4),fr(5pi,4)	[3]  int(fr(pi,4),fr(5,4)pi,sin(x)-cos(x),x)CR12	12YM	092615:24:38	Q07---	[1]  	[2] int(a,b,f,x)= fr(-3,4)pi,fr(pi,4),fr(5,4)	[3]  2sq(2)CR13	13TY	未提出CR14	14KK	未提出CR15	15YK	未提出CR16	16YT	未提出";

@@ -1,0 +1,8 @@
+NIL
+(%i3) powerdisp:false
+(%i4) display2d:false
+(%i5) linel:1000
+/polytech22.git/104-0516/fig/toolketmathres.max:5:264:incorrect syntax: π is not an infix operator
+/(a))],[(1)/(a),(2π)
+                  ^
+(%o6) "/polytech22.git/104-0516/fig/toolketmathres.max"

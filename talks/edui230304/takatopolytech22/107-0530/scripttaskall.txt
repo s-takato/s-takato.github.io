@@ -1,0 +1,182 @@
+Tasklineall(fst,fname):=(
+  regional(fout,fout2,fout3,fid,dt,stL,ns,quL,nn,nc,col,
+     tmp,tmp1,tmp2,tmp3);
+  //global Dirdata,posxy0,posxy,reset,mp
+  //    size,sqline
+  Mkquline(fname);
+  quL=Line2list(quline);
+  dt=Readlines(Dirdata,fstu);
+  if(indexof(dt_1,tab)>0,tmp=tab,tmp=",");
+  dt=apply(dt,Strsplit(#,tmp));
+  tmp=dt_1;
+  tmp=select(1..(length(tmp)),
+            indexof(tmp_#,"名前")>0);
+  if(length(tmp)>0,
+    col=tmp_1;tmp=2;
+  ,
+    tmp=1;
+    if(length(dt_1)==1,
+      col=1;tmp=1;
+    ,
+      col=3;tmp=2;
+    );
+  );
+  dt=dt_(tmp..length(dt));
+  stL=apply(dt,#_[col]);
+  forall(1..(length(stL)),ns,
+    tmp1=stL_ns;
+    forall(1..(length(quL)),nq,
+      tmp2=quL_nq;
+      nn=length(tmp2);
+      if(nn>1,
+        tmp=random(nn-1);
+        nc=min([floor(tmp)+1,nn-1]);
+        nc=nc+1;
+        tmp1=append(tmp1,text(nc));
+      ,
+        tmp1=append(tmp1,"1");
+      );
+    );
+    stL_ns=tmp1;
+  );
+  sqline=List2line(stL);
+  setdirectory(Dirdata);
+  fout=replace(fname,
+             "question","1taskline");
+  fid=openfile(fout);
+  tmp="quline="+Dqq(quline)+";";
+  println(fid,tmp);
+  tmp="shline="+Dqq(shline)+";";
+  println(fid,tmp);
+  tmp="sqline="+Dqq(sqline)+";";
+  println(fid,tmp);
+  tmp="mrkline="+Dqq(mrkline)+";";
+  println(fid,tmp);
+  tmp="mxscline="+Dqq(mxscline)+";";
+  println(fid,tmp);
+  closefile(fid);
+  fout2=replace(fout,"1taskline","2anssheet");
+  if(!isexists(Dirdata,fout2),
+    fid=openfile(fout2);
+    closefile(fid);
+  );
+  fout3=replace(fout,"1taskline","queslist");
+  tmp1=Line2list(quline);
+  fid=openfile(fout3);
+  println(fid,fout3);
+  forall(tmp1,
+    println(fid,#);
+  );
+  closefile(fid);
+);
+
+Inserttasklineall(forg,fname):=(
+  regional(cl,rw,out,fL,out,cl,rw,
+    hdata,hall,ldata,ls,le,fid,fout,out,
+    tmp,tmp1,tmp2);
+  //global mp,tb1,mv,reset,numL
+  hdata=Readlines(Dircdy,forg);
+  tmp=1;
+  while(tmp<length(hdata),
+    tmp1=hdata_tmp;
+    if(indexof(tmp1,"<title>")>0,
+      tmp2=replace(fname,
+            "1taskline","kettask");
+      tmp2=replace(tmp2,".txt","");
+      hdata_tmp="    <title>"+tmp2+"</title>";
+      tmp=length(hdata);
+    );
+    tmp=tmp+1;
+  );
+  hall=length(hdata);
+  ldata=Readlines(Dirdata,fname);
+  ls=select(1..hall,
+  indexof(hdata_#,"linestart")>0);
+  ls=ls_1;
+  le=select(1..hall,
+      indexof(hdata_#,"lineend")>0);
+  le=le_1;
+  out=hdata_(1..ls);
+  out=concat(out,ldata);
+  out=concat(out,hdata_(le..hall));
+  tmp1=replace(fname,"1taskline","scriptadd");
+  if(isexists(Dirdata,tmp1),
+    tmp2=Readlines(Dirdata,tmp1);
+    tmp=select(1..(length(out)),
+          indexof(out_#,"Windispg();")>0);
+    tmp=tmp_1;
+    tmp1=out_(1..(tmp-1));
+    tmp1=concat(tmp1,tmp2);
+    tmp2=out_(tmp..(length(out)));
+    out=concat(tmp1,tmp2);
+  );
+  tmp=replace(fname,"1taskline","");
+  tmp=replace(tmp,".txt","");
+  fout=replace(forg,"org",tmp);
+  setdirectory(Dircdy);
+  fid=openfile(fout);
+  forall(out,println(fid,#));
+  closefile(fid);
+);
+
+
+
+
+
+if(tasklineflg==1,
+  Resetflg("taskline");
+  Resetsetting();
+  out=MakefileL([Dirdata,["question","student"]]);
+  tmp1=select(out,indexof(#,"student")>0);
+  tmp1=sort(tmp1);
+  tmp2=remove(out,tmp1);
+  tmp2=sort(tmp2);
+  out=concat(tmp1,tmp2);
+  res=Selectfile(out);
+  if((res_1>0)&(res_1)<=length(tmp1),
+    fstu=res_2;
+    dispL=[[fstu,size]];
+    fnameL=tmp2;
+    if(allflg==1,
+      forall(fnameL,fname,
+        Tasklineall(fstu,fname);
+      );
+      dispL=append(dispL,
+         ["generate tasklines",clrb]);
+      reset=0;
+      tasklineflg=0;
+      stquelineflg=0;
+      allflg=0;
+    );
+  );
+);
+
+if(inserttaskflg==1,
+  Resetsetting();
+  Resetflg("inserttask");
+  tmp=MakefileL(
+    [Dircdy,"kettaskorg*html",
+     Dirdata,"taskline"]);
+  tmp1=select(tmp,indexof(#,"kettask")>0);
+  tmp2=select(tmp,indexof(#,"taskline")>0);
+  tmp1=sort(tmp1);
+  tmp2=sort(tmp2);
+  res=Selectfile(concat(tmp1,tmp2));
+  if((res_1>0)&(res_1)<=length(tmp1),
+    forg=res_2;
+    dispL=[[forg,size]];
+    fnameL=tmp2;
+    if(allflg==1,
+      forall(fnameL,fname,
+        Inserttasklineall(forg,fname);
+      );
+      dispL=append(dispL,
+         ["generate kettasks",clrb]);
+      reset=0;
+      inserttaskflg=0;
+      stquelineflg=0;
+      allflg=0;
+    );
+  );
+);
+

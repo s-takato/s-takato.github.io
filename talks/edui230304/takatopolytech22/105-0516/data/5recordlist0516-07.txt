@@ -1,0 +1,149 @@
+1 01KA 0516
+Q07 次はどうなるか
+[1]  sin(pi-x)
+　正解 sin(x)
+　答え sin{\gamma}
+　得点 1
+[2]  cos(pi-x)
+　正解 -cos(x)
+　答え -cos{\gamma}
+　得点 1
+
+2 02NI 0516
+Q07 次はどうなるか
+[1]  sin(pi-x)
+　正解 sin(x)
+　答え sin(x)
+　得点 2
+[2]  cos(pi-x)
+　正解 -cos(x)
+　答え cos(x)
+　得点 0
+
+3 03VL 0516
+Q07 次はどうなるか
+[1]  sin(pi-x)
+　正解 sin(x)
+　答え sin(x)
+　得点 2
+[2]  cos(pi-x)
+　正解 -cos(x)
+　答え -cos(x)
+　得点 2
+
+4 04TO 0516
+Q07 次はどうなるか
+[1]  sin(pi-x)
+　正解 sin(x)
+　答え sin(x)
+　得点 2
+[2]  cos(pi-x)
+　正解 -cos(x)
+　答え -cos(x)
+　得点 2
+
+5 05RO 0516
+Q07 次はどうなるか
+[1]  sin(pi-x)
+　正解 sin(x)
+　答え 1
+　得点 0
+[2]  cos(pi-x)
+　正解 -cos(x)
+　答え -1
+　得点 0
+
+6 06AK 0516
+Q07 次はどうなるか
+[1]  sin(pi-x)
+　正解 sin(x)
+　答え sin(x)
+　得点 2
+[2]  cos(pi-x)
+　正解 -cos(x)
+　答え -cos(x)
+　得点 2
+
+7 07YK 0516
+Q07 次はどうなるか
+[1]  sin(pi-x)
+　正解 sin(x)
+　答え sin(x)
+　得点 2
+[2]  cos(pi-x)
+　正解 -cos(x)
+　答え cos(x)
+　得点 0
+
+8 08MT 0516
+Q07 次はどうなるか
+[1]  sin(pi-x)
+　正解 sin(x)
+　答え sin(x)
+　得点 2
+[2]  cos(pi-x)
+　正解 -cos(x)
+　答え cos(x)
+　得点 0
+
+9 09HN 0516
+Q07 次はどうなるか
+[1]  sin(pi-x)
+　正解 sin(x)
+　答え sin(pi)cos(x)-cos(pi)sin(x)
+　得点 1
+[2]  cos(pi-x)
+　正解 -cos(x)
+　答え  sin(pi)sin(x)+cos(x)cos(pi)
+　得点 1
+
+10 10HH 0516
+Q07 次はどうなるか
+[1]  sin(pi-x)
+　正解 sin(x)
+　答え sin(x)
+　得点 2
+[2]  cos(pi-x)
+　正解 -cos(x)
+　答え -cos(x)
+　得点 2
+
+11 11KH 0516
+Q07 次はどうなるか
+[1]  sin(pi-x)
+　正解 sin(x)
+　答え sin(1)
+　得点 0
+[2]  cos(pi-x)
+　正解 -cos(x)
+　答え cos(1)
+　得点 0
+
+12 12YM 0516
+Q07 次はどうなるか
+[1]  sin(pi-x)
+　正解 sin(x)
+　答え sin(pi)cos(x)-cos(pi)sin(x)
+　得点 1
+[2]  cos(pi-x)
+　正解 -cos(x)
+　答え cos(pi)cos(x)+sin(pi)sin(x)
+　得点 1
+
+13 13TY 0516
+Q07 次はどうなるか
+[1]  sin(pi-x)
+　正解 sin(x)
+　答え sin(pi-x)
+　得点 0
+[2]  cos(pi-x)
+　正解 -cos(x)
+　答え cos(pi-x)
+　得点 0
+
+14 14KK 未提出
+
+15 15YK 未提出
+
+16 16YT 未提出
+

@@ -1,0 +1,9 @@
+writefile("/polytech22.git/104-0516/fig/toolketmathres.txt")$/*##*/
+powerdisp:false$/*##*/
+display2d:false$/*##*/
+linel:1000$/*##*/
+dtLL:[[(4)/(a),(4)/((2*%pi)/(a))],[],[(2)/(a),(%pi*2)/((2*%pi)/(a))],[(a)/(a),(b*%pi)/((2*%pi)/(a))],[(%pi)/(a),(1)/((2*%pi)/(a))],[(a)/(a),((2*%pi)/(b))/((2*%pi)/(a))],[(a)/(a),((2*%pi)/(b))/((2*%pi)/(a))],[na,na],[na,na],[(6)/(a),(7)/((2*%pi)/(a))],[(1)/(a),(2π)/((2*%pi)/(a))],[na,na],[],[],[],[]]$/*##*/
+res:ratsimp(dtLL)$/*##*/
+disp(res)$/*##*/
+closefile()$/*##*/
+quit()$/*##*/

@@ -1,0 +1,10 @@
+NIL
+(%i3) powerdisp:false
+(%i4) display2d:false
+(%i5) linel:1000
+(%i6) dtLL:[[no,ns,((-4)/3)/(4/3)],[no,ns,(4/3)/(4/3)],[],[no,ns,(4/3)/(4/3)],[no,ns,(4/3)/(4/3)],[no,ns,(4/3)/(4/3)],[no,ns,(4/3)/(4/3)],[no,ns,(4/3)/(4/3)],[no,ns,((-4)/3)/(4/3)],[no,ns,((-4)/3)/(4/3)],[no,ns,(4/3)/(4/3)],[no,ns,((-4)/3)/(4/3)],[],[],[],[]]
+(%i7) res:ratsimp(dtLL)
+(%i8) disp(res)
+[[no,ns,-1],[no,ns,1],[],[no,ns,1],[no,ns,1],[no,ns,1],[no,ns,1],[no,ns,1],[no,ns,-1],[no,ns,-1],[no,ns,1],[no,ns,-1],[],[],[],[]]
+
+(%i9) closefile()

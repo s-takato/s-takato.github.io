@@ -1,0 +1,10 @@
+NIL
+(%i3) powerdisp:false
+(%i4) display2d:false
+(%i5) linel:1000
+(%i6) dtLL:[[no,cos(x)/cos(x),(-sin(x))/(-sin(x)),no,3/2,no,ns],[no,cos(x)/cos(x),(-sin(x))/(-sin(x)),no,2/2,no,ns],[no,cos(x)/cos(x),(-sin(x))/(-sin(x)),no,2/2,no,ns],[no,cos(x)/cos(x),(-sin(x))/(-sin(x)),no,2/2,no,ns],[no,cos(x)/cos(x),(-sin(x))/(-sin(x)),no,2/2,no,ns],[no,cos(x)/cos(x),(-sin(x))/(-sin(x)),no,2/2,no,ns],[no,cos(x)/cos(x),(-sin(x))/(-sin(x)),no,2/2,no,ns],[no,cos(x)/cos(x),(-sin(x))/(-sin(x)),no,2/2,no,ns],[no,cos(x)/cos(x),(-sin(x))/(-sin(x)),no,3/2,no,ns],[no,cos(x)/cos(x),(-sin(x))/(-sin(x)),no,3/2,no,ns],[no,cos(x)/cos(x),(-sin(x))/(-sin(x)),no,3/2,no,ns],[no,cos(x)/cos(x),(-sin(x))/(-sin(x)),no,1/2,no,ns],[],[],[],[]]
+(%i7) res:ratsimp(dtLL)
+(%i8) disp(res)
+[[no,1,1,no,3/2,no,ns],[no,1,1,no,1,no,ns],[no,1,1,no,1,no,ns],[no,1,1,no,1,no,ns],[no,1,1,no,1,no,ns],[no,1,1,no,1,no,ns],[no,1,1,no,1,no,ns],[no,1,1,no,1,no,ns],[no,1,1,no,3/2,no,ns],[no,1,1,no,3/2,no,ns],[no,1,1,no,3/2,no,ns],[no,1,1,no,1/2,no,ns],[],[],[],[]]
+
+(%i9) closefile()

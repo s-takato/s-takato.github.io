@@ -1,0 +1,198 @@
+Title::slide0
+::\newcommand{\hiduke}{0613}
+::\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+::\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+::\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+::\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+::\def\rad{\;\mathrm{rad}}
+::\def\deg#1{#1^{\circ}}
+::\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+::\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+::\newcommand{\sfrac}[3][0.65]{\scalebox{#1}{$\frac{#2}{#3}$}}
+::\newcommand{\phn}[1]{\phantom{#1}}
+::\newcommand{\scb}[2][0.6]{\scalebox{#1}{#2}}
+::\newcommand{\dsum}{\displaystyle\sum}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+
+
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+%\putnotee{122}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+
+\newcounter{ban}
+\setcounter{ban}{1}
+
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+%\addtocounter{ban}{1}%
+}
+
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%%210614
+}
+
+\newcounter{edawidth}
+\newcounter{edactr}
+
+\newcommand{\seteda}[1]{
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+
+\newcommand{\eda}[2][\theedawidth ]{%
+\noindent\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+
+
+%%%%%%%%%%%%
+main:: 平均変化率
+\slidepage[m]
+
+%%%%%%%%%%%%%
+new::平均変化率の意味
+%repeat=7,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{80}{10}::henka1,0.7
+%[3,-]::putnote::se{80}{10}::henka2,0.7
+end
+
+itemize
+item::関数$y=f(x)$,\ 区間$[a,\ b]$
+%[2,-]::item::$f(x)$の$[a,\ b]$での変化量は\\
+%[3,-]::\hspace*{2zw}$f(b)-f(a)$
+%[4,-]::item::[]区間幅$b-a$で割る\\
+%[5,-]::\hspace*{2zw}$\bunsuu{f(b)-f(a)}{b-a}$
+%[6,-]::item::[]これを{\color{red}平均変化率}という
+%[7,-]::item::平均変化率は直線ABの傾き
+end
+
+%%%%%%%%%%%%%
+new::平均変化率の計算例
+%repeat=10,para
+\slidepage
+
+itemize
+item::$f(x)=x^2$の$[1,3]$での平均変化率($r$とおく)\\
+%[2,-]::\hspace*{1zw}$r=\bunsuu{f(3)-f(1)}{3-1}=$
+%[3]::$\bunsuu{3^2-1^2}{3-1}=\phantom{\bunsuu{9-1}{3-1}=4}$
+%[4]::$\bunsuu{3^2-1^2}{3-1}=\bunsuu{9-1}{3-1}=\phantom{4}$
+%[5,-]::$\bunsuu{3^2-1^2}{3-1}=\bunsuu{9-1}{3-1}=4$
+%[6,-]::item::$f(x)=x^2$の$[a,b]$での平均変化率\\
+%[7,-]::\hspace*{1zw}$r=\bunsuu{b^2-a^2}{b-a}=$
+%[8]::$\bunsuu{(b-a)(b+a)}{b-a}=\phantom{b+a}$
+%[9,-]::$\bunsuu{(b-a)(b+a)}{b-a}=b+a$
+%[10,-]::item::[課題]\monbannoadd 次を求めよ．\seteda{100}\\
+%[10,-]::\eda{$f(x)=4x^2$の$(2,4)$での平均変化率}\\
+%[10,-]::\eda{$f(x)=3x$の$(a,b)$での平均変化率}
+end
+%[10]::\addban
+
+%%%%%%%%%%%%%
+new::$b$を$a$に近づけたときの変化率
+%repeat=8,para
+\slidepage
+
+layer::{120}{0}
+%[1]::putnote::se{75}{15}::henka1,0.8
+%[2]::putnote::se{75}{15}::henka2,0.8
+%[3,-]::putnote::se{75}{15}::henka3,0.8
+%[1]::\shadeboxse{115}{24}{4}{4}{white}{black}
+end
+
+itemize
+item::関数$y=x^2$の$[a,b]$での平均変化率\\
+%[2,-]::\hspace*{1zw}$r=\bunsuu{b^2-a^2}{b-a}$
+%[3,-]::item::[]$[1,b]$のとき\\
+%[4,-]::\hspace*{1zw}$r=\bunsuu{b^2-1}{b-1}$
+%[5..7]::item::$b=2$のとき　$r=\hakom{3}$
+%[8,-]::item::$b=2$のとき　$r=\hakoma{3}$
+%[7,-]::item::\href{https://s-takato.github.io/polytech21/netmaterials/offline/henka3mainoff.html}%
+%[7,-]::{「14.1点における変化率」}
+end
+
+%%%%%%%%%%%%%
+new::割り算（分数）の意味
+%repeat=6,para
+\slidepage
+
+itemize
+item::$a \div b\ \ \Bigl(\bunsuu{a}{b}\Bigr)$とは
+%[2,-]::item::[]例)$x=\bunsuu{6}{2}$
+%[3,-]::$\Longleftrightarrow\ 2x=6$となる$x$のこと
+%[4,-]::item::[]例)$x=\bunsuu{3}{5}$
+%[5,-]::$\Longleftrightarrow\ 5x=3$となる$x$のこと
+%[6,-]::item::{\color{red}$x=\bunsuu{a}{b}\ \Longleftrightarrow\ bx=a$となる$x$のこと}
+end
+
+%%%%%%%%%%%%%
+new::分母が$0$になると？
+%repeat=8,para
+\slidepage
+
+itemize
+%[1..3]::item::[(1)]$\bunsuu{1}{0}$は\;\hako{求まらない}
+%[4,-]::item::[(1)]$\bunsuu{1}{0}$は\;\hakoa{求まらない}
+%[1..6]::item::[(2)]$\bunsuu{0}{0}$は\;\hako{決まらない}
+%[7,-]::item::[(2)]$\bunsuu{0}{0}$は\;\hakoa{決まらない}
+{\normalsize\color{blue}
+%[2]::item::[]$x=\bunsuu{1}{0}\ \Longleftrightarrow\  \hakom{0}\;x= \hakom{1}$
+%[3,-]::item::[]$x=\bunsuu{1}{0}\ \Longleftrightarrow\  \hakoma{0}\;x= \hakoma{1}$
+%[5]::item::[]$x=\bunsuu{0}{0}\ \Longleftrightarrow\  \hakom{0}\;x= \hakom{0}$
+%[6,-]::item::[]$x=\bunsuu{0}{0}\ \Longleftrightarrow\  \hakoma{0}\;x= \hakoma{0}$
+}
+%[8,-]::item::{\color{red}分母が0となる分数は考えない}
+end
+
+%%%%%%%%%%%%%
+new::1点における変化率
+%repeat=3,para
+\slidepage
+
+itemize
+item::区間$[a,b]$の平均変化率$r=\bunsuu{f(b)-f(a)}{b-a}$
+%[2,-]::item::1点$a$における変化率$r=\bunsuu{f(a)-f(a)}{a-a}$\\
+%[2,-]::\hspace*{3zw}{\color{red}分母が0になってしまう}
+%[3,-]::item::1点における変化率はどうやって求めればいいか
+end
+
+%%%%%%%%%%%%%
+main::微分係数
+\slidepage[m]
+
+%%%%%%%%%%%%%
+new::関数の極限
+%repeat=7,para
+\slidepage
+
+itemize
+item::$x$が$a$に\underline{限りなく近づく}とする（{\color{red}$x\to a$}）\\
+%[2,-]::\hspace*{2zw}{\color{blue}$a$に等しくはないが，いくらでも近くなること}\vspace{-1mm}
+%[3,-]::item::$f(x)$が$\alpha$に近づくとき，$\alpha$を{\color{red}極限値}という\\
+%[4,-]::\hspace*{2zw}{\color{blue}$\dlim_{x \to a}f(x)=\alpha$}と書く\vspace{-1mm}
+%[5]::item::[例]$\dlim_{x \to 1}(2x+3)=$
+%[6,-]::item::[例]$\dlim_{x \to 1}(2x+3)=5$
+%[7]::item::[課題]\monban 次の極限値を求めよ\hfill TextP3\seteda{60}\\
+%[7]::\eda{$\dlim_{x \to 4}(x^2-2x)$}
+%[7]::\eda{$\dlim_{x \to 2}\bunsuu{5x+2}{x+2}$}
+end

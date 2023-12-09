@@ -1,0 +1,9 @@
+writefile("/Users/takatoosetsuo/polytech22.git/202-0704/fig/toolketmathall6res.txt")$/*##*/
+powerdisp:false$/*##*/
+display2d:false$/*##*/
+linel:1000$/*##*/
+dtLL:[[no,(x)/(1),(2*cos(x)+3*sin(x))/(2*cos(x)+3*sin(x))],[no,(1)/(1),(-3)/(2*cos(x)+3*sin(x))],[no,(1)/(1),(2*cos(x)+3*sin(x))/(2*cos(x)+3*sin(x))],[no,(1)/(1),(2*cos(x)+3*sin(x))/(2*cos(x)+3*sin(x))],[no,(x)/(1),(2*cos(x)+3*sin(x))/(2*cos(x)+3*sin(x))],[no,(1)/(1),(2*cos(x)+3*sin(x))/(2*cos(x)+3*sin(x))],[no,(-1)/(1),(2*cos(x)+3*sin(x))/(2*cos(x)+3*sin(x))],[no,(0)/(1),(2*cos(x)+3*sin(x))/(2*cos(x)+3*sin(x))],[no,(1)/(1),(2*cos(x)+3*sin(x))/(2*cos(x)+3*sin(x))],[no,(1)/(1),(2*cos(x)+3*sin(x))/(2*cos(x)+3*sin(x))],[no,(1)/(1),(-sin(x))/(2*cos(x)+3*sin(x))],[no,(1)/(1),(2*cos(x)+3*sin(x))/(2*cos(x)+3*sin(x))],[],[],[],[]]$/*##*/
+res:ratsimp(dtLL)$/*##*/
+disp(res)$/*##*/
+closefile()$/*##*/
+quit()$/*##*/

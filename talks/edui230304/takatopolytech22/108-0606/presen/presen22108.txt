@@ -1,0 +1,491 @@
+Title::slide0
+::\newcommand{\hiduke}{0606}
+::\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+::\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+::\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+::\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+::\def\rad{\;\mathrm{rad}}
+::\def\deg#1{#1^{\circ}}
+::\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+::\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+::\newcommand{\sfrac}[3][0.65]{\scalebox{#1}{$\frac{#2}{#3}$}}
+::\newcommand{\phn}[1]{\phantom{#1}}
+::\newcommand{\scb}[2][0.6]{\scalebox{#1}{#2}}
+::\newcommand{\dsum}{\displaystyle\sum}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+
+
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+%\putnotee{122}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+
+\newcounter{ban}
+\setcounter{ban}{1}
+
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+%\addtocounter{ban}{1}%
+}
+
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%%210614
+}
+
+\newcounter{edawidth}
+\newcounter{edactr}
+
+\newcommand{\seteda}[1]{
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+
+\newcommand{\eda}[2][\theedawidth ]{%
+\noindent\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+
+
+%%%%%%%%%%%%
+main::数列
+\slidepage[m]
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%
+new::等差数列と等比数列
+%repeat=6,para
+\slidepage
+
+itemize
+item::[]差が等しい数列を等差数列，等しい差を公差という
+item::初項を$a$，公差を$d$の等差数列の第$n$項を$a_n$とおくと\\
+%[1,-]::　$a_1=a,\ a_2=a+d,\ a_3=a+2d,\ \cdots$\\
+%[1]::\hspace*{3zw}一般項$a_n=\hakom{a+(n-1)d}$
+%[2,-]::\hspace*{3zw}一般項$a_n=\hakoma{a+(n-1)d}$
+%[3,-]item::[]比が等しい数列を等差数列，等しい比を公比という
+%[3,-]::item::初項を$a$，公比を$r$の等比数列の第$n$項を$a_n$とおくと\\
+%[4,-]::　$a_1=a,\ a_2=ar,\ a_3=ar^2,\ \cdots$\\
+%[5]::\hspace*{3zw}一般項$a_n=\hakom{a r^{n-1}}$
+%[6,-]::\hspace*{3zw}一般項$a_n=\hakoma{a r^{n-1}}$
+end
+
+new::等差数列の和
+%repeat=6
+\slidepage
+
+\vspace*{5mm}
+...
+
+初項$a$，公差$d$，項数が4の場合で説明する
+
+itemize
+%[1,-]::item::[]\hspace*{1zw}$S=\Ctab{20mm}{a}+\Ctab{17mm}{(a+d)}+\Ctab{17mm}{(a+2d)}+\Ctab{17mm}{(a+3d)}$
+%[2,-]::item::[]逆順にして
+%[2,-]::item::[]\hspace*{1zw}$S=\Ctab{20mm}{(a+3d)}+\Ctab{17mm}{(a+2d)}+\Ctab{17mm}{(a+d)}+\Ctab{17mm}{a}$
+%[3,-]::item::[]2つの式を加えると\\
+%[4,-]::　$2S=(2a+3d)\times 4$\\
+%[5]::　$2$で割ると　$S=\bunsuu{4(2a+3d)}{2}=\hakom{\bunsuu{n(a+a+3d)}{2}}$
+%[6,-]::　$2$で割ると　$S=\bunsuu{4(2a+3d)}{2}=\hakoma{\bunsuu{n(a+a+3d)}{2}}$
+end
+
+%%%%%%%%%%%%%
+new::等差数列の和の公式
+%repeat=3,para
+\slidepage
+
+itemize
+%[1,-]::item::[]初項$a$，公差$d$，項数$n$の等差数列の和$S$は\vspace{2mm}\\
+%[1,-]::　　\fbox{$S=\bunsuu{n(2a+(n-1)d)}{2}$}
+%[2,-]::item::[]$2a+(n-1)d=a+(a+(n-1)d)=\mbox{初項}+\mbox{末項}$\\
+%[3,-]::item::[]　　\raisebox{-5mm}{\fbox{$S=\bunsuu{\mbox{項数}\times (\mbox{初項}+\mbox{末項})}{2}$}}
+end
+
+new::等差数列の和の例題
+%repeat=8,para
+\slidepage
+
+itemize
+%[1,-]::item::[例題)]$S=1+3+5+7+\cdots+99$を求めよ．
+%[2,-]::item::[解)]項数$n$を求める．\\
+%[3,-]::初項$1$，公差$2$より，末項(第$n$項)$a_n$は\\
+%[4,-]:: 　　$a_n=1+2(n-1)=2n-1$\vspace{2mm}\\
+%[5,-]::$a_n=2n-1=99$より
+%[6,-]::　$n=\bunsuu{99+1}{2}=50$\\
+%[7,-]::したがって　$S=\bunsuu{50(1+99)}{2}$
+%[8,-]::$=2500$
+end
+
+new::等比数列の和
+%repeat=7,para
+\slidepage
+
+{\color{blue}
+layer::{120}{0}
+%[4,-]::\putnotesw{32}{19}{\large ／}
+%[4,-]::\putnotesw{45}{19}{\large ／}
+%[4,-]::\putnotesw{61}{19}{\large ／}
+%[4,-]::\putnotesw{76}{19}{\large ／}
+end
+}
+
+初項$a$，公比$r$，項数が5の場合で説明する
+
+itemize
+%[1,-]::item::[]$S=a+ar+ar^2+ar^3+ar^4$
+%[2,-]::item::[]$rS=ar+ar^2+ar^3+ar^4+ar^5$
+%[3,-]::item::[]2つの式を引くと\\
+%[5,-]::　$S-rS=a-ar^5$\hspace{1zw}\\
+%[6,-]::$\therefore\hspace{0.75zw}(1-r)S=a(1-r^5)$
+%[7,-]::item::[]したがって，$r\neqq 1$のとき　$S=\bunsuu{a(1-r^5)}{1-r}$
+end
+
+%%%%%%%%%%%%%
+new::等比数列の和の公式
+%repeat=1,para
+\slidepage
+
+itemize
+item::[]初項$a$，公比$r$，項数$n$の等比数列の和$S$は\vspace{2mm}\\
+　　　　\fbox{$S=\bunsuu{a(1-r^n)}{1-r}$}
+item::[]　ただし，$r\neqq 1$とする
+end
+
+%%%%%%%%%%%%%
+new::等比数列の和の例題
+%repeat=8,para
+\slidepage
+
+itemize
+%[1,-]::item::[例題)]$S=1+2+2^2+2^3+\cdots+2^{10}$を求めよ．
+%[2,-]::item::[解)]初項$1$，公比$2$より，末項(第$n$項)$a_n$は\\
+%[3,-]:: 　$a_n=a r^{n-1}=2^{n-1}$
+%[4,-]::item::[]$a_n=2^{n-1}=2^{10}$より\hspace{0.75zw}$n-1=10$\\
+%[5,-]::　　$\therefore\hspace{0.75zw}n=11$
+%[6,-]::item::[]$S=\bunsuu{1\times(1-2^{11})}{1-2}$
+%[7,-]::$=\bunsuu{1-2^{11}}{-1}$
+%[8,-]::$=2^{11}-1$
+end
+
+%%%%%%%%%%%%%
+new::課題(等差数列と等比数列の和)
+%repeat=1,para
+\slidepage
+\seteda{70}
+itemize
+item::[課題]\monban 次の和を求めよ．(TextP202,204)\vspace{2mm}\\
+\eda{初項3,\ 末項19,\ 項数15の等差数列の和}\vspace{2mm}\\
+\eda{初項3,\ 公比2の等比数列の初項から第$n$項までの和}\vspace{2mm}\\
+\eda{$1+3+5+\cdots+55$の和}
+end
+
+%%%%%%%%%%%%%
+new::和の記号$\dsum$（シグマ）
+%repeat=8,para
+\slidepage
+
+{\color{blue}
+layer::{120}{0}
+%[7,-]::\putnotee{5}{69}{\normalsize $k$に$1,2,\cdots,10$を順に入れて加えるという意味}
+%[8,-]::\putnotee{60}{60}{\normalsize KeTMath　sum(k=1,10,k)}
+end
+}
+
+itemize
+item::[例)]$1,\ 2,\ 3,\ \cdots,\ 10$の和を表す
+%[2,-]::item::[(1)]$S=1+2+3+4+5+6+7+8+9+10$
+%[3,-]::item::[(2)]$S=1+2+3+\cdots+9+10$
+%[4,-]::item::[(3)]第$k$項は　$k$\\
+%[5,-]::　$k=1,\ 2,\ 3,\ \cdots, 10$\\
+%[6,-]::　　$S=\dsum_{k=1}^{10}k$\\
+end
+
+%%%%%%%%%%%%%
+new::$\dsum$の使い方
+%repeat=8
+\slidepage
+
+\vspace{2mm}
+...
+
+itemize
+%[1]::item::[例1)]$\dsum_{k=1}^{5}(2k+1)=\hakom{3+5+7+9+11}$\vspace{-2mm}
+%[2,-]::item::[例1)]$\dsum_{k=1}^{5}(2k+1)=\hakoma{3+5+7+9+11}$\vspace{-5mm}
+%[3..6]::item::[例2)]$1^2+2^2+3^2+\cdots+20^2=\dsum_{k=\scb{\hakom{1}}}^{\scb{\hakom{20}}}\hakom{k^2}$\vspace{-1mm}
+%[5]::\\　　第$k$項は　\hakom{k^2}，$k=\hakom{1,\ 2,\ \cdots 20}$
+%[6]::\\　　第$k$項は　\hakoma{k^2}，$k=\hakoma{1,\ 2,\ \cdots,\ 20}$\vspace{-2mm}
+%[7,-]::item::[例2)]$1^2+2^2+3^2+\cdots+20^2=\dsum_{k=\scb{\hakoma{1}}}^{\scb{\hakoma{20}}}\hakoma{k^2}$
+%[7,-]::\\　　第$k$項は　\hakoma{k^2}，$k=\hakoma{1,\ 2,\ \cdots 20}$\vspace{-1mm}
+%[8,-]::item::[課題]\monban $S, n, a_k$を求めよ．\seteda{40}\\
+%[8,-]::\eda{$S=\dsum_{k=1}^{4}\bunsuu{1}{k}$}
+%[8,-]::\eda{$2+4+6+\cdots+10=\dsum_{k=1}^{n}a_k$}
+end
+
+
+%%%%%%%%%%%%%
+main::複素数
+\slidepage[m]
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%
+new::虚数
+%repeat=10,para
+\slidepage
+
+layer::{120}{0}
+end
+
+itemize
+item::$x^2+6x+10=0$\hfill(1)\\
+%[2,-]::$(x+3)^2-9+10=0$より
+%[3,-]::　$(x+3)^2=-1$\hfill(2)\vspace{-1mm}
+%[4,-]::item::実数では，2乗して$-1$になることはない\vspace{-1mm}
+%[5,-]::item::2乗して$-1$になるものも数と考え，{\color{red}$i$}とおく({\color{red}虚数単位})\vspace{-1mm}
+%[6,-]::item::$i^2=-1$
+%[7,-]::　また $(-i)^2=-1$\vspace{-1mm}
+%[8,-]::item::2乗して$-1$になる数は$\pm i$があるが$\sqrt{-1}=i$とする\vspace{-1mm}
+%[9,-]::item::(2)より　$x+3=\pm i$
+%[10,-]::　$x=-3\pm i$
+end
+
+%%%%%%%%%%%%%
+new::負の数の平方根
+%repeat=7
+\slidepage
+
+layer::{120}{0}
+%[6,-]::\putnotee{60}{43}{{\color{red}$\sqrt{-a}=\sqrt{a}\,i$}}
+end
+
+itemize
+item::[例)]$\sqrt{-4}$
+item::2乗して$-4$になる数\\
+%[2,-]::　$(2i)^2=4i^2=-4,\ (-2i)^2=4i^2=-4$\\
+%[3,-]::$\sqrt{-4}=2i$と定める
+%[4]::item::[例)]$\sqrt{-2}=\hakom{{\color{blue}\sqrt{2}\,i}}$
+%[5,-]::item::[例)]$\sqrt{-2}=\hakoma{{\color{blue}\sqrt{2}\,i}}$
+%[7,-]::item::[課題]\monban 計算せよ．\hfill Text P133問1\seteda{55}\\
+%[7,-]::\eda{$\sqrt{-6}$}\eda{$\sqrt{-\bunsuu{9}{4}}$}\\
+%[7,-]::\eda{$\sqrt{-6}\sqrt{-2}$}\eda{$\sqrt{-3}\sqrt{2}$}
+end
+
+%%%%%%%%%%%%%
+new::複素数
+%repeat=2
+\slidepage
+
+itemize
+item::$z=a+b\,i$の形の数を{\color{red}複素数}という　($a,b$は実数)\\
+　　$1+i,\ 2+3i,\ 4-2i,\ \cdots$
+%[2,-]::item::$a$を$z$の{\color{red}実部}，$b$を$z$の{\color{red}虚部}という
+end
+
+%%%%%%%%%%%%%
+new::複素数の計算
+%repeat=10,para
+\slidepage
+
+layer::{120}{0}
+%[10,-]::\putnotee{22}{72}{{\color{red}$(a+bi)(a-bi)=a^2+b^2$}}
+end
+
+itemize
+item::ふつうの式のように計算し，$i^2$が出たら$-1$で置き換える
+%[1]::item::和　$(2+3i)+(5-i)=\hakom{{\color{blue}7+2i}}$
+%[2,-]::item::和　$(2+3i)+(5-i)=\hakoma{{\color{blue}7+2i}}$
+%[3,-]::item::積　$(2+3i)(4+i)$\\
+%[4,-]::　$=8+2i+12i+3i^2$
+%[5,-]::$=8+14i-3$
+%[6,-]::$=5+14i$
+%[7,-]::item::[]　$(2+i)(2-i)$\\
+%[8,-]::　$=4-i^2$
+%[9,-]::$=4+1=5$
+end
+
+%%%%%%%%%%%%%
+new::複素数の計算（商）
+%repeat=5
+\slidepage
+
+itemize
+item::$\bunsuu{1+3i}{2+i}$\\
+%[2,-]::　　{\color{red}$(2+i)(2-i)=5$を用いる}\vspace{1mm}\\
+%[3,-]::$=\bunsuu{(1+3i)(2-i)}{(2+i)(2-i)}$
+%[4,-]::$=\bunsuu{5+5i}{5}$
+%[5,-]::$=1+i$
+end
+
+
+%%%%%%%%%%%%%
+new::複素数の計算問題
+%repeat=1
+\slidepage
+
+itemize
+item::[課題]\monban 計算せよ．\hfill TextP132問1\seteda{55}\\
+\eda{$(1-3i)+(2-5i)$}\eda{$(10-7i)-(3+9i)$}\vspace{2mm}\\
+\eda{$(-4+7i)(3+2i)$}\eda{$(-2+6i)(2+6i)$}\vspace{2mm}\\
+\eda{$\bunsuu{5+2i}{1-3i}$}\eda{$\bunsuu{1+i}{-2+5i}-\bunsuu{4-2i}{2+5i}$}
+end
+
+%%%%%%%%%%%%%
+new::複素数平面
+%repeat=4
+\slidepage
+
+layer::{120}{0}
+putnote::se{75}{15}::plane1
+end
+
+{\color{red}
+layer::{120}{0}
+%[2,-]::\putnotec{110}{25}{\small$\bullet$}
+end
+}
+
+itemize
+item::$z=a+b\,i$を平面上の点$(a,\ b)$で表す\seteda{50}\\
+%[2,-]::\eda{$2+3i \leftrightarrow\ \mbox{点}(2,3)$}\\
+%[3,-]::\eda{$-2+i \leftrightarrow\ \mbox{点}$}\\
+%[3,-]::\eda{$3 \leftrightarrow\ \mbox{点}$}\\
+%[3,-]::\eda{$-3 \leftrightarrow\ \mbox{点}$}\\
+%[3,-]::\eda{$4i \leftrightarrow\ \mbox{点}$}
+%[4,-]::item::[課題]\monban\ [2]-[5]の点を求めよ
+end
+
+%%%%%%%%%%%%%
+new::複素数の和$z+w$と図形
+%repeat=4
+\slidepage
+
+layer::{120}{0}
+%%[-,3]::putnote::se{72}{27}::complexcalcsum,0.8
+%%[4]::putnote::se{72}{27}::complexcalcsum2,0.8
+end
+
+itemize
+item::$z=a+bi,\ w=c+di$（$a,b,c,d$は実数）
+%[2,-]::item::[]$z+w=a+bi+c+di=(a+c)+(b+d)i$
+%[3,-]::item::\href{https://s-takato.github.io/polytech22/offlineapp/fukusowa_ttttjsoffL.html}{複素数の和}を動かそう
+%[3,-]::enumerate::[(1)]
+%[3,-]::item::IDに学生番号を入れて「確認」「出題」を押す．
+%[3,-]::item::赤い点を$z+w(=\alpha+\beta)$の位置に動かす．
+%[3,-]::item::点が決まったら，「採点」を押す．
+%[3,-]::item::以上を４回ほど繰り返す．
+%[3,-]::end
+%[4,-]::item::[課題]\monban $\mathrm{O},z,z+w,w$でできる四辺形は何か．
+end
+
+%%%%%%%%%%%%%
+new::絶対値と偏角
+%repeat=4
+\slidepage
+
+layer::{120}{0}
+%[1..2]::putnote::se{70}{17}::absangle
+%[3,-]::putnote::se{70}{17}::absangle2
+end
+
+itemize::
+item::$z=a+b\,i$を平面上の点$(a,\ b)$で表したとき\vspace{-2mm}
+item::[]{\color{red}絶対値}$|z|$\\
+　原点Oと$z$の距離\\
+　　$|z|=\sqrt{a^2+b^2}$\vspace{-2mm}
+%[2,-]::item::[]{\color{red}偏角}$\mathrm{arg}z$\\
+%[2,-]::　$\mathrm{O}z$と$x$軸（正）の角$\theta$\vspace{-2mm}
+%[3,-]::item::[例)]$z=1+i$\\
+%[3]::　絶対値\ \hakom{{\color{blue}\sqrt{2}}}，偏角\ \hakom{{\color{blue}\bunsuu{\pi}{4}}}
+%[4,-]::　絶対値\ \hakoma{{\color{blue}\sqrt{2}}}，偏角\ \hakoma{{\color{blue}\bunsuu{\pi}{4}}}
+end
+
+%%%%%%%%%%%%%
+new::絶対値と偏角(課題)
+%repeat=1
+\slidepage
+
+itemize
+item::[課題]\monban 次の複素数の絶対値と偏角を求めよ．\seteda{28}\\
+\eda{$\sqrt{3}+i$}\eda{$i$}\eda{$-2$}\eda{$-3i$}
+item::[課題]\monban $z=a+bi,\ w=c+di$とする．\seteda{800}\\
+\eda{$|z|^2$を$a,b$で表せ}\\
+\eda{$|w|^2$を$c,d$で表せ}\\
+\eda{$zw$の実部と虚部を$a,b,c,d$で表せ}\\
+\eda{$|zw|^2$を計算せよ}\\
+\eda{$|zw|=|z||w|$を証明せよ}
+end
+
+
+%[1]::\ifnum 1=0
+
+%%%%%%%%%%%%%
+new::極形式
+%repeat=4
+\slidepage
+
+layer::{120}{0}
+putnote::se{75}{17}::absangle
+end
+
+itemize
+item::$z=a+bi$の絶対値\ $r$，偏角\ $\theta$
+%[2,-]::item::$\cos\theta=\bunsuu{a}{r}$より　$a=r\cos\theta$
+%[2,-]::item::$\sin\theta=\bunsuu{b}{r}$より　$b=r\sin\theta$
+%[3,-]::item::{\color{red}$z=r(\cos\theta+\sin\theta)$（極形式）}
+%[4,-]::item::[例)]$\sqrt{3}+i=2(\cos\bunsuu{\pi}{6}+\sin\bunsuu{\pi}{6})$
+end
+
+%%%%%%%%%%%%%
+new::複素数の積$zw$と図形
+%repeat=4
+\slidepage
+
+layer::{120}{0}
+%[-,3]::putnote::se{72}{27}::complexproduct,0.8
+%[4,-]::putnote::se{72}{27}::complexproduct2,0.8
+end
+
+itemize::
+item::$z=a+bi,\ w=c+di$（$a,b,c,d$は実数）
+%[2,-]::item::$zw\!=\!(a+bi)(c+di)\!=\!(ac-bd)+(ad+bc)i$
+%[3,-]::item::$z,w,zw$の位置関係は？
+%[4,-]::item::[]{\color{red}絶対値は　積\\偏角は　和}
+end
+
+%[3]::\hspace*{3zw}\href{run:complexproductjsoff.html}{複素数の積}
+
+
+%%%%%%%%%%%%%
+new::複素数の積と図形
+%repeat=5
+\slidepage
+
+layer::{120}{0}
+%%putnote::se{70}{17}::absangle3
+end
+
+itemize::
+item::$z=r(\cos\alpha+i\sin\alpha),\ w=s(cos\beta+i\sin\beta)$
+%thin[2,-]::item::[]$zw=rs(\cos\alpha+i\sin\alpha)(\cos\beta+i\sin\beta)$
+%thin[3,-]::item::[]$\phantom{zw}=rs\bigl\{(\cos\alpha\cos\beta-\sin\alpha\sin\beta)$\\
+%thin[3,-]::\hfill$+i(\sin\alpha\cos\beta+\cos\alpha\sin\beta)\bigr\}$\\
+%thin[4,-]::$\phantom{zw}=rs\bigl(\cos(\alpha+\beta)+i\sin(\alpha+\beta)\bigr)$
+%thin[5,-]::item::[]したがって，$|zw|=rs=|z||w|$で，偏角は$\alpha+\beta$\\
+end
+
+%[5]::\fi

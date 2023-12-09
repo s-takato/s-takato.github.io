@@ -1,0 +1,8 @@
+NIL
+(%i3) powerdisp:false
+(%i4) display2d:false
+(%i5) linel:1000
+/Users/takatoosetsuo/polytech22.git/205-0905/fig/toolketmathall1res.max:5:929:incorrect syntax: 　 is not an infix operator
+)/(3)*x^3),((1)/(4)　
+                  ^
+(%o6) "/Users/takatoosetsuo/polytech22.git/205-0905/fig/toolketmathall1res.max"

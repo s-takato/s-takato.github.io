@@ -1,0 +1,5 @@
+tail=Readlines(Dircdy,"ketmathrulein.html");
+tail=append(tail,Copyright());
+
+///////////
+Ketcindyjsbody(License(),Headline("KeTMath"),tail);//no ketjs off

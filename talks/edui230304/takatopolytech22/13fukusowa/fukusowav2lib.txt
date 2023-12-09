@@ -1,0 +1,100 @@
+//Id=60;
+Rec=50;
+
+//Seteditable(60,["ID=","Size=18","Width=150"]);// no ketjs
+//Seteditable(50,["Student=","Size=18","Width=700"]);// no ketjs
+
+Coordinates():=(
+  regional(tmp);
+  Drwletter([-0.5,0.1],"O",18);
+  Drwexpr([XMAX+0.1,-0.2],"x",18);
+  Drwexpr([-0.2,YMAX+0.1],"y",18);
+  draw([[XMIN,0],[XMAX,0]],color->[0,0,0]);
+  draw([[0,YMIN],[0,YMAX]],color->[0,0,0]);
+  tmp=[];
+  forall(remove((-4)..4,[0]),
+    tmp=concat(tmp,[#,text(#)]);
+  );
+  Htickmark(tmp,["Size=1.4"]);
+  Vtickmark(tmp,["Size=1.4"]);
+);
+
+Makeques(pos,dy):=(
+  regional(cL,tmp,tmp1,tmp2,Ex,Ca,msg);
+  //glocbal pO,pA,pB,pP
+  flg=0;
+  while(flg==0,  //210505
+    cL=[];
+    forall(1..4,
+      tmp=randominteger(8);
+      tmp=tmp-3;
+      cL=append(cL,tmp);
+    ) ;
+    tmp=[cL_1+cL_3,cL_2+cL_4];
+    if(Inwindow(tmp),flg=1);  //210505
+  );  //210505
+  if((cL_1==0)&(cL_2==0),
+    cL_1=1; cL_2=1;
+  );
+  if((cL_3==0)&(cL_4==0),
+    cL_3=1; cL_4=1;
+  );
+  tmp1=Assign("\alpha=a+b i",["a",text(cL_1),"b",text(cL_2)]);
+  tmp2=Assign("\beta=a+b i",["a",text(cL_3),"b",text(cL_4)]);
+  tmp1=replace(tmp1,"0+","");
+  tmp1=replace(tmp1,"+0 i","");
+  tmp1=replace(tmp1,"+-","-");
+  tmp1=replace(tmp1,"1 i","i");
+  tmp2=replace(tmp2,"0+","");
+  tmp2=replace(tmp2,"+0 i","");
+  tmp2=replace(tmp2,"+-","-");
+  tmp2=replace(tmp2,"1 i","i");
+  msg=[
+    [tmp1,pos,24],
+    [tmp2,pos-[0,dy],24],
+    ["\alpha+\beta=?",pos-2.5*[0,dy],24]
+  ];
+  pO=[0,0];
+  pA=[cL_1,cL_2];
+  pB=[cL_3,cL_4];
+  pP=[cL_1+cL_3,cL_2+cL_4];
+  Ex=text([pA,pB]);
+  Ca=text(pP);
+  quesgiven=1;
+  quesnew=0;
+  scorefin=0;
+  score=0;
+  scorectr=1;
+  recordfin=0;
+  Msgques=msg;
+  [Ex,Ca];
+);
+
+Drawfig():=(
+  Pointdata("1",pP,["Size=1.5","Msg=n"]);;
+  Putpoint("C",[1,1],C.xy);
+  Arrowdata("1",[pO,pA],["dr,2",3]);
+  Arrowdata("2",[pO,pB],["dr,2",3]);
+  if(|C.xy|>0,  //210505
+    Arrowdata("3",[pO,C],["dr,2",3,"Color=[1,0,0]"]);
+  );
+);
+
+Scoring(pos):=(
+  regional(Eps,score,msg);
+  stans=Text(C.xy);
+  Eps=10^(-1);
+  if(|C-pP|<Eps,
+    msg=["正解",pos,20,[0,0,1]];
+    score=1;
+  ,
+    msg=["不正解",pos,20,[1,0,0]];
+    score=0;
+  );
+  scorefin=1;
+  quesnew=1;
+  Msgsc=msg;
+  [stans,score];
+);
+
+scorectr=0;

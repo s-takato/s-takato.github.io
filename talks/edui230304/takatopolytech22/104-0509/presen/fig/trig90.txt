@@ -1,0 +1,8 @@
+%%Title: trig90.pdf
+%%Creator: extractbb 20210318
+%%BoundingBox: 0 0 757 419
+%%HiResBoundingBox: 0.000000 0.000000 757.000000 419.000000
+%%PDFVersion: 1.4
+%%Pages: 1
+%%CreationDate: Sat Apr 24 10:54:40 2021
+

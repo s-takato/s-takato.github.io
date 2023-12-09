@@ -1,0 +1,217 @@
+//   211112
+//   211020
+//   210923
+//   210619
+//   210910
+
+Shift=0;
+keytype=1;
+capflg=0;
+greflg=0;
+boldflg=0;
+vecflg=0;
+
+nch=2;
+ch=2;
+//nt=4;
+px=15;
+dtpy=3.2;
+tposL=apply(1..4,[px+0.5,17.4-(#-1)*dtpy]);
+posyL=[23,-2.5,-34];
+
+//Setwindow([-20,65],[-17,15]);
+
+//nameL=Keyname();
+//Keytable(0,dxL,4,32.5,poskey,[1,1,0],nameL,[0,-0.5],22);
+
+//Keytable(5,43,1,34.5,[46,3.4],0.9*[1,1,1],[],[0,-0.5],20);
+//actL1=["BS","CL","AC","PS","PL"];
+//forall(1..5,drawtext([47+(#-1)*4.3,4.2],actL1_#,size->20));
+//Keytable(2,27,1,30,[46,0],0.9*[1,1,1]);
+//actL2=["$<\!<$","$<$"];
+//forall(1..2,drawtext([46.1+(#-1)*3,1],actL2_#,size->20));
+//Keytable(2,27,1,30,[62,0],0.9*[1,1,1],[],[0,-0.5],20);
+//actL3=["$>$","$>\!>$"];
+//forall(1..2,drawtext([62.5+(#-1)*2.5,1],actL3_#,size->20));
+
+poskey=[19.5,-17.67];
+dxL=apply(10..19,35.5);
+dxL_4=40; dxL_5=37;
+dxL2=apply(1..9,35.5);
+dxL3=[40,40];
+
+ // no ketjs on 
+Seteditable(1,["","Size=24","Width=500"]);
+Seteditable(2,["","Size=24","Width=500"]);
+Seteditable(3,["","Size=24","Width=500"]);
+Seteditable(10,["","Size=18","Width=50"]);
+Seteditable(32,["","Size=18","Width=80"]);
+Text1.xy=[px+1,posyL_1-1];
+Text2.xy=[px+1,posyL_2-1];
+Text3.xy=[px+1,posyL_3-1];
+inspect(T1,"ptsize",6);
+inspect(T2,"ptsize",6);
+inspect(T3,"ptsize",6);
+inspect(T4,"ptsize",6);
+// no ketjs off
+
+
+Keyname():=(
+  regional(nL,nL2,nL3,tmp1);
+  nL=[
+    ["a","b","c","sin","sq",")","7","8","9","＋"],
+    ["x","y","z","cos","fr",",","4","5","6","ー"],
+    ["r","s","t","tan","tfr","(","1","2","3","＊","'"],
+    ["w","_","=","log","ln","^","0",".","sp","／"]
+  ];
+  nL2=[
+    ["°","＠","[","]","|","d","e","f","g"],
+    ["$\times$","!","{","}","$\neq$","h","i","j","k"],
+    ["・",":",";","$\leq$","$\geq","l","m","n","o"],
+    ["\","$\pm$","$\mp$","<",">","p","q","u","v"]
+  ];
+  nL3=[
+    ["lim","pi"],
+    ["int","$\infty$"],
+    ["'","cs"],
+    ["$\sum$","tx"]
+  ];
+
+  if(Shift==1,
+    nL3_3_2="$d$"; nL3_4_1="$[.]_{}^{}$"; nL3_4_2="$\partial$"; //210923
+  );
+  if(Shift==2,
+    nL3_1_1="mat"; nL3_2_1="det"; nL3_4_2="$\circ$"; //210923
+  );
+  if(keytype==2,
+    tmp1=["A","B","C"]; forall(1..3,nL_1_(#)=tmp1_#);
+    tmp1=["D","E","F","G"]; forall(1..4,nL2_1_(#+5)=tmp1_#);
+    tmp1=["X","Y","Z"]; forall(1..3,nL_2_(#)=tmp1_#);
+    tmp1=["H","I","J","K"]; forall(1..4,nL2_2_(#+5)=tmp1_#);
+    tmp1=["R","S","T"]; forall(1..3,nL_3_(#)=tmp1_#);
+    tmp1=["L","M","N","O"]; forall(1..4,nL2_3_(#+5)=tmp1_#);
+    tmp1=["W"]; forall(1..1,nL_4_(#)=tmp1_#);
+    tmp1=["P","Q","U","V"]; forall(1..4,nL2_4_(#+5)=tmp1_#);
+  );
+  if(keytype==3,
+    tmp1=["$\alpha$","$\beta$","$\gamma$"];
+    forall(1..3,nL_1_(#)=tmp1_#);
+    tmp1=["$\Delta$","$\delta$","$\varepsilon$","$\varphi$"];
+    forall(1..4,nL2_1_(#+5)=tmp1_#);
+    tmp1=["$\kappa$","$\iota$","$\zeta$"];
+    forall(1..3,nL_2_(#)=tmp1_#);
+    tmp1=["$\Theta$","$\theta$","$\chi$","$\xi$"];
+    forall(1..4,nL2_2_(#+5)=tmp1_#);
+    tmp1=["$\rho$","$\sigma$","$\tau$"];
+    forall(1..3,nL_3_(#)=tmp1_#);
+    tmp1=["$\lambda","$\mu$","$\nu$","$\omega$"];
+    forall(1..4,nL2_3_(#+5)=tmp1_#);
+    tmp1=["$\Omega$"];
+    forall(1..1,nL_4_(#)=tmp1_#);
+    tmp1=["$\Psi$","$\psi$","$\Phi$","$\Lambda$"];
+    forall(1..4,nL2_4_(#+5)=tmp1_#);
+  );
+  if(keytype==4,
+    tmp1=apply(["a","b","c"],"$\mathbf{"+#+"}$");
+    forall(1..3,nL_1_(#)=tmp1_#);
+    tmp1=apply(["d","e","f","g"],"$\mathbf{"+#+"}$");
+    forall(1..4,nL2_1_(#+5)=tmp1_(#));
+    tmp1=apply(["x","y","z"],"$\mathbf{"+#+"}$");
+    forall(1..3,nL_2_(#)=tmp1_#);
+    tmp1=apply(["h","i","j","k"],"$\mathbf{"+#+"}$");
+    forall(1..4,nL2_2_(#+5)=tmp1_#);
+    tmp1=apply(["r","s","t"],"$\mathbf{"+#+"}$");
+    forall(1..3,nL_3_(#)=tmp1_#);
+    tmp1=apply(["l","m","n","o"],"$\mathbf{"+#+"}$");
+    forall(1..4,nL2_3_(#+5)=tmp1_#);
+    tmp1=apply(["w"],"$\mathbf{"+#+"}$");
+    forall(1..1,nL_4_(#)=tmp1_#);
+    tmp1=apply(["p","q","r","s"],"$\mathbf{"+#+"}$");
+    forall(1..4,nL2_4_(#+5)=tmp1_#);
+  );
+  if(keytype==5,
+    tmp1=apply(["a","b","c"],"$\vec{"+#+"}$");
+    forall(1..3,nL_1_(#)=tmp1_#);
+    tmp1=apply(["d","e","f","g"],"$\vec{"+#+"}$");
+    forall(1..4,nL2_1_(#+5)=tmp1_(#));
+    tmp1=apply(["x","y","z"],"$\vec{"+#+"}$");
+    forall(1..3,nL_2_(#)=tmp1_#);
+    tmp1=apply(["h","i","j","k"],"$\vec{"+#+"}$");
+    forall(1..4,nL2_2_(#+5)=tmp1_#);
+    tmp1=apply(["r","s","t"],"$\vec{"+#+"}$");
+    forall(1..3,nL_3_(#)=tmp1_#);
+    tmp1=apply(["l","m","n","o"],"$\vec{"+#+"}$");
+    forall(1..4,nL2_3_(#+5)=tmp1_#);
+    tmp1=apply(["w"],"$\vec{"+#+"}$");
+    forall(1..1,nL_4_(#)=tmp1_#);
+    tmp1=apply(["p","q","r","s"],"$\vec{"+#+"}$");
+    forall(1..4,nL2_4_(#+5)=tmp1_#);
+  );  [nL,nL2,nL3];
+);
+
+
+
+///////
+Manifun=["Allclear()","Clearnow()","Delete()","Push()","Pull()"];
+
+Allclear():=(
+  StrL_ch="";
+  StrpL_ch="";
+  npos=0;
+  Subsedit(ch,"");
+  funflg=0;
+);
+
+Clearnow():=(
+  StrL_ch="";
+  npos=0;
+  Subsedit(ch,"");
+  funflg=0;
+);
+
+Delete():=(
+  regional(tmp1,tmp2,strnow);
+  if(npos>0,
+    strnow=StrL_ch;
+    tmp1=substring(strnow,0,npos-1);
+    tmp2=substring(strnow,npos,length(strnow));
+    StrL_ch=tmp1+tmp2;
+    strnow=StrL_ch;
+    Subsedit(ch,strnow);
+    npos=npos-1;
+    funflg=0;
+  ,
+    Pull();
+    npos=length(StrL_ch);
+    Delete();
+  );
+);
+
+Push():=(
+  regional(tmp,tmp1);
+  tmp1=StrL_ch;
+  tmp=indexof(tmp1,"//");
+  if(tmp==0,
+    StrpL_ch=StrpL_ch+tmp1+"//";
+    StrL_ch="";
+    npos=0;
+  ,
+    StrpL_ch=StrpL_ch+substring(tmp1,0,tmp+1);
+    StrL_ch=substring(tmp1,tmp+1,length(tmp1));
+    npos=max([0,npos-(tmp+1)]);
+  );
+  Subsedit(ch,StrL_ch);
+);
+
+Pull():=(
+  regional(tmp,tmp1,tmp2);
+  tmp1=StrpL_ch;
+  tmp=indexall(tmp1,"//");
+  if(length(tmp)>1,tmp=tmp_(-2)+1,tmp=0);
+  tmp2=substring(tmp1,0,tmp);
+  StrpL_ch=tmp2;
+  tmp1=substring(tmp1,tmp,length(tmp1));
+  StrL_ch=tmp1+StrL_ch;
+  npos=length(tmp1)+npos;
+  Subsedit(ch,StrL_ch);
+);

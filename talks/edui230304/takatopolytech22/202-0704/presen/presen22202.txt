@@ -1,0 +1,365 @@
+タイトル::slide0
+::\newcommand{\hiduke}{0704}
+::\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+::\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+::\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+::\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+::\def\rad{\;\mathrm{rad}}
+::\def\deg#1{#1^{\circ}}
+::\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+::\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+::\newcommand{\sfrac}[3][0.65]{\scalebox{#1}{$\frac{#2}{#3}$}}
+::\newcommand{\phn}[1]{\phantom{#1}}
+::\newcommand{\scb}[2][0.6]{\scalebox{#1}{#2}}
+::\newcommand{\dsum}{\displaystyle\sum}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+
+
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+%\putnotee{122}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+
+\newcounter{ban}
+\setcounter{ban}{1}
+
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+%\addtocounter{ban}{1}%
+}
+
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%
+}
+
+\newcounter{edawidth}
+\newcounter{edactr}
+
+\newcommand{\seteda}[1]{
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+
+\newcommand{\eda}[1]{%
+\Ltab{\theedawidth mm}{[\theedactr]\ #1}%
+\addtocounter{edactr}{1}%
+}
+
+%%%%%%%%%%%%
+main:: 復習+
+\slidepage[m]
+
+%%%%%%%%%%%%%
+new::微分係数と導関数
+%repeat=2,para
+\slidepage
+
+itemize
+item::$a$における微分係数$f'(a)$\\
+\hspace*{2zw}$f'(a)=\dlim_{z\to a}\bunsuu{f(z)-f(a)}{z-a}$
+%[2,-]::item::導関数\\
+%[2,-]::・微分係数$f'(a)$は$a$の関数\\
+%[2,-]::・$a$を$x$と書き，導関数という\\
+%[2,-]::\hspace*{2zw}$f'(x)=\dlim_{z\to x}\bunsuu{f(z)-f(x)}{z-x}$\\
+%[2,-]::・導関数を求めることを「微分する」
+end
+
+%%%%%%%%%%%%%
+new::微分の公式
+%repeat=10,para
+\slidepage
+
+{\color{red}\large
+layer::{120}{0}
+%[5,-]::\putnotee{65}{32}{$z^2-x^2=(z-x)(z+x)$}
+%[7,-]::\putnotee{65}{47}{$z^3-x^3=(z-x)(z^2+zx+x^2)$}
+end
+}
+
+itemize
+item::定数$c$について　$(c)'=\dlim_{z \to x}\bunsuu{c-c}{z-x}$
+%[2,-]::$=0$
+%[3,-]::item::$(x)'=\dlim_{z \to x}\bunsuu{z-x}{z-x}$
+%[4,-]::$=1$
+%[5,-]::item::$(x^2)'=\dlim_{z \to x}\bunsuu{z^2-x^2}{z-x}=\dlim_{z \to x}(z+x)$
+%[6,-]::$=2x$
+%[7,-]::item::$(x^3)'=\dlim_{z \to x}\bunsuu{z^3-x^3}{z-x}=\dlim_{z \to x}(x^2+zx+x^2)$
+%[8,-]::$=3x^2$
+%[9]::item::一般に　$(x^n)'=\hako{\color{blue}$n x^{n-1}$}$
+%[10,-]::item::一般に　$(x^n)'=\hakoa{\color{blue}$n x^{n-1}$}$
+end
+
+%%%%%%%%%%%%%
+new::微分の性質
+%repeat=6,para
+\slidepage
+
+itemize
+item::[]$f(x),\ g(x)$と定数$c$について
+%[2,-]::item::$(f+g)'=f'+g'$
+%[3,-]::item::$(f-g)'=f'-g'$
+%[4,-]::item::$(c f)'=c f'$
+%[5,-]::item::[例]\hspace{-1mm})\ $(x^2+3x+4)'=(x^2)'+(3x)'+(4)'$
+%[6,-]::$=2x+3$
+end
+
+%%%%%%%%%%%%%
+main::積と商の微分・記法
+\slidepage[m]
+
+%%%%%%%%%%%%%
+new::積の微分
+%repeat=4
+\slidepage
+
+itemize
+item::\fbox{$(f\,g)'=f'\,g+f\,g'$}\hspace{1zw}{\color{red}積の微分公式}
+%[2,-]::item::[]$\bigl(f(x)g(x)\bigr)'=\dlim_{z \to x}\bunsuu{f(z)g(z)-f(x)g(x)}{z-x}$\\
+%[3,-]::\hspace*{1zw}$=\dlim_{z \to x}\bunsuu{\bigl(f(z)-f(x)\bigr)g(z)+f(x)\bigl(g(z)-g(x)\bigr)}{z-x}$\\\hspace*{1zw}$=\dlim_{z \to x}\left(\bunsuu{f(z)-f(x)}{z-x}g(z)+f(x)\bunsuu{g(z)-g(x)}{z-x}\right)$\vspace{1mm}\\
+%[4,-]::\hspace*{1zw}$=f'(x)g(x)+f(x)g'(x)$
+end
+
+%%%%%%%%%%%%%
+new::積の微分の例
+%repeat=7
+\slidepage
+
+itemize
+item::[例(1)]$y'=\bigl((x+1)(x^2+2x+3) \bigr)'$\\
+%[2,-]::$\phn{y'}=(x+1)'(x^2+2x+3)+(x+1)(x^2+2x+3)'$\\
+%[3,-]::$\phn{y'}=(x^2+2x+3)+(x+1)(2x+2)$\\
+%[4,-]::$\phn{y'}=3x^2+6x+5$
+%[5,-]::item::[例(2)]$\bigl(x\cdot \bunsuu{1}{x}\bigr)'=(1)'=0$\\
+%[6,-]::積の微分で　$x'\cdot \bunsuu{1}{x}+x\bigl(\bunsuu{1}{x}\bigr)'=0$\\
+%[7,-]::$\bunsuu{1}{x}+x\bigl(\bunsuu{1}{x}\bigr)'=0$
+%[7,-]:: よって \hspace{1zw}\fbox{$\bigl(\bunsuu{1}{x}\bigr)'=-\bunsuu{1}{x^2}$}
+end
+
+%%%%%%%%%%%%%
+new::商の微分
+%repeat=10
+\slidepage
+
+itemize
+item::\fbox{$\left(\bunsuu{f}{g}\right)'=\bunsuu{f'\,g-f\,g'}{g^2}$}\hspace{1zw}{\color{red}商の微分公式}\vspace{-2mm}
+%[2,-]::\large 
+%[2,-]::item::[例(1)]$\left(\bunsuu{2x+1}{3x+1}\right)'$
+%[3,-]::$=\bunsuu{(2x+1)'(3x+1)-(2x+1)(3x+1)'}{(3x+1)^2}$\\
+%[4,-]::$\phn{\left(\bunsuu{2x+1}{3x+1}\right)'}=\bunsuu{2(3x+1)-3(2x+1)}{(3x+1)^2}$
+%[5,-]::$=\bunsuu{-1}{(3x+1)^2}$\vspace{-2mm}
+%[6,-]::item::[例(2)]$\left(\bunsuu{1}{x}\right)'$
+%[7,-]::$=\bunsuu{(1)'(x)-1(x)'}{x^2}$
+%[8,-]::$=\bunsuu{0-1}{x^2}$
+%[9,-]::$=-\bunsuu{1}{x^2}$\vspace{-2mm}
+%[9,-]::\Large
+%[10,]::item::[課題]\monban 次を微分せよ．\seteda{50}\\
+%[10,]::\eda{$y=\bunsuu{x}{x+1}$}\eda{$y=\bunsuu{1}{x^2}$}
+end
+
+%%%%%%%%%%%%%
+new::導関数の書き方
+%repeat=7,para
+\slidepage
+
+layer::{120}{0}
+%[3,-]::\putnotee{70}{24}{\color{red}$\dlim_{z \to x}\bunsuu{f(z)-f(x)}{z-x}$}
+%[4,-]::\putnotee{75}{36}{\color{red}$=\dlim_{z \to x}\bunsuu{\varDelta y}{\varDelta x}$}
+end
+
+itemize
+item::関数$y=f(x)$を変数$x$で微分する\\
+\hspace*{1zw}$y',\ f'(x)$（ラグランジュ）\vspace{2mm}\\
+%[2,-]::\hspace*{1zw}$\bunsuu{dy}{dx}$（ライプニッツ）
+%[5,-]::item::[例]\hspace{-1mm})\ $y=f(x)=x^3$\\
+%[6,-]::\hspace*{1zw}$y'=f'(x)=f'=\bigl(x^3\bigr)'=3x^2$\vspace{2mm}\\
+%[7,-]::\hspace*{1zw}$\bunsuu{dy}{dx}=\bunsuu{df}{dx}=\bunsuu{d}{dx}f(x)=\bunsuu{d}{dx}(x^3)=3x^2$
+end
+
+%%%%%%%%%%%%
+main::べき関数の微分
+\slidepage[m]
+
+%%%%%%%%%%%%%
+new::$x^{p}$の微分
+%repeat=10,para
+\slidepage
+
+layer::{120}{0}
+%[4,-]::\putnotee{55}{38}{\color{red}\normalsize $\sqrt{z}=w,\sqrt{x}=u$とおくと　$z=w^2,x=u^2$}
+end
+
+itemize
+item::$n$が正の整数のとき　\fbox{$(x^n)'=n x^{n-1}$}
+%[2,-]::item::分数乗\\
+%[2,-]::\hspace*{0.5zw}$(x^{\frac{1}{2}})'=(\sqrt{x})'$
+%[3,-]::$=\dlim_{z \to x}\bunsuu{\sqrt{z}-\sqrt{x}}{z-x}$
+%[5,-]::$=\dlim_{w \to u}\bunsuu{w-u}{w^2-u^2}$\vspace{6mm}\\
+%[6,-]::\hspace*{0.5zw}$\phn{(x^{\frac{1}{2}})'}=\dlim_{w \to u}\bunsuu{1}{w+u}$
+%[7,-]::$=\bunsuu{1}{2u}$
+%[8,-]::$=\bunsuu{1}{2\sqrt{x}}$
+%[9,-]::$=\bunsuu{1}{2}x^{-\frac{1}{2}}$
+%[10,-]::item::[課題]\monban $w^3-u^3=(w-u)(w^2+wu+u^2)$を用いて$(x^{\frac{1}{3}})'$を求めよ．
+end
+
+%%%%%%%%%%%%%
+new::$x^{p}$の微分公式
+%repeat=7,para
+\slidepage
+
+itemize
+%[1]::item::$(x^p)'=\hakom{p x^{p-1}}$
+%[2,-]::item::$(x^p)'=\hakoma{p x^{p-1}}$
+%[3,-]::item::マイナス乗も同じ\\
+%[3,-]::\hspace*{1zw}$(\bunsuu{1}{x})'$
+%[4,-]::$=(x^{-1})'$
+%[5,-]::$=-x^{-2}$
+%[6,-]::$=-\bunsuu{1}{x^2}$
+%[7,-]::item::[課題]\monban 次の関数を微分せよ．\seteda{40}\\
+%[7,-]::\eda{$y=x^{\frac{1}{4}}$}\eda{$y=x^{-2}$}\eda{$y=x^{-\frac{1}{2}}$}
+end
+
+%%%%%%%%%%%%%
+main::三角関数の微分
+\slidepage[m]
+
+%%%%%%%%%%%%%
+new::三角関数のグラフ
+%repeat=1
+\slidepage
+
+
+layer::{120}{0}
+putnote::s{60}{10}::sincosgraph,0.8
+end
+
+\vspace{40mm}
+
+itemize
+item::[課題]\monban 上の図は\\
+\hspace*{2zw}$y=\sin x,y=\cos x, y=-\sin x, y=-\cos x$\\
+のグラフである．[1]--[4]の関数を答えよ．
+end
+
+%%%%%%%%%%%%%
+new::$\sin x,\cos x$の微分
+%repeat=3,para
+\slidepage
+
+itemize
+item::[課題]\monbannoadd 「導関数の意味」を用いて導関数を求めよ．\seteda{50}\\
+\eda{$y=\sin x$}\eda{$y=\cos x$}
+%[2,-]::item::微分公式\\
+%[2,-]::\hspace*{2zw}\fbox{$(\sin x)'=\cos x,\ (\cos x)'=-\sin x$}
+%[3]::\addban
+%[3,-]::item::[課題]\monban 次の問いに答えよ\seteda{100}\\
+%[3,-]::\eda{$y=\sin x$の$(0,\ 0)$における接線の傾きを求めよ}\\
+%[3,-]::\eda{$y=2\sin x-3\cos x$を微分せよ}
+end
+
+%%%%%%%%%%%%%
+new::$\tan x$の微分
+%repeat=5,para
+\slidepage
+
+{\color{red}\large
+layer::{120}{0}
+\putnotee{60}{10}{$\tan x=\bunsuu{\sin x}{\cos x}$}
+\putnotee{60}{20}{$\cos^2 x=(\cos x)^2$}
+end
+}
+
+itemize
+item::\fbox{$(\tan x)'=\bunsuu{1}{\cos^2 x}$}
+%[2,-]::item::[]$(\tan x)'=\bigl(\bunsuu{\sin x}{\cos x}\bigr)'$\\
+%[3,-]::$\phn{(\tan x)'}=\bunsuu{(\sin x)'(\cos x)-(\sin x)(\cos x)'}{\cos^2 x}$\\
+%[4,-]::$\phn{(\tan x)'}=\bunsuu{(\cos x \cos x)-\sin x(-\sin x)'}{\cos^2 x}$\\
+%[5,-]::$\phn{(\tan x)'}=\bunsuu{\cos^2 x+\sin^2 x}{\cos^2 x}=\bunsuu{1}{\cos^2 x}$\\
+end
+
+%%%%%%%%%%%%%
+new::課題
+%repeat=1
+\slidepage
+
+itemize
+item::[課題]\monban 次の関数を微分せよ\seteda{100}\\
+\eda{$y=\sin x \cos x$}\\
+\eda{$y=\sin^2 x(=\sin x \sin x)$}\\
+\eda{$y=x \tan x$}\\
+\eda{$y=\tan x-x$}
+end
+
+%%%%%%%%%%%%%
+new:: $\sin(ax+b)$の微分
+%repeat=8
+\slidepage
+
+layer::{120}{0}
+%[5,-]::\putnotee{75}{50}{\large\color{blue}$(\sin x)'=\dlim_{z \to x}\bunsuu{\sin z-\sin x}{z-x}$}
+end
+
+{\color{red}\large
+layer::{120}{0}
+%[8,-]::\putnotec{63}{66}{\MARU{　}}
+%[8,-]::\putnotec{77}{66}{\MARU{　}}
+%[8,-]::\qarrowline{63}{64}{14}{-3}{15}
+%[8,-]::\qarrowline{70}{68}{43}{180}{10}
+%[8,-]::\putnotec{50}{74}{微分}
+end
+}
+
+%[2,-]::itemize
+%[2,-]::item::[]$y'=(\sin(ax+b))'=\dlim_{z\to x}\bunsuu{\sin(az+b)-\sin(ax+b)}{z-x}$
+%[3,-]::\\\hspace*{2zw}{\color{blue}$ax+b=u,\ az+b=w$とおくと\\
+%[3,-]::\hspace*{4zw}$w-u=a(z-x),\ w\to u$}\vspace{-1mm}
+%[4,-]::item::[]\hspace*{-0.5zw}$y'=\dlim_{w\to u}\bunsuu{\sin(w)-\sin(u)}{\tfrac{w-u}{a}}=a\dlim_{w\to u}\bunsuu{\sin(w)-\sin(u)}{w-u}$\vspace{6mm}
+...
+%[6,-]::\hspace*{-0.5zw}$\phantom{y'}=a\cos u=a\cos(ax+b)$
+%[7,-]::item::[]\hspace*{3zw}\fbox{$\sin(ax+b)'=a\cos(ax+b)$}
+%[2,-]::end
+
+%%%%%%%%%%%%%
+new:: $f(ax+b)$の微分
+%repeat=9
+\slidepage
+
+{\color{red}\large
+layer::{120}{0}
+%[2,-]::\putnotec{44}{10}{\MARU{　}}
+%[2,-]::\putnotec{55}{10}{\MARU{　}}
+%[2,-]::\qarrowline{44}{8}{10}{0}{15}
+%[2,-]::\qarrowline{48}{13}{37}{180}{15}
+%[2,-]::\putnotec{37}{18}{そのまま微分}
+end
+}
+
+itemize
+item::\fbox{$f(ax+b)'=a f'(ax+b)$}\vspace{7mm}
+%[3,-]::item::$\bigl(\cos(3x+1)\bigr)'$
+%[4,-]::$=3(-\sin(3x+1))$
+%[5,-]::$=-3\sin(3x+1)$
+%[6,-]::item::$\bigl((2x+3)^5\bigr)'$
+%[7,-]::$=2\cdot 5(2x+3)^4$
+%[8,-]::$=10(2x+3)^4$
+%[9,-]::item::[課題]\monban 微分せよ\seteda{50}\\
+%[9,-]::\eda{$y=\sin 3x$}\eda{$y=(5x+1)^3$}\\
+%[9,-]::\eda{$y=\sqrt{2x+3}$}\eda{$y=\tan(-x+1)$}
+
+end

@@ -1,0 +1,272 @@
+//     210512
+Modifyfortex(str):=(
+  regional(rep1L,rep2L,nn,tmp,tmp1,out);
+  rep1L=["(sp)","(cross)","(cdot)","(deg)","(neq)",
+         "(geq)","(leq)","(pm)","(mp)"];
+  rep2L=["\;","\times ","\cdot ","^{\circ} ","\neq ",
+         "\geq ","\leq ","\pm ","\mp "];
+  out=str;
+  forall(1..(length(rep1L)),nn,
+    out=replace(out,rep1L_nn,rep2L_nn);
+  );
+  out;
+);
+
+Togreek(str):=(
+  regional(chr,alph,Alph,grk,Grk,out,flg,tmp);
+  alph="abgdezhtiklmnxprstufcqov";
+  grk=["alpha","beta","gamma","delta","epsilon","zeta",
+       "eta","theta","iota","kappa","lambda","mu","nu",
+       "xi","pi","rho","sigma","tau","upsilon",
+       "phi","chi","psi","omega","varphi"];
+  Alph="GDTLPSFQO";
+  Grk=["Gamma","Delta","Theta","Lambda","Pi",
+       "Sigma","Phi","Psi","Omega"];
+  out="";
+  forall(1..(length(str)),
+    chr=str_#;
+    flg=0;
+    tmp=indexof(alph,chr);
+    if(tmp>0,
+      out=out+"\"+grk_(tmp)+" ";
+      flg=1;
+    );
+    if(flg==0,
+      tmp=indexof(Alph,chr);
+      if(tmp>0,
+        out=out+"\"+Grk_(tmp)+" ";
+        flg=1;
+      );
+    );
+    if(flg==0,out=out+chr);
+  );
+  out;
+);
+
+Noascii(str):=(
+  regional(ascii,out,tmp,tmp1);
+  ascii=apply(32..126,unicode(text(#),base->10));
+  out="";
+  forall(1..(length(str)),
+    tmp=Op(#,str);
+    if(!contains(ascii,tmp),
+      out=out+tmp;
+    );
+  );
+  out;
+);
+
+//tmp1=32..126;
+//tmp=(65..90)++(97..122);
+//tmp1=remove(tmp1,tmp);
+//alpha=apply(tmp,unicode(text(#),base->10));
+//tmp=[46]++(48..57);
+//tmp1=remove(tmp1,tmp);
+//numer=apply(tmp,unicode(text(#),base->10));
+
+Charstyle(str):=(
+  regional(ctr,tmp,tmp1,tmp2,tmp3,out);
+  out=str;
+  tmp=indexof(out,"{C}");
+  ctr=0;
+  while((tmp>0)&(ctr<20),
+    tmp3=substring(out,tmp+2,tmp+3);
+    tmp3=Toupper(tmp3);
+    tmp3=substring(out,0,tmp-1)+tmp3;
+    out=tmp3+substring(out,tmp+3,length(out));
+    tmp=indexof(out,"{C}");
+    ctr=ctr+1;
+  );
+  tmp=indexof(out,"{G}");
+  ctr=0;
+  while((tmp>0)&(ctr<20),
+    tmp3=substring(out,tmp+2,tmp+3);
+    tmp3=Togreek(tmp3);
+    tmp3=substring(out,0,tmp-1)+tmp3;
+    out=tmp3+substring(out,tmp+3,length(out));
+    tmp=indexof(out,"{G}");
+    ctr=ctr+1;
+  );
+  tmp=indexof(out,"{B}");
+  ctr=0;
+  while((tmp>0)&(ctr<20),
+    tmp3=substring(out,tmp+2,tmp+3);
+    tmp3="\mathbf{"+tmp3+"}";
+    tmp3=substring(out,0,tmp-1)+tmp3;
+    out=tmp3+substring(out,tmp+3,length(out));
+    tmp=indexof(out,"{B}");
+    ctr=ctr+1;
+  );
+  out;
+);
+
+Addat(str):=(
+  regional(ascii,out,flg,tmp);
+  ascii=apply(32..126,unicode(text(#),base->10));
+  ascii=remove(ascii,["@"]);
+  out="";
+  flg=0;
+  forall(1..(length(str)),
+    tmp=str_#;
+    if(tmp=="@",
+      flg=1-flg
+    ,
+      if(!contains(ascii,tmp),
+        if(flg==0,
+          tmp="@"+tmp+"@";
+        );
+      );
+    );
+    out=out+tmp;
+  );
+  out=replace(out,"@@","");
+  out;
+);
+
+Sepchar(strorg):=(
+  regional(str,out,flg,err,tmp,tmp1,tmp2);
+  str=Addat(strorg);
+  err="";
+  out=[];
+  tmp1=Indexall(str,"@");
+  tmp=length(tmp1);
+  if((length(str)==0)%(tmp==0)%(mod(tmp,2)==1),
+    if((length(str)==0)%(tmp==0),
+      if(length(str)==0,out=[],out=[str]);
+    ,
+      err="@の数";
+    );
+  ,
+    tmp=tmp1_1;
+    if(tmp>1,
+      out=[substring(str,0,tmp-1)];
+    );
+    start=tmp;
+    flg=1;
+    forall(2..(length(tmp1)),
+      if(flg==1,
+        tmp2=substring(str,start-1,tmp1_#-1);
+      ,
+        tmp2=substring(str,start,tmp1_#-1);
+      );
+      out=append(out,tmp2);
+      start=tmp1_#;
+      flg=1-flg;
+    );
+    if(start<length(str),
+      tmp2=substring(str,start,length(str));
+      out=append(out,tmp2);
+    );
+  );
+  [out,err];
+);
+
+Instr(key):=(
+  regional(out,tmp,tmp1);
+  if(length(key)==1,out=key);
+  if(length(key)==2,
+    tmp=substring(key,0,1);
+    tmp1=substring(key,1,2);
+    if((tmp=="L")%(tmp=="n"),
+      out=tmp1;
+      if(capflg==1,
+        if((out>="a")&(out<="z"),
+          out=Toupper(out);
+        );
+//        tmp=StrL_chno;
+//        StrL_chno=substring(tmp,0,length(tmp)-3);
+        capflg=0;
+      );
+    ,
+      out=key;
+    );
+  );
+  if(length(key)>=3,
+    if(indexof(key,"()")>0,
+      if(indexof(key,"Delete")>0,Delete());
+      if(indexof(key,"Allclear")>0,Allclear());
+      out="";
+    ,
+      if(key=="(C)",capflg=1);
+      out=key;
+    );
+  );
+  out;
+);
+
+Gettexform(str):=(
+  regional(err,subL,strt,tmp,tmp1,tmp2,tmp3,tmp4,ctr);
+  err="";
+  tmp=Sepchar(str);
+  subL=tmp_1;
+  err=tmp_2;
+  strt="";
+  forall(subL,
+    if(substring(#,0,1)=="@",
+      strt=strt+substring(#,1,length(#));
+    ,
+      tmp=#;
+      tmp=replace(#," ","(sp)");
+      tmp=Modifyfortex(tmp);
+      tmp=Addasterisk(tmp);
+      tmp1=Totexform(tmp);
+      tmp1=replace(tmp1,"g r(","gr(");
+      tmp1=replace(tmp1,"\frac","\dfrac");
+      ctr=1;
+      tmp2=indexof(tmp1,"gr(");
+      while((tmp2>0)&(ctr<100),
+        tmp=Bracket(tmp1,"()");
+        tmp=select(tmp,(tmp2<#_1)&(#_2<0));
+        tmp3=tmp_1_1;
+        tmp=substring(tmp1,tmp2+2,tmp3-1);
+        tmp4=Togreek(tmp);
+        tmp=substring(tmp1,0,tmp2-1)+tmp4;
+        tmp1=tmp+substring(tmp1,tmp3,length(tmp1));
+        tmp2=indexof(tmp1,"gr(");
+        ctr=ctr+1;
+      );
+      tmp1=replace(tmp1,"c i r c","\circ"); //210425
+      strt=strt+"$"+tmp1+"$";
+    );
+  );
+  strt;
+);
+
+Dispposition():=(
+  regional(tmp,tmp1,posletter);
+  tmp1=StrL_chno;
+  posletter=[48,-0.3];
+  if(length(tmp1)>0,
+    if(npos==0,tmp=""+tmp1_1);
+    if(npos>0,
+      tmp=tmp1_(npos)+"";
+      if(npos<length(tmp1),
+        tmp=tmp+tmp1_(npos+1);
+      );
+    );
+    drawtext(posletter,tmp,size->24);
+//    drawtext(posletter,"|",size->24,color->[0,0,1],align->mid);
+  );
+);
+
+Dispedit():=(
+  forall([1,2,3,4],Subsedit(#,StrL_#));
+);
+
+Delete():=(
+  regional(tmp);
+  tmp=StrL_chno;
+  tmp1=substring(tmp,0,npos-1);
+  tmp2=substring(tmp,npos,length(tmp));
+  StrL_chno=tmp1+tmp2;
+  npos=max([0,npos-1]);
+//  if(npos==0,npos=length(tmp1+tmp2));
+  Dispedit();
+  funflg=0;
+);
+
+Allclear():=(
+  StrL_chno="";
+  Dispedit();
+  funflg=0;
+);

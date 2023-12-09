@@ -1,0 +1,518 @@
+//   220820 pexpr added, kettaskinit changed(nqu=0)
+//   220605 plistplot changed
+//   220529 pdrwxy,plistplot,pplotdata
+//   220510 ketaskinit  ( move setting from ketlib draw)
+//   220503  ansL= removed
+//   220412
+//   211112
+//   211020
+//   210923
+//   210619
+//   210910
+
+Kettaskinit():=(
+  regional(tmp,tmp1,tmp2);
+  Shift=0;
+  keytype=1;
+  capflg=0;
+  greflg=0;
+  boldflg=0;
+  vecflg=0;
+
+  nch=2;
+  StrL=apply(1..3,""); 
+  StrpL=apply(1..3,"");
+//  ansL=apply(1..20,""); //220503(removed)
+  nqu=0; //220820
+  stfixed=0;
+  stok=0;
+  initflg=1;
+  choose=0;
+  DrwL=[];
+  dpos=[10,14];
+  
+  ch=3;
+  Str="";
+  Strp="";
+  Strnq="";
+  Strnow="";
+  Strt="";
+  npos=0;
+
+  //nt=4;
+  px=15;
+  dtpy=3.2;
+  tposL=apply(1..4,[px+0.5,17.4-(#-1)*dtpy]);
+  posyL=[23,-2.5,-34];
+
+  poskey=[19.5,-17.67];
+  dxL=apply(10..19,35.5);
+  dxL_4=42; dxL_5=42;
+  dxL2=apply(1..9,35.5);
+  dxL3=[42,42];
+  forall(1..(length(tposL)),
+    tmp="T"+text(#);
+    Putpoint(tmp,tposL_#);
+  );
+  //  only for kettask
+  ch=3;
+  Str="Student=":
+  Strnq=replace(Str,"?","");
+  StrL_ch=Strnq;
+  npos=length(Str);
+
+  // no ketjs on
+  Seteditable(1,["","Size=24","Width=500"]);
+  Seteditable(2,["","Size=24","Width=535"]);
+  Seteditable(3,["","Size=24","Width=535"]);
+  Seteditable(10,["","Size=18","Width=65"]);
+  Seteditable(76,["","Size=18","Width=45"]);
+//  Seteditable(32,["問=","Size=18","Width=80"]);
+//  Text1.xy=[px+1+5,posyL_1-1];
+//  Text2.xy=[px+1,posyL_2-1];
+//  Text3.xy=[px+1,posyL_3-1];
+  inspect(T1,"ptsize",6);
+  inspect(T2,"ptsize",6);
+  inspect(T3,"ptsize",6);
+  inspect(T4,"ptsize",6); 
+  // no ketjs off
+
+  tab=unicode("0009");
+  cma=",";
+  Dirdata=Dircdy+"data";
+  tmp=Filelist(Dirdata); //no ketjs on
+  file=select(tmp,indexof(#,"taskline")>0);
+  file=select(file,indexof(#,".cdy")==0);
+  if(length(file)>0,
+    file=file_1;
+    quline="";shline="";sqline="";
+    setdirectory(Dirdata);
+    import(file);///
+
+    Ketcindyjsdata([
+      "aalinestart",1,
+      "quline",quline,"shline",shline,"sqline",sqline,
+      "zzlineend",1,
+    ]);
+  );
+  setdirectory(Dirwork); // no ketjs off
+  quL=Line2list(quline);
+  quall=length(quL);
+  shL=Line2list(shline);
+  ansL=shL;
+  sqLL=Line2list(sqline);
+  sqall=length(sqLL);
+  stall=sqall;
+  stquLL=[];
+  forall(1..stall,ns,
+    tmp=sqLL_ns;
+    name=tmp_1;
+    tmp2=tmp_(2..(length(tmp)));
+    tmp2=apply(tmp2,parse(#));
+    qu=[];
+    sh=[];
+    forall(1..(length(quL)),nn,
+      tmp=quL_nn;
+      qu=append(qu,tmp_1+" "+tmp_(tmp2_nn));
+      tmp=shL_nn;
+      sh=append(sh,tmp_1+" "+tmp_2);
+    );
+    stquLL=append(stquLL,[name,qu,sh]);
+  );
+  forall(1..(length(tposL)), // no ketjs on
+    tmp="T"+text(#);
+    Putpoint(tmp,tposL_#);
+  //  inspect(parse(tmp),"ptsize",3);
+  ); // no ketjs off
+); // end init
+
+Adddrw(str):=(
+  DrwL=append(DrwL,[dpos,str,18]);
+  dpos=dpos-[0,2];
+);
+
+Keyname():=(
+  regional(nL,nL2,nL3,tmp1);
+  nL=[
+    ["a","b","c","sin","sq",")","7","8","9","＋"],
+    ["x","y","z","cos","fr",",","4","5","6","ー"],
+    ["r","s","t","tan","tfr","(","1","2","3","＊","'"],
+    ["w","_","=","log","ln","^","0",".","sp","／"]
+  ];
+  nL2=[
+    ["°","＠","[","]","|","d","e","f","g"],
+    ["$\times$","!","{","}","$\neq$","h","i","j","k"],
+    ["dot",":",";","$\leq$","$\geq","l","m","n","o"],
+    ["\","$\pm$","$\mp$","<",">","p","q","u","v"]
+  ];
+  nL3=[
+    ["lim","pi"],
+    ["int","$\infty$"],
+    ["'","cs"],
+    ["sum","tx"]
+  ];
+
+  if(Shift==1,
+    nL3_3_2="$d$"; nL3_4_1="$[.]_{}^{}$"; nL3_4_2="$\partial$"; //210923
+  );
+  if(Shift==2,
+    nL3_1_1="mat"; nL3_2_1="det"; nL3_4_2="$\circ$"; //210923
+  );
+  if(keytype==2,
+    tmp1=["A","B","C"]; forall(1..3,nL_1_(#)=tmp1_#);
+    tmp1=["D","E","F","G"]; forall(1..4,nL2_1_(#+5)=tmp1_#);
+    tmp1=["X","Y","Z"]; forall(1..3,nL_2_(#)=tmp1_#);
+    tmp1=["H","I","J","K"]; forall(1..4,nL2_2_(#+5)=tmp1_#);
+    tmp1=["R","S","T"]; forall(1..3,nL_3_(#)=tmp1_#);
+    tmp1=["L","M","N","O"]; forall(1..4,nL2_3_(#+5)=tmp1_#);
+    tmp1=["W"]; forall(1..1,nL_4_(#)=tmp1_#);
+    tmp1=["P","Q","U","V"]; forall(1..4,nL2_4_(#+5)=tmp1_#);
+  );
+  if(keytype==3,
+    tmp1=["$\alpha$","$\beta$","$\gamma$"];
+    forall(1..3,nL_1_(#)=tmp1_#);
+    tmp1=["$\Delta$","$\delta$","$\varepsilon$","$\varphi$"];
+    forall(1..4,nL2_1_(#+5)=tmp1_#);
+    tmp1=["$\kappa$","$\iota$","$\zeta$"];
+    forall(1..3,nL_2_(#)=tmp1_#);
+    tmp1=["$\Theta$","$\theta$","$\chi$","$\xi$"];
+    forall(1..4,nL2_2_(#+5)=tmp1_#);
+    tmp1=["$\rho$","$\sigma$","$\tau$"];
+    forall(1..3,nL_3_(#)=tmp1_#);
+    tmp1=["$\lambda","$\mu$","$\nu$","$\omega$"];
+    forall(1..4,nL2_3_(#+5)=tmp1_#);
+    tmp1=["$\Omega$"];
+    forall(1..1,nL_4_(#)=tmp1_#);
+    tmp1=["$\Psi$","$\psi$","$\Phi$","$\Lambda$"];
+    forall(1..4,nL2_4_(#+5)=tmp1_#);
+  );
+  if(keytype==4,
+    tmp1=apply(["a","b","c"],"$\mathbf{"+#+"}$");
+    forall(1..3,nL_1_(#)=tmp1_#);
+    tmp1=apply(["d","e","f","g"],"$\mathbf{"+#+"}$");
+    forall(1..4,nL2_1_(#+5)=tmp1_(#));
+    tmp1=apply(["x","y","z"],"$\mathbf{"+#+"}$");
+    forall(1..3,nL_2_(#)=tmp1_#);
+    tmp1=apply(["h","i","j","k"],"$\mathbf{"+#+"}$");
+    forall(1..4,nL2_2_(#+5)=tmp1_#);
+    tmp1=apply(["r","s","t"],"$\mathbf{"+#+"}$");
+    forall(1..3,nL_3_(#)=tmp1_#);
+    tmp1=apply(["l","m","n","o"],"$\mathbf{"+#+"}$");
+    forall(1..4,nL2_3_(#+5)=tmp1_#);
+    tmp1=apply(["w"],"$\mathbf{"+#+"}$");
+    forall(1..1,nL_4_(#)=tmp1_#);
+    tmp1=apply(["p","q","r","s"],"$\mathbf{"+#+"}$");
+    forall(1..4,nL2_4_(#+5)=tmp1_#);
+  );
+  if(keytype==5,
+    tmp1=apply(["a","b","c"],"$\vec{"+#+"}$");
+    forall(1..3,nL_1_(#)=tmp1_#);
+    tmp1=apply(["d","e","f","g"],"$\vec{"+#+"}$");
+    forall(1..4,nL2_1_(#+5)=tmp1_(#));
+    tmp1=apply(["x","y","z"],"$\vec{"+#+"}$");
+    forall(1..3,nL_2_(#)=tmp1_#);
+    tmp1=apply(["h","i","j","k"],"$\vec{"+#+"}$");
+    forall(1..4,nL2_2_(#+5)=tmp1_#);
+    tmp1=apply(["r","s","t"],"$\vec{"+#+"}$");
+    forall(1..3,nL_3_(#)=tmp1_#);
+    tmp1=apply(["l","m","n","o"],"$\vec{"+#+"}$");
+    forall(1..4,nL2_3_(#+5)=tmp1_#);
+    tmp1=apply(["w"],"$\vec{"+#+"}$");
+    forall(1..1,nL_4_(#)=tmp1_#);
+    tmp1=apply(["p","q","r","s"],"$\vec{"+#+"}$");
+    forall(1..4,nL2_4_(#+5)=tmp1_#);
+  );  [nL,nL2,nL3];
+);
+
+
+///////
+Manifun=["Allclear()","Clear()","Delete()","Push()","Pull()",
+  "Left()","Right()","LLeft()","RRight()"];
+
+Delete():=(
+  regional(tmp,tmp1,tmp2);
+  //global npos,Str,Strnq,Str_ch,funflg
+  tmp=indexof(Str,"?");
+  if(tmp>0,npos=tmp,npos=length(Str));
+  if(ch<=2,
+    if(length(Str)>0,
+      if(npos==length(Str),
+        Str=substring(Str,0,npos-1);
+      ,
+        tmp1=substring(Str,0,npos-2);
+        tmp2=substring(Str,npos-1,length(Str));
+        Str=tmp1+tmp2;
+      );
+      Strnq=replace(Str,"?","");
+      Strnow=Str;
+      StrL_ch=Strnq;
+      npos=npos-1;
+    ,
+      Pull();
+      npos=length(StrL_ch);
+      Delete();
+    );
+  );
+  if(ch==3,
+    Kettaskinit();
+    Str="Student=";
+    Strnq=Str;
+    StrL_3=Str;
+  );
+  funflg=0;
+);
+
+Allclear():=(
+  Str="";
+  Strnq="";
+  StrL_ch="";
+  StrpL_ch="";
+  npos=0;
+  funflg=0;
+);
+
+Clear():=( 
+  Str="";
+  Strnq=Str;
+  StrL_ch=Str;
+  npos=0;
+  funflg=0;
+);
+
+Push():=(
+  regional(tmp,tmp1);
+  tmp1=StrL_ch;
+  tmp=indexof(tmp1,"//");
+  if(tmp==0,
+    StrpL_ch=StrpL_ch+tmp1+"//";
+    Str="";
+    npos=0;
+  ,
+    StrpL_ch=StrpL_ch+substring(tmp1,0,tmp+1);
+    Str=substring(tmp1,tmp+1,length(tmp1));
+    npos=max([0,npos-(tmp+1)]);
+  );
+  StrL_ch=Str;
+  Strnq=Str;
+);
+
+Pull():=(
+  regional(tmp,tmp1,tmp2);
+  tmp1=StrpL_ch;
+  tmp=indexall(tmp1,"//");
+  if(length(tmp)>1,tmp=tmp_(-2)+1,tmp=0);
+  tmp2=substring(tmp1,0,tmp);
+  StrpL_ch=tmp2;
+  tmp1=substring(tmp1,tmp,length(tmp1));
+  Str=tmp1+StrL_ch;
+  Strnq=Str;
+  StrL_ch=Str;
+  npos=length(tmp1)+npos;
+);
+
+Left():=(
+  regional(tmp,tmp1,tmp2,tmp3);
+  //global Str,npos
+  if(length(Str)>0,
+    tmp=indexof(Str,"?");
+    if(tmp>1,
+      tmp1=substring(Str,0,tmp-2)+"?";
+      tmp2=substring(Str,tmp-2,tmp-1);
+      tmp3=substring(Str,tmp,length(Str));
+      Str=tmp1+tmp2+tmp3;
+      npos=length(tmp1+"?");
+    );
+    if(tmp==0,
+      tmp1=substring(Str,0,length(Str)-1)+"?";
+      tmp3=substring(Str,length(Str)-1,length(Str));
+      Str=tmp1+tmp3;  
+      npos=length(tmp1);
+    );
+    Strnq=replace(Str,"?","");
+    StrL_ch=Strnq;
+  );
+);
+
+Right():=(
+  regional(tmp,tmp1,tmp2,tmp3);
+  //global Str,npos
+  if(length(Str)>0,
+    tmp=indexof(Str,"?");
+    if(tmp>0,
+      if(tmp<length(Str)-1,
+        tmp1=substring(Str,0,tmp-1);
+        tmp2=substring(Str,tmp,tmp+1)+"?";
+        tmp3=substring(Str,tmp+1,length(Str));
+        Str=tmp1+tmp2+tmp3;
+        npos=length(tmp1+"?");
+      );
+      if(tmp==length(Str)-1,
+        tmp1=substring(Str,0,tmp-1);
+        tmp3=substring(Str,tmp,length(Str));
+        Str=tmp1+tmp3;
+        npos=length(Str);
+      );
+    );
+    Strnq=replace(Str,"?","");
+    StrL_ch=Strnq;
+  );
+);
+
+LLeft():=(
+  regional(tmp,tmp1,tmp2,tmp3);
+  //global Str,npos
+  if(length(Str)>0,
+    npos=length(shL_nqu)+1;
+    tmp=substring(Str,npos-1,length(Str));
+    Str=shL_nqu+"?"+tmp;
+    Strnq=replace(Str,"?","");
+    StrL_ch=Strnq;
+  );
+);
+
+RRight():=(
+  regional(tmp,tmp1,tmp2,tmp3);
+  //global Str,npos
+  if(length(Str)>0,
+    Str=replace(Str,"?","");
+    npos=length(Str);
+    Strnq=replace(Str,"?","");
+    StrL_ch=Strnq;
+  );
+);
+
+// for scriptadd   //220423
+//  changed  220506
+//  Lowerleft added 220802
+
+//scriptaddstart=1; 
+
+Lsetwindow(xrng,yrng):=(
+  XMIN=xrng_1; XMAX=xrng_2;
+  YMIN=yrng_1; YMAX=yrng_2;
+);
+
+Setadjust():=Setadjust([0,0],1);
+Setadjust(mv,sc):=(
+  //help:mv=vSW moving , sc=scale changing
+  //global pSW,Scalea,Movea
+  Scalea=3.6*sc;
+  pSW=[50,3]+mv; 
+  Movea=pSW-[XMIN,YMIN];
+);
+
+Adjustpt(pt):=(
+  regional(x0,y0,x1,y1);
+  //global Scalea,Movea
+  x1=pt_1; y1=pt_2;
+  x0=XMIN; y0=YMIN;
+  x1=x0+Scalea*(x1-x0);
+  y1=y0+Scalea*(y1-y0);
+  x1=x1+Movea_1;
+  y1=y1+Movea_2;
+  [x1,y1];
+);
+
+Adjust(gd):=(
+  regional(dL,depth,out,tmp);
+  if(isstring(gd),dL=parse(gd),dL=gd);
+  depth=Measuredepth(dL);
+  if(depth==0,out=Adjustpt(dL));
+  if(depth==1,
+    out=apply(dL,Adjustpt(#));
+  );
+  if(depth==2,
+    out=[];
+    forall(dL,
+      out=append(out,Adjust(#));
+    );
+  );
+  out;
+);
+
+pdrwxy():=pdrwxy(["","x","e1","y","n1","O","s1w1"],[]);
+pdrwxy(arg1):=(
+  regional(tmp);
+  tmp=select(arg1,indexof(#,"=")>0);
+  if(length(tmp)>0,
+    pdrwxy([],arg1);
+  ,
+    pdrwxy(arg1,[]);
+  );
+);
+pdrwxy(axLorg,op):=(
+  regional(axL);
+  if(length(axLorg)==0,
+    axL=["","x","e1","y","n1","O","s1w1"];
+  , 
+    axL=axLorg; 
+  ); 
+  plistplot("axx",[[XMIN,0],[XMAX,0]]);
+  plistplot("axy",[[0,YMIN],[0,YMAX]]);
+  plettter([XMAX,0],axL_3,"$"+axL_2+"$",op);
+  plettter([0,YMAX],axL_5,"$"+axL_4+"$",op);
+  pletter([0,0],axL_7,axL_6,op);
+);
+
+pletter(Pt,Dr,St):=pletter([Pt,Dr,St]);
+pletter(list):=pletter(list,[]);
+pletter(Pt,Dr,St,options):=pletter([Pt,Dr,St],options);
+pletter(list,options):=(
+  regional(L,tmp);
+  L=[];
+  forall(1..(length(list)),
+     if(mod(#,3)==1,tmp=Adjust(list_#),tmp=list_#);
+     L=append(L,tmp);
+  );    
+  Letter(L,options);
+);
+
+pexpr(Pt,Dr,St):=pexpr([Pt,Dr,St]); //220820
+pexpr(list):=pexpr(list,[]);
+pexpr(Pt,Dr,St,options):=pexpr([Pt,Dr,St],options);
+pexpr(list,options):=(
+  regional(L,tmp);
+  L=[];
+  forall(1..(length(list)),
+     if(mod(#,3)==1,tmp=Adjust(list_#));
+     if(mod(#,3)==2,tmp=list_#);
+     if(mod(#,3)==0,tmp="$"+list_#+"$");
+     L=append(L,tmp);
+  );
+  Letter(L,options);
+);
+
+plistplot(nm,vptL):=plistplot(nm,vptL,[]); //220605
+plistplot(nm,vptL,op):=( //220529
+  regional(ptL,tmp,tmp1);
+  Listplot("v"+nm,vptL,["nodisp"]);
+  tmp=Adjust("sgv"+nm);
+  Listplot(nm,tmp,op);
+);
+
+pplotdata(name1,func,variable):=pplotdata(name1,func,variable,[]);
+pplotdata(name1,func,variable,options):=( //220529
+  regional(tmp,tmp1);
+  tmp=prepend("nodisp",options);
+  Plotdata("v"+name1,func,variable,["nodisp"]);
+  tmp=Adjust("grv"+name1);
+  Listplot("-gr"+name1,tmp,options);
+);
+
+Quesno():=Quesno(nqu,1); //220817
+Quesno(nq,flg):=( //220816
+  regional(tmp,tmp1,out);
+  out="";
+  tmp=select(1..nq,substring(quL_#_1,0,1)=="Q");
+  if(length(tmp)>0,
+    tmp1=tmp_(-1);
+    out=quL_tmp1;
+    if(islist(out),out=out_1); 
+    tmp=indexof(out," ");
+    if(tmp>0,out=substring(out,0,tmp-1));
+    if(flg>0, //220816from
+      out=out+"-"+text(nq-tmp1+1);
+    );
+  ); //220816to
+  out;
+);

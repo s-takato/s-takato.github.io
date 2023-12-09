@@ -1,0 +1,10 @@
+Q
+次の関数を微分せよ．
+[1]y=x+cos(x)
+[2]y=xsin(x)
+Sheet
+[1]y'=  ::2
+[2]y'=  ::2
+Ans
+[1] y'=1-sin(x)
+[2] y'=sin(x)+xcos(x)

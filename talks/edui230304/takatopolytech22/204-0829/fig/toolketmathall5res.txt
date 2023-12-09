@@ -1,0 +1,8 @@
+NIL
+(%i3) powerdisp:false
+(%i4) display2d:false
+(%i5) linel:1000
+/Users/takatoosetsuo/polytech22.git/204-0829/fig/toolketmathall5res.max:5:372:incorrect syntax: Missing )
+)/(2))/(-(1)/(x+2))]
+                  ^
+(%o6) "/Users/takatoosetsuo/polytech22.git/204-0829/fig/toolketmathall5res.max"

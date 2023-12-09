@@ -1,0 +1,377 @@
+タイトル::slide0905
+::\newcommand{\hiduke}{0905}
+::\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+::\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+::\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+::\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+::\def\rad{\;\mathrm{rad}}
+::\def\deg#1{#1^{\circ}}
+::\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+::\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+::\newcommand{\sfrac}[3][0.65]{\scalebox{#1}{$\frac{#2}{#3}$}}
+::\newcommand{\phn}[1]{\phantom{#1}}
+::\newcommand{\scb}[2][0.6]{\scalebox{#1}{#2}}
+::\newcommand{\dsum}{\displaystyle\sum}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\def\dint{\displaystyle\int}
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+
+
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+%\putnotee{122}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+
+\newcounter{ban}
+\setcounter{ban}{1}
+
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+%\addtocounter{ban}{1}%
+}
+
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%
+}
+
+\newcounter{edawidth}
+\newcounter{edactr}
+
+\newcommand{\seteda}[1]{% 20220708 modified
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+
+\newcommand{\eda}[2][\theedawidth]{%
+\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+
+%%%%%%%%%%%%
+main:: 復習(微分と不定積分)
+\slidepage[m]
+
+%%%%%%%%%%%%%
+new::微分と不定積分
+%repeat=7,para
+\slidepage
+\seteda{50}
+
+itemize
+item::微分\\
+　関数の変化率（変化の割合）\\
+%[2,-]::　　　　$(x^2)'=$
+%[3,-]::$2x$\\
+%[4,-]::　導関数の定義式\\
+%[4,-]::　　　　$f'(x)=\dlim_{z\to x}\bunsuu{f(z)-f(x)}{z-x}$
+%[5,-]::item::不定積分\\
+%[5,-]::　微分の逆（微分したら，そうなる関数）\\
+%[6,-]::　　　　$\dint x^2 dx=$
+%[7,-]::$\bunsuu{1}{3}x^3+C$（$C$は積分定数）
+end
+
+%%%%%%%%%%%%%
+new::不定積分(課題1)
+%%repeat=7,para
+\slidepage
+\seteda{60}
+
+itemize
+item::[課題]\monban 次の\,\hakom{\bunsuu{1}{n}x^{n+1}}\,に公式を入れよ．\vspace{2mm}\\
+\eda{$\dint 1\,dx=\hakom{\bunsuu{1}{n}x^{n+1}}+C$}\\%
+\eda{$\dint x\,dx=\hakom{\bunsuu{1}{n}x^{n+1}}+C$}\\
+\eda{$\dint x^2\,dx=\hakom{\bunsuu{1}{n}x^{n+1}}+C$}\\%
+\eda{$\dint x^3\,dx=\hakom{\bunsuu{1}{n}x^{n+1}}+C$}\\
+end
+
+%%%%%%%%%%%%%
+new::不定積分(課題2)
+%%repeat=7,para
+\slidepage
+
+itemize
+item::[課題]\monban 次の不定積分を求めよ．\seteda{50}\\
+\eda{$\dint (x^2+4x)\,dx$}
+\eda{$\dint (x^3-1)\,dx$}
+item::[課題]\monban 次の不定積分を求めよ．\seteda{50}\\
+\eda{$\dint (x+1)^2\,dx$}
+\eda{$\dint (x+1)(x+2)\,dx$}
+end
+
+%%%%%%%%%%%%%
+main::定積分
+
+%%%%%%%%%%%%%
+new::$f(x)$の区間$[a,\ b]$での定積分
+%repeat=2,para
+\slidepage
+
+\vspace{5mm}
+
+layer::{120}{0}
+putnote::se{65}{17}::teisekiteigi1
+end
+
+itemize
+item::しばらく，$f(x)\geqq 0$とする．
+%[2,-]::item::\begin{minipage}[t]{65mm}
+%[2,-]::$y=f(x)$と$x$軸と$x=a$と$x=b$で囲まれた部分の面積$S$を
+%[2,-]::$[a,\ b]$での{\color{red}定積分}といい\vspace{2mm}\\
+%[2,-]::$\displaystyle\int_a^b f(x)\,dx$と書く
+%[2,-]::\end{minipage}
+end
+
+
+%%%%%%%%%%%%%
+new::簡単な定積分の例
+%repeat=5,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{65}{0}::teisekiteigi2
+putnote::se{65}{35}::teisekiteigi3
+end
+\seteda{50}
+
+enumerate::[(1)]
+%[1]::item::$\dint_1^3 1\,dx=\hakom{2}$\vspace{2mm}
+%[2,-]::item::$\dint_1^3 1\,dx=\hakoma{2}$\vspace{2mm}
+%[3]::item::$\dint_0^2 x\,dx=\hakom{2}$\vspace{2mm}
+%[4,-]::item::$\dint_0^2 x\,dx=\hakoma{2}$\vspace{2mm}
+%[5,-]::item::[課題]\monban 次の値を求めよ．\\
+%[5,-]::\eda{$\dint_0^3 1\,dx=$}\\
+%[5,-]::\eda{$\dint_0^1 x\,dx=$}
+end
+
+%%%%%%%%%%%%%
+new::定積分と不定積分
+%repeat=4,para
+\slidepage
+
+layer::{120}{0}
+%[1]::putnote::se{65}{4}::teisekiteigi3
+%[2,-]::putnote::se{65}{4}::teisekiteigi4
+%%[4,-]::\putnotee{30}{65}{\color[cmyk]{1,0,0,0}$変数を変えれば\displaystyle\int_0^x t\,dt$だが．．．}
+end
+
+itemize
+item::$\displaystyle\int_0^2 x\,dx=2$
+%[2,-]::item::右端の値を変化させる\\
+%[2,-]::それを$x$と書く\vspace{1mm}\\
+%[2..3]::\hspace*{1.5zw}$\dint_0^x x\,dx=\hakom{\bunsuu{1}{2}x^2}$\vspace{-1mm}
+%[4,-]::\hspace*{1.5zw}$\dint_0^x x\,dx=\hakoma{\bunsuu{1}{2}x^2}$\vspace{-1mm}
+%[3,-]::item::[注)]積分の中の$x$と右端の$x$が重なるが\\
+%[3,-]::積分の中の$x$は気にせず，右端の$x$の関数と考える．
+%%[4,-]::item::[課題]\monban 上の\hakom{\bunsuu{1}{2}x^2}に入る式は何か．
+end
+%%[5]::\addban
+
+%%%%%%%%%%%%%
+new::定積分と不定積分2
+%repeat=4,para
+\slidepage
+
+layer::{120}{0}
+end
+
+enumerate::[(1)]
+item::$\displaystyle\int_0^x x\,dx=\bunsuu{x^2}{2}$
+%thin[2,-]::item::一方，不定積分では$\dint x\,dx=\bunsuu{x^2}{2}+C$
+%thin[3,-]::item::定積分(1)は不定積分(2)の1つ\vspace{2mm}\\
+%thin[4,-]::\hspace*{3zw}\fbox{\color{red}$\left(\dint_0^x x\,dx\right)'=x$}
+end
+
+%%%%%%%%%%%%%
+new::微分積分の基本定理
+%repeat=5,para
+\slidepage
+
+{\color{red}
+layer::{120}{0}
+%[2,-]::\putnotec{22}{10.5}{\circlemark{1}}
+%[2,-]::\putnotec{46}{10.5}{\circlemark{1}}
+%[2,-]::\putnotec{19}{6}{\color{blue}\fbox{\phantom{\scriptsize x}}}
+%[2,-]::\putnotec{31}{23}{\color{blue}\fbox{\phantom{\small x}}}
+end
+}
+
+itemize
+item::$\left(\dint_0^x x\,dx\right)'=x$だった
+%thin[2,-]::item::[]　$0$から$x$までの定積分を微分すると元の関数になる
+%thin[3,-]::item::これは，一般の関数$f(x)$についても成り立つ\vspace{2mm}\\
+%thin[4,-]::\hspace*{3zw}\fbox{\color{red}$\left(\dint_a^x f(x)\,dx\right)'=f(x)$}\hspace{1zw}（$a$は定数）
+%thin[5,-]::item::微分積分において，最も重要な定理である
+end
+
+%%%%%%%%%%%%%
+new::基本定理の証明
+%repeat=8,para
+\slidepage
+
+layer::{120}{0}
+%[2..6]::putnote::se{80}{25}::kihon1,0.85
+%[7]::putnote::se{80}{25}::kihon2,0.85
+%[8,-]::putnote::se{80}{25}::kihon3,0.85
+%[3,-]::\putnotee{15}{20}{$S(x)$は黒斜線の面積}
+%[7,-]::\putnotee{15}{54}{$S(z)$は赤斜線の面積}
+%[8,-]::\putnotee{15}{62}{$S(z)-S(x)$は赤斜線の面積}
+end
+
+itemize
+item::$S(x)=\dint_a^x f(x)\,dx$とおく\ $\Rightarrow$\ $S'(x)=f(x)$を示す\vspace{1.8zw}
+%thin[4,-]::item::$S'(x)=$
+%thin[5,-]::$\dlim_{z \to x}\bunsuu{S(z)-S(x)}{z-x}$
+%thin[6,-]::item::$S(z)-S(x)$は？\vspace{2mm}\\
+end
+
+%%%%%%%%%%%%%
+new::基本定理の証明(続)
+%repeat=8,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{67}{24}::kihon4,0.85
+%[2]::putnote::ne{1117}{51}::kihon4_1,0.85
+%[3,-]::putnote::ne{117}{51}::kihon4_2,0.85
+end
+
+itemize
+item::図より　$S(z)-S(x)\fallingdotseq f(x)(z-x)$\\
+%%[2,-]::　拡大してみる\\
+%[3,-]::$S(z)-S(x)=f(x_1)(z-x)$
+%[4,-]::item::$S'(x)=\dlim_{z \to x}\bunsuu{S(z)-S(x)}{z-x}$\vspace{2mm}\\
+%[5,-]::\hspace*{5mm}$=\dlim_{z \to x}\bunsuu{f(x_1)(z-x)}{z-x}$\vspace{2mm}\\
+%[6,-]::\hspace*{5mm}$=\dlim_{z \to x}f(x_1)$
+%[7,-]::$=f(x)$\vspace{-1mm}
+%[8,-]::item::したがって　$S(x)=\dint_a^x f(x)\,dx$は$f(x)$の不定積分
+end
+
+%%%%%%%%%%%%%
+new::定積分の計算公式
+%repeat=5,para
+\slidepage
+
+layer::{120}{0}
+end
+
+itemize
+item::$f(x)$の不定積分の１つを$F(x)$とおく
+%thin[2,-]::item::基本定理より　$S(x)=\displaystyle\int_a^x f(x)\,dx$も不定積分
+%thin[3,-]::item::したがって　$S(x)=F(x)+C$（$C$は積分定数）
+%thin[4,-]::item::$x$に$a$を代入すると　$S(a)=F(a)+C$
+%thin[5,-]::item::$S(a)=\displaystyle\int_a^a f(x)\,dx=0$より　$F(a)+C=0$
+end
+
+%%%%%%%%%%%%%
+new::定積分の計算公式(続)
+%repeat=5,para
+\slidepage
+
+layer::{120}{0}
+%%[5,-]::\putnotee{98}{44}{$=\Bigl[F(x)\Bigr]_a^b$}
+end
+
+itemize
+item::これから　$C=-F(a)$
+%thin[2,-]::item::したがって　$S(x)=F(x)+C=F(x)-F(a)$
+%thin[3,-]::item::$x$に$b$を代入すると　$S(b)=F(b)-F(a)$
+%thin[4,-]::item::よって　\fbox{\color{red}$\displaystyle\int_a^b f(x)\,dx=F(b)-F(a)$}
+%thin[5,-]::item::[]\hspace*{2zw}$F(b)-F(a)={\color{red}\Bigl[F(x)\Bigr]_a^b}$と書く
+end
+
+%%%%%%%%%%%%%
+new::定積分の計算1
+%repeat=5,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{100}{35}::teiseki1
+end
+
+\seteda{35}
+
+itemize
+item::[(例)]$\dint_0^1x^2\,dx$\vspace{-1mm}
+%[2,-]::item::[]不定積分の公式より　$\dint x^2\,dx=\bunsuu{1}{3}x^3+C$\vspace{-1mm}
+%[3,-]::item::[]$\dint_0^1x^2\,dx=\Bigl[\bunsuu{1}{3}x^3\Bigr]_0^1$
+%[4,-]::$=\bunsuu{1}{3}1^3-\bunsuu{1}{3}0^3=\bunsuu{1}{3}$
+%[5,-]::item::[課題]\monban 次の定積分を計算せよ．\\
+%[5,-]::\eda{$\dint_0^2 x^2\,dx$}\eda{$\dint_1^2 x^2\,dx$}
+end
+
+%%%%%%%%%%%%%
+new::定積分の性質
+%repeat=2,para
+\slidepage
+
+itemize
+item::$\displaystyle\int_a^b\bigl(f(x)+g(x)\bigr)\,dx=\int_a^b f(x)\,dx+\int_a^b g(x)\,dx$
+item::$\displaystyle\int_a^b\bigl(f(x)-g(x)\bigr)\,dx=\int_a^b f(x)\,dx-\int_a^b g(x)\,dx$
+item::$\displaystyle\int_a^b c f(x)\,dx=c\int_a^b f(x)\,dx$（$c$は定数）
+%[2,-]::item::[(注)]最初に不定積分を求めてから計算した方がいい
+end
+
+%%%%%%%%%%%%%
+new::定積分の計算2
+%repeat=8,para
+\slidepage
+
+itemize
+item::[(例1)]$\dint_1^2 (2 x+3)\;dx$
+%[2,-]::$=\Bigl[x^2+3x\Bigr]_1^2$\\
+%[3,-]::$\phantom{dint_1^2 (2 x+3)\;dx}=(2^2+3\cdot 2)-(1^2+3\cdot 1)$\\
+%[4,-]::$\phantom{dint_1^2 (2 x+3)\;dx}=6$
+%[5,-]::item::[(例2)]$\dint_0^1 (3x^2+x)\,dx$
+%[6,-]::$=\Bigl[x^3+\bunsuu{1}{2}x^2\Bigr]_0^1$\\
+%[7,-]::$\phantom{\dint_0^1 (3x^2+x)\,dx}=(1+\bunsuu{1}{2})-(0+0)$\\
+%[8,-]::$\phantom{\dint_0^1 (3x^2+x)\,dx}=\bunsuu{3}{2}$
+end
+
+%%%%%%%%%%%%%
+new::定積分の計算(課題)
+%repeat=1,para
+\slidepage
+
+\seteda{100}
+itemize
+item::[課題]\monban 次の定積分を計算せよ．\\
+\eda{$\dint_0^1 (3x^2+1)\;dx$}\\
+\eda{$\dint_{-1}^2(-x^2+x+2)\;dx$}\\
+\eda{$\dint_0^1 (x^3+1)\;dx$}\\
+\eda{$\dint_{-1}^1(x^4+x^3+2x^2)\;dx$}
+end
+
+%%%%%%%%%%%%%
+new::区分求積法
+%repeat=7,para
+\slidepage
+
+itemize
+item::定積分を面積で定義\\
+%[2,-]::　わかりやすいが数学的には厳密でない\\
+%[2,-]::　面積とは？　f(x)の値が負のときは？
+%[3,-]::item::「区分求積法」による定義
+%[4,-]::enumerate::[(1)]\vspace{-2mm}
+%[4,-]::item::区間を$n$等分する\vspace{-2mm}
+%[5,-]::item::各区間にある図形を長方形で近似\vspace{-2mm}
+%[6,-]::item::$n$を限りなく大きくする\vspace{-2mm}
+%[7,-]::item::そのときの極限を定積分の値とする\vspace{-2mm}
+%[4,-]::end
+end

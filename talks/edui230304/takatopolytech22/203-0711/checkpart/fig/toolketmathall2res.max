@@ -1,0 +1,9 @@
+writefile("/Users/takatoosetsuo/polytech22.git/202-0711/checkpart/fig/toolketmathall2res.txt")$/*##*/
+powerdisp:false$/*##*/
+display2d:false$/*##*/
+linel:1000$/*##*/
+dtLL:[[no,ns,no,ns,no,ns,ns,ns,no,(-15*(-3*x+4)^(4))/(-15*(-3*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,(-15*(-3*x+4)^(4))/(-15*(-3*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,(-15*(-3*x+4)^(4))/(-15*(-3*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,(-15*(-3*x+4))/(-15*(-3*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,(-15)/(-15*(-3*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,(-15*(-3*x+4)^(4))/(-15*(-3*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,(15*(3*x+4)^(4))/(-15*(-3*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,(-15*(-3*x+4)^(4))/(-15*(-3*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,(-15*(-3*x+4))/(-15*(-3*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,(-15*(-3*x+4)^(4))/(-15*(-3*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,(-15*(-3*x+4)^(4))/(-15*(-3*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,(-15)/(-15*(-3*x+4)^4),ns],[],[],[],[]]$/*##*/
+res:ratsimp(dtLL)$/*##*/
+disp(res)$/*##*/
+closefile()$/*##*/
+quit()$/*##*/

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+    <title>presen22207.cdy</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #CSConsole {
+            background-color: #FAFAFA;
+            border-top: 1px solid #333333;
+            bottom: 0px;
+            height: 200px;
+            overflow-y: scroll;
+            position: fixed;
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cindyjs.org/dist/v0.8/CindyJS.css">
+    <script type="text/javascript" src="https://cindyjs.org/dist/v0.8/Cindy.js"></script>
+    <script type="text/javascript" src="https://cindyjs.org/dist/v0.8/KetCindyPlugin.js"></script>
+<script id="csinit" type="text/x-cindyscript">
+//KETlib
+use("KetCindyPlugin");
+Dircdy=loaddirectory;
+setdirectory(gethome());
+import("ketcindy.ini");
+
+;
+
+</script>
+<script id="csdraw" type="text/x-cindyscript">
+//figures
+Ketinit();
+
+Addpackage(["emath"]);
+Addpackage(["pict2e","ketlayermorewith2e"]);
+//Addpackage(["[dvipdfmx]{media9}","[dvipdfmx]{animate}","ketmedia"]);
+
+Setslidebody(["black","\Large\bf\boldmath",0]);
+Setslidehyper("");
+
+Settitle([
+"s{60}{20}{微分積分の応用}",
+//"s{60}{50}{名前}",
+//"s{60}{60}{所属}",
+"s{60}{70}{2022.9.26}"
+],["Title=slide0926","Color=[1,1,0,0]"]);
+
+Texcom("\Large\bf\boldmath");
+Fontsize("s");
+
+Addax(1);
+
+Ch=[];
+if(contains(Ch,1),
+  Ospline("1",[A,B,C,D,E,F]);
+
+);
+
+Windispg();
+//Help("Enclo");
+//BBdata(Dircdy,"trig90.pdf");
+
+;
+
+</script>
+    <script type="text/javascript">
+var cdy = CindyJS({
+  scripts: "cs*",
+  defaultAppearance: {
+    dimDependent: 0.7,
+    fontFamily: "sans-serif",
+    lineSize: 1,
+    pointSize: 5.0,
+    textsize: 12.0
+  },
+  angleUnit: "°",
+  geometry: [
+    {name: "SW", type: "Free", pos: [4.0, 4.0, -0.8], color: [1.0, 0.0, 0.0], labeled: true},
+    {name: "NE", type: "Free", pos: [4.0, 4.0, 0.8], color: [1.0, 0.0, 0.0], labeled: true},
+    {name: "A", type: "Free", pos: [4.0, -2.03052538579931, -0.8795673153975665], color: [1.0, 0.0, 0.0], labeled: true},
+    {name: "B", type: "Free", pos: [4.0, 2.425033119038258, -1.2569979797377087], color: [1.0, 0.0, 0.0], labeled: true},
+    {name: "C", type: "Free", pos: [-1.145484565168, 2.924623219308, 4.0], color: [1.0, 0.0, 0.0], labeled: true},
+    {name: "D", type: "Free", pos: [4.0, 3.5555555555567544, 2.6968321997763742], color: [1.0, 0.0, 0.0], labeled: true},
+    {name: "E", type: "Free", pos: [4.0, 0.3218423497705597, 1.1339065775049544], color: [1.0, 0.0, 0.0], labeled: true},
+    {name: "F", type: "Free", pos: [4.0, 2.0820019486375263, 0.8417731706964695], color: [1.0, 0.0, 0.0], labeled: true},
+    {name: "Text0", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [0.0, 1.0, 0.0], fillalpha: 0.27272728085517883, script: "Maketitle();", text: "Title", textsize: 18.0, dock: {corner: "UL", offset: [143.0, -20.0]}},
+    {name: "Text33", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [1.0, 0.286, 0.286], fillalpha: 0.27272728085517883, script: "Viewtex();\nkc();", text: "Figure", textsize: 18.0, dock: {corner: "UL", offset: [10.0, -20.0]}},
+    {name: "Text0''", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [1.0, 0.929, 0.6], fillalpha: 0.27272728085517883, script: "Parafolder();", text: "ParaF", textsize: 18.0, dock: {corner: "UL", offset: [193.0, -20.0]}},
+    {name: "Text0'", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [0.51, 0.949, 1.0], fillalpha: 0.27272728085517883, script: "Mkanimation();", text: "Anime", textsize: 18.0, dock: {corner: "UL", offset: [251.0, -20.0]}},
+    {name: "Text134", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [1.0, 1.0, 0.0], fillalpha: 0.27272728085517883, script: "if(length(Shellparent)>0,\n  Makeshell(),Makebat();\n);\nif(indexof(Libname,\"sci\")>0,\n  writetosci(2),writetoRS(2)\n);\nkc();", text: "Parent", textsize: 18.0, dock: {corner: "UL", offset: [77.0, -20.0]}},
+    {name: "Text03", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [0.467, 0.0, 0.718], fillalpha: 0.27272728085517883, script: "Mkslides();", text: "Slide", textsize: 18.0, dock: {corner: "UR", offset: [-51.0, -20.0]}},
+    {name: "Text03'", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [1.0, 0.737, 0.467], fillalpha: 0.27272728085517883, script: "Mkslidesummary();", text: "Digest", textsize: 18.0, dock: {corner: "UL", offset: [413.0, -20.0]}},
+    {name: "Text04'", type: "Button", color: [0.0, 0.0, 0.0], fillcolor: [0.0, 0.0, 1.0], fillalpha: 0.27272728085517883, script: "Mkflipanime();", text: "Flip", textsize: 18.0, dock: {corner: "UL", offset: [313.0, -20.0]}}
+  ],
+  ports: [{
+    id: "CSCanvas",
+    width: 596,
+    height: 459,
+    transform: [{visibleRect: [-2.4609496941392495, 2.696132821393068, -0.16664676992133823, 0.9292116096212204]}],
+    axes: true,
+    grid: 0.25,
+    background: "rgb(168,176,192)"
+  }],
+  csconsole: false,
+  cinderella: {build: 2055, version: [3, 0, 2055]}
+});
+    </script>
+</head>
+<body>
+    <div id="CSCanvas"></div>
+</body>
+</html>

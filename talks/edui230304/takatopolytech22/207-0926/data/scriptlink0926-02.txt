@@ -1,0 +1,3 @@
+LinkL=[
+  ["a href","loaded/derivativev11jsoffL.html",  "導関数の意味"]
+];

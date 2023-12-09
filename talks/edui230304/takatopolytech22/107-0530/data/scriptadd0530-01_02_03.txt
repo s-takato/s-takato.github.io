@@ -1,0 +1,22 @@
+if(scriptaddstart==1,
+
+scriptaddstart=0;
+);
+
+if(nqu>=11,
+  Setwindow([-4,4],[-4,4]);
+  Setadjust([8,-4],0.7);
+  pdrwxy();
+  pplotdata("1","2^x","x=[-4,log(4)/log(2)]",["Color=red"]);
+  pplotdata("2","3^x","x=[-4,log(4)/log(3)]");
+  pplotdata("3","(0.5)^x","x=[-log(4)/log(2),4]");
+  pplotdata("4","log(x)/log(2)","x=[2^(-4),XMAX]");
+  pplotdata("5","log(x)/log(3)","x=[3^(-4),XMAX]");
+  plistplot("6",[[-3,-3],[3,3]],["do"]);
+  pletter([log(4)/log(3),4],"n","(2)");
+  pletter([log(4)/log(2),4],"n","(3)");
+  pletter([-log(4)/log(2),4],"n","(1)");
+  pletter([1.5,2^(1.5)],"se","$y=2^x$");
+  pletter([4,log(4)/log(2)],"e","(4)");
+  pletter([4,log(4)/log(3)],"e","(5)");
+);

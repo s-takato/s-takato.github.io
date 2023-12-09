@@ -1,0 +1,9 @@
+writefile("/Users/takatoosetsuo/polytech22.git/204-0829/fig/toolketmathall1res.txt")$/*##*/
+powerdisp:false$/*##*/
+display2d:false$/*##*/
+linel:1000$/*##*/
+dtLL:[[no,(2*x-3)/(2*x-3),(cos(x))/(cos(x))],[no,(2*x-3)/(2*x-3),(cos(x))/(cos(x))],[no,(2*x-3)/(2*x-3),(C*o*s*x)/(cos(x))],[no,(2*x-3)/(2*x-3),(cos(x))/(cos(x))],[],[no,(2*x-3)/(2*x-3),(cos(x))/(cos(x))],[no,(2*x)/(2*x-3),(cos(x))/(cos(x))],[no,(2*x-3)/(2*x-3),(cos(x))/(cos(x))],[no,(2*x-3)/(2*x-3),(cos(x))/(cos(x))],[no,(2*x-3)/(2*x-3),(cos(x))/(cos(x))],[no,(2*x-3)/(2*x-3),(cos(x))/(cos(x))],[no,(2*x-3)/(2*x-3),(cos(x))/(cos(x))],[],[],[],[]]$/*##*/
+res:ratsimp(dtLL)$/*##*/
+disp(res)$/*##*/
+closefile()$/*##*/
+quit()$/*##*/

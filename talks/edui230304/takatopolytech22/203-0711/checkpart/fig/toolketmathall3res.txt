@@ -1,0 +1,10 @@
+NIL
+(%i3) powerdisp:false
+(%i4) display2d:false
+(%i5) linel:1000
+(%i6) dtLL:[[no,ns,no,ns,no,ns,ns,ns,no,((-15)*((-3)*x+4)^4)/((-15)*((-3)*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,((-15)*((-3)*x+4)^4)/((-15)*((-3)*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,((-15)*((-3)*x+4)^4)/((-15)*((-3)*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,((-15)*((-3)*x+4))/((-15)*((-3)*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,(-15)/((-15)*((-3)*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,((-15)*((-3)*x+4)^4)/((-15)*((-3)*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,(15*(3*x+4)^4)/((-15)*((-3)*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,((-15)*((-3)*x+4)^4)/((-15)*((-3)*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,((-15)*((-3)*x+4))/((-15)*((-3)*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,((-15)*((-3)*x+4)^4)/((-15)*((-3)*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,((-15)*((-3)*x+4)^4)/((-15)*((-3)*x+4)^4),ns],[no,ns,no,ns,no,ns,ns,ns,no,(-15)/((-15)*((-3)*x+4)^4),ns],[],[],[],[]]
+(%i7) res:ratsimp(dtLL)
+(%i8) disp(res)
+[[no,ns,no,ns,no,ns,ns,ns,no,1,ns],[no,ns,no,ns,no,ns,ns,ns,no,1,ns],[no,ns,no,ns,no,ns,ns,ns,no,1,ns],[no,ns,no,ns,no,ns,ns,ns,no,-1/(27*x^3-108*x^2+144*x-64),ns],[no,ns,no,ns,no,ns,ns,ns,no,1/(81*x^4-432*x^3+864*x^2-768*x+256),ns],[no,ns,no,ns,no,ns,ns,ns,no,1,ns],[no,ns,no,ns,no,ns,ns,ns,no,-(81*x^4+432*x^3+864*x^2+768*x+256)/(81*x^4-432*x^3+864*x^2-768*x+256),ns],[no,ns,no,ns,no,ns,ns,ns,no,1,ns],[no,ns,no,ns,no,ns,ns,ns,no,-1/(27*x^3-108*x^2+144*x-64),ns],[no,ns,no,ns,no,ns,ns,ns,no,1,ns],[no,ns,no,ns,no,ns,ns,ns,no,1,ns],[no,ns,no,ns,no,ns,ns,ns,no,1/(81*x^4-432*x^3+864*x^2-768*x+256),ns],[],[],[],[]]
+
+(%i9) closefile()

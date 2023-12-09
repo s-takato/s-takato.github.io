@@ -1,0 +1,496 @@
+Title::slide0
+::\newcommand{\hiduke}{0509}
+::\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+::\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+::\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+::\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+::\def\rad{\;\mathrm{rad}}
+::\def\deg#1{#1^{\circ}}
+::\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+::\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+
+
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+%\putnotee{122}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+
+\newcounter{ban}
+\setcounter{ban}{1}
+
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+%\addtocounter{ban}{1}%
+}
+
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%%210614
+}
+
+\newcounter{edawidth}
+\newcounter{edactr}
+
+\newcommand{\seteda}[1]{
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+
+\newcommand{\eda}[2][\theedawidth ]{%
+\noindent\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+
+%%%%%%%%%%%%
+main::三角比から三角関数へ
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::三角比(復習)
+%repeat=1
+\slidepage
+
+layer::{120}{0}
+%[1]::putnote::se{60}{-5}::fig22104_1,0.7
+end
+
+itemize
+item::[]$\cos A=\bunsuu{\mbox{AB}}{\mbox{AC}}=\bunsuu{\mbox{底辺}}{\mbox{斜辺}}$
+item::[]$\sin A=\bunsuu{\mbox{CB}}{\mbox{AC}}=\bunsuu{\mbox{高さ}}{\mbox{斜辺}}$
+item::[]$\tan A=\bunsuu{\mbox{BC}}{\mbox{AB}}=\bunsuu{\mbox{高さ}}{\mbox{底辺}}$
+item::辺の比だから，三角形の大きさによらない．
+%[1,-]::item::[課題 ]\monban 問題図の三角形で以下を求めよ．\seteda{30}\\
+%[1,-]::\eda{$\cos A$}\eda{$\sin A$}\eda{$\tan D$}\eda{$\sin D$}
+end
+
+%%%%%%%%%%%%
+new::角が$90\degree$より小さい場合(鋭角)
+%repeat=4
+\slidepage
+
+layer::{120}{0}
+putnote::se{65}{8}::fig2210431,0.65
+end
+
+itemize
+item::角を$\theta$とおく
+%[2,-]::item::左の角が$\theta$の直角三角形がかける
+%[3,-]::item::斜辺$r$，底辺$x$，高さ$y$とすると\\
+%[4,-]::　$\cos \theta=\bunsuu{x}{r}$\\
+%[4,-]::　$\sin \theta=\bunsuu{y}{r}$\\
+%[4,-]::　$\tan \theta=\bunsuu{y}{x}$\\
+end
+
+%%%%%%%%%%%%
+new::角が$90\degree$より大きい場合
+%repeat=6
+\slidepage
+
+layer::{120}{0}
+%[1..4]::putnote::se{65}{8}::fig2210432,0.65
+%[5]::putnote::se{65}{8}::fig2210433,0.65
+%[6]::putnote::se{65}{8}::fig2210434,0.65
+end
+
+itemize
+%[1,-]::item::角$\theta$の直角三角形がかけない
+%[2,-]::item::半径$r$の円上に$x$軸との角が$\theta$\\である点Pはとれる
+%[3,-]::item::Pの$x$座標は底辺\\
+%[3,-]::　　$y$座標は高さに対応\\
+%[4,-]::　$\cos \theta=\bunsuu{x}{r}$\\
+%[4,-]::　$\sin \theta=\bunsuu{y}{r}$\\
+%[4,-]::　$\tan \theta=\bunsuu{y}{x}$
+end
+
+%%%%%%%%%%%%
+new::三角関数の定義($0 \leqq \theta \leqq 360$)
+%repeat=4
+\slidepage
+
+layer::{120}{0}
+putnote::se{65}{8}::fig2210433,0.65
+end
+
+itemize
+%[1,-]::item::半径$r$の円上に$x$軸との角が$\theta$の点Pをとる
+%[2,-]::item::Pの座標を$(x,\ y)$とすると\\
+%[3,-]::　$\cos \theta=\bunsuu{x}{r}$\\
+%[3,-]::　$\sin \theta=\bunsuu{y}{r}$\\
+%[3,-]::　$\tan \theta=\bunsuu{y}{x}$
+%[4,-]::item::[課題]\monbannoadd 問題図の$\theta$について\\以下を求めよ\seteda{25}\\
+%[4,-]::\eda{$\cos\theta$}\eda{$\sin\theta$}\eda{$\tan\theta$}
+end
+
+%[4]::\addban
+
+%%%%%%%%%%%%
+new::三角関数の値の符号
+%repeat=8
+\slidepage
+
+layer::{120}{0}
+%[1,2]::putnote::se{75}{8}::fig2210431,0.5
+%[3,4]::putnote::se{75}{8}::fig2210432,0.5
+%[5,6]::putnote::se{75}{8}::fig2210433,0.5
+%[7,-]::putnote::se{75}{8}::fig2210434,0.5
+end
+
+itemize
+item::[]\Ltab{20mm}{}\Ctab{15mm}{$\cos\theta$}\Ctab{15mm}{$\sin\theta$}\Ctab{15mm}{$\tan\theta$}
+%[1]::item::第1象限
+%[2,-]::item::第1象限\Ctab{15mm}{$+$}\Ctab{15mm}{$+$}\Ctab{15mm}{$+$}
+%[3]::item::第2象限
+%[4,-]::item::第2象限\Ctab{15mm}{$-$}\Ctab{15mm}{$+$}\Ctab{15mm}{$-$}
+%[5]::item::第3象限
+%[6,-]::item::第3象限\Ctab{15mm}{$-$}\Ctab{15mm}{$-$}\Ctab{15mm}{$+$}
+%[7,-]::item::第4象限
+%[8,-]::item::[課題]\monban 第4象限での符号を調べよ
+end
+
+%%%%%%%%%%%%
+new::三角関数の相互関係
+%repeat=7
+\slidepage
+
+layer::{120}{0}
+%[5,-]::\putnotee{60}{46}{\color{red}$\bigl(\cos(\theta)\bigr)^2$を$\cos^2 \theta$と書く}
+putnote::se{90}{6}::presen10310305
+end
+
+itemize
+item::[(1)\ ]$\tan\theta=\bunsuu{\sin\theta}{\cos\theta}$
+%[2,-]::item::[]以下の証明では$\mathrm{OP}=r$とおく
+%[2,-]::item::[\color{blue}証)]{\color{blue}$\tan\theta=\bunsuu{y}{x}=\bunsuu{\frac{y}{r}}{\frac{x}{r}}$}
+%[3,-]::{\color{blue}$=\bunsuu{\sin\theta}{\cos\theta}$}
+%[4,-]::item::[(2)\ ]$\cos^2\theta+\sin^2\theta=1$
+%[6,-]::item::[\color{blue}証)]{\color{blue}$\cos^2\theta+\sin^2\theta=\bunsuu{x^2}{r^2}+\bunsuu{y^2}{r^2}$}
+%[7,-]::{\color{blue}$=\bunsuu{x^2+y^2}{r^2}=1$}
+end
+
+%%%%%%%%%%%%
+main::一般角
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::一般角
+%repeat=3
+\slidepage
+
+layer::{120}{0}
+%[2]::putnote::se{78}{17}::generalangle200
+%[3]::putnote::se{78}{17}::generalanglen30
+end
+
+itemize
+item::これまで，角$\theta$は2つの線分の間の角だった\\
+\hspace*{2zw}$0^{\circ} \leqq \theta \leqq 360^{\circ}$
+%[2,-]::item::角を回転を表す量とすると\\
+%[2,-]::$\theta$はどんな実数でもよい．
+%[2,-]::itemize
+%[2,-]::item::[$\cdot$]$x$軸を始線とする
+%[2,-]::item::[$\cdot$]$\theta >0^{\circ}$のとき，反時計回り
+%[3,-]::item::[$\cdot$]$\theta<0^{\circ}$のとき，時計回り
+%[2,-]::end
+end
+
+%%%%%%%%%%%%
+new::一般角
+%repeat=2
+\slidepage
+
+layer::{120}{0}
+%[2,-]::putnote::se{85}{20}::presen103xy,0.7
+%[2,-]::\putnotec{115}{30}{\normalsize\color{red}第１象限}
+%[2,-]::\putnotec{95}{30}{\normalsize\color{red}第２象限}
+%[2,-]::\putnotec{95}{52}{\normalsize\color{red}第３象限}
+%[2,-]::\putnotec{115}{52}{\normalsize\color{red}第４象限}
+end
+
+\vspace*{5mm}
+...
+\noindent
+アプリ「一般角」で一般角を見てみよう
+
+%[2]::itemize
+%[2]::item::[課題]\monban 次の角は第何象限にあるか．\seteda{40}\\
+%[2]::\eda{$\deg{400}$}\eda{$\deg{600}$}\\
+%[2]::\eda{$\deg{-550}$}\eda{$\deg{-750}$}
+%[2]::end
+
+
+%%%%%%%%%%%%
+new::一般角の三角関数
+%repeat=9,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{75}{17}::generalangle240
+end
+
+itemize
+item::座標を使う(鈍角の場合と同じ)
+%[2,-]::item::[例]$\theta=240^{\circ}$\\
+%[3,-]::$r=2, x=-1,\ y=-\sqrt{3}$\\
+%[4]::\hspace*{1zw}$\cos\theta=$\\
+%[5,-]::\hspace*{1zw}$\cos\theta=-\bunsuu{1}{2}$\\
+%[6]::\hspace*{1zw}$\sin\theta=$\\
+%[7,-]::\hspace*{1zw}$\sin\theta=-\bunsuu{\sqrt{3}}{2}$\vspace{2mm}\\
+%[8]::\hspace*{1zw}$\tan\theta=$\\
+%[9,-]::\hspace*{1zw}$\tan\theta=\sqrt{3}$
+end
+
+%%%%%%%%%%%%
+new::一般角の三角関数
+%repeat=9,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{75}{17}::generalanglen30
+end
+
+itemize
+item::[例]$\theta=-30^{\circ}$\\
+%[2,-]::$r=2, x=\sqrt{3},\ y=-1$\\
+%[3]::\hspace*{1zw}$\cos\theta=$\\
+%[4,-]::\hspace*{1zw}$\cos\theta=\bunsuu{\sqrt{3}}{2}$\\
+%[5]::\hspace*{1zw}$\sin\theta=$\\
+%[6,-]::\hspace*{1zw}$\sin\theta=-\bunsuu{1}{2}$\\
+%[7]::\hspace*{1zw}$\tan\theta=$
+%[8,-]::\hspace*{1zw}$\tan\theta=-\bunsuu{1}{\sqrt{3}}$
+%[9,-]::item::[課題]\monban 次を求めよ\seteda{30}\\
+%[9,-]::\eda{$\cos 135\degree$}\eda{$\sin 135\degree$}\eda{$\tan 135\degree$}
+end
+
+%%%%%%%%%%%%
+main::弧度法（radian）
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::角度の測り方1
+%repeat=5
+\slidepage
+
+layer::{120}{0}
+%[1]::putnote::se{90}{10}::kakudo60
+%[2]::putnote::se{90}{10}::kakudo360
+%[3]::putnote::se{90}{10}::kakudo180
+%[4,-]::putnote::se{90}{10}::kakudo001
+end
+
+\noindent
+度　${}^{\circ}$\vspace{-1mm}
+
+itemize
+%thin[2,-]::item::１周を$360^{\circ}$とする
+%thin[3,-]::item::半周は$180^{\circ}$とする
+%thin[4,-]::item::一周の$\bunsuu{1}{360}$を$1^{\circ}$とする
+%thin[5,-]::item::数学的な意味は余りない
+%thin[5,-]::item::日常的には使いやすい
+end
+
+%%%%%%%%%%%%
+new::角度の測り方2（弧度法）
+%repeat=9,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{89}{10}::radian
+end
+
+itemize
+%[1,-]::item::弧の長さ$\ell$と半径$r$の比\ $\theta(ラジアン)=\bunsuu{\ell}{r}$\vspace{-2mm}
+%[2]::item::半径$r$の円周は
+%[3,-]::item::半径$r$の円周は$2\pi r$だから\\
+%[4]::　$\mbox{1周の角}(360^{\circ})=\bunsuu{2\pi r}{r}$
+%[5,-]::　$\mbox{1周の角}(360^{\circ})=\bunsuu{2\pi r}{r}=2\pi$
+%[6]::item::$\mbox{半周の角}(180^{\circ})$
+%[7,-]::item::$\mbox{半周の角}(180^{\circ})=\pi$
+%[8,-]::item::比なので単位はない（$\sin$などと同じ）\\
+%[9,-]::　度と区別するときは，ラジアン(rad)を付ける
+end
+
+%%%%%%%%%%%%
+new::弧度法による角度の例
+%repeat=7
+\slidepage
+
+itemize
+%[1]::item::$\deg{60}$は$\deg{180}$の\phantom{$\bunsuu{1}{3}$}，したがって　$\deg{60}=\phantom{\bunsuu{\pi}{3}}$
+%[2]::item::$\deg{90}$は$\deg{180}$の$\bunsuu{1}{2}$，したがって　$\deg{90}=\phantom{\bunsuu{\pi}{2}}$
+%[3,-]::item::$\deg{90}$は$\deg{180}$の$\bunsuu{1}{2}$，したがって　$\deg{90}=\bunsuu{\pi}{2}$
+%[4]::item::$\deg{60}$は$\deg{180}$の\phantom{$\bunsuu{1}{3}$}，したがって　$\deg{60}=\phantom{\bunsuu{\pi}{3}}$
+%[5]::item::$\deg{60}$は$\deg{180}$の$\bunsuu{1}{3}$，したがって　$\deg{60}=\phantom{\bunsuu{\pi}{3}}$
+%[6,-]::item::$\deg{60}$は$\deg{180}$の$\bunsuu{1}{3}$，したがって　$\deg{60}=\bunsuu{\pi}{3}$
+%[7,-]::item::[課題]\monban 次の角をラジアンで表せ．\seteda{38}\\
+%[7,-]::\eda{$\deg{30}$}\eda{$\deg{45}$}\eda{$\deg{120}$}
+end
+
+%%%%%%%%%%%%
+new::換算式
+%repeat=4
+\slidepage
+
+itemize
+item::[]1つの角について，$\deg{x}=y$(ラジアン)とする
+%[2,-]::item::[]比例関係$\bunsuu{y}{\pi}=\bunsuu{x}{180}$\vspace{-2mm}
+%[3,-]::item::[]これから　\fbox{$y=\bunsuu{\pi}{180}\;x$}（ラジアンを求める式）\vspace{-2mm}
+%[3,-]::item::[]　　　　　\fbox{$x=\bunsuu{180}{\pi}\;y$}（度を求める式）
+%[4,-]::item::[課題]\monban 次の角を変換せよ(小数でよい)\seteda{30}\\
+%[4,-]::\eda{$3.1416$}\eda{$\deg{70}$}\eda{$10$}\eda{$\deg{10}$}
+end
+
+%%%%%%%%%%%%
+new::正弦関数と正弦曲線
+%repeat=7
+\slidepage
+
+layer::{120}{0}
+%[7,-]::putnote::s{65}{70}::fig221045
+end
+
+itemize
+item::一般角を$x$とおく．
+%[2,-]::item::任意の$x$に対して，$y=\sin x$の値が定まる．
+%[3,-]::item::これを正弦関数という(三角関数の１つ)．
+%[4,-]::item::$y=\sin x$のグラフを正弦曲線という．
+%[5,-]::item::{\color{red}$x$はラジアンとする．}\vspace{-2mm}
+%[6,-]::item::[]　横軸を度とすると
+end
+
+%%%%%%%%%%%%
+new::$y=\sin x$のグラフ
+%repeat=8
+\slidepage
+
+layer::{120}{0}
+%[1..7]::putnote::se{75}{3}::fig221046,0.9
+%[8,-]::putnote::se{75}{3}::fig221046b,0.9
+end
+
+{\color{red}
+layer::{120}{0}
+%[3,-]::\qarrowline[8]{43}{26}{33}{150}{40}
+%[3,-]::\circleline{46}{25}{1}
+%[6,-]::\qarrowline[8]{35}{43}{38}{122}{40}
+%[6,-]::\circleline{37}{44}{1}
+end
+}
+
+itemize
+item::{\color{red}半径$1$}の円に点$\mathrm{P}(X,Y)$をとる
+%[2,3]::item::[]\hspace*{3zw}$\sin x=\bunsuu{Y}{r}\phantom{=Y}$
+%[4,-]::item::[]\hspace*{3zw}$\sin x=\bunsuu{Y}{r}=Y$
+%[5,-]::item::また弧の長さを$\ell$とすると\\
+%[5,6]::\hspace*{3zw}$x=\bunsuu{\ell}{r}$
+%[7,-]::\hspace*{3zw}$x=\bunsuu{\ell}{r}=\ell$
+%[8,-]::item::[課題]\monban $x,\ \sin x$は\\(1)-(4)のどの長さで表されるか．\seteda{40}\\
+%[8,-]::\eda{$x$は}\eda{$\sin x$は}
+end
+
+%%%%%%%%%%%%
+new::正弦曲線を描く
+%repeat=1
+\slidepage
+
+itemize
+item::アプリ「$y=\sin x$のグラフ」を動かしてみよう\vspace{-2mm}
+item::使い方\vspace{-2mm}
+ enumerate::[(1)]
+ item::学生番号を入れる\vspace{-2mm}
+ item::赤い点を動かして$x$を決め，「点を打つ」\\
+ 　長さが$x$の弧を表示して$(x,\sin x)$に点を打つ．\vspace{-2mm}
+ item::いくつかの点を打って「点を結ぶ」\\
+ 　正弦曲線との違いが表示される\\
+ 　さらに「点を打つ」，「点を結ぶ」を繰り返す．\vspace{-2mm}
+ end
+ item::[課題]\monban 「REC」を押して表示されるデータを提出せよ．
+end
+
+%%%%%%%%%%%%
+new::正弦曲線の特徴
+%repeat=6
+\slidepage
+
+layer::{120}{0}
+putnote::s{60}{5}::graphsin
+end
+
+\vspace{30mm}
+
+%[2,-]::itemize
+%[2]::item::{\color{red}周期}は
+%[3,-]::item::{\color{red}周期}は$2\pi$（$2\pi$で元に戻る）
+%[4]::item::{\color{red}振幅}は
+%[5,-]::item::{\color{red}振幅}は$1$（値の範囲は$-1$から$1$）
+%[6,-]::item::原点対称
+%[2,-]::end
+
+
+%%%%%%%%%%%%
+new::正弦曲線(課題)
+%repeat=1
+\slidepage
+
+itemize
+item::[課題]\monban アプリ「関数のグラフ」で次の関数のグラフをかき，周期と振幅を答えよ．\seteda{50}\vspace{2mm}\\
+\eda{$y=2\sin x$}\eda{$y=\bunsuu{1}{3}\sin x$}\\
+\eda{$y=\sin 2x$}\eda{$y=4\sin\bunsuu{x}{2}$}
+end
+
+\ifnum 1=0
+
+%%%%%%%%%%%%
+new::$y=\cos x$のグラフ(余弦曲線)
+%repeat=5
+\slidepage
+
+layer::{120}{0}
+putnote::s{62}{6}::graphcos
+\putnoten{118}{6}{\small $y=\cos x$}
+%[5,-]::putnote::s{62}{6}::graphsinadd
+%[5,-]::\putnoten{80}{6}{\color{red}\small $y=\sin x$}
+end
+
+\vspace*{28mm}
+
+itemize
+%thin[2,-]::item::{\color{red}周期}は$2\pi$（$2\pi$で元に戻る）\vspace{-1mm}
+%thin[3,-]::item::{\color{red}振幅}は$1$（値の範囲は$-1$から$1$）\vspace{-1mm}
+%thin[4,-]::item::$\cos x$は$y$軸対称\vspace{-1mm}
+%thin[5,-]::item::$\cos x$は$\sin x$を左に$\frac{\pi}{2}$平行移動（{\color{red}位相}が$\frac{\pi}{2}$進む）
+end
+
+%%%%%%%%%%%%
+new::振幅・位相・周期
+%repeat=8
+\slidepage
+
+itemize
+item::$y=\sin x$の振幅は$1$，周期は$2\pi$
+%[2]::item::$y=A \sin x$の振幅は$\phantom{A}$，周期は$\phantom{2\pi}$
+%[3]::item::$y=A \sin x$の振幅は$A$，周期は$\phantom{2\pi}$
+%[4,-]::item::$y=A \sin x$の振幅は$A$，周期は$2\pi$
+%[5]::item::$y=\sin(x+c)$の位相は$y=\sin x$から$\phantom{-c}$だけずれている
+%[6,-]::item::$y=\sin(x+c)$の位相は$y=\sin x$から$-c$だけずれている
+%[7]::item::$y=\sin(bx)$の周期は$\phantom{\bunsuu{2\pi}{b}}$
+%[8,-]::item::$y=\sin(bx)$の周期は$\bunsuu{2\pi}{b}$
+end
+
+%[8]::\fi

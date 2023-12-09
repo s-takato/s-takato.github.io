@@ -1,0 +1,739 @@
+%%% Title presen22108
+\documentclass[landscape,10pt]{ujarticle}
+\special{papersize=\the\paperwidth,\the\paperheight}
+\usepackage{ketpic,ketlayer}
+\usepackage{ketslide}
+\usepackage{amsmath,amssymb}
+\usepackage{bm,enumerate}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{color}
+\definecolor{slidecolora}{cmyk}{0.98,0.13,0,0.43}
+\definecolor{slidecolorb}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolorc}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolord}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolore}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolorf}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolori}{cmyk}{0.98,0.13,0,0.43}
+\def\setthin#1{\def\thin{#1}}
+\setthin{0}
+\newcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+\putnotee{122}{-\theketpicctra.05}{\small\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+\usepackage{emath}
+\usepackage{emathEy}
+\usepackage{emathMw}
+\usepackage{pict2e}
+\usepackage{ketlayermorewith2e}
+\usepackage[dvipdfmx,colorlinks=true,linkcolor=blue,filecolor=blue]{hyperref}
+\newcommand{\hiduke}{0606}
+\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+\def\rad{\;\mathrm{rad}}
+\def\deg#1{#1^{\circ}}
+\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+\def\dlim{\displaystyle\lim}
+\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+\newcommand{\sfrac}[3][0.65]{\scalebox{#1}{$\frac{#2}{#3}$}}
+\newcommand{\phn}[1]{\phantom{#1}}
+\newcommand{\scb}[2][0.6]{\scalebox{#1}{#2}}
+\newcommand{\dsum}{\displaystyle\sum}
+
+\setmargin{25}{145}{15}{100}
+
+\ketslideinit
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{layer}{120}{0}
+\putnotese{0}{0}{\input{fig/slide0.tex}}
+\end{layer}
+
+\def\mainslidetitley{22}
+\def\ketcletter{slidecolora}
+\def\ketcbox{slidecolorb}
+\def\ketdbox{slidecolorc}
+\def\ketcframe{slidecolord}
+\def\ketcshadow{slidecolore}
+\def\ketdshadow{slidecolorf}
+\def\slidetitlex{6}
+\def\slidetitlesize{1.3}
+\def\mketcletter{slidecolori}
+\def\mketcbox{yellow}
+\def\mketdbox{yellow}
+\def\mketcframe{yellow}
+\def\mslidetitlex{62}
+\def\mslidetitlesize{2}
+
+\color{black}
+\Large\bf\boldmath
+\addtocounter{page}{-1}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+\begin{layer}{118}{0}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+}
+\newcounter{ban}
+\setcounter{ban}{1}
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+}
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%%210614
+}
+\newcounter{edawidth}
+\newcounter{edactr}
+\newcommand{\seteda}[1]{
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+\newcommand{\eda}[2][\theedawidth ]{%
+\noindent\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\mainslide{数列}
+
+
+\slidepage[m]
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{等差数列と等比数列}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg0}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/6}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[]差が等しい数列を等差数列，等しい差を公差という
+\item
+初項を$a$，公差を$d$の等差数列の第$n$項を$a_n$とおくと\\
+　$a_1=a,\ a_2=a+d,\ a_3=a+2d,\ \cdots$\\
+\hspace*{3zw}一般項$a_n=\hakoma{a+(n-1)d}$
+\item
+初項を$a$，公比を$r$の等比数列の第$n$項を$a_n$とおくと\\
+　$a_1=a,\ a_2=ar,\ a_3=ar^2,\ \cdots$\\
+\hspace*{3zw}一般項$a_n=\hakoma{a r^{n-1}}$
+\end{itemize}
+
+\newslide{等差数列の和}
+
+\vspace*{18mm}
+
+\slidepage
+\vspace*{5mm}
+
+初項$a$，公差$d$，項数が4の場合で説明する
+\begin{itemize}
+\item
+[]\hspace*{1zw}$S=\Ctab{20mm}{a}+\Ctab{17mm}{(a+d)}+\Ctab{17mm}{(a+2d)}+\Ctab{17mm}{(a+3d)}$
+\item
+[]逆順にして
+\item
+[]\hspace*{1zw}$S=\Ctab{20mm}{(a+3d)}+\Ctab{17mm}{(a+2d)}+\Ctab{17mm}{(a+d)}+\Ctab{17mm}{a}$
+\item
+[]2つの式を加えると\\
+　$2S=(2a+3d)\times 4$\\
+　$2$で割ると　$S=\bunsuu{4(2a+3d)}{2}=\hakoma{\bunsuu{n(a+a+3d)}{2}}$
+\end{itemize}
+
+\newslide{等差数列の和の公式}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/3}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[]初項$a$，公差$d$，項数$n$の等差数列の和$S$は\vspace{2mm}\\
+　　\fbox{$S=\bunsuu{n(2a+(n-1)d)}{2}$}
+\item
+[]$2a+(n-1)d=a+(a+(n-1)d)=\mbox{初項}+\mbox{末項}$\\
+\item
+[]　　\raisebox{-5mm}{\fbox{$S=\bunsuu{\mbox{項数}\times (\mbox{初項}+\mbox{末項})}{2}$}}
+\end{itemize}
+
+\newslide{等差数列の和の例題}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例題)]$S=1+3+5+7+\cdots+99$を求めよ．
+\item
+[解)]項数$n$を求める．\\
+初項$1$，公差$2$より，末項(第$n$項)$a_n$は\\
+ 　　$a_n=1+2(n-1)=2n-1$\vspace{2mm}\\
+$a_n=2n-1=99$より
+　$n=\bunsuu{99+1}{2}=50$\\
+したがって　$S=\bunsuu{50(1+99)}{2}$
+$=2500$
+\end{itemize}
+
+\newslide{等比数列の和}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/7}
+\end{layer}
+
+\slidepage
+{\color{blue}
+
+\begin{layer}{120}{0}
+\putnotesw{32}{19}{\large ／}
+\putnotesw{45}{19}{\large ／}
+\putnotesw{61}{19}{\large ／}
+\putnotesw{76}{19}{\large ／}
+\end{layer}
+
+}
+初項$a$，公比$r$，項数が5の場合で説明する
+\begin{itemize}
+\item
+[]$S=a+ar+ar^2+ar^3+ar^4$
+\item
+[]$rS=ar+ar^2+ar^3+ar^4+ar^5$
+\item
+[]2つの式を引くと\\
+　$S-rS=a-ar^5$\hspace{1zw}\\
+$\therefore\hspace{0.75zw}(1-r)S=a(1-r^5)$
+\item
+[]したがって，$r\neqq 1$のとき　$S=\bunsuu{a(1-r^5)}{1-r}$
+\end{itemize}
+
+\newslide{等比数列の和の公式}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{125}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/1}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[]初項$a$，公比$r$，項数$n$の等比数列の和$S$は\vspace{2mm}\\
+　　　　\fbox{$S=\bunsuu{a(1-r^n)}{1-r}$}
+\item
+[]　ただし，$r\neqq 1$とする
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\newslide{等比数列の和の例題}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para6pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para6pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para6pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例題)]$S=1+2+2^2+2^3+\cdots+2^{10}$を求めよ．
+\item
+[解)]初項$1$，公比$2$より，末項(第$n$項)$a_n$は\\
+ 　$a_n=a r^{n-1}=2^{n-1}$
+\item
+[]$a_n=2^{n-1}=2^{10}$より\hspace{0.75zw}$n-1=10$\\
+　　$\therefore\hspace{0.75zw}n=11$
+\item
+[]$S=\bunsuu{1\times(1-2^{11})}{1-2}$
+$=\bunsuu{1-2^{11}}{-1}$
+$=2^{11}-1$
+\end{itemize}
+
+\newslide{課題(等差数列と等比数列の和)}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para6pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{125}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/1}
+\end{layer}
+
+\slidepage
+\seteda{70}
+\begin{itemize}
+\item
+[課題]\monban 次の和を求めよ．(TextP202,204)\vspace{2mm}\\
+\eda{初項3,\ 末項19,\ 項数15の等差数列の和}\vspace{2mm}\\
+\eda{初項3,\ 公比2の等比数列の初項から第$n$項までの和}\vspace{2mm}\\
+\eda{$1+3+5+\cdots+55$の和}
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\newslide{和の記号$\dsum$（シグマ）}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/8}
+\end{layer}
+
+\slidepage
+{\color{blue}
+
+\begin{layer}{120}{0}
+\putnotee{5}{69}{\normalsize $k$に$1,2,\cdots,10$を順に入れて加えるという意味}
+\putnotee{60}{60}{\normalsize KeTMath　sum(k=1,10,k)}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+[例)]$1,\ 2,\ 3,\ \cdots,\ 10$の和を表す
+\item
+[(1)]$S=1+2+3+4+5+6+7+8+9+10$
+\item
+[(2)]$S=1+2+3+\cdots+9+10$
+\item
+[(3)]第$k$項は　$k$\\
+　$k=1,\ 2,\ 3,\ \cdots, 10$\\
+　　$S=\dsum_{k=1}^{10}k$\\
+\end{itemize}
+
+\newslide{$\dsum$の使い方}
+
+\vspace*{18mm}
+
+\slidepage
+\vspace{2mm}
+
+\begin{itemize}
+\item
+[例1)]$\dsum_{k=1}^{5}(2k+1)=\hakoma{3+5+7+9+11}$\vspace{-5mm}
+\item
+[例2)]$1^2+2^2+3^2+\cdots+20^2=\dsum_{k=\scb{\hakoma{1}}}^{\scb{\hakoma{20}}}\hakoma{k^2}$
+\\　　第$k$項は　\hakoma{k^2}，$k=\hakoma{1,\ 2,\ \cdots 20}$\vspace{-1mm}
+\item
+[課題]\monban $S, n, a_k$を求めよ．\seteda{40}\\
+\eda{$S=\dsum_{k=1}^{4}\bunsuu{1}{k}$}
+\eda{$2+4+6+\cdots+10=\dsum_{k=1}^{n}a_k$}
+\end{itemize}
+
+\mainslide{複素数}
+
+
+\slidepage[m]
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{虚数}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para9pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para9pg10}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para9pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 10/10}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+$x^2+6x+10=0$\hfill(1)\\
+$(x+3)^2-9+10=0$より
+　$(x+3)^2=-1$\hfill(2)\vspace{-1mm}
+\item
+実数では，2乗して$-1$になることはない\vspace{-1mm}
+\item
+2乗して$-1$になるものも数と考え，{\color{red}$i$}とおく({\color{red}虚数単位})\vspace{-1mm}
+\item
+$i^2=-1$
+　また $(-i)^2=-1$\vspace{-1mm}
+\item
+2乗して$-1$になる数は$\pm i$があるが$\sqrt{-1}=i$とする\vspace{-1mm}
+\item
+(2)より　$x+3=\pm i$
+　$x=-3\pm i$
+\end{itemize}
+
+\newslide{負の数の平方根}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotee{60}{43}{{\color{red}$\sqrt{-a}=\sqrt{a}\,i$}}
+\end{layer}
+
+\begin{itemize}
+\item
+[例)]$\sqrt{-4}$
+\item
+2乗して$-4$になる数\\
+　$(2i)^2=4i^2=-4,\ (-2i)^2=4i^2=-4$\\
+$\sqrt{-4}=2i$と定める
+\item
+[例)]$\sqrt{-2}=\hakoma{{\color{blue}\sqrt{2}\,i}}$
+\item
+[課題]\monban 計算せよ．\hfill Text P133問1\seteda{55}\\
+\eda{$\sqrt{-6}$}\eda{$\sqrt{-\bunsuu{9}{4}}$}\\
+\eda{$\sqrt{-6}\sqrt{-2}$}\eda{$\sqrt{-3}\sqrt{2}$}
+\end{itemize}
+
+\newslide{複素数}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$z=a+b\,i$の形の数を{\color{red}複素数}という　($a,b$は実数)\\
+　　$1+i,\ 2+3i,\ 4-2i,\ \cdots$
+\item
+$a$を$z$の{\color{red}実部}，$b$を$z$の{\color{red}虚部}という
+\end{itemize}
+
+\newslide{複素数の計算}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para9pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para10pg10}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para10pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 10/10}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotee{22}{72}{{\color{red}$(a+bi)(a-bi)=a^2+b^2$}}
+\end{layer}
+
+\begin{itemize}
+\item
+ふつうの式のように計算し，$i^2$が出たら$-1$で置き換える
+\item
+和　$(2+3i)+(5-i)=\hakoma{{\color{blue}7+2i}}$
+\item
+積　$(2+3i)(4+i)$\\
+　$=8+2i+12i+3i^2$
+$=8+14i-3$
+$=5+14i$
+\item
+[]　$(2+i)(2-i)$\\
+　$=4-i^2$
+$=4+1=5$
+\end{itemize}
+
+\newslide{複素数の計算（商）}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$\bunsuu{1+3i}{2+i}$\\
+　　{\color{red}$(2+i)(2-i)=5$を用いる}\vspace{1mm}\\
+$=\bunsuu{(1+3i)(2-i)}{(2+i)(2-i)}$
+$=\bunsuu{5+5i}{5}$
+$=1+i$
+\end{itemize}
+
+\newslide{複素数の計算問題}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+[課題]\monban 計算せよ．\hfill TextP132問1\seteda{55}\\
+\eda{$(1-3i)+(2-5i)$}\eda{$(10-7i)-(3+9i)$}\vspace{2mm}\\
+\eda{$(-4+7i)(3+2i)$}\eda{$(-2+6i)(2+6i)$}\vspace{2mm}\\
+\eda{$\bunsuu{5+2i}{1-3i}$}\eda{$\bunsuu{1+i}{-2+5i}-\bunsuu{4-2i}{2+5i}$}
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\newslide{複素数平面}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{15}{\input{fig/plane1.tex}}
+\end{layer}
+
+{\color{red}
+
+\begin{layer}{120}{0}
+\putnotec{110}{25}{\small$\bullet$}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+$z=a+b\,i$を平面上の点$(a,\ b)$で表す\seteda{50}\\
+\eda{$2+3i \leftrightarrow\ \mbox{点}(2,3)$}\\
+\eda{$-2+i \leftrightarrow\ \mbox{点}$}\\
+\eda{$3 \leftrightarrow\ \mbox{点}$}\\
+\eda{$-3 \leftrightarrow\ \mbox{点}$}\\
+\eda{$4i \leftrightarrow\ \mbox{点}$}
+\item
+[課題]\monban\ [2]-[5]の点を求めよ
+\end{itemize}
+
+\newslide{複素数の和$z+w$と図形}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+$z=a+bi,\ w=c+di$（$a,b,c,d$は実数）
+\item
+[]$z+w=a+bi+c+di=(a+c)+(b+d)i$
+\item
+\href{https://s-takato.github.io/polytech22/offlineapp/fukusowa_ttttjsoffL.html}{複素数の和}を動かそう
+\begin{enumerate}[(1)]
+\item
+IDに学生番号を入れて「確認」「出題」を押す．
+\item
+赤い点を$z+w(=\alpha+\beta)$の位置に動かす．
+\item
+点が決まったら，「採点」を押す．
+\item
+以上を４回ほど繰り返す．
+\end{enumerate}
+\item
+[課題]\monban $\mathrm{O},z,z+w,w$でできる四辺形は何か．
+\end{itemize}
+
+\newslide{絶対値と偏角}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{70}{17}{\input{fig/absangle2.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+$z=a+b\,i$を平面上の点$(a,\ b)$で表したとき\vspace{-2mm}
+\item
+[]{\color{red}絶対値}$|z|$\\
+　原点Oと$z$の距離\\
+　　$|z|=\sqrt{a^2+b^2}$\vspace{-2mm}
+\item
+[]{\color{red}偏角}$\mathrm{arg}z$\\
+　$\mathrm{O}z$と$x$軸（正）の角$\theta$\vspace{-2mm}
+\item
+[例)]$z=1+i$\\
+　絶対値\ \hakoma{{\color{blue}\sqrt{2}}}，偏角\ \hakoma{{\color{blue}\bunsuu{\pi}{4}}}
+\end{itemize}
+
+\newslide{絶対値と偏角(課題)}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+[課題]\monban 次の複素数の絶対値と偏角を求めよ．\seteda{28}\\
+\eda{$\sqrt{3}+i$}\eda{$i$}\eda{$-2$}\eda{$-3i$}
+\item
+[課題]\monban $z=a+bi,\ w=c+di$とする．\seteda{800}\\
+\eda{$|z|^2$を$a,b$で表せ}\\
+\eda{$|w|^2$を$c,d$で表せ}\\
+\eda{$zw$の実部と虚部を$a,b,c,d$で表せ}\\
+\eda{$|zw|^2$を計算せよ}\\
+\eda{$|zw|=|z||w|$を証明せよ}
+\end{itemize}
+\ifnum 1=0
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\newslide{極形式}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/absangle.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+$z=a+bi$の絶対値\ $r$，偏角\ $\theta$
+\item
+$\cos\theta=\bunsuu{a}{r}$より　$a=r\cos\theta$
+\item
+$\sin\theta=\bunsuu{b}{r}$より　$b=r\sin\theta$
+\item
+{\color{red}$z=r(\cos\theta+\sin\theta)$（極形式）}
+\item
+[例)]$\sqrt{3}+i=2(\cos\bunsuu{\pi}{6}+\sin\bunsuu{\pi}{6})$
+\end{itemize}
+
+\newslide{複素数の積$zw$と図形}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{72}{27}{\scalebox{0.8}{\input{fig/complexproduct2.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+$z=a+bi,\ w=c+di$（$a,b,c,d$は実数）
+\item
+$zw\!=\!(a+bi)(c+di)\!=\!(ac-bd)+(ad+bc)i$
+\item
+$z,w,zw$の位置関係は？
+\item
+[]{\color{red}絶対値は　積\\偏角は　和}
+\end{itemize}
+
+\newslide{複素数の積と図形}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+$z=r(\cos\alpha+i\sin\alpha),\ w=s(cos\beta+i\sin\beta)$
+\item
+[]$zw=rs(\cos\alpha+i\sin\alpha)(\cos\beta+i\sin\beta)$
+\item
+[]$\phantom{zw}=rs\bigl\{(\cos\alpha\cos\beta-\sin\alpha\sin\beta)$\\
+\hfill$+i(\sin\alpha\cos\beta+\cos\alpha\sin\beta)\bigr\}$\\
+$\phantom{zw}=rs\bigl(\cos(\alpha+\beta)+i\sin(\alpha+\beta)\bigr)$
+\item
+[]したがって，$|zw|=rs=|z||w|$で，偏角は$\alpha+\beta$\\
+\end{itemize}
+\fi
+\label{pageend}\mbox{}
+
+\end{document}

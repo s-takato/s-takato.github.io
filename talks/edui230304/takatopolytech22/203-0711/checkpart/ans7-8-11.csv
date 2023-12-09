@@ -1,0 +1,16 @@
+3	fr(1,cos(^(2)x))	2xcos(x)	2cos(x)	-fr(sin(x),cos(x))
+2	fr(1,cos^(2)x)	2x*sin(x)+x^(2)*cos(x)		
+2	(sec(x))^(2)	2xsin(x)+(cos(x))^(2)	sin(2x)	-(csc(x))^(2)
+2	fr(1,cos(^(2)x))	2xsin(x)+x^(2)cos(x)	2sin(x)cos(x)	-fr(1,sin(2,x))
+2	fr(1,cos(^(2)))	2xcos(x)	sin(2x)	fr(-sin(x),cos(x))
+2	fr(1,cos^(2)(x))	2xcos(x)	2sin(x)cos(x)	fr(1,sin^(2)x)
+2	fr(1,cos(^(2)x))	x^(2)cos(x)+2xsin(x)	sin(2x)	fr(-1,sin(x)^(2))
+2	fr(cos(x),sin(x))	2xcos	-2cos(x)	tan(x)
+3	cos(^(2))x	1xcos(x)	cos(^(2)x)	fr(-sin(x),cos(x))
+3	fr(1,cos(^(2)x))	2xcos(x)	cos(x)sin(x)+sin(x)cos(x)	fr(sin(x)sin(x)-cos(x)cos(x),sin(^(2)x))
+3	fr(1,cos(^(2)x))	2xsin(x)+x^(2)cos(x)	2cos(^(2)x)	fr(cos(^(2)x)-sin(2^(x)),sin(^(2)x))
+1	fr(1,cos(^(2)))	2xcos(x)	2cos(x)	fr(-sin(x),cos(x))
+0				
+0				
+0				
+0				

@@ -1,0 +1,77 @@
+Instr(key):=(
+  regional(out,tmp,tmp1);
+  if(length(key)==1,out=key);
+  if(length(key)==2,
+    tmp=substring(key,0,1);
+    tmp1=substring(key,1,2);
+    if((tmp=="L")%(tmp=="n"),
+      out=tmp1;
+      if(capflg==1,
+        if((out>="a")&(out<="z"),
+          out=Toupper(out);
+        );
+        tmp=StrL_chno;
+        StrL_chno=substring(tmp,0,length(tmp)-3);
+        capflg=0;
+      );
+    ,
+      out=key;
+    );
+  );
+  if(length(key)>=3,
+    if(indexof(key,"()")>0,
+      if(indexof(key,"Delete")>0,Delete());
+      if(indexof(key,"Allclear")>0,Allclear());
+      out="";
+    ,
+      if(key=="(C)",capflg=1);
+      out=key;
+    );
+  );
+  out;
+);
+
+Inputwin(ch,name):=(
+  regional(str1,str2,tmp,out);
+  str=Textedit(ch,"");
+  str2=Instr(name);
+  if(length(str2)==2,str2=str2_(-1));
+  str=str+str2;
+  Subsedit(ch,str);
+  tmp=Addasterisk(str);
+);
+
+Csvtext():=Csvtext("alltext");
+Csvtext(fnameorg):=(
+  regional(tmp,tmp1,tL,numL,tnL,flg,fname,fid);
+  flg=1;
+  fname=fnameorg;
+  if(isstring(fname),
+    if(length(fname)>0,
+      fname=fname+".csv"; flg=0;
+    );
+  ,
+    if(fname>0,
+     fname="alltext"; flg=0;
+    );
+  );
+  tmp=allelements();
+  tmp1=allpoints();
+  tL=remove(tmp,tmp1);
+  numL=apply(tL,replace(#.name,"Text",""));
+  numL=apply(numL,replace(#,"''",".2"));
+  numL=apply(numL,replace(#,"'",".1"));
+  numL=apply(numL,if(length(#)==0,"-1",#));
+  numL=apply(numL,parse(#));
+  tnL=apply(1..(length(numL)),
+     [numL_#,inspect(tL_#,"name"),inspect(tL_#,"text.text")]);
+  tnL=sort(tnL,[#_1]);
+  if(flg==0,
+    fid=openfile(fname);
+    forall(tnL,
+      println(fid,text(#_1)+","+#_2+","+Dqq(#_3));
+    );
+    closefile(fid);
+    println("generate "+fname);
+  );
+);

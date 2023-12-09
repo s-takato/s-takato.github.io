@@ -1,0 +1,32 @@
+Scriptaddの関数
+//20220801
+// kettasklib,ketscorelibで定義
+// 論理座標で記述されたデータを物理座標（表示）に映す
+
+1. 最初におく関数
+・Setwindow(...)　論理座標での描画領域（必須）
+・Setadjust(移動, 拡大縮小率)
+　　Setadjust([10,2], 0,8);  [0,0]を[10,2]に移動，縮小率0.8
+
+2. 物理座標への変換
+・Adjustpt(pt)　点を変換
+・Adjust(gd)　グラフデータを変換
+
+3. 物理座標に変換して描画
+・座標軸
+　　pdrwxy():=pdrwxy(["","x","e1","y","n1","O","s1w1"],[]);
+　　pdrwxy(axLorg,op)
+・文字の書き込み
+　　pletter(Pt,Dr,St));
+　　pletter(list):=pletter(list,[]);
+　　pletter(Pt,Dr,St,options):=pletter([Pt,Dr,St],options);
+・リストプロット
+　　plistplot(nm,vptL)
+　　plistplot(nm,vptL,op):
+・プロットデータ
+　　pplotdata(name1,func,variable)
+　　pplotdata(name1,func,variable,options)
+
+4. その他
+・問題番号の取得
+　　Quesno()

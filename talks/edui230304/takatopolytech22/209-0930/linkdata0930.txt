@@ -1,0 +1,9 @@
+縮約版
+https://s-takato.github.io/polytech22/209-0930/presen/presen209digest.pdf
+
+0930-012変数関数のグラフ
+https://s-takato.github.io/polytech22/offline/kettaskv0930-01.html
+0928-02偏微分
+https://s-takato.github.io/polytech22/offline/kettaskv0930-02.html
+0928-03全積分
+https://s-takato.github.io/polytech22/offline/kettaskv0930-03.html

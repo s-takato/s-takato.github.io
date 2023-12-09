@@ -1,0 +1,19 @@
+0704-07の結果
+2 02NI 0704
+Q07 微分せよ
+[1]  y=sin(x)cos(x)
+　正解 y'=cos(2,x)-sin(2,x)
+　答え cos(2x)
+　得点 2
+[2]  y=sin(2,x)=sin(x)sin(x)
+　正解 y'=2sin(x)cos(x)
+　答え 
+　得点 0
+[3]  y=xtan(x)
+　正解 y'=tan(x)+fr(x,cos(2,x))
+　答え fr(cos(x)sin(x)+x,cos(x)^(2))
+　得点 2
+[4]  y=tan(x)-x
+　正解 y'=fr(1,cos(2,x))-1=fr(sin(2,x),cos(2,x))
+　答え tan(x)^(2)
+　得点 2

@@ -1,0 +1,7 @@
+quline="Q04::y=sin(x),y=cos(x),y=-sin(x),y=-cos(x)のどれかを答えよ	[1]:: y=	[2]:: y=	[3]:: y=	[4]:: y=";
+shline="Q04---	[1] y= 	[2] y= 	[3] y= 	[4] y= ";
+caline="Q04::	[1]::y=	[2]::y=	[3]::y=	[4]::y=";
+mrkline="0	2	2	2	2";
+mxscline="0	1	1	1	1";
+sqline="01KA	2	2	2	2	2CR02NI	2	2	2	2	2CR03VL	2	2	2	2	2CR04TO	2	2	2	2	2CR05RO	2	2	2	2	2CR06AK	2	2	2	2	2CR07YK	2	2	2	2	2CR08MT	2	2	2	2	2CR09HN	2	2	2	2	2CR10HH	2	2	2	2	2CR11KH	2	2	2	2	2CR12YM	2	2	2	2	2CR13TY	2	2	2	2	2CR14KK	2	2	2	2	2CR15YK	2	2	2	2	2CR16YT	2	2	2	2	2";
+ansline="1	01KA	070414:34:16	Q04---	[1] y= -cos(x)	[2] y= -sin(x)	[3] y= cos(x)	[4] y= sin(x)CR2	02NI	070414:28:9	Q04---	[1] y= -cos(x)	[2] y= -sin(x)	[3] y= cos(x)	[4] y= sin(x)CR3	03VL	070414:22:57	Q04---	[1] y= 4	[2] y= 3	[3] y= 2	[4] y= 1CR4	04TO	070414:31:36	Q04---	[1] y= sin(x)	[2] y= -cos(x)	[3] y= cos(x)	[4] y= -sin(x)CR5	05RO	未提出CR6	06AK	070414:13:20	Q04---	[1] y= -cos(x)	[2] y= -sin(x)	[3] y= cos(x)	[4] y= sin(x)CR7	07YK	070414:29:5	Q04---	[1] y= -cos(x)	[2] y= -sin(x)	[3] y= cos(x)	[4] y= sin(x)CR8	08MT	070414:16:2	Q04---	[1] y= -sin	[2] y= -cos	[3] y= sin	[4] y= cosCR9	09HN	070414:29:36	Q04---4,3,2,1	[1] y= 4	[2] y= 3	[3] y= 2	[4] y= 1CR10	10HH	070414:32:11	Q04---	[1] y= -cos(x)	[2] y= -sin(x)	[3] y= cos(x)	[4] y= sin(x)CR11	11KH	070414:27:29	Q04---	[1] y= -cos(x)	[2] y= -sin(x)	[3] y= cos(x)	[4] y= sin(x)CR12	12YM	070414:36:34	Q04---	[1] y= -cos(x)	[2] y= -sin(x)	[3] y= cos(x)	[4] y= sin(x)CR13	13TY	未提出CR14	14KK	未提出CR15	15YK	未提出CR16	16YT	未提出";

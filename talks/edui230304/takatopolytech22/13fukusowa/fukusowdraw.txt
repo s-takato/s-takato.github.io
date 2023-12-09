@@ -1,0 +1,59 @@
+Ketinit(1);
+Setketcindyjs(["Label=[]"]);//no ketjs
+Addax(0);
+Setwindow([-5,5],[-5,5]);
+
+Coorodinates([0.4,-0.1],[0,0.3],[-0.1,-0.4],16);
+
+if(newflg==1,
+  inspect(C,"ptsize",5.2);
+//  st=Newsession(Id,"",[-8.7,4.7],24);
+  newflg=0;
+);
+
+if(quesflg==1,
+  if(quesnew==1,
+    Subsedit(Rec,"");
+    out=Makeques([-11,2],1.2);
+    Ex=out_1; Ca=out_2;
+    Msgsc=[];
+    Startquestion(Ex,Ca);
+    quesnew=0;
+    quesgiven=1;
+    scorefin=0;
+  );
+  quesflg=0;
+);
+
+if(quesgiven==1,
+  Dispexprs(Msgques);
+  Drawfig();
+);
+
+if(scoreflg==1,
+  out=Scoring([-7.5,-3]);
+  stans=out_1; score=out_2;
+  Makequesdata(stans,score);
+  Updatelog();
+  scorefin=1;
+  quesnew=1;
+  scoreflg=0;
+);
+
+if(score==1,
+  Listplot("1",[pA,pP,pB],["da"]);
+);
+
+if(recordflg==1,
+  if(scorefin==1,
+    Subsedit(Rec,LogData);
+    quesnew=1;
+    recordflg=0;
+  );
+  recordflg=0;
+);
+
+//Displetterlist([Msgnew,Msgsc]);
+
+Windispg();
+

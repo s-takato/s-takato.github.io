@@ -1,0 +1,8 @@
+writefile("/Users/takatoosetsuo/polytech22.git/205-0926/presen/fig/kyokuchi1mx1.txt")$/*##*/
+powerdisp:false$/*##*/
+display2d:false$/*##*/
+linel:1000$/*##*/
+ans:integrate((x+1)*(x-1)*(x-3)^2,x)$/*##*/
+disp(ans)$/*##*/
+closefile()$/*##*/
+quit()$/*##*/

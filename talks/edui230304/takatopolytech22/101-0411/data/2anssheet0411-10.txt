@@ -1,0 +1,59 @@
+BOOMER OK
+4月11日
+y=sin(2x)//y=tan(2x)C=1//y=cos(2x)C=2//y=sin(2x)^(2)C=3//y=tan(100x)C=4
+
+yutto
+4月11日
+y=tan(4x)+sin(8x)
+y=cos(60x)+tan(12x)
+y=sin(130x)+cos(4x)
+y=tan(60x)
+y=0x
+
+かっぱ
+4月11日
+y=sin(7x+3)
+y=tan(9x-5)
+y=tan(9x-5)N=2000
+y=cos(5x-6)/log(8x+2)
+y=sin(51x+9)
+返信 1 件
+
+きむゆう
+4月11日
+y=3x//y=2x//y=fr(x,3)//y=-cos(3x)x//y=cos(2x)
+
+こうき
+4月11日
+y=sin(x) y=cos(5x) y=tan(6x) y=cos(5x,8) y= tan(87x,46)
+
+ぽこべんじゃー
+4月11日
+y=5xy=1xN=100y=sin(4x)y=sin(3)y=sin(9x)N=5N=100
+
+まやし
+4月11日
+y=9/x6+3
+返信 4 件
+
+高橋正宗
+4月11日
+y=log(300)N=6000
+
+大木翼
+4月11日
+y=sin(7x)//y=cos(7x)//y=sin(-7)//y=cos(-7)//y=tan(10)
+
+ViDurA LAkSHAn
+4月11日
+y=tan(x)C=2//y=e^(8)C=3
+
+こんにちはこんばんは
+
+鎌田諄
+4月11日
+y=1/2x^(3)+8x^(2)+5x-9N=500//y=(x+5)^(2)+9N=500C=1//y=1/2x+6C=2//y=1/4tan(x)N=500C=3//y=1/2sin(x)C=4
+
+山﨑友就
+
+ΞKATSUΞ

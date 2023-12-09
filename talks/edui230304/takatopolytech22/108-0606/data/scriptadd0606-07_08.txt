@@ -1,0 +1,26 @@
+if(scriptaddstart==1,
+
+scriptaddstart=0;
+);
+
+if(nqu<=5,
+  Setwindow([-3,3],[-3,3]);
+  Setadjust([13,-2],0.7);
+  pdrwxy();
+  ctr=1;
+  forall(remove(YMIN..YMAX,[0]),
+    plistplot(text(ctr),[[XMIN,#],[XMAX,#]],["da"]);
+    ctr=ctr+1;
+  );
+  forall(remove(XMIN..XMAX,[0]),
+    plistplot(text(ctr),[[#,YMIN],[#,YMAX]],["da"]);
+    ctr=ctr+1;
+  );
+  if(nqu==2,plistplot(text(ctr),[[0,0],[sqrt(3),0],[sqrt(3),1],[0,0]],["dr,2"]));
+  if(nqu==2,draw(Adjust([sqrt(3),1]),color->[1,0,0],size->3));
+  if(nqu==3,draw(Adjust([0,1]),color->[1,0,0],size->3));
+  if(nqu==4,draw(Adjust([-2,0]),color->[1,0,0],size->3));
+  if(nqu==5,  draw(Adjust([0,-3]),color->[1,0,0],size->3));
+  pletter([1,0],"s2","1");
+  pletter([0,1],"w2","1");
+);

@@ -1,0 +1,2708 @@
+%%% タイトル presen209
+\documentclass[landscape,10pt]{jarticle}
+\usepackage{pict2e}
+\special{papersize=\the\paperwidth,\the\paperheight}
+\usepackage{ketpic,ketlayer}
+\usepackage{ketslide}
+\usepackage{amsmath,amssymb}
+\usepackage{bm,enumerate}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{color}
+\definecolor{slidecolora}{cmyk}{0.98,0.13,0,0.43}
+\definecolor{slidecolorb}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolorc}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolord}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolore}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolorf}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolori}{cmyk}{0.98,0.13,0,0.43}
+\def\setthin#1{\def\thin{#1}}
+\setthin{0}
+\newcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+\putnotee{122}{-\theketpicctra.05}{\small\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+\usepackage{emath}
+\usepackage[dvipdfmx,colorlinks=true,linkcolor=blue,filecolor=blue]{hyperref}
+\newcommand{\hiduke}{0930}
+\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+\def\rad{\;\mathrm{rad}}
+\def\deg#1{#1^{\circ}}
+\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+\def\dlim{\displaystyle\lim}
+\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+\newcommand{\sfrac}[3][0.65]{\scalebox{#1}{$\frac{#2}{#3}$}}
+\newcommand{\phn}[1]{\phantom{#1}}
+\newcommand{\dsum}{\displaystyle\sum}
+\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+\def\dlim{\displaystyle\lim}
+\def\dint{\displaystyle\int}
+\def\dsum{\displaystyle\sum}
+\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+\newcommand{\scb}[2][0.6]{\scalebox{#1}{#2}}
+\newcommand{\dpar}[2]{\bunsuu{\partial #1}{\partial #2}}
+
+\setmargin{25}{145}{15}{100}
+
+\ketslideinit
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{layer}{120}{0}
+\putnotese{0}{0}{\input{fig/slide209.tex}}
+\end{layer}
+
+\def\mainslidetitley{22}
+\def\ketcletter{slidecolora}
+\def\ketcbox{slidecolorb}
+\def\ketdbox{slidecolorc}
+\def\ketcframe{slidecolord}
+\def\ketcshadow{slidecolore}
+\def\ketdshadow{slidecolorf}
+\def\slidetitlex{6}
+\def\slidetitlesize{1.3}
+\def\mketcletter{slidecolori}
+\def\mketcbox{yellow}
+\def\mketdbox{yellow}
+\def\mketcframe{yellow}
+\def\mslidetitlex{62}
+\def\mslidetitlesize{2}
+
+\color{black}
+\large\bf\boldmath
+\addtocounter{page}{-1}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+\begin{layer}{118}{0}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+}
+\newcounter{ban}
+\setcounter{ban}{1}
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+}
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%
+}
+\newcounter{edawidth}
+\newcounter{edactr}
+\newcommand{\seteda}[1]{% 20220708 modified
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+\newcommand{\eda}[2][\theedawidth]{%
+\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\mainslide{2変数関数}
+
+
+\slidepage[m]
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{1変数関数と2変数関数}
+
+\vspace*{18mm}
+
+\hypertarget{para1pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg0}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para0pg0}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/2}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+これまでの関数$y=f(x)$（1変数関数）\\
+\hspace*{2zw}1つの値$x$を与えると，$y$の値が決まる\\
+\hspace*{4zw}例）$y=x^2$
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+2変数関数$z=f(x,\ y)$\\
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\hspace*{2zw}2つの値$x,\ y$を与えると，$z$の値が決まる\\
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\hspace*{4zw}例）$z=x^2+y^2$
+}%
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg0}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/2}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+これまでの関数$y=f(x)$（1変数関数）\\
+\hspace*{2zw}1つの値$x$を与えると，$y$の値が決まる\\
+\hspace*{4zw}例）$y=x^2$
+\item
+2変数関数$z=f(x,\ y)$\\
+\hspace*{2zw}2つの値$x,\ y$を与えると，$z$の値が決まる\\
+\hspace*{4zw}例）$z=x^2+y^2$
+\end{itemize}
+
+\newslide{2変数関数のグラフ}
+
+\vspace*{18mm}
+
+\hypertarget{para2pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/3}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+1変数関数のグラフは曲線
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+2変数関数のグラフは曲面になる
+}%
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para2pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/3}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{5}{25}{\scalebox{0.7}{\input{fig/zue091002_1.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+1変数関数のグラフは曲線
+\item
+2変数関数のグラフは曲面になる
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para2pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/3}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{5}{25}{\scalebox{0.7}{\input{fig/zue091002_1.tex}}}
+\putnotese{75}{15}{\scalebox{0.7}{\input{fig/zue091002_3.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+1変数関数のグラフは曲線
+\item
+2変数関数のグラフは曲面になる
+\end{itemize}
+
+\newslide{2変数関数のグラフ(課題)}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{110}{0}
+\putnotes{27}{28}{\scalebox{0.7}{\input{fig/c2s11_hanenchu-x_k.tex}}}
+\putnotes{84}{28}{\scalebox{0.7}{\input{fig/c2s11_hanenchu-y_kp1211.tex}}}
+\putnotes{27}{50}{\scalebox{0.7}{\input{fig/c2s11_daenmen_k.tex}}}
+\putnotes{84}{50}{\scalebox{0.7}{\input{fig/c2s11_kyokumen_km.tex}}}
+\putnotee{8}{37}{A}
+\putnotee{65}{37}{B}
+\putnotee{8}{55}{C}
+\putnotee{65}{54}{D}
+\end{layer}
+
+\begin{itemize}
+\item
+[課題]\monban 次のグラフとなる2変数関数を選べ\\
+\hspace{1zw}1\ $z=\sqrt{1-y^2}$\hspace{2zw}2\ $z=\sqrt{1-x^2}$\\
+\hspace{1zw}3\ $z=\bunsuu{x^2y^2}{x^2+y^2}$\hspace{2zw}4\ $z=\sqrt{1-x^2-\bunsuu{y^2}{4}}$
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\newslide{2変数関数の微分}
+
+\vspace*{18mm}
+
+\hypertarget{para3pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+2変数関数$z=f(x,\ y)$\\
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+　例えば　$z=x^2+3y$
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$x$だけを変数と考えて（$y$は定数とみて）\\
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+$z$を$x$で微分したものを$x$についての{偏微分}といい\\
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\hspace*{5zw}{$\bunsuu{\partial z}{\partial x}$}\\
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+と書く．
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$y$についての偏微分$\bunsuu{\partial z}{\partial y}$も同様
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[注)]$z_x,\ z_y$とも書く．
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[注)]$z'$とは書かない．
+}%
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+2変数関数$z=f(x,\ y)$\\
+　例えば　$z=x^2+3y$
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$x$だけを変数と考えて（$y$は定数とみて）\\
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+$z$を$x$で微分したものを$x$についての{偏微分}といい\\
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\hspace*{5zw}{$\bunsuu{\partial z}{\partial x}$}\\
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+と書く．
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$y$についての偏微分$\bunsuu{\partial z}{\partial y}$も同様
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[注)]$z_x,\ z_y$とも書く．
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[注)]$z'$とは書かない．
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+2変数関数$z=f(x,\ y)$\\
+　例えば　$z=x^2+3y$
+\item
+$x$だけを変数と考えて（$y$は定数とみて）\\
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+$z$を$x$で微分したものを$x$についての{偏微分}といい\\
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\hspace*{5zw}{$\bunsuu{\partial z}{\partial x}$}\\
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+と書く．
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$y$についての偏微分$\bunsuu{\partial z}{\partial y}$も同様
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[注)]$z_x,\ z_y$とも書く．
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[注)]$z'$とは書かない．
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+2変数関数$z=f(x,\ y)$\\
+　例えば　$z=x^2+3y$
+\item
+$x$だけを変数と考えて（$y$は定数とみて）\\
+$z$を$x$で微分したものを$x$についての{\color{red}偏微分}といい\\
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\hspace*{5zw}{$\bunsuu{\partial z}{\partial x}$}\\
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+と書く．
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$y$についての偏微分$\bunsuu{\partial z}{\partial y}$も同様
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[注)]$z_x,\ z_y$とも書く．
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[注)]$z'$とは書かない．
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+2変数関数$z=f(x,\ y)$\\
+　例えば　$z=x^2+3y$
+\item
+$x$だけを変数と考えて（$y$は定数とみて）\\
+$z$を$x$で微分したものを$x$についての{\color{red}偏微分}といい\\
+\hspace*{5zw}{\color{red}$\bunsuu{\partial z}{\partial x}$}\\
+と書く．
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$y$についての偏微分$\bunsuu{\partial z}{\partial y}$も同様
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[注)]$z_x,\ z_y$とも書く．
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[注)]$z'$とは書かない．
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+2変数関数$z=f(x,\ y)$\\
+　例えば　$z=x^2+3y$
+\item
+$x$だけを変数と考えて（$y$は定数とみて）\\
+$z$を$x$で微分したものを$x$についての{\color{red}偏微分}といい\\
+\hspace*{5zw}{\color{red}$\bunsuu{\partial z}{\partial x}$}\\
+と書く．
+\item
+$y$についての偏微分$\bunsuu{\partial z}{\partial y}$も同様
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[注)]$z_x,\ z_y$とも書く．
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[注)]$z'$とは書かない．
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+2変数関数$z=f(x,\ y)$\\
+　例えば　$z=x^2+3y$
+\item
+$x$だけを変数と考えて（$y$は定数とみて）\\
+$z$を$x$で微分したものを$x$についての{\color{red}偏微分}といい\\
+\hspace*{5zw}{\color{red}$\bunsuu{\partial z}{\partial x}$}\\
+と書く．
+\item
+$y$についての偏微分$\bunsuu{\partial z}{\partial y}$も同様
+\item
+[注)]$z_x,\ z_y$とも書く．
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[注)]$z'$とは書かない．
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg8}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+2変数関数$z=f(x,\ y)$\\
+　例えば　$z=x^2+3y$
+\item
+$x$だけを変数と考えて（$y$は定数とみて）\\
+$z$を$x$で微分したものを$x$についての{\color{red}偏微分}といい\\
+\hspace*{5zw}{\color{red}$\bunsuu{\partial z}{\partial x}$}\\
+と書く．
+\item
+$y$についての偏微分$\bunsuu{\partial z}{\partial y}$も同様
+\item
+[注)]$z_x,\ z_y$とも書く．
+\item
+[注)]$z'$とは書かない．
+\end{itemize}
+
+\newslide{偏微分の計算}
+
+\vspace*{18mm}
+
+\hypertarget{para4pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/7}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例)]$z=x^3+y^2+x^4y^5$
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/7}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例)]$z=x^3+y^2+x^4y^5$
+\item
+$\dpar{z}{x}=\dpar{}{x}(x^3+{\color{blue}y^2}+x^4{\color{blue}y^5})$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/7}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例)]$z=x^3+y^2+x^4y^5$
+\item
+$\dpar{z}{x}=\dpar{}{x}(x^3+{\color{blue}y^2}+x^4{\color{blue}y^5})$\\
+$\phantom{\dpar{z}{x}}=\dpar{}{x}(x^3)+\dpar{}{x}({\color{blue}y^2})+\dpar{}{x}(x^4 \color{blue}y^5)$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/7}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例)]$z=x^3+y^2+x^4y^5$
+\item
+$\dpar{z}{x}=\dpar{}{x}(x^3+{\color{blue}y^2}+x^4{\color{blue}y^5})$\\
+$\phantom{\dpar{z}{x}}=\dpar{}{x}(x^3)+\dpar{}{x}({\color{blue}y^2})+\dpar{}{x}(x^4 \color{blue}y^5)$\\
+$\phantom{\dpar{z}{x}}=3x^2+4x^3{\color{blue}y^5}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/7}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例)]$z=x^3+y^2+x^4y^5$
+\item
+$\dpar{z}{x}=\dpar{}{x}(x^3+{\color{blue}y^2}+x^4{\color{blue}y^5})$\\
+$\phantom{\dpar{z}{x}}=\dpar{}{x}(x^3)+\dpar{}{x}({\color{blue}y^2})+\dpar{}{x}(x^4 \color{blue}y^5)$\\
+$\phantom{\dpar{z}{x}}=3x^2+4x^3{\color{blue}y^5}$
+\item
+$\dpar{z}{y}=\dpar{}{x}({\color{blue}x^3}+y^2+{\color{blue}x^4}y^5)$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/7}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例)]$z=x^3+y^2+x^4y^5$
+\item
+$\dpar{z}{x}=\dpar{}{x}(x^3+{\color{blue}y^2}+x^4{\color{blue}y^5})$\\
+$\phantom{\dpar{z}{x}}=\dpar{}{x}(x^3)+\dpar{}{x}({\color{blue}y^2})+\dpar{}{x}(x^4 \color{blue}y^5)$\\
+$\phantom{\dpar{z}{x}}=3x^2+4x^3{\color{blue}y^5}$
+\item
+$\dpar{z}{y}=\dpar{}{x}({\color{blue}x^3}+y^2+{\color{blue}x^4}y^5)$\\
+$\phantom{\dpar{z}{y}}=\dpar{}{y}({\color{blue}x^3})+\dpar{}{y}(y^2)+\dpar{}{y}({\color{blue}x^4}y^5)$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/7}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例)]$z=x^3+y^2+x^4y^5$
+\item
+$\dpar{z}{x}=\dpar{}{x}(x^3+{\color{blue}y^2}+x^4{\color{blue}y^5})$\\
+$\phantom{\dpar{z}{x}}=\dpar{}{x}(x^3)+\dpar{}{x}({\color{blue}y^2})+\dpar{}{x}(x^4 \color{blue}y^5)$\\
+$\phantom{\dpar{z}{x}}=3x^2+4x^3{\color{blue}y^5}$
+\item
+$\dpar{z}{y}=\dpar{}{x}({\color{blue}x^3}+y^2+{\color{blue}x^4}y^5)$\\
+$\phantom{\dpar{z}{y}}=\dpar{}{y}({\color{blue}x^3})+\dpar{}{y}(y^2)+\dpar{}{y}({\color{blue}x^4}y^5)$\\
+$\phantom{\dpar{z}{y}}=2y+5x^4y^4$
+\end{itemize}
+
+\newslide{課題(偏微分)}
+
+\vspace*{18mm}
+
+%%repeat=5,para
+\slidepage
+\seteda{60}
+\begin{itemize}
+\item
+[課題]\monban 次の2変数関数の偏微分$z_x,z_y$を求めよ．\seteda{70}\\
+\eda{$z=x^3+2y^3$のとき，$\dpar{z}{x}$}\\
+\eda{$z=x^3+2y^3$のとき，$\dpar{z}{y}$}\\
+\eda{$z=x^2+xy-y^2$のとき，$z_x$}\\
+\eda{$z=x^2+xy-y^2$のとき，$z_y$}\\
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{1変数関数の微分}
+
+\vspace*{18mm}
+
+\hypertarget{para5pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para5pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para5pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{9}{\input{fig/bibun1.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+$x$の変化量\ $\varDelta x=z-x$\vspace{-2mm}
+\item
+$y$の変化量\ $\varDelta y=f(\xi)-f(x)$\vspace{-2mm}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$\bunsuu{dy}{dx}=\dlim_{\varDelta x\to 0}\bunsuu{\varDelta y}{\varDelta x}$\vspace{-1mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+これは図の接線の傾き
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+赤の直角三角形の底辺と高さを$dx,\ dy$と書く
+}%
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para5pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para5pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para5pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{9}{\input{fig/bibun1.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+$x$の変化量\ $\varDelta x=z-x$\vspace{-2mm}
+\item
+$y$の変化量\ $\varDelta y=f(\xi)-f(x)$\vspace{-2mm}
+\item
+$\bunsuu{dy}{dx}=\dlim_{\varDelta x\to 0}\bunsuu{\varDelta y}{\varDelta x}$\vspace{-1mm}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+これは図の接線の傾き
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+赤の直角三角形の底辺と高さを$dx,\ dy$と書く
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para5pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para5pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para5pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{0}{\input{fig/bibun2.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+$x$の変化量\ $\varDelta x=z-x$\vspace{-2mm}
+\item
+$y$の変化量\ $\varDelta y=f(\xi)-f(x)$\vspace{-2mm}
+\item
+$\bunsuu{dy}{dx}=\dlim_{\varDelta x\to 0}\bunsuu{\varDelta y}{\varDelta x}$\vspace{-1mm}
+\item
+これは図の接線の傾き
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+赤の直角三角形の底辺と高さを$dx,\ dy$と書く
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para5pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para5pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para5pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para5pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{0}{\input{fig/bibun3.tex}}
+\putnotee{80}{60}{\color{blue}$\varDelta x=dx$}
+\end{layer}
+
+\begin{itemize}
+\item
+$x$の変化量\ $\varDelta x=z-x$\vspace{-2mm}
+\item
+$y$の変化量\ $\varDelta y=f(\xi)-f(x)$\vspace{-2mm}
+\item
+$\bunsuu{dy}{dx}=\dlim_{\varDelta x\to 0}\bunsuu{\varDelta y}{\varDelta x}$\vspace{-1mm}
+\item
+これは図の接線の傾き
+\item
+赤の直角三角形の底辺と高さを$dx,\ dy$と書く
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para5pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para5pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para5pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{0}{\input{fig/bibun3.tex}}
+\putnotee{80}{60}{\color{blue}$\varDelta x=dx$}
+\end{layer}
+
+\begin{itemize}
+\item
+$x$の変化量\ $\varDelta x=z-x$\vspace{-2mm}
+\item
+$y$の変化量\ $\varDelta y=f(\xi)-f(x)$\vspace{-2mm}
+\item
+$\bunsuu{dy}{dx}=\dlim_{\varDelta x\to 0}\bunsuu{\varDelta y}{\varDelta x}$\vspace{-1mm}
+\item
+これは図の接線の傾き
+\item
+赤の直角三角形の底辺と高さを$dx,\ dy$と書く
+\item
+$\tan\theta=\bunsuu{dy}{dx}$より\ {\color{red}$dy=\bunsuu{dy}{dx}dx$}（$dx,dy$の意味付け）
+\end{itemize}
+\ifnum 1=0
+
+\newslide{1変数関数の微分（まとめ）}
+
+\vspace*{18mm}
+
+\hypertarget{para6pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para5pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para5pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para6pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para6pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/2}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{9}{\input{fig/bibun3.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+1変数関数$y=f(x)$
+\item
+$dy=\bunsuu{dy}{dx}dx$
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$\varDelta x$が小さいとき\\
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\hspace*{2zw}$\varDelta y\fallingdotseq \bunsuu{dy}{dx}\varDelta x$
+}%
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para6pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para5pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para6pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para6pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/2}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{9}{\input{fig/bibun3.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+1変数関数$y=f(x)$
+\item
+$dy=\bunsuu{dy}{dx}dx$
+\item
+$\varDelta x$が小さいとき\\
+\hspace*{2zw}$\varDelta y\fallingdotseq \bunsuu{dy}{dx}\varDelta x$
+\end{itemize}
+
+\newslide{2変数関数の場合}
+
+\vspace*{18mm}
+
+\hypertarget{para7pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para6pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para6pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para7pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/3}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/henbibun0.tex}}
+\end{layer}
+
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para7pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para6pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/3}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/henbibun1.tex}}
+\end{layer}
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para7pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para6pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para7pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/3}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/henbibun2.tex}}
+\end{layer}
+
+
+\newslide{2変数関数の場合}
+
+\vspace*{18mm}
+
+\hypertarget{para8pg1}{}
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/zenbibunpara/p001.tex}}
+\putnotew{96}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/8}
+\end{layer}
+
+\slidepage
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg2}{}
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/zenbibunpara/p002.tex}}
+\putnotew{96}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/8}
+\end{layer}
+
+\slidepage
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg3}{}
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/zenbibunpara/p003.tex}}
+\putnotew{96}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/8}
+\end{layer}
+
+\slidepage
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg4}{}
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/zenbibunpara/p004.tex}}
+\putnotew{96}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/8}
+\end{layer}
+
+\slidepage
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg5}{}
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/zenbibunpara/p005.tex}}
+\putnotew{96}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/8}
+\end{layer}
+
+\slidepage
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg6}{}
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/zenbibunpara/p006.tex}}
+\putnotew{96}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/8}
+\end{layer}
+
+\slidepage
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg7}{}
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/zenbibunpara/p007.tex}}
+\putnotew{96}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/8}
+\end{layer}
+
+\slidepage
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg8}{}
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/zenbibunpara/p008.tex}}
+\putnotew{96}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/8}
+\end{layer}
+
+\slidepage
+
+\newslide{1変数関数の微分}
+
+\vspace*{18mm}
+
+\hypertarget{para9pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para9pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{9}{\input{fig/bibun1.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+$x$の変化量\ $\varDelta x=\xi-x$\vspace{-2mm}
+\item
+$y$の変化量\ $\varDelta y=f(\xi)-f(x)$\vspace{-2mm}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$\bunsuu{dy}{dx}=\dlim_{\varDelta x\to 0}\bunsuu{\varDelta y}{\varDelta x}$\vspace{-1mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+これは図の接線の傾き
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+赤の直角三角形の底辺と高さを$dx,\ dy$と書く
+}%
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para9pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para9pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{9}{\input{fig/bibun1.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+$x$の変化量\ $\varDelta x=\xi-x$\vspace{-2mm}
+\item
+$y$の変化量\ $\varDelta y=f(\xi)-f(x)$\vspace{-2mm}
+\item
+$\bunsuu{dy}{dx}=\dlim_{\varDelta x\to 0}\bunsuu{\varDelta y}{\varDelta x}$\vspace{-1mm}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+これは図の接線の傾き
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+赤の直角三角形の底辺と高さを$dx,\ dy$と書く
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para9pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para9pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para9pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{9}{\input{fig/bibun2.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+$x$の変化量\ $\varDelta x=\xi-x$\vspace{-2mm}
+\item
+$y$の変化量\ $\varDelta y=f(\xi)-f(x)$\vspace{-2mm}
+\item
+$\bunsuu{dy}{dx}=\dlim_{\varDelta x\to 0}\bunsuu{\varDelta y}{\varDelta x}$\vspace{-1mm}
+\item
+これは図の接線の傾き
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+赤の直角三角形の底辺と高さを$dx,\ dy$と書く
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para9pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para9pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{9}{\input{fig/bibun3.tex}}
+\putnotee{80}{55}{\color{blue}$\varDelta x=dx$}
+\end{layer}
+
+\begin{itemize}
+\item
+$x$の変化量\ $\varDelta x=\xi-x$\vspace{-2mm}
+\item
+$y$の変化量\ $\varDelta y=f(\xi)-f(x)$\vspace{-2mm}
+\item
+$\bunsuu{dy}{dx}=\dlim_{\varDelta x\to 0}\bunsuu{\varDelta y}{\varDelta x}$\vspace{-1mm}
+\item
+これは図の接線の傾き
+\item
+赤の直角三角形の底辺と高さを$dx,\ dy$と書く
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para9pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para9pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{9}{\input{fig/bibun3.tex}}
+\putnotee{80}{55}{\color{blue}$\varDelta x=dx$}
+\end{layer}
+
+\begin{itemize}
+\item
+$x$の変化量\ $\varDelta x=\xi-x$\vspace{-2mm}
+\item
+$y$の変化量\ $\varDelta y=f(\xi)-f(x)$\vspace{-2mm}
+\item
+$\bunsuu{dy}{dx}=\dlim_{\varDelta x\to 0}\bunsuu{\varDelta y}{\varDelta x}$\vspace{-1mm}
+\item
+これは図の接線の傾き
+\item
+赤の直角三角形の底辺と高さを$dx,\ dy$と書く
+\item
+$\tan\theta=\bunsuu{dy}{dx}$より\ {\color{red}$dy=\bunsuu{dy}{dx}dx$}（$dx,dy$の意味付け）
+\end{itemize}
+
+\newslide{1変数関数の微分（まとめ）}
+
+\vspace*{18mm}
+
+\hypertarget{para10pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para10pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para10pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/2}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{9}{\input{fig/bibun3.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+1変数関数$y=f(x)$
+\item
+$dy=\bunsuu{dy}{dx}dx$
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$\varDelta x$が小さいとき\\
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\hspace*{2zw}$\varDelta y\fallingdotseq \bunsuu{dy}{dx}\varDelta x$
+}%
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para10pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para10pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para10pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/2}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{9}{\input{fig/bibun3.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+1変数関数$y=f(x)$
+\item
+$dy=\bunsuu{dy}{dx}dx$
+\item
+$\varDelta x$が小さいとき\\
+\hspace*{2zw}$\varDelta y\fallingdotseq \bunsuu{dy}{dx}\varDelta x$
+\end{itemize}
+
+\newslide{2変数関数の場合}
+
+\vspace*{18mm}
+
+\hypertarget{para11pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para10pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para10pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para11pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/3}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/henbibun0.tex}}
+\end{layer}
+
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para11pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para10pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/3}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/henbibun1.tex}}
+\end{layer}
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para11pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para10pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para11pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/3}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/henbibun2.tex}}
+\end{layer}
+
+
+\newslide{2変数関数の場合}
+
+\vspace*{18mm}
+
+\hypertarget{para12pg1}{}
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/zenbibunpara/p001.tex}}
+\putnotew{96}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para12pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para12pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/8}
+\end{layer}
+
+\slidepage
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para12pg2}{}
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/zenbibunpara/p002.tex}}
+\putnotew{96}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para12pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para12pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/8}
+\end{layer}
+
+\slidepage
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para12pg3}{}
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/zenbibunpara/p003.tex}}
+\putnotew{96}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para12pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para12pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para12pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/8}
+\end{layer}
+
+\slidepage
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para12pg4}{}
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/zenbibunpara/p004.tex}}
+\putnotew{96}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para12pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para12pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para12pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/8}
+\end{layer}
+
+\slidepage
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para12pg5}{}
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/zenbibunpara/p005.tex}}
+\putnotew{96}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para12pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para12pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para12pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/8}
+\end{layer}
+
+\slidepage
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para12pg6}{}
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/zenbibunpara/p006.tex}}
+\putnotew{96}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para12pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para12pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para12pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/8}
+\end{layer}
+
+\slidepage
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para12pg7}{}
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/zenbibunpara/p007.tex}}
+\putnotew{96}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para12pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para12pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para12pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/8}
+\end{layer}
+
+\slidepage
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para12pg8}{}
+
+\begin{layer}{120}{0}
+\putnotes{65}{2}{\input{fig/zenbibunpara/p008.tex}}
+\putnotew{96}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para12pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para12pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para12pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/8}
+\end{layer}
+
+\slidepage
+
+\newslide{2変数関数の偏微分}
+
+\vspace*{18mm}
+
+\hypertarget{para13pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para12pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para12pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para13pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para13pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{9}{\input{fig/bibun4.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+2変数関数$z=f(x,y)$
+\item
+$x$だけを変化させる\vspace{-2mm}
+\item
+$\varDelta z_1=f(\xi,y)-f(x,y)$\vspace{-2mm}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$dz_1=\bunsuu{\partial z}{\partial x}dx$\vspace{-2mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$\varDelta x$が小さいとき\vspace{-1mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\hspace*{1zw}$\varDelta z_1\fallingdotseq \bunsuu{\partial z}{\partial x}\varDelta x$\vspace{-1mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$y$についても同様　$dz_2=\bunsuu{\partial z}{\partial y}dy$
+}%
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para13pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para12pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para13pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para13pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{9}{\input{fig/bibun4.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+2変数関数$z=f(x,y)$
+\item
+$x$だけを変化させる\vspace{-2mm}
+\item
+$\varDelta z_1=f(\xi,y)-f(x,y)$\vspace{-2mm}
+\item
+$dz_1=\bunsuu{\partial z}{\partial x}dx$\vspace{-2mm}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$\varDelta x$が小さいとき\vspace{-1mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\hspace*{1zw}$\varDelta z_1\fallingdotseq \bunsuu{\partial z}{\partial x}\varDelta x$\vspace{-1mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$y$についても同様　$dz_2=\bunsuu{\partial z}{\partial y}dy$
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para13pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para12pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para13pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para13pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para13pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{9}{\input{fig/bibun4.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+2変数関数$z=f(x,y)$
+\item
+$x$だけを変化させる\vspace{-2mm}
+\item
+$\varDelta z_1=f(\xi,y)-f(x,y)$\vspace{-2mm}
+\item
+$dz_1=\bunsuu{\partial z}{\partial x}dx$\vspace{-2mm}
+\item
+$\varDelta x$が小さいとき\vspace{-1mm}
+\hspace*{1zw}$\varDelta z_1\fallingdotseq \bunsuu{\partial z}{\partial x}\varDelta x$\vspace{-1mm}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$y$についても同様　$dz_2=\bunsuu{\partial z}{\partial y}dy$
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para13pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para12pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para13pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para13pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para13pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{9}{\input{fig/bibun4.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+2変数関数$z=f(x,y)$
+\item
+$x$だけを変化させる\vspace{-2mm}
+\item
+$\varDelta z_1=f(\xi,y)-f(x,y)$\vspace{-2mm}
+\item
+$dz_1=\bunsuu{\partial z}{\partial x}dx$\vspace{-2mm}
+\item
+$\varDelta x$が小さいとき\vspace{-1mm}
+\hspace*{1zw}$\varDelta z_1\fallingdotseq \bunsuu{\partial z}{\partial x}\varDelta x$\vspace{-1mm}
+\item
+$y$についても同様　$dz_2=\bunsuu{\partial z}{\partial y}dy$
+\end{itemize}
+\fi
+
+\newslide{2変数関数の偏微分}
+
+\vspace*{18mm}
+
+\hypertarget{para14pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para13pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para13pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para14pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para14pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/6}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+2変数関数$z=f(x,y)$
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$\bunsuu{\partial z}{\partial x}$は
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+$x$だけが変化したときの変化率\vspace{-2mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[]変化量\;$\varDelta z_1=f(x',y)-f(x,y)$\vspace{-2mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[]　$\Longrightarrow\ dz_1=\bunsuu{\partial z}{\partial x}dx$で近似\vspace{-2mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$y$についても同様　$dz_2=\bunsuu{\partial z}{\partial y}dy$
+}%
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para14pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para13pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para14pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para14pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/6}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+2変数関数$z=f(x,y)$
+\item
+$\bunsuu{\partial z}{\partial x}$は
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+$x$だけが変化したときの変化率\vspace{-2mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[]変化量\;$\varDelta z_1=f(x',y)-f(x,y)$\vspace{-2mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[]　$\Longrightarrow\ dz_1=\bunsuu{\partial z}{\partial x}dx$で近似\vspace{-2mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$y$についても同様　$dz_2=\bunsuu{\partial z}{\partial y}dy$
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para14pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para13pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para14pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para14pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para14pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/6}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{86}{15}{\input{fig/bibun4.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+2変数関数$z=f(x,y)$
+\item
+$\bunsuu{\partial z}{\partial x}$は
+$x$だけが変化したときの変化率\vspace{-2mm}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[]変化量\;$\varDelta z_1=f(x',y)-f(x,y)$\vspace{-2mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[]　$\Longrightarrow\ dz_1=\bunsuu{\partial z}{\partial x}dx$で近似\vspace{-2mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$y$についても同様　$dz_2=\bunsuu{\partial z}{\partial y}dy$
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para14pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para13pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para14pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para14pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para14pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/6}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{86}{15}{\input{fig/bibun4.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+2変数関数$z=f(x,y)$
+\item
+$\bunsuu{\partial z}{\partial x}$は
+$x$だけが変化したときの変化率\vspace{-2mm}
+\item
+[]変化量\;$\varDelta z_1=f(x',y)-f(x,y)$\vspace{-2mm}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[]　$\Longrightarrow\ dz_1=\bunsuu{\partial z}{\partial x}dx$で近似\vspace{-2mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$y$についても同様　$dz_2=\bunsuu{\partial z}{\partial y}dy$
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para14pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para13pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para14pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para14pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para14pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/6}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{86}{15}{\input{fig/bibun4.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+2変数関数$z=f(x,y)$
+\item
+$\bunsuu{\partial z}{\partial x}$は
+$x$だけが変化したときの変化率\vspace{-2mm}
+\item
+[]変化量\;$\varDelta z_1=f(x',y)-f(x,y)$\vspace{-2mm}
+\item
+[]　$\Longrightarrow\ dz_1=\bunsuu{\partial z}{\partial x}dx$で近似\vspace{-2mm}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$y$についても同様　$dz_2=\bunsuu{\partial z}{\partial y}dy$
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para14pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para13pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para14pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para14pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para14pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/6}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{86}{15}{\input{fig/bibun4.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+2変数関数$z=f(x,y)$
+\item
+$\bunsuu{\partial z}{\partial x}$は
+$x$だけが変化したときの変化率\vspace{-2mm}
+\item
+[]変化量\;$\varDelta z_1=f(x',y)-f(x,y)$\vspace{-2mm}
+\item
+[]　$\Longrightarrow\ dz_1=\bunsuu{\partial z}{\partial x}dx$で近似\vspace{-2mm}
+\item
+$y$についても同様　$dz_2=\bunsuu{\partial z}{\partial y}dy$
+\end{itemize}
+
+\newslide{全微分}
+
+\vspace*{18mm}
+
+\hypertarget{para15pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para14pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/8}
+\end{layer}
+
+\slidepage
+\vspace{3mm}
+
+$x,\ y$の両方を$dx,\ dy$だけ変えたとき，$z$の変化量$dz$は？
+\vspace{2mm}
+
+
+\begin{layer}{120}{0}
+\putnotes{20}{-3}{\input{fig/zenbibunpara/p001.tex}}
+\putnotes{85}{0}{\input{fig/henbibun4.tex}}
+\end{layer}
+
+\vspace*{35mm}
+
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para15pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/8}
+\end{layer}
+
+\slidepage
+\vspace{3mm}
+
+$x,\ y$の両方を$dx,\ dy$だけ変えたとき，$z$の変化量$dz$は？
+\vspace{2mm}
+
+
+\begin{layer}{120}{0}
+\putnotes{20}{-3}{\input{fig/zenbibunpara/p001.tex}}
+\putnotes{85}{0}{\input{fig/henbibun4.tex}}
+\putnotesw{23}{54}{\normalsize\color{red}$dx$}
+\putnotesw{76}{21}{\normalsize\color{red}$dx$}
+\end{layer}
+
+\vspace*{35mm}
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para15pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para15pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/8}
+\end{layer}
+
+\slidepage
+\vspace{3mm}
+
+$x,\ y$の両方を$dx,\ dy$だけ変えたとき，$z$の変化量$dz$は？
+\vspace{2mm}
+
+
+\begin{layer}{120}{0}
+\putnotes{20}{-3}{\input{fig/zenbibunpara/p001.tex}}
+\putnotes{85}{0}{\input{fig/henbibun4.tex}}
+\putnotesw{23}{54}{\normalsize\color{red}$dx$}
+\putnotesw{76}{21}{\normalsize\color{red}$dx$}
+\putnotee{91}{20}{\normalsize\color{red}$dz_1$}
+\end{layer}
+
+\vspace*{35mm}
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para15pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/8}
+\end{layer}
+
+\slidepage
+\vspace{3mm}
+
+$x,\ y$の両方を$dx,\ dy$だけ変えたとき，$z$の変化量$dz$は？
+\vspace{2mm}
+
+
+\begin{layer}{120}{0}
+\putnotes{20}{-3}{\input{fig/zenbibunpara/p001.tex}}
+\putnotes{85}{0}{\input{fig/henbibun4.tex}}
+\putnotesw{23}{54}{\normalsize\color{red}$dx$}
+\putnotenw{20}{51}{\normalsize\color{red}$dy$}
+\putnotesw{76}{21}{\normalsize\color{red}$dx$}
+\putnotenw{73}{15}{\normalsize\color{red}$dy$}
+\putnotee{91}{20}{\normalsize\color{red}$dz_1$}
+\end{layer}
+
+\vspace*{35mm}
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para15pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para15pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/8}
+\end{layer}
+
+\slidepage
+\vspace{3mm}
+
+$x,\ y$の両方を$dx,\ dy$だけ変えたとき，$z$の変化量$dz$は？
+\vspace{2mm}
+
+
+\begin{layer}{120}{0}
+\putnotes{20}{-3}{\input{fig/zenbibunpara/p001.tex}}
+\putnotes{85}{0}{\input{fig/henbibun4.tex}}
+\putnotesw{23}{54}{\normalsize\color{red}$dx$}
+\putnotenw{20}{51}{\normalsize\color{red}$dy$}
+\putnotesw{76}{21}{\normalsize\color{red}$dx$}
+\putnotenw{73}{15}{\normalsize\color{red}$dy$}
+\putnotee{91}{20}{\normalsize\color{red}$dz_1$}
+\putnotee{82.5}{8}{\normalsize\color{red}$dz_2$}
+\end{layer}
+
+\vspace*{35mm}
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para15pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para15pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/8}
+\end{layer}
+
+\slidepage
+\vspace{3mm}
+
+$x,\ y$の両方を$dx,\ dy$だけ変えたとき，$z$の変化量$dz$は？
+\vspace{2mm}
+
+
+\begin{layer}{120}{0}
+\putnotes{20}{-3}{\input{fig/zenbibunpara/p001.tex}}
+\putnotes{85}{0}{\input{fig/henbibun4.tex}}
+\putnotesw{23}{54}{\normalsize\color{red}$dx$}
+\putnotenw{20}{51}{\normalsize\color{red}$dy$}
+\putnotesw{76}{21}{\normalsize\color{red}$dx$}
+\putnotenw{73}{15}{\normalsize\color{red}$dy$}
+\putnotee{91}{20}{\normalsize\color{red}$dz_1$}
+\putnotee{82.5}{8}{\normalsize\color{red}$dz_2$}
+\putnotee{111}{10}{\normalsize\color{red}$dz$}
+\end{layer}
+
+\vspace*{35mm}
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para15pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para15pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/8}
+\end{layer}
+
+\slidepage
+\vspace{3mm}
+
+$x,\ y$の両方を$dx,\ dy$だけ変えたとき，$z$の変化量$dz$は？
+\vspace{2mm}
+
+
+\begin{layer}{120}{0}
+\putnotes{20}{-3}{\input{fig/zenbibunpara/p001.tex}}
+\putnotes{85}{0}{\input{fig/henbibun4.tex}}
+\putnotesw{23}{54}{\normalsize\color{red}$dx$}
+\putnotenw{20}{51}{\normalsize\color{red}$dy$}
+\putnotesw{76}{21}{\normalsize\color{red}$dx$}
+\putnotenw{73}{15}{\normalsize\color{red}$dy$}
+\putnotee{91}{20}{\normalsize\color{red}$dz_1$}
+\putnotee{82.5}{8}{\normalsize\color{red}$dz_2$}
+\putnotee{111}{10}{\normalsize\color{red}$dz$}
+\end{layer}
+
+\vspace*{35mm}
+
+\hspace*{65mm}{\color{red}$dz=dz_1+dz_2$}\vspace{2mm}\\
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para15pg8}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para15pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/8}
+\end{layer}
+
+\slidepage
+\vspace{3mm}
+
+$x,\ y$の両方を$dx,\ dy$だけ変えたとき，$z$の変化量$dz$は？
+\vspace{2mm}
+
+
+\begin{layer}{120}{0}
+\putnotes{20}{-3}{\input{fig/zenbibunpara/p001.tex}}
+\putnotes{85}{0}{\input{fig/henbibun4.tex}}
+\putnotesw{23}{54}{\normalsize\color{red}$dx$}
+\putnotenw{20}{51}{\normalsize\color{red}$dy$}
+\putnotesw{76}{21}{\normalsize\color{red}$dx$}
+\putnotenw{73}{15}{\normalsize\color{red}$dy$}
+\putnotee{91}{20}{\normalsize\color{red}$dz_1$}
+\putnotee{82.5}{8}{\normalsize\color{red}$dz_2$}
+\putnotee{111}{10}{\normalsize\color{red}$dz$}
+\end{layer}
+
+\vspace*{35mm}
+
+\hspace*{65mm}{\color{red}$dz=dz_1+dz_2$}\vspace{2mm}\\
+\hspace*{65mm}{\fbox{\color{red}$dz=\bunsuu{\partial z}{\partial x}dx+\bunsuu{\partial z}{\partial y}dy$}}
+
+\newslide{全微分}
+
+\vspace*{18mm}
+
+\hypertarget{para16pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para15pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para15pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para16pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para16pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para17pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/5}
+\end{layer}
+
+\slidepage
+\seteda{60}
+\begin{itemize}
+\item
+[例]$z=x^2+5y^3$の全微分
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para16pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para15pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para16pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para16pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para17pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/5}
+\end{layer}
+
+\slidepage
+\seteda{60}
+\begin{itemize}
+\item
+[例]$z=x^2+5y^3$の全微分
+\item
+[解]$\dpar{z}{x}=2x$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para16pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para15pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para16pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para16pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para16pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para17pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/5}
+\end{layer}
+
+\slidepage
+\seteda{60}
+\begin{itemize}
+\item
+[例]$z=x^2+5y^3$の全微分
+\item
+[解]$\dpar{z}{x}=2x$
+\item
+[]\ \ $\dpar{z}{y}=15y^2$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para16pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para15pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para16pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para16pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para16pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para17pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/5}
+\end{layer}
+
+\slidepage
+\seteda{60}
+\begin{itemize}
+\item
+[例]$z=x^2+5y^3$の全微分
+\item
+[解]$\dpar{z}{x}=2x$
+\item
+[]\ \ $\dpar{z}{y}=15y^2$
+\item
+[]\ \  $dz=2x\,dx+15y^2\,dy$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para16pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para15pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para16pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para16pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para16pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para17pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/5}
+\end{layer}
+
+\slidepage
+\seteda{60}
+\begin{itemize}
+\item
+[例]$z=x^2+5y^3$の全微分
+\item
+[解]$\dpar{z}{x}=2x$
+\item
+[]\ \ $\dpar{z}{y}=15y^2$
+\item
+[]\ \  $dz=2x\,dx+15y^2\,dy$
+\item
+[課題]\monban 次の関数の全微分を求めよ．\\
+\eda{$z=2x+y$}
+\eda{$z=xy$}
+\end{itemize}
+\label{pageend}\mbox{}
+
+\end{document}

@@ -1,0 +1,57 @@
+// no ketjs on
+Alltextkey(flg):=(
+  regional(txtkey,keyL,tmp,fid);
+  txtkey=remove(allelements(),allpoints());
+  keyL=[];
+  forall(txtkey,
+    tmp=replace(#.name,"Text","");
+    tmp=parse(tmp);
+    keyL=append(keyL,
+      [tmp,#.name,inspect(#,"text.text"),inspect(#,"textsize")]);
+  );
+  keyL=sort(keyL,[#_1]);
+  if(flg==0,
+    apply(keyL,println(#));
+  ,
+    if(!isexists(Dircdy,"keylist.csv"),
+      setdirectory(Dircdy);
+      fid=openfile("keylist.csv");
+      forall(keyL,
+        tmp=Assign("a,b,c,d",["a",#_1,"b",#_2,"c",#_3,"d",#_4]);
+        tmp=replace(tmp,"(","");
+        tmp=replace(tmp,")","");
+        println(tmp);
+        println(fid,tmp);
+      );
+      closefile(fid);
+    );
+  );
+);
+
+Changekeysize():=(
+  regional(tmp1,keyL,tmp);
+  tmp1=Readlines(Dircdy,"keylistnew.csv");
+  keyL=[];
+  forall(tmp1,
+    tmp=tokenize(#,",");
+    keyL=append(keyL,tmp);
+  );
+  keyL=select(keyL,(#_1>9)&(#_1<100));
+  forall(keyL,key,
+    tmp="inspect("+parse(key_2)+","+Dqq("textsize")+",18);";
+    parse(tmp);
+    tmp="inspect("+parse(key_2)+","+Dqq("text.text")+","+key_3+");";
+    parse(tmp);
+  );
+);
+
+Changekeycolor(key,color,alpha):=(
+  regional(tmp1);
+  forall(key,
+    tmp1=parse("Text"+text(#));
+    inspect(tmp1,"colorfill",color);
+    inspect(tmp1,"fillalpha",alpha);
+  );
+);
+
+// no ketjs off

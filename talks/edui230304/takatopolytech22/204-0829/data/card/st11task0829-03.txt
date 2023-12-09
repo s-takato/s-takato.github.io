@@ -1,0 +1,15 @@
+0829-03の結果
+11 11KH 0829
+Q03 次の関数を微分せよ．
+[1] y=x+cos(x)
+　正解 y'=1-sin(x)
+　答え fr(1,2)x^(2)-sin(x)
+　得点 0
+[2] y=xsin(x)
+　正解 y'=sin(x)+xcos(x)
+　答え sin(x)-xcos(x)+c
+　得点 0
+[3] y=sin(4x)
+　正解 y'=4cos(4x)
+　答え 4cos(4x)+c
+　得点 0

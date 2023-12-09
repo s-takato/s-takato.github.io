@@ -1,0 +1,322 @@
+Ketinit();
+Addax(0);
+Setwindow([-6.7,6],[-10,5]);
+
+Dirdist="/Users/takatoosetsuo/Dropbox/2022polytech";
+
+mxrange=1..1000; // range for maxima
+//mxrange=1..2;
+
+Py=6.5;
+Remark("準備:","black");
+Remark("  question,studentを作成");
+Remark("出題","black");
+Remark("  1,2でkettask.htmlを作成・配付");
+Remark("答案回収","black");
+Remark("  返送データをanssheetに複写");
+Remark("採点","black");
+Remark("  3,4でketscore.htmlを作成");
+Remark("  採点結果を4scoresheet.txtに複写");
+Remark("Maximaによる採点(オプション)","black");
+Remark("  4.xscoresheetをketscoreのrecに複写");
+Remark("6で全体成績表・個人成績票を作成","black");
+Remark("7で得点一覧表csvを作成","black");
+
+xL=[60];
+yL=apply(1..15,10);
+Tabledata("1",xL,yL,[],
+   [0,"Setwin=n","Move=[0,-10]","Msg=n"]);
+mv=[0,-10];
+
+if(quelineflg==1,
+  tmp=Que2line(1);
+  flg=tmp_1; fname=tmp_2;
+  if(flg==1,
+    dispL=[[fname,size]];
+    posxy=posxy-[0,0.6];
+    if(okflg==1,
+      fout=replace(fname,"question","quline");
+      setdirectory(Dirdata);
+      fid=openfile(fout);
+      tmp="quline="+Dqq(quline)+";";
+      println(fid,tmp);
+      tmp="shline="+Dqq(shline)+";";
+      println(fid,tmp);
+      tmp="caline="+Dqq(caline)+";";
+      println(fid,tmp);
+      closefile(fid);
+      dispL=append(dispL,[fout,clrb]);
+      okflg=0;
+      quelineflg=0;
+    );
+  );
+);
+
+if(tasklineflg==1,
+  Resetflg("taskline");
+  Resetsetting();
+  if(allflg==0,
+    if(length(numL)==0,
+      sqline="";
+    );
+    tmp=Taskline();
+    flg=tmp_1; numL=tmp_2;
+  ,
+    out=MakefileL([Dirdata,["question","student"]]);
+    tmp=select(out,indexof(#,"student")>0);
+    res=Selectfile(tmp);
+    if(res_1==0,
+      flg=0;
+    ,
+      flg=2;
+      out=select(out,indexof(#,"question")>0);
+      out=sort(out);
+      numL=[out,res_2];
+    );
+  );
+  dispL=[];
+  forall(numL,
+    dispL=append(dispL,[#,size]);
+  );
+  if((okflg==1)&(length(numL)==2),
+    if(islist(numL_1),fnameL=numL_1,fnameL=[numL_1]);
+    forall(fnameL,fname,
+      tmp=Taskline();
+      fout=replace(fname,"question","1taskline");
+      setdirectory(Dirdata);
+      fid=openfile(fout);
+      tmp="quline="+Dqq(quline)+";";
+      println(fid,tmp);
+      tmp="shline="+Dqq(shline)+";";
+      println(fid,tmp);
+      tmp="sqline="+Dqq(sqline)+";";
+      println(fid,tmp);
+      tmp="mrkline="+Dqq(mrkline)+";";
+      println(fid,tmp);
+      tmp="mxscline="+Dqq(mxscline)+";";
+      println(fid,tmp);
+      closefile(fid);
+      dispL=append(dispL,[fout,clrb]);
+      fout2=replace(fout,"1taskline","2anssheet");
+      if(!isexists(Dirdata,fout2),
+        fid=openfile(fout2);
+        closefile(fid);
+        dispL=append(dispL,[fout2,clrb]);
+      );
+      fout3=replace(fout,"1taskline","queslist");
+      tmp1=Line2list(quline);
+      fid=openfile(fout3);
+      println(fid,fout3);
+      forall(tmp1,
+        println(fid,#);
+      );
+      closefile(fid);
+      dispL=append(dispL,[fout3,clrb]);
+      reset=0;
+      tasklineflg=0;
+      stquelineflg=0;
+    );
+  );
+);
+
+if(inserttaskflg==1,
+  Resetsetting();
+  Resetflg("inserttask");
+  tmp=Inserttaskline();
+  flg=tmp_1;fhtml=tmp_2; out=tmp_3;
+  dispL=[];
+  forall(numL,
+    dispL=append(dispL,[#,size]);
+  );
+  if((okflg==1)&(flg==2),
+    tmp=replace(numL_2,"1taskline","");
+    tmp=replace(tmp,".txt","");
+    fout=replace(numL_1,"org",tmp);
+    tmp1="scriptadd"+tmp+".txt";
+    if(isexists(Dirdata,tmp1),
+      tmp2=Readlines(Dirdata,tmp1);
+      tmp=select(1..(length(out)),
+         indexof(out_#,"Windispg();")>0);
+      tmp=tmp_1;
+      tmp1=out_(1..(tmp-1));
+      tmp1=concat(tmp1,tmp2);
+      tmp2=out_(tmp..(length(out)));
+      out=concat(tmp1,tmp2);
+    );
+    setdirectory(Dircdy);
+    fid=openfile(fout);
+    forall(out,println(fid,#));
+    closefile(fid);
+    dispL=append(dispL,[fout,clrb]);
+    insertflg=0;
+    okflg=0;
+  );
+);
+
+if(scorelineflg==1,
+  Resetsetting();
+  Resetflg("scoreline");
+  tmp=Scoreline();
+  flg=tmp_1; out=tmp_2;
+  dispL=apply(dispL,[#,size]);
+  if((okflg==1)&(flg==1),
+    fname=dispL_1_1;
+    fout=replace(fname,"question","3scoreline");
+    if(fname!=fout,
+      setdirectory(Dirdata);
+      fid=openfile(fout);
+      forall(out,
+        println(fid,#);
+      );
+      closefile(fid);
+      dispL=append(dispL,[fout,clrb]);
+      fout2=replace(fname,"question","4scoresheet");
+      if(!isexists(Dirdata,fout2),
+        fid=openfile(fout2);
+        closefile(fid);
+      );
+    );
+    dispL=append(dispL,[fout2,clrb]);
+    scorelineflg=0;
+    okflg=0;
+  );
+);
+
+if(insertscoreflg==1,
+  Resetsetting();
+  Resetflg("insertscore");
+  tmp=Insertscoreline();
+  flg=tmp_1;fhtml=tmp_2; out=tmp_3;
+  dispL=[];
+  forall(1..(length(numL)),
+    dispL=append(dispL,[numL_#,size]); 
+  );
+  if((okflg==1)&(flg==2),
+    tmp=replace(numL_2,"3scoreline","");
+    tmp=replace(tmp,".txt","");
+    fout=replace(numL_1,"org",tmp);
+    setdirectory(Dircdy);
+    fid=openfile(fout);
+    forall(out,println(fid,#));
+    closefile(fid);
+    dispL=append(dispL,[fout,clrb]);
+    insertscoreflg=0;
+    okflg=0;
+  );
+);
+
+if(mkcardflg==1,
+  Resetsetting();
+  Resetflg("imkcard");
+  tmp=Makecards();
+  flg=tmp_1; dtLL=tmp_2;
+  dispL=apply(dispL,[#,size]);
+  if((okflg==1)&(flg==1),
+    fname=dispL_1_1;
+    tmp=replace(fname,"3scoreline","");
+    date=replace(tmp,".txt","");
+    fout="5recordlist"+date+".txt";
+    setdirectory(Dirdata);
+    fid=openfile(fout);
+    forall(dtLL,dtL,
+      forall(dtL,
+        println(fid,#);
+      );
+      println(fid,"");
+    );
+    closefile(fid);
+    forall(1..(length(dtLL)),nd,
+      tmp="000"+text(nd);
+      tmp=substring(tmp,
+        length(tmp)-2,length(tmp));
+      fname="st"+tmp+"task"+date+".txt";
+      setdirectory(Dirdata+"/card");
+      fid=openfile(fname);
+      println(fid,date+"の結果");
+      forall(dtLL_nd,
+        println(fid,#);
+      );
+      closefile(fid);
+    );
+    dispL=append(dispL,[fout,clrb]);
+    mkcardflg=0;
+    okflg=0;
+  );
+);
+
+if(tableflg==1,
+  Resetsetting();
+  Resetflg("table");
+  tmp=Resulttable();
+  fname=tmp_1; fout=tmp_2; out=tmp_3;
+  if(length(fname)>0,
+    dispL=[];
+    dispL=append(dispL,[fname,size]);
+    if(okflg==1,
+      setdirectory(Dirdata);
+      fid=openfile(fout);
+      forall(out,
+        println(fid,#);
+      );
+      closefile(fid);
+      dispL=append(dispL,[fout,clrb]);
+      tableflg=0;
+      okflg=0;
+    );
+  );
+);
+
+if(maximaflg==1,
+  Resetsetting();
+  Resetflg("maxima");
+  tmp=Dataformaxima();
+  fname=tmp_1; maxLL=tmp_2;
+  if(length(fname)>0,
+    mxrange=common(mxrange,1..(length(maxLL)));
+    dispL=[];
+    dispL=append(dispL,[fname,size]);
+    if(okflg==1,
+      ans=Scoringmaxima(fname,maxLL,[""]); //"" or "r" or "m"
+      fout=replace(fname,
+        "3scoreline","4_scoresheet");
+      setdirectory(Dirdata);
+      fid=openfile(fout);
+      println(fid,ans);
+      closefile(fid);
+      dispL=append(dispL,[fout,clrb]);
+      maximaflg=0;
+      okflg=0;
+    );
+  );
+);
+
+if(combineflg==1,
+  Resetflg("combine");
+  tmp1=Filelist(Dirdata);
+  tmp1=select(tmp1,indexof(#,"1taskline")>0);
+  tmp1=replace(tmp1_1,"1taskline","");
+  date=substring(tmp1,0,4);
+  dispL=[[date,clr]];
+  Combinedata(0);
+  combineflg=0;
+);
+
+if(copycombineflg==1,
+  Resetflg("copycombine");
+  dispL=[[Dirdata+"/card",clr]];
+  Copycombine(0);
+  copycombineflg=0;
+);
+
+posxy=posxy0;
+forall(dispL,
+  if(islist(#_1),
+    Letter(posxy,"e",#_1_1+"...",#_2);
+  ,
+    Letter(posxy,"e",#_1,#_2);
+  );
+  posxy=posxy-[0,1];
+);
+
+Windispg();
+

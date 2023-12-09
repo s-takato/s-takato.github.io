@@ -1,0 +1,360 @@
+タイトル::slide0926
+::\newcommand{\hiduke}{0926}
+::\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+::\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+::\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+::\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+::\def\rad{\;\mathrm{rad}}
+::\def\deg#1{#1^{\circ}}
+::\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+::\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+::\newcommand{\sfrac}[3][0.65]{\scalebox{#1}{$\frac{#2}{#3}$}}
+::\newcommand{\phn}[1]{\phantom{#1}}
+::\newcommand{\scb}[2][0.6]{\scalebox{#1}{#2}}
+::\newcommand{\dsum}{\displaystyle\sum}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\def\dint{\displaystyle\int}
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+
+
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+%\putnotee{122}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+
+\newcounter{ban}
+\setcounter{ban}{1}
+
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+%\addtocounter{ban}{1}%
+}
+
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%
+}
+
+\newcounter{edawidth}
+\newcounter{edactr}
+
+\newcommand{\seteda}[1]{% 20220708 modified
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+
+\newcommand{\eda}[2][\theedawidth]{%
+\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+
+%%%%%%%%%%%%
+main:: 微分の応用
+\slidepage[m]
+
+
+
+%%%%%%%%%%%%%
+new::関数の増減
+%repeat=2,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{70}{5}::zougen
+%[2,-]::putnote::se{70}{5}::zougen2
+end
+
+itemize
+item::関数$y=f(x)$
+item::$x$が右に動くにつれて\\
+(i) $y$の値が増えていくとき\\
+\hspace*{4zw}{\color{red}増加の状態}\\
+(ii) $y$の値が減っていくとき\\
+\hspace*{4zw}{\color{red}減少の状態}
+%[2,-]::item::[課題]\monban 図で次の状態である点の番号をすべてあげよ．\seteda{38}\\
+%[2,-]::\eda{増加の状態}\eda{減少の状態}\eda{どちらでもない}
+end
+
+%%%%%%%%%%%%%
+new::関数の増減と微分
+%repeat=6,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{70}{5}::zougen
+%[5,-]::\putnotee{93}{53.7}{その近くでは最大}
+%[6,-]::\putnotee{93}{62}{その近くでは最小}
+end
+
+itemize
+item::接線の傾きは導関数の値（微分係数）\\
+%[2,-]::(i) 増加の状態のとき\\
+%[2]::\phantom{\hspace*{1zw}接線の傾きは正\ {\color{red}$y'>0$}}\\
+%[3,-]::\hspace*{1zw}接線の傾きは正\ {\color{red}$y'>0$}\\
+%[2,-]::(ii) 減少の状態のとき\\
+%[2]::\phantom{\hspace*{1zw}接線の傾きは負\ {\color{red}$y'<0$}}\\
+%[3,-]::\hspace*{1zw}接線の傾きは負\ {\color{red}$y'<0$}\vspace{-2mm}
+%[4,-]::item::増加減少が変化する点\\
+%[4,-]::(i) 増加から減少に変わるとき　{\color{red}極大}\\
+%[4,-]::(ii) 減少から増加に変わるとき　{\color{red}極小}
+end
+
+%%%%%%%%%%%%%
+new::極値点と$y'$の値
+%repeat=9,para
+\slidepage
+
+layer::{120}{0}
+%[1,-]::putnote::se{85}{5}::kyokuchi1
+%[5,-]::putnote::se{85}{5}::kyokuchi2
+%[3,-]::\putnoten{92}{8}{\color{red}\normalsize 極大}
+%[4,-]::\putnotes{104}{34}{\color{red}\normalsize 極小}
+%[6,-]::\putnotes{116}{26}{\color{red}\normalsize 極値でない}
+end
+
+itemize
+item::極大(極小)となる点を極値点\vspace{-2mm}
+%[2,-]::item::極値点では　$y'=0$\\
+%[3,-]::\hspace*{1zw}極大点　増加から減少に変わる\\
+%[4,-]::\hspace*{1zw}極小点　減少から増加に変わる\vspace{-2mm}
+%[5,-]::item::$y'=0$でも極値点でない点もある\vspace{-2mm}
+%[7,-]::item::[例]$y=x^3-3x^2$\\
+%[7,-]::　「導関数の意味」を用いてグラフを描けばよい．\\
+%[8,-]::　計算では　$y'=3x^2-6x=3x(x-2)$\\
+%[9,-]::　$y'=0$となる点は，$x(x-2)=0$より　$x=0,\ 2$
+end
+
+%%%%%%%%%%%%%
+new::極値点（課題1）
+%repeat=1,para
+\slidepage
+
+\vspace{1zw}
+...
+
+アプリ「導関数の意味」を用いよ
+
+itemize
+item::[課題]\monban 次の関数について，極値点を求めよ．\seteda{70}\\
+\eda{$y=x^3-6x^2+9x$}\\
+\eda{$y=x^4-2x^2+1$}\\
+\eda{$y=x^2 e^{x}$}\\
+end
+
+%%%%%%%%%%%%%
+new::極値点（課題2）
+%repeat=1,para
+\slidepage
+
+\vspace{1zw}
+...
+
+アプリ「導関数の意味」を用いよ
+
+itemize
+item::[課題]\monban 次の関数について，極値点を求めよ．\seteda{70}\\
+\eda{$y=\log x-x\ (0<x\leqq 3)$}\\
+\hspace*{4zw}入力書式　\verb|log(x)-x^(2)x=+,5|\\
+\eda{$y=\sin x+\cos x\ (0 \leqq x \leqq 2\pi)$}\\
+\hspace*{4zw}入力書式　\verb|sin(x)+cos(x)x=0,2pi|\\
+\eda{$y=\sin^2 x\ (0 \leqq x \leqq \pi)$}\\
+\hspace*{4zw}入力書式　\verb|sin(2,x)x=0,pi|\\
+\hspace*{4zw}\verb|[2][3]|解は$\pi$を整数で割った形
+end
+
+%%%%%%%%%%%%%
+new::増減表
+%repeat=11,para
+\slidepage
+
+layer::{120}{0}
+%[5,-]::putnote::se{80}{53}::zougenhyo1,1.5
+%[6,-]::putnote::se{80}{53}::zougenhyo2,1.5
+%[7,-]::putnote::se{80}{53}::zougenhyo3,1.5
+%[8,-]::putnote::se{80}{53}::zougenhyo4,1.5
+%[10,-]::putnote::se{80}{53}::zougenhyo5,1.5
+%[11,-]::putnote::se{80}{53}::zougenhyo6,1.5
+end
+
+itemize
+item::$y'=0$となる点と間の範囲での増減の様子を書いた表
+%[2,-]::item::[例]$y=x^3-3x^2$
+%[3,-]::\begin{enumerate}[(1)]
+%[3,-]::\item $y'$を求める．$y'=3x^2-6x=3x(x-2)$\vspace{-2mm}
+%[4,-]::\item $y'=0$となる点を求める．$y'=0$より\ $x=0,2$\vspace{-2mm}
+%[5,-]::\item 増減表を書き，$y'=0$となる点を書き入れる\vspace{-2mm}
+%[8,-]::\item (3)の$x$の下に$0$を書く\vspace{-2mm}
+%[9,-]::\item 各範囲の$y'$の符号を書く\\
+%[10,-]::\hspace*{1zw}$x=-1$,\ $y'>0,\ ...$\vspace{-2mm}
+%[11,-]::\item $+$は増加，$-$は減少
+%[3,-]::\end{enumerate}
+end
+
+%%%%%%%%%%%%%
+new::増減表(課題)
+%repeat=1,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{80}{53}::zougenhyo1,1.5
+end
+
+itemize
+item::[課題]\monban 関数$y=x^4-4x^3$について，問いに答えよ．\seteda{65}\\
+\eda{$y'=4x^2(x-3)$となることを示せ}\\
+\eda{$y'=0$となる$x$を求めよ}\\
+\eda{増減の1行目に入れる数式記号を左から順に書け}\\
+\eda{増減の2行目に入れる数式記号を左から順に書け}\\
+\eda{増減の3行目に入れる矢印記号を左から順に書け}\\
+\hspace*{2zw}${\cdots}$　点々 \verb|{\nearrow}|\\
+hspace*{2zw}${\nearrow}$　右上 \verb|{\nearrow}|\\
+\hspace*{2zw}${\searrow}$　右下 \verb|{\searrow}|
+end
+
+%%%%%%%%%%%%
+main:: 積分の応用
+\slidepage[m]
+
+%%%%%%%%%%%%%
+new::定積分と面積
+%repeat=4,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{100}{5}::sekibun1,0.8
+%[3,-]::putnote::se{100}{5}::sekibun2,0.8
+end
+
+\vspace{1zw}
+...
+
+面積$S$，定積分$I=\dint_a^b f(x)\,dx$
+itemize
+item::$a\leqq x \leqq b$で$f(x)$が正のとき\ \fbox{$S=I$}\\
+%[2,-]::\hspace*{1zw}{\normalsize$S=\dint_1^2 (4-x^2)\,dx=\Bigl[4x-\bunsuu{1}{3}x^3\Bigr]_1^2=\bunsuu{5}{3}$}
+%[3,-]::item::$a\leqq x \leqq b$で$f(x)$が負のとき\ \fbox{$S=-I$}\\
+%[4,-]::\hspace*{1zw}{\normalsize$I=\dint_2^3 (4-x^2)\,dx=\Bigl[4x-\bunsuu{1}{3}x^3\Bigr]_2^3=-\bunsuu{7}{3}$}\\
+%[4,-]::\hspace*{1zw}{\normalsize$S=-I=\bunsuu{7}{3}$}
+end
+
+%%%%%%%%%%%%%
+new::2曲線で囲まれる図形の面積
+%repeat=9,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{5}{25}::2kyokusen1,0.7
+%[2,-]::putnote::se{30}{25}::2kyokusen2,0.7
+%[3,-]::putnote::se{53}{25}::2kyokusen3,0.7
+%[2,-]::\putnotec{26}{31}{$=$}
+%[3,-]::\putnotec{50}{31}{$-$}
+%[4,-]::\putnotee{72}{31}{\normalsize$S=S_1-S_2=\dint_a^b(f(x)-g(x))\,dx$}
+%[5,-]::putnote::se{5}{50}::2kyokusen8_1,0.7
+%[6,-]::putnote::se{30}{50}::2kyokusen8_2,0.7
+%[7,-]::putnote::se{53}{50}::2kyokusen8_3,0.7
+%[5,-]::\putnotec{26}{58}{$=$}
+%[7,-]::\putnotec{50}{58}{$+$}
+%[8,-]::\putnotee{72}{58}{\normalsize$S=S_1+S_2=\dint_a^b(f(x)-g(x))\,dx$}
+%[9,-]::\putnotee{70}{45}{\color{red}上から下の関数を引いて積分}
+end
+
+\vspace{1zw}
+...
+
+区間$a\leqq x\leqq b$で$f(x)\geqq g(x)$とする
+
+%%%%%%%%%%%%%
+new::例題(2曲線で囲まれる図形)
+%repeat=9,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{90}{20}::2kyokusen9
+end
+
+itemize
+item::[例題)]$y=x^2-2x$と$y=2x-3$で囲まれる図形\vspace{-2mm}
+item::[解)]交点を求める\\
+$x^2-2x-(2x-3)=0$より\\
+　$x^2-4x+3=0\\
+　(x-1)(x-3)=0$\\
+これから　$x=1,\ 3$\\
+図より，$1\leqq x\leqq 3$のとき　$2x-3 \leqq x^2-2x$\\
+したがって　$S=\dint_1^3(2x-3-x^2+2x)\,dx=\bunsuu{4}{3}$
+end
+
+%%%%%%%%%%%%%
+new::課題(曲線で囲まれる図形の面積1)
+%repeat=1,para
+\slidepage
+
+\vspace{3mm}
+...
+
+アプリ「関数のグラフ」を用いよ．\vspace{-2mm}
+
+itemize
+item::[課題]\monban 曲線$y=x^2-4x$について，問いに答えよ\seteda{65}\\
+\eda{曲線と$x$軸との交点の$x$座標を求めよ}\\
+\eda{曲線と$x$軸で囲まれる図形の面積$S$を求めよ}
+item::[課題]\monban $y=-x^2+2$と$y=x$で囲まれる図形を考える\seteda{65}\\
+\eda{曲線と直線の交点の$x$座標を求めよ}\\
+\eda{面積$S$を積分で表せ}\\
+\eda{面積$S$を求めよ}
+end
+
+%%%%%%%%%%%%%
+new::課題(曲線で囲まれる図形の面積2)
+%repeat=1,para
+\slidepage
+
+\vspace{3mm}
+...
+
+アプリ「関数のグラフ」を用いよ．\vspace{-2mm}
+
+itemize
+item::[課題]\monban $y=\sin x$と$y=\cos x$で囲まれる図形を考える．
+ただし，$0\leqq x \leqq 2\pi$とする．\seteda{65}\\
+\eda{2曲線の交点の$x$座標を求めよ}\\
+\eda{面積$S$を積分で表せ}\\
+\eda{面積$S$を求めよ}
+item::[注)]次の積分公式とアプリ「三角関数の値」を用いよ\\
+\hspace*{1zw}$\dint \sin x\,dx=-\cos x,\ \dint \cos x\,dx=\sin x$
+end
+
+%%%%%%%%%%%%%
+new::課題(曲線で囲まれる図形の面積3)
+%repeat=1,para
+\slidepage
+
+\vspace{3mm}
+...
+
+アプリ「関数のグラフ」を用いよ．\vspace{-2mm}
+
+itemize
+item::[課題]\monban 曲線$y=e^x$，$y=e^{-x}$とy軸に平行な直線$x=1$で囲まれる図形を考える．
+\seteda{65}\\
+\eda{2曲線の交点の$x$座標を求めよ}\\
+\eda{面積$S$を積分で表せ}\\
+\eda{面積$S$を求めよ}
+item::[注)]次の積分公式を用いよ\\
+\hspace*{1zw}$\dint e^x\,dx=e^x,\ \dint e^{-x}\,dx=-e^{-x}$
+end

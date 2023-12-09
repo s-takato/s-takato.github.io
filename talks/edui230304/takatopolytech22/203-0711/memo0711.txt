@@ -1,0 +1,37 @@
+kettaskorgvのバグ修正
+・stoknow を入れた
+・subseditの番号を固定
+・stok=>stoknowにまとめた
+
+220715
+・Maximaでエラーが出る項目は -1 とする．
+
+220716
+・0711chを統合
+・checkpartを作成（個別ファイルのチェック用）
+・toolketmathlib.txtを作成
+
+cos(2,x)などの記法について，
+　Q7 {\cos^2x}の意味は次のどれか　[] 1 cos(x^2)　2 (cos(x))^2　3 (cos)^2x
+　Q8 tan(x)の微分公式を書け
+結果は以下の通り
+
+3	fr(1,cos(^(2)x))
+2	fr(1,cos^(2)x)
+2	(sec(x))^(2)
+2	fr(1,cos(^(2)x))
+2	fr(1,cos(^(2)))
+2	fr(1,cos^(2)(x))
+2	fr(1,cos(^(2)x))
+2	fr(cos(x),sin(x))
+3	cos(^(2))x
+3	fr(1,cos(^(2)x))
+3	fr(1,cos(^(2)x))
+1	fr(1,cos(^(2)))
+
+考察
+・2は７人，3は４人，1は１人
+・cos(2,x)は０人，cos(^(2)x)が大半
+・cos(^(2),x) or cos(^(2)x)を入れるか？
+
+

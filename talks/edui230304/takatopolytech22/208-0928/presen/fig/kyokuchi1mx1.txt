@@ -1,0 +1,9 @@
+NIL
+(%i3) powerdisp:false
+(%i4) display2d:false
+(%i5) linel:1000
+(%i6) ans:integrate((x+1)*(x-1)*(x-3)^2,x)
+(%i7) disp(ans)
+(6*x^5-45*x^4+80*x^3+90*x^2-270*x)/30
+
+(%i8) closefile()

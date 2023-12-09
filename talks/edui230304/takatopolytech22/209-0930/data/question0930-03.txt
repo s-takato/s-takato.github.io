@@ -1,0 +1,10 @@
+Q
+次の関数の全微分を求めよ
+[1] z=2x+y
+[2] z=xy
+Sheet
+[1] dz=  ::2
+[2] dz=  ::2
+Ans
+[1] dz=2dx+dy
+[2] dz=ydx+xdy

@@ -1,0 +1,8 @@
+NIL
+(%i3) powerdisp:false
+(%i4) display2d:false
+(%i5) linel:1000
+/Users/takatoosetsuo/polytech22.git/207-0926/fig/toolketmathall5res.max:5:41:incorrect syntax: Syntax error
+(i*n*t*(a,b,f,x))/()
+                  ^
+(%o6) "/Users/takatoosetsuo/polytech22.git/207-0926/fig/toolketmathall5res.max"

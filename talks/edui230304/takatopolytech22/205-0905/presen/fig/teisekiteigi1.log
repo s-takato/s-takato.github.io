@@ -1,0 +1,28 @@
+This is e-upTeX, Version 3.141592653-p3.9.0-u1.27-210218-2.6 (utf8.uptex) (TeX Live 2021) (preloaded format=uplatex 2021.3.22)  20 AUG 2021 13:00
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**teisekiteigi1.tex
+(./teisekiteigi1.tex
+pLaTeX2e <2020-10-01u04>+2 (based on LaTeX2e <2020-10-01> patch level 4)
+L3 programming layer <2021-02-18>
+! Undefined control sequence.
+l.8 \polyline
+             (-2.00000,1.10124)(-1.96203,1.14456)(-1.79969,1.30563)(-1.63161...
+
+? 
+! Emergency stop.
+l.8 \polyline
+             (-2.00000,1.10124)(-1.96203,1.14456)(-1.79969,1.30563)(-1.63161...
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 16 strings out of 480951
+ 332 string characters out of 5904181
+ 284858 words of memory out of 5000000
+ 17685 multiletter control sequences out of 15000+600000
+ 406071 words of font info for 45 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 20i,1n,25p,123b,46s stack positions out of 5000i,500n,10000p,200000b,80000s
+No pages of output.

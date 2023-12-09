@@ -1,0 +1,11 @@
+0516-07の結果
+12 12YM 0516
+Q07 次はどうなるか
+[1]  sin(pi-x)
+　正解 sin(x)
+　答え sin(pi)cos(x)-cos(pi)sin(x)
+　得点 1
+[2]  cos(pi-x)
+　正解 -cos(x)
+　答え cos(pi)cos(x)+sin(pi)sin(x)
+　得点 1

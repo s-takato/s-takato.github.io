@@ -1,0 +1,10 @@
+Q070405
+y=sin(x),y=cos(x)の導関数を答えよ
+[1] y=sin(x)
+[2] y=cos(x)
+Sheet
+[1] y'= ::2
+[2] y'= ::2
+Ans
+[1] y=cos(x)
+[2] y=-sin(x)

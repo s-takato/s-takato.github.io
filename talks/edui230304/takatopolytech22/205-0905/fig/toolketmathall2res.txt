@@ -1,0 +1,8 @@
+NIL
+(%i3) powerdisp:false
+(%i4) display2d:false
+(%i5) linel:1000
+/Users/takatoosetsuo/polytech22.git/205-0905/fig/toolketmathall2res.max:5:1736:incorrect syntax: X is not an infix operator
+(4)*x^4-x+C),no,(１X)
+                  ^
+(%o6) "/Users/takatoosetsuo/polytech22.git/205-0905/fig/toolketmathall2res.max"

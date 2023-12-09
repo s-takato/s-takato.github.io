@@ -1,0 +1,398 @@
+Title::slide0
+::\newcommand{\hiduke}{0418}
+::\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+::\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+::\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+::\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+::\def\rad{\;\mathrm{rad}}
+::\def\deg#1{#1^{\circ}}
+::\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+::\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+
+
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+%\putnotee{122}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+
+\newcounter{ban}
+\setcounter{ban}{1}
+
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+%\addtocounter{ban}{1}%
+}
+
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%%210614
+}
+
+\newcounter{edawidth}
+\newcounter{edactr}
+
+\newcommand{\seteda}[1]{
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+
+\newcommand{\eda}[2][\theedawidth ]{%
+\noindent\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+
+%%%%%%%%%%%%
+main::関数
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::関数
+%repeat=3
+\slidepage
+
+itemize
+item::変数$x$の値を与えると変数$y$の値が求まる\\
+\hspace*{1zw}例）$y=2x+1,\ y=x^2+2x+1$
+%[2,-]::item::これを変数$x$の関数という
+%[3,-]::item::変数$x$の関数であることを$f(x)$などで表す\\
+%[3,-]::　例1）$f(x)=2x+1$（1次関数）\\
+%[3,-]::　例2）$g(x)=x^2+2x+1$（2次関数）
+end
+
+%%%%%%%%%%%%
+new::関数記号
+%repeat=2
+\slidepage
+
+\seteda{55}
+
+itemize
+item::関数$f(x)$の$x$に定数$a$を代入した値を$f(a)$で表す
+item::例）$f(x)=x^2+x-1$のとき　$f(2)=2^2+2-1=5$
+%[2]::item::課題\monban $f(x)=3x+1$のとき，次を求めよ．\\
+%[2]::\eda{$f(0)$}\eda{$f(2)$}\\
+%[2]::\eda{$f(-3)$}\eda{$f(a-1)$\ \ \ ($a$は定数)}\\
+%[2]::\hfill TextP80
+end
+
+%%%%%%%%%%%%
+new::関数のグラフ
+%repeat=3
+\slidepage
+
+\down
+
+関数$y=f(x)$
+
+itemize
+item::$x$を変えるとき，点$\bigl(x,\ f(x)\bigr)$も変わる．
+item::[]例) 1次関数$y=2x+1$\vspace{1mm}\\
+%[1]::\input{fig/table1a}
+%[2,-]::\input{fig/table1aans}
+%[3,-]::item::この点の集まりを，その関数の{\color{red}グラフ}という．
+end
+
+%%%%%%%%%%%%
+new::1次関数のグラフ
+%repeat=5
+\slidepage
+
+\down
+
+例）$y=2x+1$
+
+layer::{120}{0}
+%[1]::putnote::s{60}{6}::graphpaper1,0.5
+%[2,-]::putnote::se{70}{-3}::table1b,0.6
+%[2]::putnote::s{60}{6}::graphpaper2,0.5
+%[3,-]::putnote::s{60}{6}::graphpaper3,0.5
+%[4]::\putnotese{100}{30}{\color{blue}傾き}
+%[4]::\putnotese{100}{36}{\color{blue}$y$切片}
+%[5,-]::\putnotese{100}{30}{\color{blue}傾き\ \ $2$}
+%[5,-]::\putnotese{100}{36}{\color{blue}$y$切片\ $1$}
+end
+
+%%%%%%%%%%%%
+new::1次関数のグラフ
+%%repeat=3
+\slidepage
+
+\seteda{90}
+
+enumerate::[(1)]
+item::[課題]\monban 「2.関数のグラフ」を用いて，次の1次関数のグラフをかけ．
+また，傾き$a$と$y$切片$b$を求めよ．\\
+\eda{$y=3x+3$} \hfill TextP81\\
+\eda{$y=10-2x$} \hfill TextP81\\
+\eda{$y=2x+2$} \hfill TextP81\\
+\eda{$y=\bunsuu{1}{2}x+1$}
+end
+
+%%%%%%%%%%%%
+new::2次関数のグラフ(基本形)
+%repeat=9
+\slidepage
+
+\down
+
+「2.関数のグラフ」で$y=x^2,\ y=-x^2$をかこう．
+
+layer::{120}{0}
+%[2,-]::putnote::se{55}{5}::parabola1,0.7
+%[3,-]::\arrowlineseg{80}{30}{20}{-30}
+%[3,-]::\putnotee{97}{40}{頂点}
+%[3,-]::\arrowlineseg{80}{20}{20}{0}
+%[3,-]::\putnotee{100}{20}{軸}
+%[8,-]::putnote::se{55}{5}::parabola2,0.7
+end
+
+itemize
+item::$y=x^2$
+%[4,-]::item::[]　軸は$x=0$($y$軸)
+%[5,-]::item::[]　頂点は$(0,\ 0)$
+%[6,-]::item::[]　下に凸
+%[7,-]::item::$y=-x^2$
+%[9,-]::item::[]　上に凸
+end
+
+%%%%%%%%%%%%
+new::2次関数のグラフ2
+%repeat=8
+\slidepage
+
+layer::{120}{0}
+%[1]::putnote::se{75}{18}::idou0,0.8
+%[2]::putnote::se{75}{18}::idou1,0.8
+%[3]::putnote::se{75}{18}::idou0,0.8
+%[4]::putnote::se{75}{18}::idou2,0.8
+%[5]::putnote::se{75}{18}::idou0,0.8
+%[6]::putnote::se{75}{18}::idou3,0.8
+%[7]::putnote::se{75}{18}::idou0,0.8
+%[8]::putnote::se{75}{18}::idou4,0.8
+end
+
+カッコ内の定数を変えたときのグラフをかこう．
+
+enumerate::[(1)]
+item::$y=ax^2$（定数$a$）\vspace{-2mm}
+%[2,-]::item::[]　{\color{blue}開き(増え方)が変わる}\vspace{-2mm}
+%[3,-]::item::$y=ax^2+c$（定数$c$）\vspace{-2mm}
+%[4,-]::item::[]　{\color{blue}縦方向に$c$だけ平行移動}\vspace{-2mm}
+%[5,-]::item::$y=a(x-b)^2$（定数$b$）\vspace{-2mm}
+%[6,-]::item::[]　{\color{blue}横方向に$b$だけ平行移動}\vspace{-2mm}
+%[7,-]::item::$y=a(x-b)^2+c$（定数$b,\ c$）\vspace{-2mm}
+%[8,-]::item::[]　{\color{blue}頂点の座標は　$(b,\ c)$}
+end
+
+%%%%%%%%%%%%
+new::課題　2次関数のグラフ
+%%repeat=2
+\slidepage
+
+\seteda{90}
+enumerate::[(1)]
+item::[課題]\monban 「2.関数のグラフ」を用いて，次の2次関数のグラフをかけ．
+また，$y=x^2$のグラフをどのように移動(変形)したかを答えよ．\\
+\eda{$y=2x^2$}\\
+\eda{$y=x^2+1$}\\
+\eda{$y=(x-3)^2$}\\
+\eda{$y=(x+1)^2$}\\
+%%\eda{$y=-(x-2)^2$}
+end
+
+%%%%%%%%%%%%
+new::2次関数のグラフ3
+%repeat=10
+\slidepage
+
+layer::{120}{0}
+%[3,-]::\putnoten{90}{0}{{\color{red}$(x^2+2bx+b^2)+d$}}
+%[3,-]::\putnoten{90}{5}{{\color{red}\rotatebox[origin=c]{90}{$=$}}}
+%[10]::putnote::se{75}{20}::idou6,0.8
+end
+
+itemize
+%[1]::item::$y=x^2+2bx+c$
+%[2,-]::item::$y=x^2+2bx+c$\hfill{\color{blue}$\Longrightarrow (x+b)^2+d$の形に変形}
+%[4,-]::item::[(例)] $y=x^2-2x+3$
+%[5,-]::\\ $\phantom{y}=(x^2-2x+1)-1+3$
+%[6,-]::\\$\phantom{y}=(x-1)^2+2$
+%[7,-]::item::[(例)] $y=-x^2-4x+1$
+%[8,-]::\\ $\phantom{y}=-(x^2+4x)+1$
+%[9,-]::\\ $\phantom{y}=-\bigl((x+2)^2-4\bigr)+1$
+%[10,-]::\\$\phantom{y}=-(x+2)^2+5$
+end
+
+%%%%%%%%%%%%
+new::課題(2次関数のグラフ)
+%%repeat=9
+\slidepage
+
+\seteda{60}
+itemize
+item::[課題]\monban $a(x+b)^2+c$の形に変形せよ．\\
+\eda{$y=x^2+4x-5$}\\
+\eda{$y=x^2-2x-1$}\\
+\eda{$y=-x^2-4x+1$}\\
+\eda{$y=x^2+x+1$}
+end
+
+
+%%%%%%%%%%%%
+main::2次方程式
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::2次式の因数分解
+%repeat=11
+\slidepage
+
+enumerate::[(1)]
+item::$x^2-a^2=(x+a)(x-a)$\\
+\hspace*{2zw}$x^2-9$
+%[2,-]::$=x^2-3^2$
+%[3,-]::$=(x+3)(x-3)$
+%[4,-]::item::$x^2+2ax+a^2=(x+a)^2$\\
+%[4,-]::\hspace*{2zw}$x^2+4x+4$
+%[5,-]::$=x^2+2\cdot 2+2^2$
+%[6,-]::$=(x+2)^2$
+%[7,-]::item::$x^2+(a+b)x+ab=(x+a)(x+b)$\\
+%[8,-]::\hspace*{2zw}$x^2+5x+6$
+%[9,-]::$=(x+2)(x+3)$\\
+%[10,-]::\hspace*{2zw}$x^2-6x+8$
+%[11,-]::$=(x-2)(x-4)$
+end
+
+%%%%%%%%%%%%
+new::2次方程式（因数分解）
+%repeat=5
+\slidepage
+
+itemize
+item::「$AB=0$ならば$A=0$または$B=0$」を用いる．\vspace{-2mm}
+item::[(例) ]$x^2-9=0$\\
+%[2,-]::\hspace*{1zw}$\Longleftrightarrow\ (x+3)(x-3)=0$\\
+%[3,-]::\hspace*{1zw}$\Longleftrightarrow\ x=-3\ \mbox{(または)}\ x= 3$\\
+%[4,-]::\hspace*{1zw}$\Longleftrightarrow\ x=\pm 3\ \ \mbox{\color{blue} と書く}$\vspace{-2mm}
+%[5,-]::item::[課題]\monban 次の方程式を解け．\seteda{60}\\
+%[5,-]::\eda{$x^2-49=0$}\eda{$x^2-2x+1=0$}\\
+%[5,-]::\eda{$x^2-7x+12=0$}\eda{$x^2-x-20=0$}
+end
+
+%%%%%%%%%%%%
+new::平方根
+%repeat=5
+\slidepage
+
+itemize
+item::2乗して$4$になる数（$x^2=4$となる$x$）
+%[2,-]::item::[]\hspace*{2zw}$\Longrightarrow\ 2,\ -2$の2つがある．
+%[3,-]::item::このうち，正の方の$2$を$\sqrt{4}$とかく
+%[4,-]::item::正の数$a$について，2乗して$a$になる数のうち正の方をを$\sqrt{a}$とかく
+%[5,-]::item::[]\hspace*{4zw}$(\sqrt{a})^2=a,\ (-\sqrt{a})^2=a$
+end
+
+%%%%%%%%%%%%
+new::平方根の性質
+%repeat=9
+\slidepage
+
+itemize
+item::$a>0$のとき，$\sqrt{a^2}=a$\\
+%[2,-]::\hspace*{2zw}2乗して$4^2(=16)$になるのは$4$と$-4$\\
+%[3,-]::\hspace*{2zw}正の方をとって，$\sqrt{4^2}=4$\vspace{-2mm}
+%[4..6]::item::[]$a<0$のとき，$\sqrt{a^2}=?$
+%[7,-]::item::[]$a<0$のとき，$\sqrt{a^2}=-a$
+%[5,-]::\\\hspace*{2zw}2乗して$(-4)^2$になるのも$4$と$-4$
+%[6,-]::\\\hspace*{2zw}正の方をとって，$\sqrt{(-4)^2}=4$\vspace{-2mm}
+%[8,-]::item::{\color{red}$\sqrt{a^2}=|a|$}\vspace{-2mm}
+%[9,-]::item::$b>0$のとき，$\sqrt{a^2b}=|a|\sqrt{b}$
+end
+
+%%%%%%%%%%%%
+new::課題　平方根
+%%repeat=6
+\slidepage
+
+
+itemize
+item::[課題]\monban 次の数を根号を用いないで表せ\seteda{55}\hfill TextP17\vspace{2mm}\\
+\eda{$-\sqrt{64}$}\eda{$\sqrt{\bunsuu{4}{9}}$}\\
+\eda{$\bigl(-\sqrt{11}\bigr)^2$}\eda{$-\bigl(-\sqrt{3}\bigr)^2$}\\
+item::[課題]\monban 次を計算せよ($\sqrt{\phantom{5}}$の中を簡単にせよ)\seteda{55}\\
+\eda{$-\sqrt{12}$}\eda{$\sqrt{18}$}\\
+\eda{$\sqrt{27}-\sqrt{3}$}\eda{$\sqrt{100}\sqrt{8}$}
+end
+
+%%%%%%%%%%%%
+new::2次方程式（平方完成）
+%repeat=9
+\slidepage
+
+layer::{120}{0}
+%[2,-]::\putnotee{40}{10}{\normalsize\color{blue}$(x+a)^2=x^2+2ax+a^2$}
+end
+
+itemize
+item::平方完成\\
+\hspace*{1zw}$x^2+6x+2=$
+%[3,-]::$(x^2+6x+9)-9+2=$
+%[4,-]::$(x+3)^2-7$\vspace{-2mm}
+%[5,-]::item::2次方程式$x^2+6x+2=0$
+%[6,-]::\\\hspace*{5zw}$(x+3)^2-7=0$
+%[7,-]::\\\hspace*{5zw}$(x+3)^2=7$
+%[8,-]::\\\hspace*{5zw}$x+3=\sqrt{7},\ -\sqrt{7}$
+%[8,-]::\\\Ltab{5.5zw}{合わせて}$x+3=\pm \sqrt{7}$
+%[9,-]::\\\hspace*{5zw}$x=-3\pm \sqrt{7}$
+end
+
+%%%%%%%%%%%%
+new::解の公式1
+%repeat=6
+\slidepage
+
+itemize
+item::$x^2+2ax+b=0$
+%[2,-]::\\$(x+a)^2-a^2+b=0$
+%[3,-]::\\$(x+a)^2=a^2-b$
+%[4,-]::\\$x+a=\pm \sqrt{a^2-b}$
+%[5,-]::\vspace{2mm}\\よって　\fbox{\color{red}$x=-a\pm \sqrt{a^2-b}$}
+%[6,-]::item::[課題]\monban 次の2次方程式を解け．\seteda{57}\\
+%[6,-]::\eda{$x^2+4x+2=0$}\eda{$x^2+2x-2=0$}\\
+%[6,-]::\eda{$x^2-6x+1=0$}\eda{$x^2-8x+2=0$}
+end
+
+%%%%%%%%%%%%
+new::解の公式
+%repeat=5
+\slidepage
+
+itemize
+item::2次方程式$ax^2+bx+c=0$の解は\vspace{1mm}\\
+\hspace*{3zw}\fbox{$x=\bunsuu{-b\pm\sqrt{b^2-4ac}}{2a}$}\vspace{-2mm}
+%[2,-]::item::[]例）$2x^2-5x+1=0$\\
+%[3,-]::\hspace*{3zw}$x=\bunsuu{5\pm \sqrt{5^2-4\cdot 2\cdot1}}{2\cdot 2}$
+%[4,-]::$=\bunsuu{5\pm \sqrt{17}}{4}$\vspace{-2mm}
+%[5,-]::item::[課題] \monban $ax^2+bx+c=0$より $x^2+\dfrac{b}{a}x+\dfrac{c}{a}=0$\\
+%[5,-]::　これを用いて上の公式を導け
+end
+
+
+

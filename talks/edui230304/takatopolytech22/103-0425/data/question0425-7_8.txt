@@ -1,0 +1,18 @@
+Q07
+{\theta}は鋭角でcos(!{\theta})=fr(1,3)とする．
+sin(!{\theta})を求めよ．
+Sheet
+= ::2
+Ans
+fr(2sq(2),3)
+
+Q08
+sin(!{\theta})=fr(2,3)とする．cos(!{\theta})を求めよ．
+[1] sin(!{\theta})=fr(2,3)，{\theta}が鋭角のとき
+[2] sin(!{\theta})=fr(2,3)，{\theta}が鈍角のとき
+Sheet
+[1]=  ::2
+[2]=  ::2
+Ans
+[1] fr(sq(5),3)
+[2] -fr(sq(5),3)

@@ -1,0 +1,355 @@
+%%% タイトル presen22207
+\documentclass[landscape,10pt]{jarticle}
+\special{papersize=\the\paperwidth,\the\paperheight}
+\usepackage{ketpic,ketlayer}
+\usepackage{ketslide}
+\usepackage{amsmath,amssymb}
+\usepackage{bm,enumerate}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{color}
+\definecolor{slidecolora}{cmyk}{0.98,0.13,0,0.43}
+\definecolor{slidecolorb}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolorc}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolord}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolore}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolorf}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolori}{cmyk}{0.98,0.13,0,0.43}
+\definecolor{slidecoloro}{cmyk}{0.98,0.13,0,0.43}
+\def\setthin#1{\def\thin{#1}}
+\setthin{0.1}
+\newcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+\putnotee{122}{-\theketpicctra.05}{\small\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=___}
+
+}
+\newcommand{\hiduke}{0926}
+\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+\def\rad{\;\mathrm{rad}}
+\def\deg#1{#1^{\circ}}
+\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+\def\dlim{\displaystyle\lim}
+\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+\newcommand{\sfrac}[3][0.65]{\scalebox{#1}{$\frac{#2}{#3}$}}
+\newcommand{\phn}[1]{\phantom{#1}}
+\newcommand{\scb}[2][0.6]{\scalebox{#1}{#2}}
+\newcommand{\dsum}{\displaystyle\sum}
+\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+\def\dlim{\displaystyle\lim}
+\def\dint{\displaystyle\int}
+
+\setmargin{25}{145}{15}{100}
+
+\ketslideinit
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{layer}{120}{0}
+\putnotese{0}{0}{\input{fig/slide0926.tex}}
+\end{layer}
+
+\def\mainslidetitley{22}
+\def\ketcletter{slidecolora}
+\def\ketcbox{slidecolorb}
+\def\ketdbox{slidecolorc}
+\def\ketcframe{slidecolord}
+\def\ketcshadow{slidecolore}
+\def\ketdshadow{slidecolorf}
+\def\slidetitlex{6}
+\def\slidetitlesize{1.3}
+\def\mketcletter{slidecolori}
+\def\mketcbox{yellow}
+\def\mketdbox{yellow}
+\def\mketcframe{yellow}
+\def\mslidetitlex{62}
+\def\mslidetitlesize{2}
+
+\color{slidecoloro}
+\Large\bf\boldmath
+\addtocounter{page}{-1}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+\begin{layer}{118}{0}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+}
+\newcounter{ban}
+\setcounter{ban}{1}
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+}
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%
+}
+\newcounter{edawidth}
+\newcounter{edactr}
+\newcommand{\seteda}[1]{% 20220708 modified
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+\newcommand{\eda}[2][\theedawidth]{%
+\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\mainslide{ 微分の応用}
+
+
+\slidepage[m]
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{関数の増減}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotee{___}{___}{\scriptsize\color{blue} 1/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+関数$y=f(x)$
+\item
+$x$が右に動くにつれて\\
+\hspace*{2zw}(i) $y$の値が増えていくとき\\
+\hspace*{4zw}{\color{red}増加の状態}\\
+\hspace*{2zw}(ii) $y$の値が減っていくとき\\
+\hspace*{4zw}{\color{red}減少の状態}
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotee{___}{___}{\scriptsize\color{blue} 2/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+関数$y=f(x)$
+\item
+$x$が右に動くにつれて\\
+\hspace*{2zw}(i) $y$の値が増えていくとき\\
+\hspace*{4zw}{\color{red}増加の状態}\\
+\hspace*{2zw}(ii) $y$の値が減っていくとき\\
+\hspace*{4zw}{\color{red}減少の状態}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotee{___}{___}{\scriptsize\color{blue} 3/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+関数$y=f(x)$
+\item
+$x$が右に動くにつれて\\
+\hspace*{2zw}(i) $y$の値が増えていくとき\\
+\hspace*{4zw}{\color{red}増加の状態}\\
+\hspace*{2zw}(ii) $y$の値が減っていくとき\\
+\hspace*{4zw}{\color{red}減少の状態}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotee{___}{___}{\scriptsize\color{blue} 4/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+関数$y=f(x)$
+\item
+$x$が右に動くにつれて\\
+\hspace*{2zw}(i) $y$の値が増えていくとき\\
+\hspace*{4zw}{\color{red}増加の状態}\\
+\hspace*{2zw}(ii) $y$の値が減っていくとき\\
+\hspace*{4zw}{\color{red}減少の状態}
+\end{itemize}
+
+\newslide{関数の増減}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotee{___}{___}{\scriptsize\color{blue} 1/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+関数$y=f(x)$
+\item
+$x$が右に動くにつれて\\
+\hspace*{4zw}(i) $y$の値が増えていくとき，{\color{red}増加の状態}\\
+\hspace*{4zw}*(ii) $y$の値が減っていくとき，{\color{red}減少の状態}
+\item
+$y'$は接線の傾き\\
+\hspace*{4zw}(i) 増加の状態のとき，接線の傾きは正だから　$y'>0$\\
+\hspace*{4zw}(ii) 減少の状態のとき，接線の傾きは負だから　$y'<0$\\
+\item
+増加減少の状態変化\\
+\hspace*{4zw}(i) 増加から減少に変わるとき，その近くでは最大（{\color{red}極大}）\\
+\hspace*{4zw}(ii) 減少から増加に変わるとき，その近くでは最小（{\color{red}極小}）
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotee{___}{___}{\scriptsize\color{blue} 2/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+関数$y=f(x)$
+\item
+$x$が右に動くにつれて\\
+\hspace*{4zw}(i) $y$の値が増えていくとき，{\color{red}増加の状態}\\
+\hspace*{4zw}*(ii) $y$の値が減っていくとき，{\color{red}減少の状態}
+\item
+$y'$は接線の傾き\\
+\hspace*{4zw}(i) 増加の状態のとき，接線の傾きは正だから　$y'>0$\\
+\hspace*{4zw}(ii) 減少の状態のとき，接線の傾きは負だから　$y'<0$\\
+\item
+増加減少の状態変化\\
+\hspace*{4zw}(i) 増加から減少に変わるとき，その近くでは最大（{\color{red}極大}）\\
+\hspace*{4zw}(ii) 減少から増加に変わるとき，その近くでは最小（{\color{red}極小}）
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotee{___}{___}{\scriptsize\color{blue} 3/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+関数$y=f(x)$
+\item
+$x$が右に動くにつれて\\
+\hspace*{4zw}(i) $y$の値が増えていくとき，{\color{red}増加の状態}\\
+\hspace*{4zw}*(ii) $y$の値が減っていくとき，{\color{red}減少の状態}
+\item
+$y'$は接線の傾き\\
+\hspace*{4zw}(i) 増加の状態のとき，接線の傾きは正だから　$y'>0$\\
+\hspace*{4zw}(ii) 減少の状態のとき，接線の傾きは負だから　$y'<0$\\
+\item
+増加減少の状態変化\\
+\hspace*{4zw}(i) 増加から減少に変わるとき，その近くでは最大（{\color{red}極大}）\\
+\hspace*{4zw}(ii) 減少から増加に変わるとき，その近くでは最小（{\color{red}極小}）
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotee{___}{___}{\scriptsize\color{blue} 4/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+関数$y=f(x)$
+\item
+$x$が右に動くにつれて\\
+\hspace*{4zw}(i) $y$の値が増えていくとき，{\color{red}増加の状態}\\
+\hspace*{4zw}*(ii) $y$の値が減っていくとき，{\color{red}減少の状態}
+\item
+$y'$は接線の傾き\\
+\hspace*{4zw}(i) 増加の状態のとき，接線の傾きは正だから　$y'>0$\\
+\hspace*{4zw}(ii) 減少の状態のとき，接線の傾きは負だから　$y'<0$\\
+\item
+増加減少の状態変化\\
+\hspace*{4zw}(i) 増加から減少に変わるとき，その近くでは最大（{\color{red}極大}）\\
+\hspace*{4zw}(ii) 減少から増加に変わるとき，その近くでは最小（{\color{red}極小}）
+\end{itemize}
+\label{pageend}\mbox{}
+
+\end{document}

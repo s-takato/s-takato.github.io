@@ -1,0 +1,10 @@
+NIL
+(%i3) powerdisp:false
+(%i4) display2d:false
+(%i5) linel:1000
+(%i6) dtLL:[[no,(3*x^2-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^2-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^2-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^2-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^2-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^2-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^2-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^2-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^2-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^2-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^2-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^2-6*x)/(3*x^2-6*x),ns,ns],[],[],[],[]]
+(%i7) res:ratsimp(dtLL)
+(%i8) disp(res)
+[[no,1,ns,ns],[no,1,ns,ns],[no,1,ns,ns],[no,1,ns,ns],[no,1,ns,ns],[no,1,ns,ns],[no,1,ns,ns],[no,1,ns,ns],[no,1,ns,ns],[no,1,ns,ns],[no,1,ns,ns],[no,1,ns,ns],[],[],[],[]]
+
+(%i9) closefile()

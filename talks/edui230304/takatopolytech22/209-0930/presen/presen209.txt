@@ -1,0 +1,364 @@
+タイトル::slide209
+::\usepackage{pict2e}
+::\newcommand{\hiduke}{0930}
+::\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+::\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+::\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+::\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+::\def\rad{\;\mathrm{rad}}
+::\def\deg#1{#1^{\circ}}
+::\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+::\newcommand{\sfrac}[3][0.65]{\scalebox{#1}{$\frac{#2}{#3}$}}
+::\newcommand{\phn}[1]{\phantom{#1}}
+::\newcommand{\dsum}{\displaystyle\sum}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\def\dint{\displaystyle\int}
+::\def\dsum{\displaystyle\sum}
+::\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+::\newcommand{\scb}[2][0.6]{\scalebox{#1}{#2}}
+::\newcommand{\dpar}[2]{\bunsuu{\partial #1}{\partial #2}}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+%\putnotee{122}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+
+\newcounter{ban}
+\setcounter{ban}{1}
+
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+%\addtocounter{ban}{1}%
+}
+
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%
+}
+
+\newcounter{edawidth}
+\newcounter{edactr}
+
+\newcommand{\seteda}[1]{% 20220708 modified
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+
+\newcommand{\eda}[2][\theedawidth]{%
+\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+
+%%%%%%%%%%%%%
+main::2変数関数
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::1変数関数と2変数関数
+%repeat=2,para
+\slidepage
+
+itemize
+item::これまでの関数$y=f(x)$（1変数関数）\\
+\hspace*{2zw}1つの値$x$を与えると，$y$の値が決まる\\
+\hspace*{4zw}例）$y=x^2$
+%thin[2,-]::item::2変数関数$z=f(x,\ y)$\\
+%thin[2,-]::\hspace*{2zw}2つの値$x,\ y$を与えると，$z$の値が決まる\\
+%thin[2,-]::\hspace*{4zw}例）$z=x^2+y^2$
+end
+
+%%%%%%%%%%%%
+new::2変数関数のグラフ
+%repeat=3,para
+\slidepage
+
+layer::{120}{0}
+%[2,-]::putnote::se{5}{25}::zue091002_1,0.7
+%[3,-]::putnote::se{75}{15}::zue091002_3,0.7
+end
+
+itemize
+item::1変数関数のグラフは曲線
+%thin[2,-]::item::2変数関数のグラフは曲面になる
+end
+
+%%%%%%%%%%%%
+new::2変数関数のグラフ(課題)
+%repeat=1
+\slidepage
+
+layer::{110}{0}
+putnote::s{27}{28}::c2s11_hanenchu-x_k,0.7
+putnote::s{84}{28}::c2s11_hanenchu-y_kp1211,0.7
+putnote::s{27}{50}::c2s11_daenmen_k,0.7
+putnote::s{84}{50}::c2s11_kyokumen_km,0.7
+\putnotee{8}{37}{A}
+\putnotee{65}{37}{B}
+\putnotee{8}{55}{C}
+\putnotee{65}{54}{D}
+end
+
+itemize
+item::[課題]\monban 次のグラフとなる2変数関数を選べ\\
+\hspace{1zw}1\ $z=\sqrt{1-y^2}$\hspace{2zw}2\ $z=\sqrt{1-x^2}$\\
+\hspace{1zw}3\ $z=\bunsuu{x^2y^2}{x^2+y^2}$\hspace{2zw}4\ $z=\sqrt{1-x^2-\bunsuu{y^2}{4}}$
+end
+
+%%%%%%%%%%%%
+new::2変数関数の微分
+%repeat=8,para
+\slidepage
+
+itemize
+item::2変数関数$z=f(x,\ y)$\\
+%thin[2,-]::　例えば　$z=x^2+3y$
+%thin[3,-]::item::$x$だけを変数と考えて（$y$は定数とみて）\\
+%thin[4,-]::$z$を$x$で微分したものを$x$についての{\color{red}偏微分}といい\\
+%thin[5,-]::\hspace*{5zw}{\color{red}$\bunsuu{\partial z}{\partial x}$}\\
+%thin[5,-]::と書く．
+%thin[6,-]::item::$y$についての偏微分$\bunsuu{\partial z}{\partial y}$も同様
+%thin[7,-]::item::[注)]$z_x,\ z_y$とも書く．
+%thin[8,-]::item::[注)]$z'$とは書かない．
+end
+
+%%%%%%%%%%%%
+new::偏微分の計算
+%repeat=7,para
+\slidepage
+
+
+itemize
+item::[例)]$z=x^3+y^2+x^4y^5$
+%[2,-]::item::$\dpar{z}{x}=\dpar{}{x}(x^3+{\color{blue}y^2}+x^4{\color{blue}y^5})$\\
+%[3,-]::$\phantom{\dpar{z}{x}}=\dpar{}{x}(x^3)+\dpar{}{x}({\color{blue}y^2})+\dpar{}{x}(x^4 \color{blue}y^5)$\\
+%[4,-]::$\phantom{\dpar{z}{x}}=3x^2+4x^3{\color{blue}y^5}$
+%[5,-]::item::$\dpar{z}{y}=\dpar{}{x}({\color{blue}x^3}+y^2+{\color{blue}x^4}y^5)$\\
+%[6,-]::$\phantom{\dpar{z}{y}}=\dpar{}{y}({\color{blue}x^3})+\dpar{}{y}(y^2)+\dpar{}{y}({\color{blue}x^4}y^5)$\\
+%[7,-]::$\phantom{\dpar{z}{y}}=2y+5x^4y^4$
+end
+
+%%%%%%%%%%%%
+new::課題(偏微分)
+%%repeat=5,para
+\slidepage
+\seteda{60}
+
+itemize
+item::[課題]\monban 次の2変数関数の偏微分$z_x,z_y$を求めよ．\seteda{70}\\
+\eda{$z=x^3+2y^3$のとき，$\dpar{z}{x}$}\\
+\eda{$z=x^3+2y^3$のとき，$\dpar{z}{y}$}\\
+\eda{$z=x^2+xy-y^2$のとき，$z_x$}\\
+\eda{$z=x^2+xy-y^2$のとき，$z_y$}\\
+end
+
+%%%%%%%%%%%%
+new::1変数関数の微分
+%repeat=5,para
+\slidepage
+
+layer::{120}{0}
+%[1,2]::putnote::se{85}{9}::bibun1
+%[3]::putnote::se{85}{0}::bibun2
+%[4,-]::putnote::se{85}{0}::bibun3
+%[4,-]::\putnotee{80}{60}{\color{blue}$\varDelta x=dx$}
+end
+
+itemize
+item::$x$の変化量\ $\varDelta x=z-x$\vspace{-2mm}
+item::$y$の変化量\ $\varDelta y=f(\xi)-f(x)$\vspace{-2mm}
+%thin[2,-]::item::$\bunsuu{dy}{dx}=\dlim_{\varDelta x\to 0}\bunsuu{\varDelta y}{\varDelta x}$\vspace{-1mm}
+%thin[3,-]::item::これは図の接線の傾き
+%thin[4,-]::item::赤の直角三角形の底辺と高さを$dx,\ dy$と書く
+%[5,-]::item::$\tan\theta=\bunsuu{dy}{dx}$より\ {\color{red}$dy=\bunsuu{dy}{dx}dx$}（$dx,dy$の意味付け）
+end
+
+%[5]::\ifnum 1=0
+
+%%%%%%%%%%%%
+new::1変数関数の微分（まとめ）
+%repeat=2,para
+\slidepage
+
+layer::{120}{0}
+%[1,-]::putnote::se{85}{9}::bibun3
+end
+
+itemize
+item::1変数関数$y=f(x)$
+item::$dy=\bunsuu{dy}{dx}dx$
+%thin[2,-]::item::$\varDelta x$が小さいとき\\
+%thin[2,-]::\hspace*{2zw}$\varDelta y\fallingdotseq \bunsuu{dy}{dx}\varDelta x$
+end
+
+%%%%%%%%%%%%
+new::2変数関数の場合
+%repeat=3,para
+\slidepage
+
+layer::{120}{0}
+%[1]::putnote::s{65}{2}::henbibun0
+%[2]::putnote::s{65}{2}::henbibun1
+%[3]::putnote::s{65}{2}::henbibun2
+end
+
+%%%%%%%%%%%%
+new::2変数関数の場合
+%repeat=,para=zenbibunpara:{0}:s{65}{2}:input
+\slidepage
+
+%%%%%%%%%%%%
+new::1変数関数の微分
+%repeat=5,para
+\slidepage
+
+layer::{120}{0}
+%[1,2]::putnote::se{85}{9}::bibun1
+%[3]::putnote::se{85}{9}::bibun2
+%[4,-]::putnote::se{85}{9}::bibun3
+%[4,-]::\putnotee{80}{55}{\color{blue}$\varDelta x=dx$}
+end
+
+itemize
+item::$x$の変化量\ $\varDelta x=\xi-x$\vspace{-2mm}
+item::$y$の変化量\ $\varDelta y=f(\xi)-f(x)$\vspace{-2mm}
+%thin[2,-]::item::$\bunsuu{dy}{dx}=\dlim_{\varDelta x\to 0}\bunsuu{\varDelta y}{\varDelta x}$\vspace{-1mm}
+%thin[3,-]::item::これは図の接線の傾き
+%thin[4,-]::item::赤の直角三角形の底辺と高さを$dx,\ dy$と書く
+%[5,-]::item::$\tan\theta=\bunsuu{dy}{dx}$より\ {\color{red}$dy=\bunsuu{dy}{dx}dx$}（$dx,dy$の意味付け）
+end
+
+%%%%%%%%%%%%
+new::1変数関数の微分（まとめ）
+%repeat=2,para
+\slidepage
+
+layer::{120}{0}
+%[1,-]::putnote::se{85}{9}::bibun3
+end
+
+itemize
+item::1変数関数$y=f(x)$
+item::$dy=\bunsuu{dy}{dx}dx$
+%thin[2,-]::item::$\varDelta x$が小さいとき\\
+%thin[2,-]::\hspace*{2zw}$\varDelta y\fallingdotseq \bunsuu{dy}{dx}\varDelta x$
+end
+
+%%%%%%%%%%%%
+new::2変数関数の場合
+%repeat=3,para
+\slidepage
+
+layer::{120}{0}
+%[1]::putnote::s{65}{2}::henbibun0
+%[2]::putnote::s{65}{2}::henbibun1
+%[3]::putnote::s{65}{2}::henbibun2
+end
+
+%%%%%%%%%%%%
+new::2変数関数の場合
+%repeat=,para=zenbibunpara:{0}:s{65}{2}:input
+\slidepage
+
+%%%%%%%%%%%%
+new::2変数関数の偏微分
+%repeat=4,para
+\slidepage
+
+layer::{120}{0}
+%[1,-]::putnote::se{85}{9}::bibun4
+end
+
+itemize
+item::2変数関数$z=f(x,y)$
+item::$x$だけを変化させる\vspace{-2mm}
+item::$\varDelta z_1=f(\xi,y)-f(x,y)$\vspace{-2mm}
+%thin[2,-]::item::$dz_1=\bunsuu{\partial z}{\partial x}dx$\vspace{-2mm}
+%thin[3,-]::item::$\varDelta x$が小さいとき\vspace{-1mm}
+%thin[3,-]::\hspace*{1zw}$\varDelta z_1\fallingdotseq \bunsuu{\partial z}{\partial x}\varDelta x$\vspace{-1mm}
+%thin[4,-]::item::$y$についても同様　$dz_2=\bunsuu{\partial z}{\partial y}dy$
+end
+
+%[4,-]::\fi
+
+%%%%%%%%%%%%
+new::2変数関数の偏微分
+%repeat=6,para
+\slidepage
+
+layer::{120}{0}
+%[3,-]::putnote::se{86}{15}::bibun4
+end
+
+itemize
+item::2変数関数$z=f(x,y)$
+%thin[2,-]::item::$\bunsuu{\partial z}{\partial x}$は
+%thin[3,-]::$x$だけが変化したときの変化率\vspace{-2mm}
+%thin[4,-]::item::[]変化量\;$\varDelta z_1=f(x',y)-f(x,y)$\vspace{-2mm}
+%thin[5,-]::item::[]　$\Longrightarrow\ dz_1=\bunsuu{\partial z}{\partial x}dx$で近似\vspace{-2mm}
+%thin[6,-]::item::$y$についても同様　$dz_2=\bunsuu{\partial z}{\partial y}dy$
+end
+
+%%%%%%%%%%%%
+new::全微分
+%repeat=8,para
+\slidepage
+
+\vspace{3mm}
+...
+
+$x,\ y$の両方を$dx,\ dy$だけ変えたとき，$z$の変化量$dz$は？
+\vspace{2mm}
+...
+
+layer::{120}{0}
+putnote::s{20}{-3}::zenbibunpara/p001
+putnote::s{85}{0}::henbibun4
+%[2,-]::\putnotesw{23}{54}{\normalsize\color{red}$dx$}
+%[4,-]::\putnotenw{20}{51}{\normalsize\color{red}$dy$}
+%[2,-]::\putnotesw{76}{21}{\normalsize\color{red}$dx$}
+%[4,-]::\putnotenw{73}{15}{\normalsize\color{red}$dy$}
+%[3,-]::\putnotee{91}{20}{\normalsize\color{red}$dz_1$}
+%[5,-]::\putnotee{82.5}{8}{\normalsize\color{red}$dz_2$}
+%[6,-]::\putnotee{111}{10}{\normalsize\color{red}$dz$}
+end
+
+\vspace*{35mm}
+...
+
+%[7,-]::\hspace*{65mm}{\color{red}$dz=dz_1+dz_2$}\vspace{2mm}\\
+%[8,-]::\hspace*{65mm}{\fbox{\color{red}$dz=\bunsuu{\partial z}{\partial x}dx+\bunsuu{\partial z}{\partial y}dy$}}
+
+
+%%%%%%%%%%%%
+new::全微分
+%repeat=5,para
+\slidepage
+\seteda{60}
+
+itemize
+item::[例]$z=x^2+5y^3$の全微分
+%[2,-]::item::[解]$\dpar{z}{x}=2x$
+%[3,-]::item::[]\ \ $\dpar{z}{y}=15y^2$
+%[4,-]::item::[]\ \  $dz=2x\,dx+15y^2\,dy$
+%[5,-]::item::[課題]\monban 次の関数の全微分を求めよ．\\
+%[5,-]::\eda{$z=2x+y$}
+%[5,-]::\eda{$z=xy$}
+end

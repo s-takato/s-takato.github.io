@@ -1,0 +1,74 @@
+Copycombinedata():=Copycombinedata(0,"");
+Copycombinedata(Arg):=(
+  if(isreal(Arg),
+    Copycombinedata(Arg,"")
+  ,
+    Copycombinedata(0,Arg)
+  );;
+);
+Copycombinedata(ow,dirdist):=(
+  regional(dir,date,fL,fr,to,stno,stL,dtL,
+       st,fid,tmp,tmp1,tmp2,flg);
+  //global Dirdata,dispL
+  // ow: overwriteflg
+  dir=Dirdata+"/card";
+  stL=[];
+  fL=Filelist(dir);
+  fL=select(fL,indexof(#,"st")*indexof(#,"task")>0);
+  fL=sort(fL);
+  date="";
+  if(length(fL)>0,
+    tmp=indexof(fL_1,"task");
+    date=substring(fL_1,tmp+3,tmp+7);
+  );
+  stL=[];
+  forall(fL,
+    tmp=indexof(#,"task");
+    if(tmp>0,
+      tmp=substring(#,0,tmp-1);
+      stL=append(stL,tmp);
+    );
+  );
+  stL=set(stL);
+  stL=apply(stL,replace(#,"st",""));
+  stL=sort(stL);
+  dtL=[];
+  forall(stL,st,
+    tmp1=select(fL,indexof(#,"st"+st)==1);
+    tmp1=sort(tmp1);
+    tmp2=[];
+    forall(tmp1,
+      tmp=Readlines(dir,#);
+      tmp=append(tmp,"");
+      tmp2=concat(tmp2,tmp);
+    );
+    dtL=append(dtL,tmp2);
+  );
+  setdirectory(dir);
+  forall(1..(length(stL)),tmp1,
+    tmp=date+"total"+"st"+stL_tmp1+".txt";
+    tmp2=(ow==1)%(!isexists(dir,tmp));
+    if(tmp2,
+      fid=openfile(tmp);
+      tmp=dtL_tmp1;
+      forall(tmp,
+        println(fid,#);
+      );
+      closefile(fid);
+    );
+  );
+  if(length(dirdist)>0,
+    forall(1..(length(stL)),tmp1,
+      setdirectory(dirdist+"/"+stL_tmp1);
+      tmp=date+"total"+"st"+stL_tmp1+".txt";
+      fid=openfile(tmp);
+      tmp=dtL_tmp1;
+      forall(tmp,
+        println(fid,#);
+      );
+      closefile(fid);
+    );
+  );
+  setdirectory(Dirwork);
+  [date,dtL];
+);

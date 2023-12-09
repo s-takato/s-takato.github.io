@@ -1,0 +1,16 @@
+Q070407
+微分せよ
+[1] y=sin(x)cos(x)
+[2] y=sin(2,x)=sin(x)sin(x)
+[3] y=xtan(x)
+[4] y=tan(x)-x
+Sheet
+[1] y'= ::2
+[2] y'= ::2
+[3] y'= ::2
+[4] y'= ::2
+Ans
+[1] y'=cos(2,x)-sin(2,x)
+[2] y'=2sin(x)cos(x)
+[3] y'=tan(x)+fr(x,cos(2,x))
+[4] y'=fr(1,cos(2,x))-1=fr(sin(2,x),cos(2,x))

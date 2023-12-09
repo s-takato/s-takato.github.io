@@ -1,0 +1,10 @@
+NIL
+(%i3) powerdisp:false
+(%i4) display2d:false
+(%i5) linel:1000
+(%i6) dtLL:[[],[no,na,ns,(i*n*t*((5/4)*%pi,%pi/4,sin(x)-cos(x),x))/(sqrt(2)+1)],[no,na,ns,na],[],[],[no,na,ns,(i*n*t*(%pi/4,(5/4)*%pi,sin(x)-cos(x),x))/(sqrt(2)+1)],[],[no,(-2,1)/(%pi/4,(5*%pi)/4),ns,(9/2)/(sqrt(2)+1)],[],[],[no,na,ns,(i*n*t*(%pi/4,(5/4)*%pi,sin(x)-cos(x),x))/(sqrt(2)+1)],[no,na,ns,(2*sqrt(2))/(sqrt(2)+1)],[],[],[],[]]
+(%i7) res:ratsimp(dtLL)
+(%i8) disp(res)
+[[],[no,na,ns,(i*n*t*x)/(sqrt(2)+1)],[no,na,ns,na],[],[],[no,na,ns,(i*n*t*x)/(sqrt(2)+1)],[],[no,4/(5*%pi),ns,9/(2^(3/2)+2)],[],[],[no,na,ns,(i*n*t*x)/(sqrt(2)+1)],[no,na,ns,2^(3/2)/(sqrt(2)+1)],[],[],[],[]]
+
+(%i9) closefile()

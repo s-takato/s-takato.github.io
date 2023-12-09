@@ -1,0 +1,461 @@
+Title::slide0
+::\newcommand{\hiduke}{0425}
+::\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+::\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+::\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+::\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+::\def\rad{\;\mathrm{rad}}
+::\def\deg#1{#1^{\circ}}
+::\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+::\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+
+
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+%\putnotee{122}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+
+\newcounter{ban}
+\setcounter{ban}{1}
+
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+%\addtocounter{ban}{1}%
+}
+
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%%210614
+}
+
+\newcounter{edawidth}
+\newcounter{edactr}
+
+\newcommand{\seteda}[1]{
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+
+\newcommand{\eda}[2][\theedawidth ]{%
+\noindent\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+
+%%%%%%%%%%%%
+main::2次関数と方程式(復習+）
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::2次関数のグラフ
+%repeat=10
+\slidepage
+
+layer::{120}{0}
+%[2]::putnote::se{90}{0}::presen22103-1.1,0.7
+%[3,-]::putnote::se{90}{0}::presen22103-1.2,0.7
+end
+
+enumerate::[(1)]
+item::$y=a(x-b)^2+c$\\
+%[2,-]::　・$y=ax^2$のグラフと形は同じ\\
+%[3,-]::　・$x$方向に$b$，$y$方向に$c$平行移動\\
+%[4,-]::　・頂点は $(b,\ c)$\vspace{-2mm}
+%[5,-]::item::$y=ax^2+bx+c$\\
+%[6,-]::　・(1)の形に変形（平方完成)\\
+%[7,-]::　・例）$y=x^2+4x+1$\\
+%[8]::　　　　$\phantom{y}=(x^2+4x+4)-4+1$\\
+%[9,-]::　　　　$\phantom{y}=(x^2+4x+4)-4+1=(x+2)^2-3$\\
+%[10,-]::　　　　頂点は $(-2,-3)$
+end
+
+%%%%%%%%%%%%
+new::2次方程式の解
+%repeat=3
+\slidepage
+
+layer::{120}{0}
+%[2,-]::putnote::se{90}{0}::presen22103-2,0.7
+end
+
+itemize
+item::方程式$ax^2+bx+c=0$の解は\\
+%[2,-]::　$y=ax^2+bx+c$のグラフと\\
+%[2,-]::　$x$軸との交点の$x$座標
+%[3,-]::item::[課題]\monbannoadd グラフをかき，\\
+%[3,-]::\phantom{\monban}方程式の解を求めよ\seteda{110}\\
+%[3,-]::\eda{$y=x^2-2x-3,\ x^2-2x-3=0$}\\
+%[3,-]::\eda{$y=2x^2+7x-4,\ 2x^2+7x-4=0$}
+end
+
+
+%%%%%%%%%%%%
+new::解の公式1
+%repeat=5
+\slidepage
+
+itemize
+item::$x^2+2ax+b=0$
+%[2,-]::\\$(x+a)^2-a^2+b=0$
+%[3,-]::\\$(x+a)^2=a^2-b$
+%[4,-]::\\$x+a=\pm \sqrt{a^2-b}$
+%[5,-]::\vspace{2mm}\\よって　\fbox{\color{red}$x=-a\pm \sqrt{a^2-b}$}
+end
+
+%%%%%%%%%%%%
+new::解の公式2
+%repeat=5
+\slidepage
+
+itemize
+item::2次方程式$ax^2+bx+c=0$の解\vspace{1mm}\\
+\hspace*{3zw}\fbox{$x=\bunsuu{-b\pm\sqrt{b^2-4ac}}{2a}$}\vspace{-2mm}
+%[2,-]::item::[]例）$2x^2-5x+1=0$\\
+%[3,-]::\hspace*{3zw}$x=\bunsuu{5\pm \sqrt{5^2-4\cdot 2\cdot1}}{2\cdot 2}$
+%[4,-]::$=\bunsuu{5\pm \sqrt{17}}{4}$\vspace{-2mm}
+%[5,-]::item::[課題] \monban 次の2次方程式を解け．\hfill Text P.74\seteda{55}\\
+%[5,-]::\eda{$2x^2+2x-3=0$}\eda{$3x^2+5x+1=0$}\\
+%[5,-]::\eda{$2x^2+x-2=0$}\eda{$x^2+3x+1=0$}
+end
+
+%%%%%%%%%%%%
+main::三角比
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::三平方の定理
+%repeat=4
+\slidepage
+
+layer::{120}{0}
+putnote::ne{90}{35}::presen10310303
+%[3,-]::putnote::ne{10}{70}::presen10310304a
+%[3,-]::putnote::ne{50}{70}::presen10310304b
+%[3,-]::putnote::se{95}{35}::presen10310304c
+%[4,-]::putnote::se{95}{35}::presen10310304d
+end
+
+itemize
+item::角$C$が直角の直角三角形$\triangle\mathrm{ABC}$
+item::$\mathrm{BC}=a,\ \mathrm{CA}=b,\ \mathrm{AB}=c$とおく
+%[2,-]::item::[]\hspace*{0.5zw}$\Longrightarrow$\ \fbox{$a^2+b^2=c^2$}
+%[3,-]::item::[課題]\monbannoadd 次の$a,\ b,\ c$を求めよ\\
+%[3,-]::\Ltab{40mm}{(1)}\Ltab{40mm}{(2)}\Ltab{40mm}{(3)}
+end
+
+%[4]::\addban
+
+%%%%%%%%%%%%
+new::鋭角の三角比
+%repeat=4
+\slidepage
+
+layer::{120}{0}
+putnote::se{65}{-60}::sankakuhidef
+%[2,-]::\putnotese{65}{34}{\color{red}比だから大きさによらない}
+%[3,-]::\putnotese{70}{41}{\color{red}角$\theta$だけで決まる}
+end
+
+itemize
+item::[]$\cos\theta=\bunsuu{\mbox{底辺}}{\mbox{斜辺}}$
+item::[]$\sin\theta=\bunsuu{\mbox{高さ}}{\mbox{斜辺}}$
+item::[]$\tan\theta=\bunsuu{\mbox{高さ}}{\mbox{底辺}}$
+%[4,-]::item::[課題 ]\monban 次の三角比を求めよ．\seteda{38}\\
+%[4,-]::\hfill（前ページの図またはText P.105を用いよ）\\
+%[4,-]::\eda{$\cos\deg{30}$}\eda{$\sin\deg{45}$}\eda{$\tan\deg{60}$}
+end
+
+%%%%%%%%%%%%
+new::練習(鋭角の三角比)
+%%repeat=4
+\slidepage
+
+itemize
+item::[課題]\monban 図の三角形について次を求めよ．\seteda{38}\\
+\eda{$x\degree$}\eda{辺AC}\eda{辺AB}\\
+\eda{$\tan x$}\eda{$\cos x$}\eda{$\sin x$}\\
+\eda{$\tan 59\degree$}\eda{$\cos 59\degree$}\eda{$\sin 59\degree$}
+
+end
+
+%%%%%%%%%%%%
+new::三角比の拡張１
+%repeat=2
+\slidepage
+
+enumerate::[(1)]
+item::$0^{\circ}$
+item::$90^{\circ}$
+item::鈍角($\deg{90}<\theta<\deg{180}$
+%[2,-]::item::[課題]\monban 「鈍角等の三角比」で三角比がどうなるかを考えよ
+end
+
+%%%%%%%%%%%%
+new::鈍角等の三角比
+%repeat=3
+\slidepage
+
+layer::{120}{0}
+putnote::se{80}{15}::trigratiodonkakudef,0.5
+end
+
+itemize
+item::{\color{red}鈍角のとき，$\theta$を1つの角とする直角三角形ができない}
+%[2,-]::item::座標軸をおく
+%[2,-]::item::頂点Pの座標を$(x,y)$とする
+%[2,-]::item::$\mbox{斜辺}=\mathrm{OP},\mbox{底辺}=x,\mbox{高さ}=y$\vspace{1mm}\\
+%[3,-]::　$\cos\theta=\bunsuu{x}{\mathrm{OP}},\ \sin\theta=\bunsuu{y}{\mathrm{OP}},\ \tan\theta=\bunsuu{y}{x}$
+end
+
+%%%%%%%%%%%%
+new::$\deg{0}$の三角比
+%repeat=4
+\slidepage
+
+layer::{120}{0}
+\putnotese{55}{10}{\includegraphics[bb=0.00 0.00 757.00 419.00,width=70mm]{fig/trig0.pdf}}
+end
+
+itemize
+%[1]::item::[]$\cos\deg{0}=$
+%[2,-]::item::[]$\cos\deg{0}=1$
+%[1,2]::item::[]$\sin\deg{0}=$
+%[3,-]::item::[]$\sin\deg{0}=0$
+%[1,2,3]::item::[]$\tan\deg{0}=$
+%[4,-]::item::[]$\tan\deg{0}=0$
+end
+
+%%%%%%%%%%%%
+new::$\deg{90}$の三角比
+%repeat=4
+\slidepage
+
+layer::{120}{0}
+\putnotese{55}{10}{\includegraphics[bb=0.00 0.00 757.00 419.00,width=70mm]{fig/trig90.pdf}}
+end
+
+itemize
+%[1]::item::[]$\cos\deg{90}=$
+%[2,-]::item::[]$\cos\deg{90}=0$
+%[1,2]::item::[]$\sin\deg{90}=$
+%[3,-]::item::[]$\sin\deg{90}=1$
+%[1,2,3]::item::[]$\tan\deg{90}=$
+%[4,-]::item::[]$\tan\deg{90}=\mbox{値がない}$
+end
+
+%%%%%%%%%%%%
+new::鈍角の三角比の符号
+%repeat=4
+\slidepage
+
+layer::{120}{0}
+\putnotese{55}{10}{\includegraphics[bb=0.00 0.00 757.00 419.00,width=70mm]{fig/trigobtuse.pdf}}
+end
+
+itemize
+%[1]::item::[]$\cos$は
+%[2,-]::item::[]$\cos$は$-$
+%[1,2]::item::[]$\sin$は
+%[3,-]::item::[]$\sin$は$+$
+%[1,2,3]::item::[]$\tan$は
+%[4,-]::item::[]$\tan$は$-$
+end
+
+%%%%%%%%%%%%
+new::三角比の相互関係
+%repeat=7
+\slidepage
+
+layer::{120}{0}
+%[5,-]::\putnotee{60}{40}{\color{red}$\bigl(\cos(\theta)\bigr)^2$を$\cos^2 \theta$と書く}
+putnote::se{80}{6}::presen10310305
+end
+
+itemize
+item::[(1)\ ]$\tan\theta=\bunsuu{\sin\theta}{\cos\theta}$
+%[2,-]::item::[\color{blue}証)]{\color{blue}$\tan\theta=\bunsuu{y}{x}=\bunsuu{\frac{y}{\mathrm{OP}}}{\frac{x}{\mathrm{OP}}}$}
+%[3,-]::{\color{blue}$=\bunsuu{\sin\theta}{\cos\theta}$}
+%[4,-]::item::[(2)\ ]$\cos^2\theta+\sin^2\theta=1$
+%[6,-]::item::[\color{blue}証)]{\color{blue}$\cos^2\theta+\sin^2\theta=\bunsuu{x^2}{\mathrm{OP}^2}+\bunsuu{y^2}{\mathrm{OP}^2}$}
+%[7,-]::{\color{blue}$=\bunsuu{x^2+y^2}{\mathrm{OP^2}}=1$}
+end
+
+%%%%%%%%%%%%
+new::課題(三角比の相互関係)
+%%repeat=1
+\slidepage
+
+\vspace{4mm}
+...
+
+itemize
+item::[課題]\monban $\cos\theta=\bunsuu{1}{3}$のとき，$\sin\theta$を求めよ．ただし，$\theta$は鋭角とする\hfill TextP107
+item::[課題]\monban $\sin\theta=\bunsuu{2}{3}$とする．次の場合のそれぞれについて$\cos\theta$を求めよ\vspace{2mm}\seteda{55}\\
+\eda{$\theta$が鋭角のとき}\eda{$\theta$が鈍角のとき}
+end
+
+%%%%%%%%%%%%
+main::一般角
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::一般角
+%repeat=3
+\slidepage
+
+layer::{120}{0}
+%[2]::putnote::se{78}{17}::generalangle200
+%[3]::putnote::se{78}{17}::generalanglen30
+end
+
+itemize
+item::これまで，角$\theta$は2つの線分の間の角だった\\
+\hspace*{2zw}$0^{\circ} \leqq \theta \leqq 360^{\circ}$
+%[2,-]::item::角を回転を表す量とすると\\
+%[2,-]::$\theta$はどんな実数でもよい．
+%[2,-]::itemize
+%[2,-]::item::[$\cdot$]$x$軸を始線とする
+%[2,-]::item::[$\cdot$]$\theta >0^{\circ}$のとき，反時計回り
+%[3,-]::item::[$\cdot$]$\theta<0^{\circ}$のとき，時計回り
+%[2,-]::end
+end
+
+%%%%%%%%%%%%
+new::一般角
+%repeat=2
+\slidepage
+
+layer::{120}{0}
+%[2,-]::putnote::se{85}{20}::presen103xy,0.7
+%[2,-]::\putnotec{115}{30}{\normalsize\color{red}第１象限}
+%[2,-]::\putnotec{95}{30}{\normalsize\color{red}第２象限}
+%[2,-]::\putnotec{95}{52}{\normalsize\color{red}第３象限}
+%[2,-]::\putnotec{115}{52}{\normalsize\color{red}第４象限}
+end
+
+\vspace*{5mm}
+...
+\noindent
+HTML「一般角」で一般角を見てみよう
+
+%[2]::itemize
+%[2]::item::[課題]\monban 次の角は第何象限にあるか．\seteda{40}\\
+%[2]::\eda{$\deg{400}$}\eda{$\deg{600}$}\\
+%[2]::\eda{$\deg{-500}$}\eda{$\deg{-700}$}
+%[2]::end
+
+
+%%%%%%%%%%%%
+new::一般角の三角比
+%repeat=4
+\slidepage
+
+layer::{120}{0}
+%[2]::putnote::se{75}{17}::generalangle240
+%[3,-]::putnote::se{75}{17}::generalanglen30
+end
+
+itemize
+item::座標を使う（鈍角の場合と同じ）\vspace{-1mm}
+%[2]::item::[例]$\theta=240^{\circ}$\\
+%[3,-]::item::[例]$\theta=-30^{\circ}$\\
+%[2,-]::\hspace*{1zw}$\cos\theta=$\\
+%[2,-]::\hspace*{1zw}$\sin\theta=$\\
+%[2,-]::\hspace*{1zw}$\tan\theta=$\vspace{-1mm}
+%[4,-]::item::[課題]\monban 次の値を求めよ．\seteda{35}\\
+%[4,-]::\eda{$\cos 240\degree$}\eda{$\sin 240\degree$}\\
+%[4,-]::\eda{$\sin(-30\degree)$}\eda{$\tan(-30\degree)$}
+end
+
+%[4]::\ifnum 1=0
+
+%%%%%%%%%%%%
+main::弧度法（radian）
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::角度の測り方1
+%repeat=5
+\slidepage
+
+layer::{120}{0}
+%[1]::putnote::se{90}{10}::kakudo60
+%[2]::putnote::se{90}{10}::kakudo360
+%[3]::putnote::se{90}{10}::kakudo180
+%[4,-]::putnote::se{90}{10}::kakudo001
+end
+
+\noindent
+度　${}^{\circ}$\vspace{-1mm}
+
+itemize
+%thin[2,-]::item::１周を$360^{\circ}$とする
+%thin[3,-]::item::半周は$180^{\circ}$とする
+%thin[4,-]::item::一周の$\bunsuu{1}{360}$を$1^{\circ}$とする
+%thin[5,-]::item::数学的な意味は余りない
+%thin[5,-]::item::日常的には使いやすい
+end
+
+%%%%%%%%%%%%
+new::角度の測り方2（弧度法）
+%repeat=5,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{87}{10}::radian
+end
+
+itemize
+%thin[1,-]::item::弧の長さ$\ell$と半径$r$の比\ $\theta(\rad)=\bunsuu{\ell}{r}$\vspace{-1mm}
+%thin[2,-]::item::半径$r$の円周は$2\pi r$だから\\
+%thin[2,-]::　$\mbox{1周の角}(360^{\circ})=\bunsuu{2\pi r}{r}=2\pi$
+%thin[3,-]::item::$\mbox{半周の角}(180^{\circ})=\pi$
+%thin[4,-]::item::比なので単位はない（$\sin$などと同じ）\\
+%thin[5,-]::　度と区別するときは，ラジアン(rad)を付ける
+end
+
+%%%%%%%%%%%%
+new::弧度法による角度の例
+%repeat=7
+\slidepage
+
+itemize
+%[1]::item::$\deg{60}$は$\deg{180}$の\phantom{$\bunsuu{1}{3}$}，したがって　$\deg{60}=\phantom{\bunsuu{\pi}{3}}$
+%[2]::item::$\deg{90}$は$\deg{180}$の$\bunsuu{1}{2}$，したがって　$\deg{90}=\phantom{\bunsuu{\pi}{2}}$
+%[3,-]::item::$\deg{90}$は$\deg{180}$の$\bunsuu{1}{2}$，したがって　$\deg{90}=\bunsuu{\pi}{2}$
+%[4]::item::$\deg{60}$は$\deg{180}$の\phantom{$\bunsuu{1}{3}$}，したがって　$\deg{60}=\phantom{\bunsuu{\pi}{3}}$
+%[5]::item::$\deg{60}$は$\deg{180}$の$\bunsuu{1}{3}$，したがって　$\deg{60}=\phantom{\bunsuu{\pi}{3}}$
+%[6,-]::item::$\deg{60}$は$\deg{180}$の$\bunsuu{1}{3}$，したがって　$\deg{60}=\bunsuu{\pi}{3}$
+%[7,-]::item::[課題]\monban $\deg{30},\ \deg{45},\ \deg{120}$はそれぞれ何ラジアンか
+end
+
+%%%%%%%%%%%%
+new::換算式
+%repeat=3
+\slidepage
+
+itemize
+item::[]1つの角度について，$\deg{x}=y$ラジアンとする
+%thin[2,-]::item::[]次の比例関係が成り立つ\vspace{2mm}\\
+%thin[2,-]::\hspace*{4zw}$\bunsuu{y}{\pi}=\bunsuu{x}{180}$
+%thin[3,-]::item::[]これから　\fbox{$y=\bunsuu{\pi}{180}\;x$}（ラジアンを求める式）
+%thin[3,-]::item::[]　　　　　\fbox{$x=\bunsuu{180}{\pi}\;y$}（度を求める式）
+end
+
+%[3]::\fi

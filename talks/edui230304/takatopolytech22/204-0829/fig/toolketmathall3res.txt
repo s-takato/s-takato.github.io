@@ -1,0 +1,10 @@
+NIL
+(%i3) powerdisp:false
+(%i4) display2d:false
+(%i5) linel:1000
+(%i6) dtLL:[[no,(1-sin(x))/(1-sin(x)),1/(sin(x)+x*cos(x)),((-4)*cos(x))/(4*cos(4*x))],[no,(1+sin(x))/(1-sin(x)),na,(4*cos(4*x))/(4*cos(4*x))],[no,(1-sin(x))/(1-sin(x)),(x*cos(x)+sin(x))/(sin(x)+x*cos(x)),(4*sin(4*x))/(4*cos(4*x))],[no,(1-sin(x))/(1-sin(x)),cos(x)/(sin(x)+x*cos(x)),(5*cos(x))/(4*cos(4*x))],[],[no,(1-sin(x))/(1-sin(x)),(sin(x)+x*cos(x))/(sin(x)+x*cos(x)),(4*cos(4*x))/(4*cos(4*x))],[no,(1-sin(x))/(1-sin(x)),(x*cos(x)+sin(x))/(sin(x)+x*cos(x)),(4*cos(4*x))/(4*cos(4*x))],[],[no,(1-sin(x))/(1-sin(x)),cos(x)/(sin(x)+x*cos(x)),cos(4*x)/(4*cos(4*x))],[no,(1-sin(x))/(1-sin(x)),(1*cos(x))/(sin(x)+x*cos(x)),cos(4*x)/(4*cos(4*x))],[no,((1/2)*x^2-sin(x))/(1-sin(x)),(sin(x)-x*cos(x)+c)/(sin(x)+x*cos(x)),(4*cos(4*x)+c)/(4*cos(4*x))],[no,(1-s*i*n*x)/(1-sin(x)),cos(x)/(sin(x)+x*cos(x)),(2*cos(2*x))/(4*cos(4*x))],[],[],[],[]]
+(%i7) res:ratsimp(dtLL)
+(%i8) disp(res)
+[[no,1,1/(sin(x)+x*cos(x)),-cos(x)/cos(4*x)],[no,-(sin(x)+1)/(sin(x)-1),na,1],[no,1,1,sin(4*x)/cos(4*x)],[no,1,cos(x)/(sin(x)+x*cos(x)),(5*cos(x))/(4*cos(4*x))],[],[no,1,1,1],[no,1,1,1],[],[no,1,cos(x)/(sin(x)+x*cos(x)),1/4],[no,1,cos(x)/(sin(x)+x*cos(x)),1/4],[no,(2*sin(x)-x^2)/(2*sin(x)-2),(sin(x)-x*cos(x)+c)/(sin(x)+x*cos(x)),(4*cos(4*x)+c)/(4*cos(4*x))],[no,(i*n*s*x-1)/(sin(x)-1),cos(x)/(sin(x)+x*cos(x)),cos(2*x)/(2*cos(4*x))],[],[],[],[]]
+
+(%i9) closefile()

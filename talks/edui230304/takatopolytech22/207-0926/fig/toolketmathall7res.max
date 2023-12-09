@@ -1,0 +1,9 @@
+writefile("/Users/takatoosetsuo/polytech22.git/207-0926/fig/toolketmathall7res.txt")$/*##*/
+powerdisp:false$/*##*/
+display2d:false$/*##*/
+linel:1000$/*##*/
+dtLL:[[],[no,na,ns,(i*n*t*((5)/(4)*%pi,(%pi)/(4),sin(x)-cos(x),x))/(sqrt(2)+1)],[no,na,ns,na],[],[],[no,na,ns,(i*n*t*((%pi)/(4),(5)/(4)*%pi,sin(x)-cos(x),x))/(sqrt(2)+1)],[],[no,(-2,1)/((%pi)/(4),(5*%pi)/(4)),ns,((9)/(2))/(sqrt(2)+1)],[],[],[no,na,ns,(i*n*t*((%pi)/(4),(5)/(4)*%pi,sin(x)-cos(x),x))/(sqrt(2)+1)],[no,na,ns,(2*sqrt(2))/(sqrt(2)+1)],[],[],[],[]]$/*##*/
+res:ratsimp(dtLL)$/*##*/
+disp(res)$/*##*/
+closefile()$/*##*/
+quit()$/*##*/

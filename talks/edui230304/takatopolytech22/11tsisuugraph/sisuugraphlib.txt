@@ -1,0 +1,261 @@
+////%Ketinit start////
+Ketinit():=Ketinit("fig",0.3); //190831from
+Ketinit(Arg):=(//181001from
+  if(isstring(Arg),
+    Ketinit(Arg,0.3);
+  ,
+    Ketinit("fig",Arg);
+  );
+);
+Ketinit(work,strictsep):=( //200509
+//help:Ketinit();
+//help:Ketinit("");
+//help:Ketinit(0.3); //190831
+ regional(pt,tmp,tmp1,tmp2,letterc,boxc,shadowc,mboxc);
+  PenThickInit=8;
+  ULEN="1cm";
+  MEMORI=0.05;//18.01.15from
+  MEMORIInit=MEMORI;
+  MEMORINow=MEMORI;
+  MARKLEN=0.05;
+  MARKLENInit=MARKLEN; //180504
+  MARKLENNow= MARKLEN;
+  GENTEN=[0,0];//18.01.15to
+  TABLECOUNT=0; //190428
+  KETPICLAYER=20;
+  MilliIn=1/2.54*1000;
+  PenThick=round(MilliIn*0.02);
+  PenThickInit=PenThick;
+  TenSizeInit=0.02;
+  TenSize=TenSizeInit;
+  YaSize=1; YaAngle=18; YaPosition=1;
+  YaCut=0.2; //191203
+  YasenStyle="dr,1"; Yajiristyle="tf";
+  KETPICCOUNT=1;
+  KCOLOR=[0,0,0,1]; //200513,200618
+  GLIST=[]; //201005rechanged
+  GCLIST=[]; //201005rechanged
+  AddGraphList=[]; //210422[2lines]
+  PointDataList=[];
+//  GDATALIST=[]; //no ketjs on
+  GOUTLIST=[];
+  POUTLIST=[]; // no ketjs off
+  if(!islist(VLISTadd),VLIST=[],VLIST=VLISTadd); //200123
+  if(!islist(FUNLISTadd),FUNLIST=[],FUNLIST=FUNLISTadd); //200123
+  LETTERlist=[];
+  if(!islist(COM0thlistadd),COM0thlist=[],COM0thlist=COM0thlistadd); // no ketjs on
+  if(!islist(COM1stlistadd),COM1stlist=[],COM1stlist=COM1stlistadd); 
+  if(!islist(COM2ndlistadd),COM2ndlist=[],COM2ndlist=COM2ndlistadd); // no ketjs off
+  ADDAXES="1";
+  AXSTYLE=[["l","x","e","y","n","O","sw","","",""],[]]; //190901
+  AXCOUNT=1; //181215
+  SHADECTR=1; //190222
+  LFmark=unicode("000a"); Bs=unicode("005c");
+  CRmark=unicode("000d");//16.12.13
+  Dq=unicode("0022");
+  CommonMake=0;//180610 //no ketjs on
+  WaitUnit=10;
+  CONTINUED=0;
+  PTSHADElist=[]; //200513
+  OutComList=[];
+  OutFileLIst=[];   // 15.10.22
+  FigPdfList=[];  // 16.04.08 //no ketjs off
+  Fillstore(); // no ketjs //181212
+  ADDPACK=[]; // 16.05.16 //no ketjs on
+  if(!isstring(GPACK),GPACK="tpic",Usegraphics(GPACK)); //180817//191002
+  ErrFlag=0;
+  KETJSOP=[]; //190129
+//  KETJSOP=["Web=y"]; WebMode=0; //200516,0526
+  JSBODY=[[],[]]; JSMAIN=[]; //190916,200119
+  REMOVEPTJS=[]; SLIDEFLG="Y"; //190504
+//  MOVETOJSLIST=[]; //190802
+//  KetcindyjsDataList=[]; //190801
+//  setdirectory(Dirwork);
+  if(!isstring(Fhead),  // 17.10.13from, 17.11.12
+    Fhead=text(curkernel());
+    Fhead=replace(Fhead,".cdy","");
+    Slidename=Fhead; //17.10.24
+  );//17.11.12
+  Dircdy=replace(Dircdy,"%E3%80%80",unicode("3000"));//190416
+//  Dircdy=replace(Dircdy,"%20"," ");//210308
+  Namecdy=Cindyname();//180608
+  tmp1=Indexall(Dircdy,"%"); //180329from
+  if(length(tmp1)>0,
+    tmp1=append(tmp1,length(Dircdy));
+    tmp2=substring(Dircdy,0,tmp1_1-1);
+    forall(1..(length(tmp1)-1),
+      tmp=substring(Dircdy,tmp1_#,tmp1_#+2);
+      tmp2=tmp2+unicode(tmp);
+      tmp2=tmp2+substring(Dircdy,tmp1_#+2,tmp1_(#+1)-1);
+    );
+    Dircdy=tmp2;
+  ); //180329to
+  if(iswindows(),  //17.12.01
+    Dircdy=replace(Dircdy,"/",pathsep());
+    if(substring(Dircdy,0,1)==pathsep(),
+      Dircdy=substring(Dircdy,1,length(Dircdy));
+    );
+  );
+  Userhome=Homehead+pathsep()+getname(); //190128
+  if(iswindows(),
+    Batparent="\kc.bat";
+  ,
+    if(ismacosx(), //181125from
+      Shellparent="/kc.command"; 
+      Mackc="open"; //190222
+    ,
+      Shellparent="/kc.sh"; 
+      Mackc="bash"; //190222
+    );  //181125to
+  );
+  Changework(Dircdy+pathsep()+work); //180329to,181001
+  if(iswindows(), // no ketjs on  //210412from
+    if(indexof(Dirwork,"-")>0,
+      drawtext([SW.x,NE.y],"Remove minus(-) in your pathname",color->[1,0,0],size->20);
+      println("   Remove minus(-) in your pathname");
+    );
+  );  // no ketjs off //2104126to
+  Fnametex=Fhead+".tex";
+  FnameR=Fhead+".r";
+  FnamebodyR=Fhead+"body.r";
+  Fnameout=Fhead+".txt";  // 17.10.13to
+// no ketjs off 190122
+  ArrowlineNumber=1;  // 15.01.05
+  ArrowheadNumber=1;
+  BezierNumber=1; //15.01.03
+  SCALEX=1;
+  SCALEY=1;
+  XMIN=-5;
+  XMAX=5;
+  YMIN=-5;
+  YMAX=5;
+  StrictSep=strictsep; //190831
+  Setwindow("Msg=n"); // 16.05.31
+  forall(remove(allpoints(),[SW,NE]),
+    Strictmove(#.name);
+    Ptpos(#,#.xy); //200529
+  ); //190917
+// no ketjs on 190122
+  // for Presentation
+  letterc=[0.98,0.13,0,0.43]; boxc=[0.2,0,0,0];//190307 [0,0.32,0.52,0];
+  shadowc=[0,0,0,0.5]; mboxc="yellow"; //17.03.02 regional debugged
+  SlideColorList=[letterc,boxc,boxc,boxc,shadowc,shadowc,6,1.3,
+                letterc,mboxc,mboxc,mboxc,62,2,letterc];
+  SlideMargin=[0,0]; //180908
+  ThinDense=0.1;//17.01.08
+  if(indexof(PathT,"pdflatex")+indexof(PathT,"lualatex")>0,
+    LibnameS=replace(LibnameS,"ketpic","ketpic2e");
+  );//17.12.03until
+// no ketjs off 190122
+);
+////%Ketinit end////
+
+////%Windispg start////
+Windispg():=(
+  if(ADDAXES=="1", //181215from
+    Drwxy();
+    ADDAXES="0";
+  ); //181215to
+  Windispg(GCLIST); //190125
+);
+Windispg(gcLorg):=( //190125
+  regional(gcL,Nj,Nk,Dt,Vj,tmp,tmp1,tmp2,tmp3,tmp4,typeL,opcindy,flg);
+  gcL=gcLorg; //190125from
+  if(length(gcL)>0,
+    if(!islist(gcL_1),gcL=[gcL]);
+  ); //190125to
+  gcL=select(gcL,#_2_1>=0); //190818
+  gsave();
+  layer(KETPIClayer);
+  forall(gcL,Nj,
+    flg=0;
+    if(isstring(Nj_1),
+      if(Nj_2_1>4, //200716from
+        parse(Nj_1);
+        flg=1; 
+      ,
+        Dt=parse(Nj_1);
+      );  //200716to
+    ,
+      Dt=Nj_1
+    );  // 11.17
+    if((flg==0)&(islist(Dt))&(length(Dt)>0),  // 12.19,12.22,200716
+      tmp=Measuredepth(Dt);
+      if(tmp==1,Dt=[Dt]);
+      opcindy=Nj_3;
+      typeL=Nj_2; //200620from
+      if(isstring(typeL_2),tmp=tokenize(typeL_2,","),tmp=[typeL_2]); //200623
+      typeL=prepend(typeL_1,tmp); //200620from
+      if(typeL_1<0,typeL_1=0);
+      tmp1=typeL_1;
+      if(tmp1<10,
+        forall(Dt,Nk,
+          if(length(Nk)>1,
+            tmp3="";
+            if(indexof(opcindy,"color")==0, //190122from
+              tmp=Colorcmyk2rgb(KCOLOR); //200513[2lines]
+              tmp3=tmp3+",linecolor->"+text(tmp);
+            );
+            tmp3=tmp3+opcindy;
+            if(tmp1==0,  //190126from
+              if(indexof(opcindy,"size")==0, 
+                tmp3=tmp3+",size->"+text(typeL_2);
+              ); //190124to
+              tmp="connect("+Textformat(Nk,10)+tmp3+");";//190125
+              parse(tmp);
+            );
+            if((tmp1==1)%(tmp1==2),
+              tmp4=Dashlinedata(Nk,typeL_2,typeL_3,0); //no ketjs on
+              forall(tmp4,
+                tmp="connect("+Textformat(#,10)+tmp3+");";
+                parse(tmp);
+              ); //no ketjs off
+//              if(length(typeL)<4,typeL=append(typeL,1)); //only ketjs on
+//              if(typeL_(-1)!=1,
+//                tmp="linesize("+text(typeL_4)+")";
+//                parse(tmp);
+//              );
+//              tmp3=",dashtype->1"+tmp3;
+//              forall(1..(length(Nk)-1),
+//                tmp="draw("+Textformat([Nk_#,Nk_(#+1)],10)+tmp3+");";
+//                parse(tmp);
+//              );
+//              if(typeL_(-1)!=1,
+//                tmp="linesize(1)";
+//                parse(tmp);
+//              );  //only ketjs off
+            );
+            if(tmp1==3,
+              if(typeL_3!=1,
+                tmp="linesize("+text(typeL_3)+")";
+                parse(tmp);
+              );
+              tmp3=",dashtype->3"+tmp3;
+              forall(1..(length(Nk)-1),
+                tmp="draw("+Textformat([Nk_#,Nk_(#+1)],10)+tmp3+");";
+                parse(tmp);
+              );
+              if(typeL_3!=1,
+                tmp="linesize(1)";
+                parse(tmp);
+              );
+            );
+          ,
+            if(indexof(opcindy,"size")==0,  //190425from
+              opcindy=opcindy+",size->"+text(TenSize/TenSizeInit);
+            ); //190425to
+            tmp="draw("+text(Nk_1)+opcindy+");"; 
+            parse(tmp);
+           ); //190126to
+        );
+      );
+    );
+  );
+  forall(PTSHADElist, //200519from
+    parse(#_2);
+  ); //200519to
+
+  grestore(); 
+  layer(0);
+);
+////%Windispg end////

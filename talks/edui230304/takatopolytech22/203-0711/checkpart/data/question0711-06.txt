@@ -1,0 +1,26 @@
+Q6 4
+sin(x),cos(x)の微分公式を書け
+[1] (sin(x))'=
+[2] (cos(x))'=
+Sheet
+[1] (sin(x))'=  ::2
+[2] (cos(x))'=  ::2
+Ans
+[1] cos(x)
+[2] -sin(x) 
+
+Q7 4
+{\cos^2x}の意味は次のどれか
+[] 1 cos(x^2)　2 (cos(x))^2　3 (cos)^2x
+Sheet
+[] 番号=  ::4
+Ans
+[] 2
+
+Q8 4
+tan(x)の微分公式を書け
+[] (tan(x))'=
+Sheet
+[]  (tan(x))'=  ::4::-1
+Ans
+[] fr(1,cos(2,x))

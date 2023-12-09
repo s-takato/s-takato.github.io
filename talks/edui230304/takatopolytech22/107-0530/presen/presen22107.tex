@@ -1,0 +1,3718 @@
+%%% Title presen22107
+\documentclass[landscape,10pt]{ujarticle}
+\special{papersize=\the\paperwidth,\the\paperheight}
+\usepackage{ketpic,ketlayer}
+\usepackage{ketslide}
+\usepackage{amsmath,amssymb}
+\usepackage{bm,enumerate}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{color}
+\definecolor{slidecolora}{cmyk}{0.98,0.13,0,0.43}
+\definecolor{slidecolorb}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolorc}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolord}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolore}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolorf}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolori}{cmyk}{0.98,0.13,0,0.43}
+\def\setthin#1{\def\thin{#1}}
+\setthin{0}
+\newcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+\putnotee{122}{-\theketpicctra.05}{\small\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+\usepackage{emath}
+\usepackage{emathEy}
+\usepackage{emathMw}
+\usepackage{pict2e}
+\usepackage{ketlayermorewith2e}
+\usepackage[dvipdfmx,colorlinks=true,linkcolor=blue,filecolor=blue]{hyperref}
+\newcommand{\hiduke}{0530}
+\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+\def\rad{\;\mathrm{rad}}
+\def\deg#1{#1^{\circ}}
+\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+\def\dlim{\displaystyle\lim}
+\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+\newcommand{\sfrac}[3][0.65]{\scalebox{#1}{$\frac{#2}{#3}$}}
+\newcommand{\phn}[1]{\phantom{#1}}
+\newcommand{\scb}[2][0.6]{\scalebox{#1}{#2}}
+\newcommand{\dsum}{\displaystyle\sum}
+
+\setmargin{25}{145}{15}{100}
+
+\ketslideinit
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{layer}{120}{0}
+\putnotese{0}{0}{\input{fig/slide0.tex}}
+\end{layer}
+
+\def\mainslidetitley{22}
+\def\ketcletter{slidecolora}
+\def\ketcbox{slidecolorb}
+\def\ketdbox{slidecolorc}
+\def\ketcframe{slidecolord}
+\def\ketcshadow{slidecolore}
+\def\ketdshadow{slidecolorf}
+\def\slidetitlex{6}
+\def\slidetitlesize{1.3}
+\def\mketcletter{slidecolori}
+\def\mketcbox{yellow}
+\def\mketdbox{yellow}
+\def\mketcframe{yellow}
+\def\mslidetitlex{62}
+\def\mslidetitlesize{2}
+
+\color{black}
+\Large\bf\boldmath
+\addtocounter{page}{-1}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+\begin{layer}{118}{0}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+}
+\newcounter{ban}
+\setcounter{ban}{1}
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+}
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%%210614
+}
+\newcounter{edawidth}
+\newcounter{edactr}
+\newcommand{\seteda}[1]{
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+\newcommand{\eda}[2][\theedawidth ]{%
+\noindent\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\mainslide{指数対数（復習＋）}
+
+
+\slidepage[m]
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{指数関数$y=a^x$}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+$a$は正の定数\vspace{-1mm}
+\item
+任意の実数$x$について$a^x$が定まる.\\
+\hspace*{1zw}$a^0=\phn{1},\ a^{-n}=\phn{\bunsuu{1}{a^n}},\ a^{\frac{n}{m}}=\phn{\sqrt[m]{a^n}}$
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+$a$は正の定数\vspace{-1mm}
+\item
+任意の実数$x$について$a^x$が定まる.\\
+\hspace*{1zw}$a^0=1,\ a^{-n}=\phn{\bunsuu{1}{a^n}},\ a^{\frac{n}{m}}=\phn{\sqrt[m]{a^n}}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+$a$は正の定数\vspace{-1mm}
+\item
+任意の実数$x$について$a^x$が定まる.\\
+\hspace*{1zw}$a^0=1,\ a^{-n}=\bunsuu{1}{a^n},\ a^{\frac{n}{m}}=\phn{\sqrt[m]{a^n}}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+$a$は正の定数\vspace{-1mm}
+\item
+任意の実数$x$について$a^x$が定まる.\\
+\hspace*{1zw}$a^0=1,\ a^{-n}=\bunsuu{1}{a^n},\ a^{\frac{n}{m}}=\sqrt[m]{a^n}$\vspace{-1mm}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+$a$は正の定数\vspace{-1mm}
+\item
+任意の実数$x$について$a^x$が定まる.\\
+\hspace*{1zw}$a^0=1,\ a^{-n}=\bunsuu{1}{a^n},\ a^{\frac{n}{m}}=\sqrt[m]{a^n}$\vspace{-1mm}
+\item
+指数法則\\
+(1)\ $a^p a^{q}=a^{p+q}$\\
+(2)\ $(a^p)^{q}=a^{pq}$\\
+(3)\ $(ab)^p=a^p b^p$\vspace{-1mm}
+\item
+$y=a^x$のグラフ
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{30}{\scalebox{0.7}{\input{fig/fig220530_1.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+$a$は正の定数\vspace{-1mm}
+\item
+任意の実数$x$について$a^x$が定まる.\\
+\hspace*{1zw}$a^0=1,\ a^{-n}=\bunsuu{1}{a^n},\ a^{\frac{n}{m}}=\sqrt[m]{a^n}$\vspace{-1mm}
+\item
+指数法則\\
+(1)\ $a^p a^{q}=a^{p+q}$\\
+(2)\ $(a^p)^{q}=a^{pq}$\\
+(3)\ $(ab)^p=a^p b^p$\vspace{-1mm}
+\item
+$y=a^x$のグラフ
+\end{itemize}
+
+\mainslide{対数関数}
+
+
+\slidepage[m]
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{対数の定義}
+
+\vspace*{18mm}
+
+\hypertarget{para1pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para0pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/10}
+\end{layer}
+
+\slidepage
+%%\noindent
+%%$a$は1でない正の定数とする
+\begin{itemize}
+\item
+$y=\log_a x$\\
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x$\\
+\hspace*{4zw}$a$を{\color{red}底}，$x$を{\color{red}真数}\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x$\\
+\hspace*{4zw}$a$を{\color{red}底}，$x$を{\color{red}真数}\\
+\hspace*{4zw}$y$を$a$を底とする$x$の{\color{red}対数}という．
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x$\\
+\hspace*{4zw}$a$を{\color{red}底}，$x$を{\color{red}真数}\\
+\hspace*{4zw}$y$を$a$を底とする$x$の{\color{red}対数}という．
+\item
+対数$y$は，$a$を何乗したら$x$になるかという数\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x$\\
+\hspace*{4zw}$a$を{\color{red}底}，$x$を{\color{red}真数}\\
+\hspace*{4zw}$y$を$a$を底とする$x$の{\color{red}対数}という．
+\item
+対数$y$は，$a$を何乗したら$x$になるかという数\\
+\hspace*{4zw}$a^{\fbox{\phantom{$y$}}}=x$となる\;\fbox{\phantom{$\mathstrut y$}}\;のこと
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x$\\
+\hspace*{4zw}$a$を{\color{red}底}，$x$を{\color{red}真数}\\
+\hspace*{4zw}$y$を$a$を底とする$x$の{\color{red}対数}という．
+\item
+対数$y$は，$a$を何乗したら$x$になるかという数\\
+\hspace*{4zw}$a^{\fbox{$y$}}=x$となる\;\fbox{$\mathstrut y$}\;のこと
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x$\\
+\hspace*{4zw}$a$を{\color{red}底}，$x$を{\color{red}真数}\\
+\hspace*{4zw}$y$を$a$を底とする$x$の{\color{red}対数}という．
+\item
+対数$y$は，$a$を何乗したら$x$になるかという数\\
+\hspace*{4zw}$a^{\fbox{$y$}}=x$となる\;\fbox{$\mathstrut y$}\;のこと
+\item
+[例)]$y=\log_3 9$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg8}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x$\\
+\hspace*{4zw}$a$を{\color{red}底}，$x$を{\color{red}真数}\\
+\hspace*{4zw}$y$を$a$を底とする$x$の{\color{red}対数}という．
+\item
+対数$y$は，$a$を何乗したら$x$になるかという数\\
+\hspace*{4zw}$a^{\fbox{$y$}}=x$となる\;\fbox{$\mathstrut y$}\;のこと
+\item
+[例)]$y=\log_3 9$\\
+\hspace*{1zw}$3^{\fbox{$y$}}=9$となる$y$のこと\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg9}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 9/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x$\\
+\hspace*{4zw}$a$を{\color{red}底}，$x$を{\color{red}真数}\\
+\hspace*{4zw}$y$を$a$を底とする$x$の{\color{red}対数}という．
+\item
+対数$y$は，$a$を何乗したら$x$になるかという数\\
+\hspace*{4zw}$a^{\fbox{$y$}}=x$となる\;\fbox{$\mathstrut y$}\;のこと
+\item
+[例)]$y=\log_3 9$\\
+\hspace*{1zw}$3^{\fbox{$y$}}=9$となる$y$のこと\\
+\hspace*{1zw}$3^2=9$だから
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg10}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 10/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x$\\
+\hspace*{4zw}$a$を{\color{red}底}，$x$を{\color{red}真数}\\
+\hspace*{4zw}$y$を$a$を底とする$x$の{\color{red}対数}という．
+\item
+対数$y$は，$a$を何乗したら$x$になるかという数\\
+\hspace*{4zw}$a^{\fbox{$y$}}=x$となる\;\fbox{$\mathstrut y$}\;のこと
+\item
+[例)]$y=\log_3 9$\\
+\hspace*{1zw}$3^{\fbox{$y$}}=9$となる$y$のこと\\
+\hspace*{1zw}$3^2=9$だから
+\hspace*{1zw}$y=\log_3 9=2$
+\end{itemize}
+
+\newslide{対数の値と対数法則}
+
+\vspace*{18mm}
+
+\hypertarget{para2pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/6}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x \Longleftrightarrow a^y=x$
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para2pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/6}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x \Longleftrightarrow a^y=x$
+\item
+[(例)]$y=\log_2 16$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para2pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/6}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x \Longleftrightarrow a^y=x$
+\item
+[(例)]$y=\log_2 16$
+$\Longleftrightarrow 2^y=16$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para2pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/6}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x \Longleftrightarrow a^y=x$
+\item
+[(例)]$y=\log_2 16$
+$\Longleftrightarrow 2^y=16$
+$=2^4$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para2pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/6}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x \Longleftrightarrow a^y=x$
+\item
+[(例)]$y=\log_2 16$
+$\Longleftrightarrow 2^y=16$
+$=2^4$\\
+ $y=4$となるから　$\log_2 16=4$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para2pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/6}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x \Longleftrightarrow a^y=x$
+\item
+[(例)]$y=\log_2 16$
+$\Longleftrightarrow 2^y=16$
+$=2^4$\\
+ $y=4$となるから　$\log_2 16=4$
+\item
+対数法則\\
+(1)\ $\log_a b+\log_a c=\log_a(bc)$\\
+(2)\ $\log_a b-\log_a c=\log_a\bunsuu{\ b\ }{c}$\\
+(3)\ $\log_a b^{\,p}=p\log_a b$
+\end{itemize}
+
+\newslide{対数の計算}
+
+\vspace*{18mm}
+
+\hypertarget{para3pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/12}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(1)]$\log_{10} 5+\log_{10} 2$
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/12}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(1)]$\log_{10} 5+\log_{10} 2$
+\item
+[]与式$=\log_{10}(5\times 2)$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/12}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(1)]$\log_{10} 5+\log_{10} 2$
+\item
+[]与式$=\log_{10}(5\times 2)$
+$=\log_{10} 10$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/12}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(1)]$\log_{10} 5+\log_{10} 2$
+\item
+[]与式$=\log_{10}(5\times 2)$
+$=\log_{10} 10$
+$=1$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/12}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(1)]$\log_{10} 5+\log_{10} 2$
+\item
+[]与式$=\log_{10}(5\times 2)$
+$=\log_{10} 10$
+$=1$
+\item
+[(2)]$\log_2 12-\log_2 3$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/12}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(1)]$\log_{10} 5+\log_{10} 2$
+\item
+[]与式$=\log_{10}(5\times 2)$
+$=\log_{10} 10$
+$=1$
+\item
+[(2)]$\log_2 12-\log_2 3$
+\item
+[]与式$=\log_2(\bunsuu{12}{3})$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/12}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(1)]$\log_{10} 5+\log_{10} 2$
+\item
+[]与式$=\log_{10}(5\times 2)$
+$=\log_{10} 10$
+$=1$
+\item
+[(2)]$\log_2 12-\log_2 3$
+\item
+[]与式$=\log_2(\bunsuu{12}{3})$
+$=\log_2 4$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg8}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/12}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(1)]$\log_{10} 5+\log_{10} 2$
+\item
+[]与式$=\log_{10}(5\times 2)$
+$=\log_{10} 10$
+$=1$
+\item
+[(2)]$\log_2 12-\log_2 3$
+\item
+[]与式$=\log_2(\bunsuu{12}{3})$
+$=\log_2 4$
+$=2$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg9}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg10}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 9/12}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(1)]$\log_{10} 5+\log_{10} 2$
+\item
+[]与式$=\log_{10}(5\times 2)$
+$=\log_{10} 10$
+$=1$
+\item
+[(2)]$\log_2 12-\log_2 3$
+\item
+[]与式$=\log_2(\bunsuu{12}{3})$
+$=\log_2 4$
+$=2$
+\item
+[(3)]$2\log_3 4+\log_3 4-\log_3 8$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg10}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg11}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 10/12}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(1)]$\log_{10} 5+\log_{10} 2$
+\item
+[]与式$=\log_{10}(5\times 2)$
+$=\log_{10} 10$
+$=1$
+\item
+[(2)]$\log_2 12-\log_2 3$
+\item
+[]与式$=\log_2(\bunsuu{12}{3})$
+$=\log_2 4$
+$=2$
+\item
+[(3)]$2\log_3 4+\log_3 4-\log_3 8$
+\item
+[]与式$=\log_3 4^2+\log_3 4-\log_3 8$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg11}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg10}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 11/12}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(1)]$\log_{10} 5+\log_{10} 2$
+\item
+[]与式$=\log_{10}(5\times 2)$
+$=\log_{10} 10$
+$=1$
+\item
+[(2)]$\log_2 12-\log_2 3$
+\item
+[]与式$=\log_2(\bunsuu{12}{3})$
+$=\log_2 4$
+$=2$
+\item
+[(3)]$2\log_3 4+\log_3 4-\log_3 8$
+\item
+[]与式$=\log_3 4^2+\log_3 4-\log_3 8$\\
+\phantom{与式}$=\log_3 \frac{16\times 4}{8}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg12}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg11}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 12/12}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(1)]$\log_{10} 5+\log_{10} 2$
+\item
+[]与式$=\log_{10}(5\times 2)$
+$=\log_{10} 10$
+$=1$
+\item
+[(2)]$\log_2 12-\log_2 3$
+\item
+[]与式$=\log_2(\bunsuu{12}{3})$
+$=\log_2 4$
+$=2$
+\item
+[(3)]$2\log_3 4+\log_3 4-\log_3 8$
+\item
+[]与式$=\log_3 4^2+\log_3 4-\log_3 8$\\
+\phantom{与式}$=\log_3 \frac{16\times 4}{8}$
+$=\log_3 8$
+\end{itemize}
+
+\newslide{底・真数・対数の条件}
+
+\vspace*{18mm}
+
+\hypertarget{para4pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x \Longleftrightarrow a^y=x$
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x \Longleftrightarrow a^y=x$
+\item
+$\log_a 1=\phn{0},\ \log_a a=\phn{1}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x \Longleftrightarrow a^y=x$
+\item
+$\log_a 1=0,\ \log_a a=\phn{1}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x \Longleftrightarrow a^y=x$
+\item
+$\log_a 1=0,\ \log_a a=1$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x \Longleftrightarrow a^y=x$
+\item
+$\log_a 1=0,\ \log_a a=1$
+\item
+底$a$の条件は　\phn{$a>0,a\neqq 1$}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x \Longleftrightarrow a^y=x$
+\item
+$\log_a 1=0,\ \log_a a=1$
+\item
+底$a$の条件は　$a>0,a\neqq 1$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x \Longleftrightarrow a^y=x$
+\item
+$\log_a 1=0,\ \log_a a=1$
+\item
+底$a$の条件は　$a>0,a\neqq 1$
+\item
+真数$x$の条件は　\phn{$x>0$}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg8}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x \Longleftrightarrow a^y=x$
+\item
+$\log_a 1=0,\ \log_a a=1$
+\item
+底$a$の条件は　$a>0,a\neqq 1$
+\item
+真数$x$の条件は　$x>0$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg9}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 9/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x \Longleftrightarrow a^y=x$
+\item
+$\log_a 1=0,\ \log_a a=1$
+\item
+底$a$の条件は　$a>0,a\neqq 1$
+\item
+真数$x$の条件は　$x>0$
+\item
+対数$y=\log_a x$の範囲は　\phn{実数全部}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg10}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg12}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 10/10}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x \Longleftrightarrow a^y=x$
+\item
+$\log_a 1=0,\ \log_a a=1$
+\item
+底$a$の条件は　$a>0,a\neqq 1$
+\item
+真数$x$の条件は　$x>0$
+\item
+対数$y=\log_a x$の値の範囲は　実数全部
+\end{itemize}
+
+\newslide{対数関数のグラフ}
+
+\vspace*{18mm}
+
+\hypertarget{para5pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para5pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para5pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/5}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x\Longleftrightarrow a^y=x\ (x=a^y)$
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para5pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para5pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para5pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/5}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x\Longleftrightarrow a^y=x\ (x=a^y)$
+\item
+$x$と$y$を入れ替えれば$y=a^x$のグラフになる．
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para5pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para5pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para5pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/5}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x\Longleftrightarrow a^y=x\ (x=a^y)$
+\item
+$x$と$y$を入れ替えれば$y=a^x$のグラフになる．
+\item
+アプリ「%
+\href{https://s-takato.github.io/polytech22/}{指数と対数}」を動かしてみよう
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para5pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para5pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para5pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para5pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/5}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x\Longleftrightarrow a^y=x\ (x=a^y)$
+\item
+$x$と$y$を入れ替えれば$y=a^x$のグラフになる．
+\item
+アプリ「%
+\href{https://s-takato.github.io/polytech22/}{指数と対数}」を動かしてみよう
+\item
+$y=\log_a x$と$y=a^x$のグラフは\\　直線$y=x$に関して（\phn{{\color{red}対称}}）
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para5pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para4pg10}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para5pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para5pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/5}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\log_a x\Longleftrightarrow a^y=x\ (x=a^y)$
+\item
+$x$と$y$を入れ替えれば$y=a^x$のグラフになる．
+\item
+アプリ「%
+\href{https://s-takato.github.io/polytech22/}{指数と対数}」を動かしてみよう
+\item
+$y=\log_a x$と$y=a^x$のグラフは\\　直線$y=x$に関して（{\color{red}対称}）
+\end{itemize}
+
+\newslide{指数対数の課題}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+[課題]\monban 指数対数の値を求めよ．
+\item
+[課題]\monban 計算せよ．
+\item
+[課題]\monban 指数対数のグラフについて答えよ．
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\newslide{底の変換公式}
+
+\vspace*{18mm}
+
+\hypertarget{para6pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para6pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para6pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/6}
+\end{layer}
+
+\slidepage
+{\color{blue}
+
+\begin{layer}{120}{0}
+\end{layer}
+
+}
+\noindent
+底を$a$から別の$c$に変える公式\vspace{2mm}\\
+\hspace*{20mm}\fbox{$\log_a b=\bunsuu{\log_c b}{\log_c a}$}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para6pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para6pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para6pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/6}
+\end{layer}
+
+\slidepage
+{\color{blue}
+
+\begin{layer}{120}{0}
+\putnotee{65}{18}{\normalsize$\log_2 3=\bunsuu{\log_{10} 3}{\log_{10}2}$}
+\end{layer}
+
+}
+\noindent
+底を$a$から別の$c$に変える公式\vspace{2mm}\\
+\hspace*{20mm}\fbox{$\log_a b=\bunsuu{\log_c b}{\log_c a}$}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para6pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para6pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para6pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para6pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/6}
+\end{layer}
+
+\slidepage
+{\color{blue}
+
+\begin{layer}{120}{0}
+\putnotee{65}{18}{\normalsize$\log_2 3=\bunsuu{\log_{10} 3}{\log_{10}2}$}
+\end{layer}
+
+}
+\noindent
+底を$a$から別の$c$に変える公式\vspace{2mm}\\
+\hspace*{20mm}\fbox{$\log_a b=\bunsuu{\log_c b}{\log_c a}$}
+\begin{itemize}
+\item
+[例)]$\log_3 8$を底が$2$の対数に変える\vspace{-2mm}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para6pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para6pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para6pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/6}
+\end{layer}
+
+\slidepage
+{\color{blue}
+
+\begin{layer}{120}{0}
+\putnotee{65}{18}{\normalsize$\log_2 3=\bunsuu{\log_{10} 3}{\log_{10}2}$}
+\end{layer}
+
+}
+\noindent
+底を$a$から別の$c$に変える公式\vspace{2mm}\\
+\hspace*{20mm}\fbox{$\log_a b=\bunsuu{\log_c b}{\log_c a}$}
+\begin{itemize}
+\item
+[例)]$\log_3 8$を底が$2$の対数に変える\vspace{-2mm}
+\item
+[]　$\log_3 8=\bunsuu{\log_2\hakom{8}}{\log_2\hakom{3}}$\vspace{-2mm}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para6pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para6pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para6pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para6pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/6}
+\end{layer}
+
+\slidepage
+{\color{blue}
+
+\begin{layer}{120}{0}
+\putnotee{65}{18}{\normalsize$\log_2 3=\bunsuu{\log_{10} 3}{\log_{10}2}$}
+\end{layer}
+
+}
+\noindent
+底を$a$から別の$c$に変える公式\vspace{2mm}\\
+\hspace*{20mm}\fbox{$\log_a b=\bunsuu{\log_c b}{\log_c a}$}
+\begin{itemize}
+\item
+[例)]$\log_3 8$を底が$2$の対数に変える\vspace{-2mm}
+\item
+[]　$\log_3 8=\bunsuu{\log_2\hakoma{8}}{\log_2\hakoma{3}}$\vspace{-2mm}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para6pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para6pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para6pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/6}
+\end{layer}
+
+\slidepage
+{\color{blue}
+
+\begin{layer}{120}{0}
+\putnotee{65}{18}{\normalsize$\log_2 3=\bunsuu{\log_{10} 3}{\log_{10}2}$}
+\end{layer}
+
+}
+\noindent
+底を$a$から別の$c$に変える公式\vspace{2mm}\\
+\hspace*{20mm}\fbox{$\log_a b=\bunsuu{\log_c b}{\log_c a}$}
+\begin{itemize}
+\item
+[例)]$\log_3 8$を底が$2$の対数に変える\vspace{-2mm}
+\item
+[]　$\log_3 8=\bunsuu{\log_2\hakoma{8}}{\log_2\hakoma{3}}$\vspace{-2mm}
+\item
+[課題]\monban 底を変換して計算せよ\hfill Text P193問1\seteda{35}\\
+\eda{$\log_4 32$}\eda{$\log_9 3$}\eda{$\log_3 2 \log_2 27$}\\
+\eda{$\log_a b\times \log_b a$}
+\end{itemize}
+
+\newslide{常用対数}
+
+\vspace*{18mm}
+
+\hypertarget{para7pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para6pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para6pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para7pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para7pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/4}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+底が$10$の対数　$\log_{10}x$
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para7pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para6pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para7pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/4}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+底が$10$の対数　$\log_{10}x$
+\item
+数値計算ではよく用いられる（対数表，関数電卓）
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para7pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para6pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para7pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para7pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para7pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/4}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+底が$10$の対数　$\log_{10}x$
+\item
+数値計算ではよく用いられる（対数表，関数電卓）
+\item
+$\log_{10}2=0.3010,\ \log_{10}3=0.4771$（近似値）
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para7pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para6pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para7pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para7pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/4}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+底が$10$の対数　$\log_{10}x$
+\item
+数値計算ではよく用いられる（対数表，関数電卓）
+\item
+$\log_{10}2=0.3010,\ \log_{10}3=0.4771$（近似値）
+\item
+[課題]\monban $\log_{10}2=0.301,\ \log_{10}3=0.477$を用いて求めよ\seteda{32}\\
+\eda{$\log_{10}4$}\eda{$\log_{10}6$}\eda{$\log_{10}5$}\eda{$\log_{10}8$}
+\end{itemize}
+
+\newslide{常用対数と桁数}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$100000$の桁数は　\hako{6桁}
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$100000$の桁数は　\hakoa{6桁}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$100000$の桁数は　\hakoa{6桁}
+\item
+$100000=10\cdot 10\cdot 10\cdot 10\cdot 10\cdot 10=10^5$より\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$100000$の桁数は　\hakoa{6桁}
+\item
+$100000=10\cdot 10\cdot 10\cdot 10\cdot 10\cdot 10=10^5$より\\
+\hspace*{1zw}$\log_{10}100000=\log_{10}10^5$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$100000$の桁数は　\hakoa{6桁}
+\item
+$100000=10\cdot 10\cdot 10\cdot 10\cdot 10\cdot 10=10^5$より\\
+\hspace*{1zw}$\log_{10}100000=\log_{10}10^5$
+$=5\log_{10}10=5$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$100000$の桁数は　\hakoa{6桁}
+\item
+$100000=10\cdot 10\cdot 10\cdot 10\cdot 10\cdot 10=10^5$より\\
+\hspace*{1zw}$\log_{10}100000=\log_{10}10^5$
+$=5\log_{10}10=5$
+\item
+常用対数と桁数
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$100000$の桁数は　\hakoa{6桁}
+\item
+$100000=10\cdot 10\cdot 10\cdot 10\cdot 10\cdot 10=10^5$より\\
+\hspace*{1zw}$\log_{10}100000=\log_{10}10^5$
+$=5\log_{10}10=5$
+\item
+常用対数と桁数　\fbox{\color{red}桁数$=$常用対数の整数部分$+1$}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$100000$の桁数は　\hakoa{6桁}
+\item
+$100000=10\cdot 10\cdot 10\cdot 10\cdot 10\cdot 10=10^5$より\\
+\hspace*{1zw}$\log_{10}100000=\log_{10}10^5$
+$=5\log_{10}10=5$
+\item
+常用対数と桁数　\fbox{\color{red}桁数$=$常用対数の整数部分$+1$}
+\item
+[例)]$2^{100}$の桁数\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$100000$の桁数は　\hakoa{6桁}
+\item
+$100000=10\cdot 10\cdot 10\cdot 10\cdot 10\cdot 10=10^5$より\\
+\hspace*{1zw}$\log_{10}100000=\log_{10}10^5$
+$=5\log_{10}10=5$
+\item
+常用対数と桁数　\fbox{\color{red}桁数$=$常用対数の整数部分$+1$}
+\item
+[例)]$2^{100}$の桁数\\
+$\log_{10}2^{100}=100\log_{10}2$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$100000$の桁数は　\hakoa{6桁}
+\item
+$100000=10\cdot 10\cdot 10\cdot 10\cdot 10\cdot 10=10^5$より\\
+\hspace*{1zw}$\log_{10}100000=\log_{10}10^5$
+$=5\log_{10}10=5$
+\item
+常用対数と桁数　\fbox{\color{red}桁数$=$常用対数の整数部分$+1$}
+\item
+[例)]$2^{100}$の桁数\\
+$\log_{10}2^{100}=100\log_{10}2$
+$=100\times 0.3010=30.10$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$100000$の桁数は　\hakoa{6桁}
+\item
+$100000=10\cdot 10\cdot 10\cdot 10\cdot 10\cdot 10=10^5$より\\
+\hspace*{1zw}$\log_{10}100000=\log_{10}10^5$
+$=5\log_{10}10=5$
+\item
+常用対数と桁数　\fbox{\color{red}桁数$=$常用対数の整数部分$+1$}
+\item
+[例)]$2^{100}$の桁数\\
+$\log_{10}2^{100}=100\log_{10}2$
+$=100\times 0.3010=30.10$
+\\　よって　31桁
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$100000$の桁数は　\hakoa{6桁}
+\item
+$100000=10\cdot 10\cdot 10\cdot 10\cdot 10\cdot 10=10^5$より\\
+\hspace*{1zw}$\log_{10}100000=\log_{10}10^5$
+$=5\log_{10}10=5$
+\item
+常用対数と桁数　\fbox{\color{red}桁数$=$常用対数の整数部分$+1$}
+\item
+[例)]$2^{100}$の桁数\\
+$\log_{10}2^{100}=100\log_{10}2$
+$=100\times 0.3010=30.10$
+\\　よって　31桁
+\item
+[課題]\monban $3^{30}$の桁数を求めよ\hfill Text P196問2
+\end{itemize}
+
+\newslide{自然対数}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+もう1つ，数学では大切な{\color{red}自然対数}がある．
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+もう1つ，数学では大切な{\color{red}自然対数}がある．
+\item
+ネイピアの定数$e$を底とする対数\\
+\hspace*{2zw}$e=2.718281828$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+もう1つ，数学では大切な{\color{red}自然対数}がある．
+\item
+ネイピアの定数$e$を底とする対数\\
+\hspace*{2zw}$e=2.718281828$
+\item
+自然対数と常用対数の変換\\
+\hspace*{2zw}$\log_e 10=\dfrac{\log_{10}{10}}{\log_{10}e}=\dfrac{1}{\log_{10}e}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+もう1つ，数学では大切な{\color{red}自然対数}がある．
+\item
+ネイピアの定数$e$を底とする対数\\
+\hspace*{2zw}$e=2.718281828$
+\item
+自然対数と常用対数の変換\\
+\hspace*{2zw}$\log_e 10=\dfrac{\log_{10}{10}}{\log_{10}e}=\dfrac{1}{\log_{10}e}$
+\item
+詳しくは，微分のときに説明する
+\end{itemize}
+
+\mainslide{数列}
+
+
+\slidepage[m]
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{数列とは}
+
+\vspace*{18mm}
+
+\hypertarget{para8pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para7pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para7pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/7}
+\end{layer}
+
+\slidepage
+{\color{blue}
+
+\begin{layer}{120}{0}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+数の列\\
+　$a_1,\ a_2,\ \cdots$
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para7pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/7}
+\end{layer}
+
+\slidepage
+{\color{blue}
+
+\begin{layer}{120}{0}
+\putnotee{60}{15}{KeTMath　a\_n}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+数の列\\
+　$a_1,\ a_2,\ \cdots$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para7pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/7}
+\end{layer}
+
+\slidepage
+{\color{blue}
+
+\begin{layer}{120}{0}
+\putnotee{60}{15}{KeTMath　a\_n}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+数の列\\
+　$a_1,\ a_2,\ \cdots$
+\item
+ここでは規則的に並んだ数列とする\\
+　$1,\ 3,\ 5,\ 7,\ \hakom{9},\ \hakom{11},\ \cdots$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para7pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/7}
+\end{layer}
+
+\slidepage
+{\color{blue}
+
+\begin{layer}{120}{0}
+\putnotee{60}{15}{KeTMath　a\_n}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+数の列\\
+　$a_1,\ a_2,\ \cdots$
+\item
+ここでは規則的に並んだ数列とする\\
+　$1,\ 3,\ 5,\ 7,\ \hakoma{9},\ \hakom{11},\ \cdots$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para7pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/7}
+\end{layer}
+
+\slidepage
+{\color{blue}
+
+\begin{layer}{120}{0}
+\putnotee{60}{15}{KeTMath　a\_n}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+数の列\\
+　$a_1,\ a_2,\ \cdots$
+\item
+ここでは規則的に並んだ数列とする\\
+　$1,\ 3,\ 5,\ 7,\ \hakoma{9},\ \hakoma{11},\ \cdots$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para7pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/7}
+\end{layer}
+
+\slidepage
+{\color{blue}
+
+\begin{layer}{120}{0}
+\putnotee{60}{15}{KeTMath　a\_n}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+数の列\\
+　$a_1,\ a_2,\ \cdots$
+\item
+ここでは規則的に並んだ数列とする\\
+　$1,\ 3,\ 5,\ 7,\ \hakoma{9},\ \hakoma{11},\ \cdots$
+\item
+最初の項を{\color{red}初項}という
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para7pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/7}
+\end{layer}
+
+\slidepage
+{\color{blue}
+
+\begin{layer}{120}{0}
+\putnotee{60}{15}{KeTMath　a\_n}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+数の列\\
+　$a_1,\ a_2,\ \cdots$
+\item
+ここでは規則的に並んだ数列とする\\
+　$1,\ 3,\ 5,\ 7,\ \hakoma{9},\ \hakoma{11},\ \cdots$
+\item
+最初の項を{\color{red}初項}という
+\item
+最後の項（{\color{red}末項}）があるとき，項の数を{\color{red}項数}という
+\end{itemize}
+
+\newslide{数列の一般項}
+
+\vspace*{18mm}
+
+\hypertarget{para9pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para9pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/6}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$n$を正の整数とするとき，第$n$項を表す式を{\color{red}一般項}
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para9pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para9pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/6}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$n$を正の整数とするとき，第$n$項を表す式を{\color{red}一般項}
+\item
+[例1)]$2,\ 3,\ 4,\ \cdots$\\
+　一般項（第$n$項）は\ \hakom{n+1}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para9pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para9pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para9pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/6}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$n$を正の整数とするとき，第$n$項を表す式を{\color{red}一般項}
+\item
+[例1)]$2,\ 3,\ 4,\ \cdots$\\
+　一般項（第$n$項）は\ \hakoma{n+1}\vspace{-2mm}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para9pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para9pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/6}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$n$を正の整数とするとき，第$n$項を表す式を{\color{red}一般項}
+\item
+[例1)]$2,\ 3,\ 4,\ \cdots$\\
+　一般項（第$n$項）は\ \hakoma{n+1}\vspace{-2mm}
+\item
+[例2)]$2,\ 4,\ 8,\ \cdots$\\
+　一般項（第$n$項）は\ \hakom{2^n}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para9pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para9pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/6}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$n$を正の整数とするとき，第$n$項を表す式を{\color{red}一般項}
+\item
+[例1)]$2,\ 3,\ 4,\ \cdots$\\
+　一般項（第$n$項）は\ \hakoma{n+1}\vspace{-2mm}
+\item
+[例2)]$2,\ 4,\ 8,\ \cdots$\\
+　一般項（第$n$項）は\ \hakoma{2^n}\vspace{-2mm}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para9pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/6}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$n$を正の整数とするとき，第$n$項を表す式を{\color{red}一般項}
+\item
+[例1)]$2,\ 3,\ 4,\ \cdots$\\
+　一般項（第$n$項）は\ \hakoma{n+1}\vspace{-2mm}
+\item
+[例2)]$2,\ 4,\ 8,\ \cdots$\\
+　一般項（第$n$項）は\ \hakoma{2^n}\vspace{-2mm}
+\item
+[課題]\monban 次を求めよ\hfill TextP200問1,問2\seteda{100}\\
+\eda{一般項が$a_n=2^n$のとき，$a_1$から$a_5$までの値}\\
+\eda{数列$\bunsuu{1}{2},\bunsuu{2}{3},\bunsuu{3}{4},\bunsuu{4}{5},\cdots$の一般項$a_n$}
+\end{itemize}
+
+\newslide{交互に符号が変わる数列の一般項}
+
+\vspace*{18mm}
+
+\hypertarget{para10pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para10pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$-1,\ 1,\ -1,\ 1,\ \cdots$\ の一般項は\ \hakom{(-1)^n}
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para10pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para10pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$-1,\ 1,\ -1,\ 1,\ \cdots$\ の一般項は\ \hakoma{(-1)^n}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para10pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para10pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para10pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$-1,\ 1,\ -1,\ 1,\ \cdots$\ の一般項は\ \hakoma{(-1)^n}
+\item
+$1,\ -1,\ 1,\ -1,\ \cdots$\ の一般項は\ \hakom{(-1)^{n-1}}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para10pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para10pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para10pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$-1,\ 1,\ -1,\ 1,\ \cdots$\ の一般項は\ \hakoma{(-1)^n}
+\item
+$1,\ -1,\ 1,\ -1,\ \cdots$\ の一般項は\ \hakoma{(-1)^{n-1}}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para10pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para10pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para10pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$-1,\ 1,\ -1,\ 1,\ \cdots$\ の一般項は\ \hakoma{(-1)^n}
+\item
+$1,\ -1,\ 1,\ -1,\ \cdots$\ の一般項は\ \hakoma{(-1)^{n-1}}
+\item
+$1,\ -2,\ 3,\ -4,\ \cdots$\ の一般項は\ \hakom{(-1)^{n-1}n}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para10pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para10pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para10pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$-1,\ 1,\ -1,\ 1,\ \cdots$\ の一般項は\ \hakoma{(-1)^n}
+\item
+$1,\ -1,\ 1,\ -1,\ \cdots$\ の一般項は\ \hakoma{(-1)^{n-1}}
+\item
+$1,\ -2,\ 3,\ -4,\ \cdots$\ の一般項は\ \hakoma{(-1)^{n-1}n}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para10pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para10pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para10pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$-1,\ 1,\ -1,\ 1,\ \cdots$\ の一般項は\ \hakoma{(-1)^n}
+\item
+$1,\ -1,\ 1,\ -1,\ \cdots$\ の一般項は\ \hakoma{(-1)^{n-1}}
+\item
+$1,\ -2,\ 3,\ -4,\ \cdots$\ の一般項は\ \hakoma{(-1)^{n-1}n}
+\item
+$2,\ 0,\ 2,\ 0,\ \cdots$\ の一般項は\ \hakom{(-1)^{n-1}+1}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para10pg8}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para10pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$-1,\ 1,\ -1,\ 1,\ \cdots$\ の一般項は\ \hakoma{(-1)^n}
+\item
+$1,\ -1,\ 1,\ -1,\ \cdots$\ の一般項は\ \hakoma{(-1)^{n-1}}
+\item
+$1,\ -2,\ 3,\ -4,\ \cdots$\ の一般項は\ \hakoma{(-1)^{n-1}n}
+\item
+$2,\ 0,\ 2,\ 0,\ \cdots$\ の一般項は\ \hakoma{(-1)^{n-1}+1}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para10pg9}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para9pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para10pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 9/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$-1,\ 1,\ -1,\ 1,\ \cdots$\ の一般項は\ \hakoma{(-1)^n}
+\item
+$1,\ -1,\ 1,\ -1,\ \cdots$\ の一般項は\ \hakoma{(-1)^{n-1}}
+\item
+$1,\ -2,\ 3,\ -4,\ \cdots$\ の一般項は\ \hakoma{(-1)^{n-1}n}
+\item
+$2,\ 0,\ 2,\ 0,\ \cdots$\ の一般項は\ \hakoma{(-1)^{n-1}+1}
+\item
+[課題]\monban 次の数列の一般項はどうなるか．\seteda{50}\\
+\eda{$1,\ 0,\ 1,\ 0,\ \cdots$}\eda{$0,\ 1,\ 0,\ 1,\ \cdots$}
+\end{itemize}
+
+\newslide{等差数列}
+
+\vspace*{18mm}
+
+\hypertarget{para11pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para11pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para11pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/7}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{28}{19}{\scb[1.2]{$\smile$}}
+\putnotes{28}{21}{\small $+2$}
+\putnotes{35.5}{19}{\scb[1.2]{$\smile$}}
+\putnotes{35.5}{21}{\small $+2$}
+\putnotes{44}{19}{\scb[1.2]{$\smile$}}
+\putnotes{44}{21}{\small $+2$}
+\end{layer}
+
+\begin{itemize}
+\item
+差（{\color{red}公差}）が等しい数列\\
+　例）$1,\ 3,\ 5,\ 7,\ \cdots$\vspace{6mm}
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para11pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para11pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/7}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{28}{19}{\scb[1.2]{$\smile$}}
+\putnotes{28}{21}{\small $+2$}
+\putnotes{35.5}{19}{\scb[1.2]{$\smile$}}
+\putnotes{35.5}{21}{\small $+2$}
+\putnotes{44}{19}{\scb[1.2]{$\smile$}}
+\putnotes{44}{21}{\small $+2$}
+\end{layer}
+
+\begin{itemize}
+\item
+差（{\color{red}公差}）が等しい数列\\
+　例）$1,\ 3,\ 5,\ 7,\ \cdots$\vspace{6mm}
+\item
+初項を$a$，公差を$d$とおくと\\
+　$a,\ a+d,\ a+2d,\ \cdots,\ \mbox{第$n$項}$は？
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para11pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para11pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para11pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para11pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/7}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{28}{19}{\scb[1.2]{$\smile$}}
+\putnotes{28}{21}{\small $+2$}
+\putnotes{35.5}{19}{\scb[1.2]{$\smile$}}
+\putnotes{35.5}{21}{\small $+2$}
+\putnotes{44}{19}{\scb[1.2]{$\smile$}}
+\putnotes{44}{21}{\small $+2$}
+\end{layer}
+
+\begin{itemize}
+\item
+差（{\color{red}公差}）が等しい数列\\
+　例）$1,\ 3,\ 5,\ 7,\ \cdots$\vspace{6mm}
+\item
+初項を$a$，公差を$d$とおくと\\
+　$a,\ a+d,\ a+2d,\ \cdots,\ \mbox{第$n$項}$は？
+\item
+第$n$項(一般項)は\ $a_n=a+(n-1)d$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para11pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para11pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para11pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/7}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{28}{19}{\scb[1.2]{$\smile$}}
+\putnotes{28}{21}{\small $+2$}
+\putnotes{35.5}{19}{\scb[1.2]{$\smile$}}
+\putnotes{35.5}{21}{\small $+2$}
+\putnotes{44}{19}{\scb[1.2]{$\smile$}}
+\putnotes{44}{21}{\small $+2$}
+\end{layer}
+
+\begin{itemize}
+\item
+差（{\color{red}公差}）が等しい数列\\
+　例）$1,\ 3,\ 5,\ 7,\ \cdots$\vspace{6mm}
+\item
+初項を$a$，公差を$d$とおくと\\
+　$a,\ a+d,\ a+2d,\ \cdots,\ \mbox{第$n$項}$は？
+\item
+第$n$項(一般項)は\ $a_n=a+(n-1)d$
+\item
+[(例)]等差数列$1,\ 3,\ 5,\ 7,\ \cdots$の一般項は\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para11pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para11pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para11pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para11pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/7}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{28}{19}{\scb[1.2]{$\smile$}}
+\putnotes{28}{21}{\small $+2$}
+\putnotes{35.5}{19}{\scb[1.2]{$\smile$}}
+\putnotes{35.5}{21}{\small $+2$}
+\putnotes{44}{19}{\scb[1.2]{$\smile$}}
+\putnotes{44}{21}{\small $+2$}
+\end{layer}
+
+\begin{itemize}
+\item
+差（{\color{red}公差}）が等しい数列\\
+　例）$1,\ 3,\ 5,\ 7,\ \cdots$\vspace{6mm}
+\item
+初項を$a$，公差を$d$とおくと\\
+　$a,\ a+d,\ a+2d,\ \cdots,\ \mbox{第$n$項}$は？
+\item
+第$n$項(一般項)は\ $a_n=a+(n-1)d$
+\item
+[(例)]等差数列$1,\ 3,\ 5,\ 7,\ \cdots$の一般項は\\
+\hspace*{2zw}$a_n=1+2\hakom{(n-1)}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para11pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para11pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para11pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para11pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/7}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{28}{19}{\scb[1.2]{$\smile$}}
+\putnotes{28}{21}{\small $+2$}
+\putnotes{35.5}{19}{\scb[1.2]{$\smile$}}
+\putnotes{35.5}{21}{\small $+2$}
+\putnotes{44}{19}{\scb[1.2]{$\smile$}}
+\putnotes{44}{21}{\small $+2$}
+\end{layer}
+
+\begin{itemize}
+\item
+差（{\color{red}公差}）が等しい数列\\
+　例）$1,\ 3,\ 5,\ 7,\ \cdots$\vspace{6mm}
+\item
+初項を$a$，公差を$d$とおくと\\
+　$a,\ a+d,\ a+2d,\ \cdots,\ \mbox{第$n$項}$は？
+\item
+第$n$項(一般項)は\ $a_n=a+(n-1)d$
+\item
+[(例)]等差数列$1,\ 3,\ 5,\ 7,\ \cdots$の一般項は\\
+\hspace*{2zw}$a_n=1+2\hakoma{(n-1)}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para11pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para10pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para11pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para11pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para11pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/7}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{28}{19}{\scb[1.2]{$\smile$}}
+\putnotes{28}{21}{\small $+2$}
+\putnotes{35.5}{19}{\scb[1.2]{$\smile$}}
+\putnotes{35.5}{21}{\small $+2$}
+\putnotes{44}{19}{\scb[1.2]{$\smile$}}
+\putnotes{44}{21}{\small $+2$}
+\end{layer}
+
+\begin{itemize}
+\item
+差（{\color{red}公差}）が等しい数列\\
+　例）$1,\ 3,\ 5,\ 7,\ \cdots$\vspace{6mm}
+\item
+初項を$a$，公差を$d$とおくと\\
+　$a,\ a+d,\ a+2d,\ \cdots,\ \mbox{第$n$項}$は？
+\item
+第$n$項(一般項)は\ $a_n=a+(n-1)d$
+\item
+[(例)]等差数列$1,\ 3,\ 5,\ 7,\ \cdots$の一般項は\\
+\hspace*{2zw}$a_n=1+2\hakoma{(n-1)}=2n-1$
+\end{itemize}
+
+\newslide{等比数列}
+
+\vspace*{18mm}
+
+\hypertarget{para12pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para11pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para11pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para12pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para12pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/6}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{28}{20}{\scb[1.2]{$\smile$}}
+\putnotes{28}{22}{\small $\times 3$}
+\putnotes{36}{20}{\scb[1.2]{$\smile$}}
+\putnotes{36}{22}{\small $\times 3$}
+\putnotes{46}{20}{\scb[1.2]{$\smile$}}
+\putnotes{46}{22}{\small $\times 3$}
+\end{layer}
+
+\begin{itemize}
+\item
+比（{\color{red}公比}）が等しい数列\\
+　例）$2,\ 6,\ 18,\ 54,\ \cdots$\vspace{6mm}
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para12pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para11pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para12pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para12pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/6}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{28}{20}{\scb[1.2]{$\smile$}}
+\putnotes{28}{22}{\small $\times 3$}
+\putnotes{36}{20}{\scb[1.2]{$\smile$}}
+\putnotes{36}{22}{\small $\times 3$}
+\putnotes{46}{20}{\scb[1.2]{$\smile$}}
+\putnotes{46}{22}{\small $\times 3$}
+\end{layer}
+
+\begin{itemize}
+\item
+比（{\color{red}公比}）が等しい数列\\
+　例）$2,\ 6,\ 18,\ 54,\ \cdots$\vspace{6mm}
+\item
+初項を$a$，公比を$r$とおくと\\
+　$a,\ ar,\ ar^2,\ \cdots,\ \mbox{第$n$項}a_n=\hakom{a\,r^{n-1}}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para12pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para11pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para12pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para12pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para12pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/6}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{28}{20}{\scb[1.2]{$\smile$}}
+\putnotes{28}{22}{\small $\times 3$}
+\putnotes{36}{20}{\scb[1.2]{$\smile$}}
+\putnotes{36}{22}{\small $\times 3$}
+\putnotes{46}{20}{\scb[1.2]{$\smile$}}
+\putnotes{46}{22}{\small $\times 3$}
+\end{layer}
+
+\begin{itemize}
+\item
+比（{\color{red}公比}）が等しい数列\\
+　例）$2,\ 6,\ 18,\ 54,\ \cdots$\vspace{6mm}
+\item
+初項を$a$，公比を$r$とおくと\\
+　$a,\ ar,\ ar^2,\ \cdots,\ \mbox{第$n$項}a_n=\hakoma{a\,r^{n-1}}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para12pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para11pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para12pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para12pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para12pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/6}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{28}{20}{\scb[1.2]{$\smile$}}
+\putnotes{28}{22}{\small $\times 3$}
+\putnotes{36}{20}{\scb[1.2]{$\smile$}}
+\putnotes{36}{22}{\small $\times 3$}
+\putnotes{46}{20}{\scb[1.2]{$\smile$}}
+\putnotes{46}{22}{\small $\times 3$}
+\end{layer}
+
+\begin{itemize}
+\item
+比（{\color{red}公比}）が等しい数列\\
+　例）$2,\ 6,\ 18,\ 54,\ \cdots$\vspace{6mm}
+\item
+初項を$a$，公比を$r$とおくと\\
+　$a,\ ar,\ ar^2,\ \cdots,\ \mbox{第$n$項}a_n=\hakoma{a\,r^{n-1}}$
+\item
+[例)]等比数列$2,\ 6,\ 18,\ 54,\ \cdots$\;の一般項は\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para12pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para11pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para12pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para12pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para12pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/6}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{28}{20}{\scb[1.2]{$\smile$}}
+\putnotes{28}{22}{\small $\times 3$}
+\putnotes{36}{20}{\scb[1.2]{$\smile$}}
+\putnotes{36}{22}{\small $\times 3$}
+\putnotes{46}{20}{\scb[1.2]{$\smile$}}
+\putnotes{46}{22}{\small $\times 3$}
+\end{layer}
+
+\begin{itemize}
+\item
+比（{\color{red}公比}）が等しい数列\\
+　例）$2,\ 6,\ 18,\ 54,\ \cdots$\vspace{6mm}
+\item
+初項を$a$，公比を$r$とおくと\\
+　$a,\ ar,\ ar^2,\ \cdots,\ \mbox{第$n$項}a_n=\hakoma{a\,r^{n-1}}$
+\item
+[例)]等比数列$2,\ 6,\ 18,\ 54,\ \cdots$\;の一般項は\\
+\hspace*{2zw}$a_n=2\cdot 3^{n-1}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para12pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para11pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para12pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para12pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para12pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/6}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{28}{20}{\scb[1.2]{$\smile$}}
+\putnotes{28}{22}{\small $\times 3$}
+\putnotes{36}{20}{\scb[1.2]{$\smile$}}
+\putnotes{36}{22}{\small $\times 3$}
+\putnotes{46}{20}{\scb[1.2]{$\smile$}}
+\putnotes{46}{22}{\small $\times 3$}
+\putnotee{51}{57}{{\color{red}$=6^{n-1}$としない}}
+\end{layer}
+
+\begin{itemize}
+\item
+比（{\color{red}公比}）が等しい数列\\
+　例）$2,\ 6,\ 18,\ 54,\ \cdots$\vspace{6mm}
+\item
+初項を$a$，公比を$r$とおくと\\
+　$a,\ ar,\ ar^2,\ \cdots,\ \mbox{第$n$項}a_n=\hakoma{a\,r^{n-1}}$
+\item
+[例)]等比数列$2,\ 6,\ 18,\ 54,\ \cdots$\;の一般項は\\
+\hspace*{2zw}$a_n=2\cdot 3^{n-1}$
+\end{itemize}
+
+\newslide{課題(等差数列と等比数列)}
+
+\vspace*{18mm}
+
+\hypertarget{para13pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para12pg6}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{125}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/1}
+\end{layer}
+
+\slidepage
+\seteda{70}
+\begin{itemize}
+\item
+[課題]\monban 次を求めよ\hfill Text P201,203\seteda{100}\\
+\eda{初項2,\ 公差3の等差数列$\{a_n\}$の一般項$a_n$}\\
+\eda{$a_{10}$}\\
+\eda{初項2,\ 公比$-3$の等比数列$\{b_n\}$の一般項$b_n$}\\
+\eda{$b_{5}$}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\newslide{等差数列の和}
+
+\vspace*{18mm}
+
+\hypertarget{para14pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para14pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para14pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/5}
+\end{layer}
+
+\slidepage
+{\color{red}
+
+\begin{layer}{120}{0}
+\end{layer}
+
+}
+\vspace{2mm}
+
+初項$a$，公差$d$，項数が4の場合で説明する
+\begin{itemize}
+\item
+[]$S=\Ctab{20mm}{a}+\Ctab{17mm}{(a+d)}+\Ctab{17mm}{(a+2d)}+\Ctab{17mm}{(a+3d)}$
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para14pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para14pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para14pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/5}
+\end{layer}
+
+\slidepage
+{\color{red}
+
+\begin{layer}{120}{0}
+\end{layer}
+
+}
+\vspace{2mm}
+
+初項$a$，公差$d$，項数が4の場合で説明する
+\begin{itemize}
+\item
+[]$S=\Ctab{20mm}{a}+\Ctab{17mm}{(a+d)}+\Ctab{17mm}{(a+2d)}+\Ctab{17mm}{(a+3d)}$
+\item
+[]$S=\Ctab{20mm}{(a+3d)}+\Ctab{17mm}{(a+2d)}+\Ctab{17mm}{(a+d)}+\Ctab{17mm}{a}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para14pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para14pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para14pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para14pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/5}
+\end{layer}
+
+\slidepage
+{\color{red}
+
+\begin{layer}{120}{0}
+\boxframec{32}{24}{20}{18}{}
+\boxframec{58}{24}{20}{18}{}
+\boxframec{85}{24}{20}{18}{}
+\boxframec{112}{24}{20}{18}{}
+\end{layer}
+
+}
+\vspace{2mm}
+
+初項$a$，公差$d$，項数が4の場合で説明する
+\begin{itemize}
+\item
+[]$S=\Ctab{20mm}{a}+\Ctab{17mm}{(a+d)}+\Ctab{17mm}{(a+2d)}+\Ctab{17mm}{(a+3d)}$
+\item
+[]$S=\Ctab{20mm}{(a+3d)}+\Ctab{17mm}{(a+2d)}+\Ctab{17mm}{(a+d)}+\Ctab{17mm}{a}$
+\item
+[]2つの式を加えると\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para14pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para14pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para14pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para14pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/5}
+\end{layer}
+
+\slidepage
+{\color{red}
+
+\begin{layer}{120}{0}
+\boxframec{32}{24}{20}{18}{}
+\boxframec{58}{24}{20}{18}{}
+\boxframec{85}{24}{20}{18}{}
+\boxframec{112}{24}{20}{18}{}
+\end{layer}
+
+}
+\vspace{2mm}
+
+初項$a$，公差$d$，項数が4の場合で説明する
+\begin{itemize}
+\item
+[]$S=\Ctab{20mm}{a}+\Ctab{17mm}{(a+d)}+\Ctab{17mm}{(a+2d)}+\Ctab{17mm}{(a+3d)}$
+\item
+[]$S=\Ctab{20mm}{(a+3d)}+\Ctab{17mm}{(a+2d)}+\Ctab{17mm}{(a+d)}+\Ctab{17mm}{a}$
+\item
+[]2つの式を加えると\\
+　$2S=(2a+3d)\times 4$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para14pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para14pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para14pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para14pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/5}
+\end{layer}
+
+\slidepage
+{\color{red}
+
+\begin{layer}{120}{0}
+\boxframec{32}{24}{20}{18}{}
+\boxframec{58}{24}{20}{18}{}
+\boxframec{85}{24}{20}{18}{}
+\boxframec{112}{24}{20}{18}{}
+\end{layer}
+
+}
+\vspace{2mm}
+
+初項$a$，公差$d$，項数が4の場合で説明する
+\begin{itemize}
+\item
+[]$S=\Ctab{20mm}{a}+\Ctab{17mm}{(a+d)}+\Ctab{17mm}{(a+2d)}+\Ctab{17mm}{(a+3d)}$
+\item
+[]$S=\Ctab{20mm}{(a+3d)}+\Ctab{17mm}{(a+2d)}+\Ctab{17mm}{(a+d)}+\Ctab{17mm}{a}$
+\item
+[]2つの式を加えると\\
+　$2S=(2a+3d)\times 4$\\
+　　したがって　$S=\bunsuu{4(2a+3d)}{2}$
+\end{itemize}
+
+\newslide{等差数列の和の公式}
+
+\vspace*{18mm}
+
+\hypertarget{para15pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para14pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/3}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[]初項$a$，公差$d$，項数$n$の等差数列の和$S$は\vspace{2mm}\\
+　　\fbox{$S=\bunsuu{n(2a+(n-1)d)}{2}$}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para15pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/3}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[]初項$a$，公差$d$，項数$n$の等差数列の和$S$は\vspace{2mm}\\
+　　\fbox{$S=\bunsuu{n(2a+(n-1)d)}{2}$}
+\item
+[]$2a+(n-1)d=a+(a+(n-1)d)=\mbox{初項}+\mbox{末項}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para15pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para15pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/3}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[]初項$a$，公差$d$，項数$n$の等差数列の和$S$は\vspace{2mm}\\
+　　\fbox{$S=\bunsuu{n(2a+(n-1)d)}{2}$}
+\item
+[]$2a+(n-1)d=a+(a+(n-1)d)=\mbox{初項}+\mbox{末項}$
+\item
+[]　　\raisebox{-5mm}{\fbox{$S=\bunsuu{\mbox{項数}\times (\mbox{初項}+\mbox{末項})}{2}$}}
+\end{itemize}
+
+\newslide{等差数列の和の例題}
+
+\vspace*{18mm}
+
+\hypertarget{para16pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para16pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para16pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para17pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例題)]$S=1+3+5+7+\cdots+99$を求めよ\vspace{-3mm}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para16pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para16pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para16pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para17pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例題)]$S=1+3+5+7+\cdots+99$を求めよ\vspace{-3mm}
+\item
+[解)]項数$n$を求める．\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para16pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para16pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para16pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para16pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para17pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例題)]$S=1+3+5+7+\cdots+99$を求めよ\vspace{-3mm}
+\item
+[解)]項数$n$を求める．\\
+初項$1$，公差$2$より，第$n$項$a_n$は\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para16pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para16pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para16pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para16pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para17pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例題)]$S=1+3+5+7+\cdots+99$を求めよ\vspace{-3mm}
+\item
+[解)]項数$n$を求める．\\
+初項$1$，公差$2$より，第$n$項$a_n$は\\
+ 　　$a_n=1+2(n-1)=2n-1$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para16pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para16pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para16pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para16pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para17pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例題)]$S=1+3+5+7+\cdots+99$を求めよ\vspace{-3mm}
+\item
+[解)]項数$n$を求める．\\
+初項$1$，公差$2$より，第$n$項$a_n$は\\
+ 　　$a_n=1+2(n-1)=2n-1$\\
+$a_n=2n-1=99$より
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para16pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para16pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para16pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para16pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para17pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例題)]$S=1+3+5+7+\cdots+99$を求めよ\vspace{-3mm}
+\item
+[解)]項数$n$を求める．\\
+初項$1$，公差$2$より，第$n$項$a_n$は\\
+ 　　$a_n=1+2(n-1)=2n-1$\\
+$a_n=2n-1=99$より
+　$n=\bunsuu{99+1}{2}=50$\vspace{-2mm}\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para16pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para16pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para16pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para16pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para17pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例題)]$S=1+3+5+7+\cdots+99$を求めよ\vspace{-3mm}
+\item
+[解)]項数$n$を求める．\\
+初項$1$，公差$2$より，第$n$項$a_n$は\\
+ 　　$a_n=1+2(n-1)=2n-1$\\
+$a_n=2n-1=99$より
+　$n=\bunsuu{99+1}{2}=50$\vspace{-2mm}\\
+したがって　$S=\bunsuu{50(1+99)}{2}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para16pg8}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para16pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para16pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para16pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para17pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例題)]$S=1+3+5+7+\cdots+99$を求めよ\vspace{-3mm}
+\item
+[解)]項数$n$を求める．\\
+初項$1$，公差$2$より，第$n$項$a_n$は\\
+ 　　$a_n=1+2(n-1)=2n-1$\\
+$a_n=2n-1=99$より
+　$n=\bunsuu{99+1}{2}=50$\vspace{-2mm}\\
+したがって　$S=\bunsuu{50(1+99)}{2}$
+$=2500$\vspace{-3mm}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para16pg9}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para16pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para16pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para16pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para17pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 9/9}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[例題)]$S=1+3+5+7+\cdots+99$を求めよ\vspace{-3mm}
+\item
+[解)]項数$n$を求める．\\
+初項$1$，公差$2$より，第$n$項$a_n$は\\
+ 　　$a_n=1+2(n-1)=2n-1$\\
+$a_n=2n-1=99$より
+　$n=\bunsuu{99+1}{2}=50$\vspace{-2mm}\\
+したがって　$S=\bunsuu{50(1+99)}{2}$
+$=2500$\vspace{-3mm}
+\item
+[課題]\monban $1+2+3+\cdots+100$について\seteda{50}\\
+\eda{項数を求めよ}\eda{和を求めよ}
+\end{itemize}
+\label{pageend}\mbox{}
+
+\end{document}

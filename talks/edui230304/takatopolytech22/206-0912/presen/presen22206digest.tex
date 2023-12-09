@@ -1,0 +1,473 @@
+%%% タイトル presen22206
+\documentclass[landscape,10pt]{jarticle}
+\special{papersize=\the\paperwidth,\the\paperheight}
+\usepackage{ketpic,ketlayer}
+\usepackage{ketslide}
+\usepackage{amsmath,amssymb}
+\usepackage{bm,enumerate}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{color}
+\definecolor{slidecolora}{cmyk}{0.98,0.13,0,0.43}
+\definecolor{slidecolorb}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolorc}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolord}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolore}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolorf}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolori}{cmyk}{0.98,0.13,0,0.43}
+\def\setthin#1{\def\thin{#1}}
+\setthin{0}
+\newcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+\putnotee{122}{-\theketpicctra.05}{\small\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+\usepackage{emath}
+\usepackage{pict2e}
+\usepackage{ketlayermorewith2e}
+\usepackage[dvipdfmx,colorlinks=true,linkcolor=blue,filecolor=blue]{hyperref}
+\newcommand{\hiduke}{0912}
+\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+\def\rad{\;\mathrm{rad}}
+\def\deg#1{#1^{\circ}}
+\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+\def\dlim{\displaystyle\lim}
+\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+\newcommand{\sfrac}[3][0.65]{\scalebox{#1}{$\frac{#2}{#3}$}}
+\newcommand{\phn}[1]{\phantom{#1}}
+\newcommand{\scb}[2][0.6]{\scalebox{#1}{#2}}
+\newcommand{\dsum}{\displaystyle\sum}
+\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+\def\dlim{\displaystyle\lim}
+\def\dint{\displaystyle\int}
+
+\setmargin{25}{145}{15}{100}
+
+\ketslideinit
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{layer}{120}{0}
+\putnotese{0}{0}{\input{fig/slide0912.tex}}
+\end{layer}
+
+\def\mainslidetitley{22}
+\def\ketcletter{slidecolora}
+\def\ketcbox{slidecolorb}
+\def\ketdbox{slidecolorc}
+\def\ketcframe{slidecolord}
+\def\ketcshadow{slidecolore}
+\def\ketdshadow{slidecolorf}
+\def\slidetitlex{6}
+\def\slidetitlesize{1.3}
+\def\mketcletter{slidecolori}
+\def\mketcbox{yellow}
+\def\mketdbox{yellow}
+\def\mketcframe{yellow}
+\def\mslidetitlex{62}
+\def\mslidetitlesize{2}
+
+\color{black}
+\Large\bf\boldmath
+\addtocounter{page}{-1}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+\begin{layer}{118}{0}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+}
+\newcounter{ban}
+\setcounter{ban}{1}
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+}
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%
+}
+\newcounter{edawidth}
+\newcounter{edactr}
+\newcommand{\seteda}[1]{% 20220708 modified
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+\newcommand{\eda}[2][\theedawidth]{%
+\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\mainslide{ 定積分}
+
+
+\slidepage[m]
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{区分求積法による定義}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg0}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{83}{6}{\input{fig/kubunkyuuseki4.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+$\displaystyle\int_a^b f(x)\,dx$
+\item
+区間を$n$個に分けて長方形で近似\\
+\hspace*{2zw}$a=x_0,\ x_1,\ \cdots,\ x_n=b$
+\item
+区間の幅を$dx_j$，区間内の1点を$x_j$とすると\\
+\hspace*{2zw}長方形の面積$\fallingdotseq f(x_j)dx_j$
+\item
+長方形の面積の合計(近似値)は\\
+\hspace*{2zw}$\displaystyle\sum_j f(x_j)dx_j$
+\end{itemize}
+
+\newslide{区分求積法による定義(続)}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/8}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{83}{6}{\input{fig/kubunkyuuseki16.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+$n$を限りなく大きくする\vspace{2mm}\\
+\hspace*{2zw}$\displaystyle\lim_{n \to \infty}\sum f(x_j)dx_j$
+\item
+その極限値が定積分である．\vspace{2mm}\\
+\hspace*{2zw}$\displaystyle\int_a^b f(x)\,dx=\lim_{n \to \infty}\sum_j f(x_j)dx_j$
+\item
+[注)]$f(x)$が負の場合もこの式は有効である．
+\end{itemize}
+
+\newslide{基本定理と定積分の計算公式}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/4}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+基本定理\\
+\hspace*{1zw}$\dint_a^x f(x)\,dx$は$f(x)$の不定積分の1つである．\\
+\hspace*{3zw}$\left(\dint_a^x f(x)\,dx\right)'=f(x)$
+\item
+計算公式\\
+\hspace*{1zw}$f(x)$の不定積分の1つを$F(x)$とすると\\
+\hspace*{3zw}$\dint_a^b f(x)\,dx=F(b)-F(a)=\Bigl[F(x)\Bigr]_a^b$
+\end{itemize}
+
+\newslide{定積分の計算例1}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{10}{\input{fig/sekibun1a.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+$\dint_0^2 (3x^2-2x)\,dx$\\
+\hspace*{2zw}$=\Bigl[\bunsuu{1}{3}x^3-x^2\Bigr]_0^2$\vspace{1mm}\\
+\hspace*{2zw}$=\bunsuu{8}{3}-4=-\bunsuu{4}{3}$
+\item
+[課題]\monbannoadd 問いに答えよ．\seteda{65}\\
+\eda{なぜマイナスか．理由を書け}\\
+\eda{図の斜線部分の面積を答えよ}
+\end{itemize}
+\addban
+
+\newslide{定積分の計算例2}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para5pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{70}{10}{\input{fig/sekibun2.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+$\dint_{-1}^1 x^3\,dx$\\
+\hspace*{2zw}$=\Bigl[\bunsuu{1}{4}x^4\Bigr]_{-1}^1$\vspace{1mm}\\
+\hspace*{2zw}$=\bunsuu{1}{4}-\bunsuu{1}{4}=0$
+\item
+[課題]\monbannoadd 問いに答えよ．\seteda{65}\\
+\eda{なぜ0か．理由を書け}\\
+\eda{図の斜線部分の面積を答えよ}
+\end{itemize}
+\addban
+
+\mainslide{三角関数の定積分}
+
+
+\slidepage[m]
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{三角関数(復習)}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{140}{0}
+\putnotese{88}{-10}{\input{fig/sankakuatai.tex}}
+\putnotese{85}{58}{\normalsize\color{blue}$\dint \cos ax\,dx=\bunsuu{1}{a}\sin ax+C$}
+\end{layer}
+
+\begin{itemize}
+\item
+[課題]\monban 次の値を求めよ．\seteda{28}\\
+\eda{$\sin 0$}\eda{$\cos 0$}\eda{$\sin\pi$}\vspace{1mm}\\
+\eda{$\cos\pi$}\eda{$\sin\bunsuu{\pi}{2}$}\eda{$\cos\bunsuu{\pi}{2}$}\vspace{1mm}\\
+\eda{$\sin\bunsuu{\pi}{6}$}\eda{$\cos\bunsuu{\pi}{4}$}\eda{$\cos\bunsuu{\pi}{3}$}
+\item
+[課題]\monban 次の不定積分を求めよ（積分定数$C$）\seteda{45}\\
+\eda{$\dint \sin x\,dx$}\eda{$\dint\cos x\,dx$}\vspace{2mm}\\
+\eda{$\dint \cos 2x\,dx$}\eda{$\dint \sin 3x\,dx$}
+\end{itemize}
+
+\newslide{課題(三角関数の定積分)}
+
+\vspace*{18mm}
+
+%%repeat=1
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{25}{45}{\scalebox{0.75}{\input{fig/intsine.tex}}}
+\end{layer}
+
+\seteda{60}
+\begin{itemize}
+\item
+[課題]\monban 次を求めよ．\vspace{1mm}\\
+\eda{$\dint_0^{\pi}(\bunsuu{1}{2}\cos x)\,dx$}\vspace{2mm}\\
+\eda{$\dint_0^{\sbunsuu{\pi}{2}}(2\cos x-3\sin x)\,dx$}\vspace{2mm}\\
+\eda{図の斜線部の面積}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%
+
+\mainslide{指数対数関数の定積分}
+
+
+\slidepage[m]
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{指数対数(復習)}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$e$はネピアの数，$\log x$は自然対数（$=\log_e x$）
+\item
+[課題]\monban 次の値を求めよ．\seteda{38}\\
+\eda{$e^0$}\eda{$\log 1$}\eda{$\log e$}\vspace{1mm}
+\item
+[課題]\monban 次の関数を微分せよ．\seteda{38}\\
+\eda{$y=e^x$}\eda{$y=e^{2x}$}\eda{$y=\log x$}\vspace{2mm}
+\item
+[課題]\monban 次の不定積分を求めよ．\seteda{38}\\
+\eda{$\dint e^x\,dx$}\eda{$\dint e^{2x}\,dx$}\eda{$\dint\bunsuu{1}{x}\,dx$}\\
+\hfill $(x>0)$
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\newslide{対数関数の積分についての注}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para6pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para6pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para6pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/8}
+\end{layer}
+
+\slidepage
+{\color{red}
+
+\begin{layer}{120}{0}
+\putnotee{80}{28}{$(\log ax)'=a\cdot\bunsuu{1}{ax}$}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+$x<0$のとき，$\bunsuu{1}{x}$の不定積分を求める．
+\item
+[]　$x<0$のとき　$y=\log|x|=\log(-x)$\\
+\hspace*{3zw}微分する\\
+\hspace*{5zw}$y'=$
+$(-1)\bunsuu{1}{-x}$
+$=\bunsuu{1}{x}$
+\item
+$x$が負のとき　$\bigr(\log(-x)\bigr)'=\bunsuu{1}{x}$
+\item
+\fbox{$x\neqq 0$のとき　$\dint \bunsuu{1}{x}\,dx=\log|x|+C$}
+\end{itemize}
+
+\newslide{指数対数の定積分}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para6pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para7pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para7pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para7pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/7}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$\dint_0^1e^x\,dx=$
+$\Bigl[e^x\Bigr]_0^1=$
+$e^1-e^0=e-1$
+\item
+$\dint_1^e \bunsuu{1}{x}\,dx=$
+$\Bigl[\log x\Bigr]_1^e=$
+$\log e-\log 1=1-0=1$\vspace{4mm}
+[課題]\monban 次の値を求めよ．\seteda{45}\\
+\eda{$\dint_{-1}^1 e^x\,dx$}\eda{$\dint_e^{e^2}\bunsuu{1}{x}\,dx$}\\
+\eda{$\dint_1^2 -2e^x\,dx$}\eda{$\dint_1^2 \bunsuu{x+1}{x}\,dx$}
+\end{itemize}
+
+\newslide{$e^{ax+b}$型の積分}
+
+\vspace*{18mm}
+
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para7pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/5}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+微分　$(e^{ax})'=ae^{ax},\ (e^{ax+b})'=ae^{ax+b}$
+\item
+積分　$\dint e^{ax}\,dx=\bunsuu{1}{a}e^{ax}+C$
+\item
+[例題]$\dint_0^1 e^{2x}\,dx=$
+$\Bigl[\bunsuu{1}{2}e^{2x}\Bigr]_0^1=\bunsuu{1}{2}(e^2-1)$
+\item
+[課題]\monban 次の値を求めよ．\seteda{50}\\
+\eda{$\dint_0^1 (e^x+e^{-x})\,dx$}
+\eda{$\dint_0^1 (e^x+1)(e^x-1)\,dx$}
+\end{itemize}
+\label{pageend}\mbox{}
+
+\end{document}

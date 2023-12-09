@@ -1,0 +1,409 @@
+タイトル::slide0829
+::\newcommand{\hiduke}{0829}
+::\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+::\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+::\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+::\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+::\def\rad{\;\mathrm{rad}}
+::\def\deg#1{#1^{\circ}}
+::\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+::\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+::\newcommand{\sfrac}[3][0.65]{\scalebox{#1}{$\frac{#2}{#3}$}}
+::\newcommand{\phn}[1]{\phantom{#1}}
+::\newcommand{\scb}[2][0.6]{\scalebox{#1}{#2}}
+::\newcommand{\dsum}{\displaystyle\sum}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\def\dint{\displaystyle\int}
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+
+
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+%\putnotee{122}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+
+\newcounter{ban}
+\setcounter{ban}{1}
+
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+%\addtocounter{ban}{1}%
+}
+
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%
+}
+
+\newcounter{edawidth}
+\newcounter{edactr}
+
+\newcommand{\seteda}[1]{% 20220708 modified
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+
+\newcommand{\eda}[2][\theedawidth]{%
+\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+
+%%%%%%%%%%%%
+main:: 復習(微分)
+\slidepage[m]
+
+%%%%%%%%%%%%%
+new::微分と導関数
+%repeat=3,para
+\slidepage
+
+itemize
+item::$a$における微分係数$f'(a)=$接線の傾き\\
+\hspace*{2zw}$f'(a)=\dlim_{z\to a}\bunsuu{f(z)-f(a)}{z-a}$\vspace{-2mm}
+%[2,-]::item::導関数\\
+%[2,-]::・微分係数を$x$の関数$f'(x)$としたもの\\
+%[2,-]::\hspace*{2zw}$y'=f'(x)=\dlim_{z\to x}\bunsuu{f(z)-f(x)}{z-x}$\\
+%[2,-]::・導関数を求めることを「微分する」
+%[3,-]::item::[課題]\monban 次の関数の導関数はどうなるか．\seteda{50}\\
+%[3,-]::\eda{$y=x^2-2x$}\eda{$y=\sin x$}
+end
+
+%%%%%%%%%%%%%
+new::$x^n$の微分
+%repeat=1,para
+\slidepage
+
+itemize
+item::$(c)'=0$（$c$は定数）
+item::$(x)'=1$
+item::$(x^2)'=2x$
+item::$(x^3)'=3x^2$
+item::一般に　$(x^n)'=n x^{n-1}$\\
+　・$n$は負の整数でも分数(実数)でもよい
+end
+
+%%%%%%%%%%%%%
+new::微分の性質
+%repeat=5,para
+\slidepage
+
+itemize
+item::\Ltab{70mm}{$(f+g)'=f'+g'$}和の微分
+%[2,-]::item::\Ltab{70mm}{$(cf)'=cf'$ ($c$は定数)}定数倍の微分
+%[3,-]::item::\Ltab{70mm}{$(fg)'=f'g+fg'$}積の微分
+%[4,-]::item::\Ltab{70mm}{$\left(\bunsuu{f}{g}\right)'=\bunsuu{f'g-fg'}{g^2}$}商の微分
+%[5,-]::item::\Ltab{70mm}{$\bigl(f(ax+b)\bigr)'=af'(ax+b)$}$ax+b$型の微分
+end
+
+%%%%%%%%%%%%%
+new::課題(微分の性質)
+%repeat=1,para
+\slidepage
+
+itemize 
+item::[課題]\monban 微分せよ．\seteda{100}\\
+\eda{$y=x^4+x^3-x^2$}\\
+\eda{$y=3x^5$}\\
+\eda{$y=(x+1)\sqrt{x}$\\
+\hspace*{2zw}{\color{blue}\large
+ヒント：$(\sqrt{x})'=\bigl(x^{\sbunsuu{1}{2}}\bigr)'=\bunsuu{1}{2}x^{-\sbunsuu{1}{2}}$}}\\
+\eda{$y=\bunsuu{x^2+1}{x+2}$}\\
+\eda{$y=(2x+3)^5$}\\
+\hspace*{2zw}{\color{blue}\large
+ヒント：$\Bigl(\hakom{2x+3}^5\Bigr)'=5\hakom{2x+3}^4$}
+end
+
+%%%%%%%%%%%%%
+new::三角関数の微分
+%repeat=4,para
+\slidepage
+
+itemize
+item::$y=\sin x, \cos x, \tan x$\\
+%[2,-]::\hspace*{4zw}角$x$の単位はラジアン
+%[3,-]::item::$(\sin x)'=\cos x$
+%[3,-]::item::$(\cos x)'=-\sin x$
+%[3,-]::item::$(\tan x)'=\bunsuu{1}{\cos^2 x}$
+%[4,-]::item::[課題]\monban 次の関数を微分せよ．\seteda{40}\\
+%[4,-]::\eda[45]{$y=x+\cos x$}\eda{$y=x\sin x$}\eda{$y=\sin 4x$}
+end
+
+%%%%%%%%%%%%
+new::指数関数$y=e^{x}$の微分
+%repeat=4,para
+\slidepage
+
+itemize
+item::$e$はネピアの定数
+%[2,-]::item::[課題]\monbannoadd $e$の値を小数点以下5位まで書け．
+%[4]::\addban
+%[3,-]::item::\fbox{$(e^x)'=e^x$}
+%[4,-]::item::[課題]\monban 次の関数を微分せよ．\seteda{40}\\
+%[4,-]::\eda[46]{$y=e^x+x^2$}\eda{$y=e^{2x}$}\eda{$y=e^{-x}$}
+end
+
+%%%%%%%%%%%%
+new::自然対数$y=\log x(=\ln x)$の微分
+%repeat=3,para
+\slidepage
+
+itemize
+item::ネピア数$e$を底とする対数
+item::[]\hspace*{2zw}$y=\log x\ \Longleftrightarrow\ e^y=x$
+%[2,-]::item::\fbox{$(\log x)'=\bunsuu{1}{x}$}
+%[3,-]::item::[課題]\monban 次の関数を微分せよ．\seteda{35}\\
+%[3,-]::\eda[45]{$y=\log x+e^{x}$}\eda{$y=\log 2x$}\eda{$y=\log(x+2)$}
+end
+
+%%%%%%%%%%%%%
+main::不定積分
+\slidepage[m]
+
+%%%%%%%%%%%%%
+new::微分と積分
+%repeat=7,para
+\slidepage
+
+layer::{120}{0}
+%[5,-]::\putnotese{5}{30}{\normalsize (1)}
+%[5,-]::putnote::se{10}{33}::biseki1,0.8
+%[6,-]::\putnotese{45}{30}{\normalsize (2)}
+%[6,-]::putnote::se{50}{33}::biseki2,0.8
+%[7,-]::\putnotese{85}{30}{\normalsize (3)}
+%[7,-]::putnote::se{90}{33}::biseki3,0.8
+end
+
+%[2,-]::itemize
+%[2,-]::item::関数の特徴を調べる\vspace{-2mm}
+%[3,-]::item::微分：各点での値の変化を見る\vspace{-2mm}
+%[4,-]::item::積分：個別の値より全体の値(合計)を見る\vspace{-2mm}
+\vspace{33mm}
+%[5,-]::item::$x=2$での傾きと全体の面積は？
+%[2,-]::end
+
+%%%%%%%%%%%%%
+new::定積分と不定積分
+%repeat=6,para
+\slidepage
+
+itemize
+item::定積分：全体の面積\\
+%[2,-]::　それ自体は微分と無関係
+%[3,-]::item::不定積分：微分の逆計算\\
+%[4,-]::　微分と密接な関係
+%[5,-]::item::微分と定積分は関係なさそうだが\\
+%[6,-]::　実は密接に関係する(17世紀に発見)
+end
+
+%%%%%%%%%%%%%
+new::$f(x)$の不定積分
+%repeat=7,para
+\slidepage
+
+itemize
+item::微分したら$f(x)$になる関数\vspace{-2mm}
+%[2,-]::item::$F'(x)=f(x)$となる関数$F(x)$のこと\vspace{-2mm}
+%[3,-]::item::$f(x)$の不定積分$F(x)$を$\dint f(x)\,dx$と書く\vspace{-2mm}
+%[4,-]::item::[]例) $(\bunsuu{1}{2}x^2)'=x$より %%
+%[4]:: \phantom{$\dint x\,dx=\bunsuu{1}{2}x^2$}\vspace{-2mm}
+%[5,-]:: $\dint x\,dx=\bunsuu{1}{2}x^2$\vspace{-2mm}
+%[6,-]::item::$C$が定数のとき $(\bunsuu{1}{2}x^2+C)'=x$\\
+%[7,-]::したがって，$\dint x\,dx=\bunsuu{1}{2}x^2+C$でもある．
+end
+
+%%%%%%%%%%%%%
+new::不定積分の書き方
+%repeat=5,para
+\slidepage
+
+itemize
+item::不定積分には$+C$の{\color{blue}任意性}がある．
+%[2,-]::item::この$C$を{\color{red}積分定数}という．
+%[3,-]::item::$f(x)$の不定積分を求めるには
+%[4,-]::\begin{enumerate}[(1)]
+%[4,-]::\item 微分して$f(x)$になる関数を求める．
+%[5,-]::\item それに$+C$をつけて$\dint$で表せばよい．
+%[4,-]::\end{enumerate}
+end
+
+%%%%%%%%%%%%%
+new::不定積分の例と課題
+%repeat=8,para
+\slidepage
+
+itemize
+item::[例] $\dint 1\,dx$
+%[2,-]::item::[]微分して$1$になる関数
+%[3]::\hspace{1zw}$(\hakom{x})'=1$\\
+%[4,-]::\hspace{1zw}$(\hakoma{x})'=1$\\
+%[5,-]::したがって　$\dint 1\,dx=x+C$
+%[6,-]::item::[例] $\dint x\,dx$
+%[7,-]::$=\bunsuu{1}{2}x^2+C$
+%[8,-]::item::[課題]\monban $\dint x^2\,dx$はどうなるか．
+end
+
+%%%%%%%%%%%%%
+new::不定積分の公式(べき関数)
+%repeat=5,para
+\slidepage
+
+itemize
+item::$\dint 1\,dx=x+C$\vspace{-2mm}
+item::$\dint x\,dx=\bunsuu{1}{2}x^2+C$\vspace{-2mm}
+item::$\dint x^2\,dx=\bunsuu{1}{3}x^3+C$\vspace{-2mm}
+%[2]::item::$\dint x^3\,dx=\hakom{\bunsuu{1}{4}x^4+C}$\vspace{-2mm}
+%[3,-]::item::$\dint x^3\,dx=\hakoma{\bunsuu{1}{4}x^4+C}$\vspace{-2mm}
+%[4]::item::$\dint x^n\,dx=\hakom{\bunsuu{1}{n+1}x^{n+1}+C}$\vspace{-2mm}
+%[5,-]::item::$\dint x^n\,dx=\hakoma{\bunsuu{1}{n+1}x^{n+1}+C}$\vspace{-2mm}
+end
+
+
+%%%%%%%%%%%%%
+new::不定積分の性質
+%repeat=4,para
+\slidepage
+
+itemize
+item::$\dint\bigl(f(x)+g(x)\bigr)\,dx=\int f(x)\,dx+\int g(x)\,dx$
+%[2,-]::item::$\dint\bigl(f(x)-g(x)\bigr)\,dx=\int f(x)\,dx-\int g(x)\,dx$
+%[3,-]::item::$\dint c f(x)\,dx=c\int f(x)\,dx$（$c$は定数）
+%[4,-]::item::[注)]定数の違いがあっても，$=$と考える
+end
+
+%%%%%%%%%%%%%
+new::不定積分の計算例
+%repeat=6,para
+\slidepage
+
+itemize
+item::[例1]$\dint (3x^2+2x+1)\,dx$\\
+%[2,-]::$=\dint 3x^2\,dx+\dint 2x\,dx+\dint 1\,dx$\\
+%[3,-]::$=x^3+x^2+x+C$（$C$は積分定数）
+%[4,-]::item::[例2]$\dint x(x-2)\,dx$\\
+%[5,-]::$=\dint (x^2-2x)\,dx$\\
+%[6,-]::$=\bunsuu{1}{3}x^3-x^2+C$（$C$は積分定数）
+end
+
+%%%%%%%%%%%%%
+new::不定積分の計算(課題)
+%repeat=1
+\slidepage
+
+\seteda{57}
+itemize
+item::[課題]\monban 次の不定積分を求めよ．\hfill TextP19問1\vspace{2mm}\\
+\hspace*{-2mm}\eda{$\dint (x^3-5x^2+1)\,dx$}
+\eda{$\dint (1-x-x^2)\,dx$}\\
+\hspace*{-2mm}\eda{$\dint (3x^2)\,dx$}
+\eda{$\dint (-3x^2+2x+3)\,dx$}\\
+\hspace*{-2mm}\eda{$\dint (4x^3-8x+3)\,dx$}
+\eda{$\dint (2x^3+4x-3)\,dx$}
+end
+
+%%%%%%%%%%%%%
+new::不定積分の公式(三角関数)
+%repeat=11,para
+\slidepage
+
+itemize
+%[1]::item::\Ltab{70mm}{$\dint \cos x\,dx=\hakom{\sin x+C}$}$(\hakom{\sin x})'=\cos x$\vspace{-3mm}
+%[2]::item::\Ltab{70mm}{$\dint \cos x\,dx=\hakom{\sin x+C}$}$(\hakoma{\sin x})'=\cos x$\vspace{-3mm}
+%[3,-]::item::\Ltab{70mm}{$\dint \cos x\,dx=\hakoma{\sin x+C}$}$(\hakoma{\sin x})'=\cos x$\vspace{-3mm}
+%[4]::item::\Ltab{70mm}{$\dint \sin x\,dx=\hakom{-\cos x+C}$}$(\hakom{-\cos x})'=\sin x$\vspace{-3mm}
+%[5]::item::\Ltab{70mm}{$\dint \sin x\,dx=\hakom{-\cos x+C}$}$(\hakoma{-\cos x})'=\sin x$\vspace{-3mm}
+%[6,-]::item::\Ltab{70mm}{$\dint \sin x\,dx=\hakoma{-\cos x+C}$}$(\hakoma{-\cos x})'=\sin x$\vspace{-3mm}
+%[7]::item::\Ltab{70mm}{$\dint \bunsuu{1}{\cos^2 x}\,dx=\hakom{\tan x+C}$}$(\hakom{\tan x})'=\bunsuu{1}{\cos^2 x}$\vspace{-3mm}
+%[8]::item::\Ltab{70mm}{$\dint \bunsuu{1}{\cos^2 x}\,dx=\hakom{\tan x+C}$}$(\hakoma{\tan x})'=\bunsuu{1}{\cos^2 x}$\vspace{-3mm}
+%[9,-]::item::\Ltab{70mm}{$\dint \bunsuu{1}{\cos^2 x}\,dx=\hakoma{\tan x+C}$}$(\hakoma{\tan x})'=\bunsuu{1}{\cos^2 x}$\vspace{-3mm}
+%[10,-]::item::$\dint \cos ax\,dx=\bunsuu{1}{a}\sin ax+C$\vspace{-3mm}
+%[11,-]::item::$\dint \sin ax\,dx=-\bunsuu{1}{a}\cos ax+C$
+end
+
+%%%%%%%%%%%%%
+new::不定積分の計算(三角関数)
+%repeat=8,para
+\slidepage
+
+{\large\color{red}
+layer::{120}{0}
+end
+}
+
+itemize
+%[1]::item::[例1)] $\dint(\sin 3x+\cos 4x)\,dx\phantom{=-\bunsuu{1}{3}\cos 3x+\bunsuu{1}{4}\sin 4x+C}$\vspace{-2mm}
+%[2,-]::item::[例1)] $\dint(\sin 3x+\cos 4x)\,dx=-\bunsuu{1}{3}\cos 3x+\bunsuu{1}{4}\sin 4x+C$\vspace{-2mm}
+%[3,-]::item::[例2)] $\dint \tan^2 x\,dx$
+%[4,-]::$=\dint\bunsuu{\sin^2 x}{\cos^2 x}\,dx$
+%[5,-]::$=\dint\bunsuu{1-\cos^2 x}{\cos^2 x}\,dx$\vspace{-2mm}\\
+%[6,-]::$=\dint\Bigl(\bunsuu{1}{\cos^2 x}-1\Bigr)\,dx$
+%[7,-]::$=\tan x-x+C$
+%[8,-]::item::[課題]\monban 次の不定積分を求めよ．\seteda{55}\\
+%[8,-]::\eda{$\dint(3\sin x+\cos 3x)\,dx$}\\%
+%[8,-]::\eda{$\dint(1+\bunsuu{1}{\cos x})(1-\bunsuu{1}{\cos x})\,dx$}
+end
+
+%%%%%%%%%%%%%
+new::不定積分の公式(指数対数)
+%repeat=12,para
+\slidepage
+
+layer::{120}{0}
+%[11,-]::\putnotee{100}{55}{\color{red}\large$(\log(ax))'=\bunsuu{1}{x}$}
+end
+
+itemize
+%[1]::item::\Ltab{55mm}{$\dint e^x\,dx=\hakom{e^x+C}$}$(\hakom{e^x})'=e^x$\vspace{-2mm}
+%[2]::item::\Ltab{55mm}{$\dint e^x\,dx=\hakom{e^x+C}$}$(\hakoma{e^x})'=e^x$\vspace{-2mm}
+%[3,-]::item::\Ltab{55mm}{$\dint e^x\,dx=\hakoma{e^x+C}$}$(\hakoma{e^x})'=e^x$\vspace{-2mm}
+%[4]::item::\Ltab{60mm}{$\dint e^{ax}\,dx=\hakom{\bunsuu{1}{a}e^{ax}+C}$}$(e^{ax})'=\hakom{ae^{ax}}$\vspace{-2mm}
+%[5]::item::\Ltab{60mm}{$\dint e^{ax}\,dx=\hakom{\bunsuu{1}{a}e^{ax}+C}$}$(e^{ax})'=\hakoma{ae^{ax}}$\vspace{-2mm}
+%[6,-]::item::\Ltab{60mm}{$\dint e^{ax}\,dx=\hakoma{\bunsuu{1}{a}e^{ax}+C}$}$(e^{ax})'=\hakoma{ae^{ax}}$\vspace{-2mm}
+%[7]::item::\Ltab{60mm}{$\dint \bunsuu{1}{x}\,dx=\hakom{\log x+C}$}$(\hakom{\log x})'=\bunsuu{1}{x}$\\
+%[8]::item::\Ltab{60mm}{$\dint \bunsuu{1}{x}\,dx=\hakom{\log x+C}$}$(\hakoma{\log x})'=\bunsuu{1}{x}$\\
+%[9,-]::item::\Ltab{60mm}{$\dint \bunsuu{1}{x}\,dx=\hakoma{\log x+C}$}$(\hakoma{\log x})'=\bunsuu{1}{x}$\\
+%[10,-]::注) $x<0$のとき　$\dint\bunsuu{1}{x}\,dx=\log(-x)+C$\\
+%[12,-]::　 合わせて　$\dint\bunsuu{1}{x}\,dx=\log|x|+C$
+end
+
+
+%%%%%%%%%%%%%
+new::不定積分の計算(指数対数)
+%repeat=10,para
+\slidepage
+
+{\large\color{red}
+layer::{120}{0}
+end
+}
+
+itemize
+item::[例1)] $\dint(e^{2x}+e^{-x})\,dx$
+%[2,-]::$=\bunsuu{1}{2}e^{2x}-e^{-x}+C$\vspace{-2mm}
+%[3,-]::item::[例2)] $\dint(x+\bunsuu{1}{x})\,dx$
+%[4]::$=\bunsuu{1}{2}x^2+\log x+C$\ ($x>0$)\vspace{-2mm}
+%[5,-]::$=\bunsuu{1}{2}x^2+\log|x|+C$\ ($x<0$も含む)\vspace{-2mm}
+%[6,-]::item::[例3)] $\dint(e^{x}+e^{-x})^2\,dx$
+%[7,-]::$=\dint((e^x)^2+2e^x e^{-x}+(e^{-x})^2)\,dx$\\
+%[8,-]::$=\dint(e^{2x}+2+e^{-2x})\,dx$
+%[9,-]::$=\bunsuu{1}{2}e^{2x}-\bunsuu{1}{2}e^{-2x}+C$\vspace{-2mm}
+%[10,-]::item::[課題]\monbannoadd 次の不定積分を求めよ．\seteda{55}\\
+%[10,-]::\eda{$\dint(2e^x+\bunsuu{3}{x})\,dx$}%
+%[10,-]::\eda{$\dint(e^x+1)^2\,dx$}
+end
+%[10]::\addban

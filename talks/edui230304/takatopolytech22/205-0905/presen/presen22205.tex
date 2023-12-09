@@ -1,0 +1,2692 @@
+%%% タイトル presen22205
+\documentclass[landscape,10pt]{jarticle}
+\special{papersize=\the\paperwidth,\the\paperheight}
+\usepackage{ketpic,ketlayer}
+\usepackage{ketslide}
+\usepackage{amsmath,amssymb}
+\usepackage{bm,enumerate}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{color}
+\definecolor{slidecolora}{cmyk}{0.98,0.13,0,0.43}
+\definecolor{slidecolorb}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolorc}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolord}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolore}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolorf}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolori}{cmyk}{0.98,0.13,0,0.43}
+\def\setthin#1{\def\thin{#1}}
+\setthin{0}
+\newcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+\putnotee{122}{-\theketpicctra.05}{\small\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+\usepackage{emath}
+\usepackage{pict2e}
+\usepackage{ketlayermorewith2e}
+\usepackage[dvipdfmx,colorlinks=true,linkcolor=blue,filecolor=blue]{hyperref}
+\newcommand{\hiduke}{0905}
+\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+\def\rad{\;\mathrm{rad}}
+\def\deg#1{#1^{\circ}}
+\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+\def\dlim{\displaystyle\lim}
+\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+\newcommand{\sfrac}[3][0.65]{\scalebox{#1}{$\frac{#2}{#3}$}}
+\newcommand{\phn}[1]{\phantom{#1}}
+\newcommand{\scb}[2][0.6]{\scalebox{#1}{#2}}
+\newcommand{\dsum}{\displaystyle\sum}
+\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+\def\dlim{\displaystyle\lim}
+\def\dint{\displaystyle\int}
+
+\setmargin{25}{145}{15}{100}
+
+\ketslideinit
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{layer}{120}{0}
+\putnotese{0}{0}{\input{fig/slide0905.tex}}
+\end{layer}
+
+\def\mainslidetitley{22}
+\def\ketcletter{slidecolora}
+\def\ketcbox{slidecolorb}
+\def\ketdbox{slidecolorc}
+\def\ketcframe{slidecolord}
+\def\ketcshadow{slidecolore}
+\def\ketdshadow{slidecolorf}
+\def\slidetitlex{6}
+\def\slidetitlesize{1.3}
+\def\mketcletter{slidecolori}
+\def\mketcbox{yellow}
+\def\mketdbox{yellow}
+\def\mketcframe{yellow}
+\def\mslidetitlex{62}
+\def\mslidetitlesize{2}
+
+\color{black}
+\Large\bf\boldmath
+\addtocounter{page}{-1}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+\begin{layer}{118}{0}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+}
+\newcounter{ban}
+\setcounter{ban}{1}
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+}
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%
+}
+\newcounter{edawidth}
+\newcounter{edactr}
+\newcommand{\seteda}[1]{% 20220708 modified
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+\newcommand{\eda}[2][\theedawidth]{%
+\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\mainslide{ 復習(微分と不定積分)}
+
+
+\slidepage[m]
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{微分と不定積分}
+
+\vspace*{18mm}
+
+\hypertarget{para1pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg0}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para0pg0}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/7}
+\end{layer}
+
+\slidepage
+\seteda{50}
+\begin{itemize}
+\item
+微分\\
+　関数の変化率（変化の割合）\\
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg0}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/7}
+\end{layer}
+
+\slidepage
+\seteda{50}
+\begin{itemize}
+\item
+微分\\
+　関数の変化率（変化の割合）\\
+　　　　$(x^2)'=$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg0}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/7}
+\end{layer}
+
+\slidepage
+\seteda{50}
+\begin{itemize}
+\item
+微分\\
+　関数の変化率（変化の割合）\\
+　　　　$(x^2)'=$
+$2x$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg0}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/7}
+\end{layer}
+
+\slidepage
+\seteda{50}
+\begin{itemize}
+\item
+微分\\
+　関数の変化率（変化の割合）\\
+　　　　$(x^2)'=$
+$2x$\\
+　導関数の定義式\\
+　　　　$f'(x)=\dlim_{z\to x}\bunsuu{f(z)-f(x)}{z-x}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg0}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/7}
+\end{layer}
+
+\slidepage
+\seteda{50}
+\begin{itemize}
+\item
+微分\\
+　関数の変化率（変化の割合）\\
+　　　　$(x^2)'=$
+$2x$\\
+　導関数の定義式\\
+　　　　$f'(x)=\dlim_{z\to x}\bunsuu{f(z)-f(x)}{z-x}$
+\item
+不定積分\\
+　微分の逆（微分したら，そうなる関数）\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg0}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/7}
+\end{layer}
+
+\slidepage
+\seteda{50}
+\begin{itemize}
+\item
+微分\\
+　関数の変化率（変化の割合）\\
+　　　　$(x^2)'=$
+$2x$\\
+　導関数の定義式\\
+　　　　$f'(x)=\dlim_{z\to x}\bunsuu{f(z)-f(x)}{z-x}$
+\item
+不定積分\\
+　微分の逆（微分したら，そうなる関数）\\
+　　　　$\dint x^2 dx=$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg0}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/7}
+\end{layer}
+
+\slidepage
+\seteda{50}
+\begin{itemize}
+\item
+微分\\
+　関数の変化率（変化の割合）\\
+　　　　$(x^2)'=$
+$2x$\\
+　導関数の定義式\\
+　　　　$f'(x)=\dlim_{z\to x}\bunsuu{f(z)-f(x)}{z-x}$
+\item
+不定積分\\
+　微分の逆（微分したら，そうなる関数）\\
+　　　　$\dint x^2 dx=$
+$\bunsuu{1}{3}x^3+C$（$C$は積分定数）
+\end{itemize}
+
+\newslide{不定積分(課題1)}
+
+\vspace*{18mm}
+
+%%repeat=7,para
+\slidepage
+\seteda{60}
+\begin{itemize}
+\item
+[課題]\monban 次の\,\hakom{\bunsuu{1}{n}x^{n+1}}\,に公式を入れよ．\vspace{2mm}\\
+\eda{$\dint 1\,dx=\hakom{\bunsuu{1}{n}x^{n+1}}+C$}\\%
+\eda{$\dint x\,dx=\hakom{\bunsuu{1}{n}x^{n+1}}+C$}\\
+\eda{$\dint x^2\,dx=\hakom{\bunsuu{1}{n}x^{n+1}}+C$}\\%
+\eda{$\dint x^3\,dx=\hakom{\bunsuu{1}{n}x^{n+1}}+C$}\\
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{不定積分(課題2)}
+
+\vspace*{18mm}
+
+%%repeat=7,para
+\slidepage
+\begin{itemize}
+\item
+[課題]\monban 次の不定積分を求めよ．\seteda{50}\\
+\eda{$\dint (x^2+4x)\,dx$}
+\eda{$\dint (x^3-1)\,dx$}
+\item
+[課題]\monban 次の不定積分を求めよ．\seteda{50}\\
+\eda{$\dint (x+1)^2\,dx$}
+\eda{$\dint (x+1)(x+2)\,dx$}
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\mainslide{定積分}
+
+
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{$f(x)$の区間$[a,\ b]$での定積分}
+
+\vspace*{18mm}
+
+\hypertarget{para2pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/2}
+\end{layer}
+
+\slidepage
+\vspace{5mm}
+
+\begin{layer}{120}{0}
+\putnotese{65}{17}{\input{fig/teisekiteigi1.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+しばらく，$f(x)\geqq 0$とする．
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para2pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/2}
+\end{layer}
+
+\slidepage
+\vspace{5mm}
+
+\begin{layer}{120}{0}
+\putnotese{65}{17}{\input{fig/teisekiteigi1.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+しばらく，$f(x)\geqq 0$とする．
+\item
+\begin{minipage}[t]{65mm}
+$y=f(x)$と$x$軸と$x=a$と$x=b$で囲まれた部分の面積$S$を
+$[a,\ b]$での{\color{red}定積分}といい\vspace{2mm}\\
+$\displaystyle\int_a^b f(x)\,dx$と書く
+\end{minipage}
+\end{itemize}
+
+\newslide{簡単な定積分の例}
+
+\vspace*{18mm}
+
+\hypertarget{para3pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{0}{\input{fig/teisekiteigi2.tex}}
+\putnotese{65}{35}{\input{fig/teisekiteigi3.tex}}
+\end{layer}
+
+\seteda{50}
+\begin{enumerate}[(1)]
+\item
+$\dint_1^3 1\,dx=\hakom{2}$\vspace{2mm}
+\end{enumerate}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{0}{\input{fig/teisekiteigi2.tex}}
+\putnotese{65}{35}{\input{fig/teisekiteigi3.tex}}
+\end{layer}
+
+\seteda{50}
+\begin{enumerate}[(1)]
+\item
+$\dint_1^3 1\,dx=\hakoma{2}$\vspace{2mm}
+\end{enumerate}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{0}{\input{fig/teisekiteigi2.tex}}
+\putnotese{65}{35}{\input{fig/teisekiteigi3.tex}}
+\end{layer}
+
+\seteda{50}
+\begin{enumerate}[(1)]
+\item
+$\dint_1^3 1\,dx=\hakoma{2}$\vspace{2mm}
+\item
+$\dint_0^2 x\,dx=\hakom{2}$\vspace{2mm}
+\end{enumerate}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{0}{\input{fig/teisekiteigi2.tex}}
+\putnotese{65}{35}{\input{fig/teisekiteigi3.tex}}
+\end{layer}
+
+\seteda{50}
+\begin{enumerate}[(1)]
+\item
+$\dint_1^3 1\,dx=\hakoma{2}$\vspace{2mm}
+\item
+$\dint_0^2 x\,dx=\hakoma{2}$\vspace{2mm}
+\end{enumerate}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{0}{\input{fig/teisekiteigi2.tex}}
+\putnotese{65}{35}{\input{fig/teisekiteigi3.tex}}
+\end{layer}
+
+\seteda{50}
+\begin{enumerate}[(1)]
+\item
+$\dint_1^3 1\,dx=\hakoma{2}$\vspace{2mm}
+\item
+$\dint_0^2 x\,dx=\hakoma{2}$\vspace{2mm}
+\item
+[課題]\monban 次の値を求めよ．\\
+\eda{$\dint_0^3 1\,dx=$}\\
+\eda{$\dint_0^1 x\,dx=$}
+\end{enumerate}
+
+\newslide{定積分と不定積分}
+
+\vspace*{18mm}
+
+\hypertarget{para4pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{4}{\input{fig/teisekiteigi3.tex}}
+%%[4,-]::\putnotee{30}{65}{\color[cmyk]{1,0,0,0}$変数を変えれば\displaystyle\int_0^x t\,dt$だが．．．}
+\end{layer}
+
+\begin{itemize}
+\item
+$\displaystyle\int_0^2 x\,dx=2$
+%%[4,-]::item::[課題]\monban 上の\hakom{\bunsuu{1}{2}x^2}に入る式は何か．
+\end{itemize}
+%%[5]::\addban
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{4}{\input{fig/teisekiteigi4.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+$\displaystyle\int_0^2 x\,dx=2$
+\item
+右端の値を変化させる\\
+それを$x$と書く\vspace{1mm}\\
+\hspace*{1.5zw}$\dint_0^x x\,dx=\hakom{\bunsuu{1}{2}x^2}$\vspace{-1mm}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{4}{\input{fig/teisekiteigi4.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+$\displaystyle\int_0^2 x\,dx=2$
+\item
+右端の値を変化させる\\
+それを$x$と書く\vspace{1mm}\\
+\hspace*{1.5zw}$\dint_0^x x\,dx=\hakom{\bunsuu{1}{2}x^2}$\vspace{-1mm}
+\item
+[注)]積分の中の$x$と右端の$x$が重なるが\\
+積分の中の$x$は気にせず，右端の$x$の関数と考える．
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para4pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{4}{\input{fig/teisekiteigi4.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+$\displaystyle\int_0^2 x\,dx=2$
+\item
+右端の値を変化させる\\
+それを$x$と書く\vspace{1mm}\\
+\hspace*{1.5zw}$\dint_0^x x\,dx=\hakoma{\bunsuu{1}{2}x^2}$\vspace{-1mm}
+\item
+[注)]積分の中の$x$と右端の$x$が重なるが\\
+積分の中の$x$は気にせず，右端の$x$の関数と考える．
+\end{itemize}
+
+\newslide{定積分と不定積分2}
+
+\vspace*{18mm}
+
+\hypertarget{para5pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para5pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{enumerate}[(1)]
+\item
+$\displaystyle\int_0^x x\,dx=\bunsuu{x^2}{2}$
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+一方，不定積分では$\dint x\,dx=\bunsuu{x^2}{2}+C$
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+定積分(1)は不定積分(2)の1つ\vspace{2mm}\\
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\hspace*{3zw}\fbox{$\left(\dint_0^x x\,dx\right)'=x$}
+}%
+\end{enumerate}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para5pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para5pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{enumerate}[(1)]
+\item
+$\displaystyle\int_0^x x\,dx=\bunsuu{x^2}{2}$
+\item
+一方，不定積分では$\dint x\,dx=\bunsuu{x^2}{2}+C$
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+定積分(1)は不定積分(2)の1つ\vspace{2mm}\\
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\hspace*{3zw}\fbox{$\left(\dint_0^x x\,dx\right)'=x$}
+}%
+\end{enumerate}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para5pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para5pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{enumerate}[(1)]
+\item
+$\displaystyle\int_0^x x\,dx=\bunsuu{x^2}{2}$
+\item
+一方，不定積分では$\dint x\,dx=\bunsuu{x^2}{2}+C$
+\item
+定積分(1)は不定積分(2)の1つ\vspace{2mm}\\
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\hspace*{3zw}\fbox{$\left(\dint_0^x x\,dx\right)'=x$}
+}%
+\end{enumerate}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para5pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para4pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para5pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para5pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/4}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{enumerate}[(1)]
+\item
+$\displaystyle\int_0^x x\,dx=\bunsuu{x^2}{2}$
+\item
+一方，不定積分では$\dint x\,dx=\bunsuu{x^2}{2}+C$
+\item
+定積分(1)は不定積分(2)の1つ\vspace{2mm}\\
+\hspace*{3zw}\fbox{\color{red}$\left(\dint_0^x x\,dx\right)'=x$}
+\end{enumerate}
+
+\newslide{微分積分の基本定理}
+
+\vspace*{18mm}
+
+\hypertarget{para6pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para6pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/5}
+\end{layer}
+
+\slidepage
+{\color{red}
+
+\begin{layer}{120}{0}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+$\left(\dint_0^x x\,dx\right)'=x$だった
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[]　$0$から$x$までの定積分を微分すると元の関数になる
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+これは，一般の関数$f(x)$についても成り立つ\vspace{2mm}\\
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\hspace*{3zw}\fbox{$\left(\dint_a^x f(x)\,dx\right)'=f(x)$}\hspace{1zw}（$a$は定数）
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+微分積分において，最も重要な定理である
+}%
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para6pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para6pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/5}
+\end{layer}
+
+\slidepage
+{\color{red}
+
+\begin{layer}{120}{0}
+\putnotec{22}{10.5}{\circlemark{1}}
+\putnotec{46}{10.5}{\circlemark{1}}
+\putnotec{19}{6}{\color{blue}\fbox{\phantom{\scriptsize x}}}
+\putnotec{31}{23}{\color{blue}\fbox{\phantom{\small x}}}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+$\left(\dint_0^x x\,dx\right)'=x$だった
+\item
+[]　$0$から$x$までの定積分を微分すると元の関数になる
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+これは，一般の関数$f(x)$についても成り立つ\vspace{2mm}\\
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\hspace*{3zw}\fbox{$\left(\dint_a^x f(x)\,dx\right)'=f(x)$}\hspace{1zw}（$a$は定数）
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+微分積分において，最も重要な定理である
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para6pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para6pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para6pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/5}
+\end{layer}
+
+\slidepage
+{\color{red}
+
+\begin{layer}{120}{0}
+\putnotec{22}{10.5}{\circlemark{1}}
+\putnotec{46}{10.5}{\circlemark{1}}
+\putnotec{19}{6}{\color{blue}\fbox{\phantom{\scriptsize x}}}
+\putnotec{31}{23}{\color{blue}\fbox{\phantom{\small x}}}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+$\left(\dint_0^x x\,dx\right)'=x$だった
+\item
+[]　$0$から$x$までの定積分を微分すると元の関数になる
+\item
+これは，一般の関数$f(x)$についても成り立つ\vspace{2mm}\\
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\hspace*{3zw}\fbox{$\left(\dint_a^x f(x)\,dx\right)'=f(x)$}\hspace{1zw}（$a$は定数）
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+微分積分において，最も重要な定理である
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para6pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para6pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/5}
+\end{layer}
+
+\slidepage
+{\color{red}
+
+\begin{layer}{120}{0}
+\putnotec{22}{10.5}{\circlemark{1}}
+\putnotec{46}{10.5}{\circlemark{1}}
+\putnotec{19}{6}{\color{blue}\fbox{\phantom{\scriptsize x}}}
+\putnotec{31}{23}{\color{blue}\fbox{\phantom{\small x}}}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+$\left(\dint_0^x x\,dx\right)'=x$だった
+\item
+[]　$0$から$x$までの定積分を微分すると元の関数になる
+\item
+これは，一般の関数$f(x)$についても成り立つ\vspace{2mm}\\
+\hspace*{3zw}\fbox{\color{red}$\left(\dint_a^x f(x)\,dx\right)'=f(x)$}\hspace{1zw}（$a$は定数）
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+微分積分において，最も重要な定理である
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para6pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para5pg4}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para6pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para6pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/5}
+\end{layer}
+
+\slidepage
+{\color{red}
+
+\begin{layer}{120}{0}
+\putnotec{22}{10.5}{\circlemark{1}}
+\putnotec{46}{10.5}{\circlemark{1}}
+\putnotec{19}{6}{\color{blue}\fbox{\phantom{\scriptsize x}}}
+\putnotec{31}{23}{\color{blue}\fbox{\phantom{\small x}}}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+$\left(\dint_0^x x\,dx\right)'=x$だった
+\item
+[]　$0$から$x$までの定積分を微分すると元の関数になる
+\item
+これは，一般の関数$f(x)$についても成り立つ\vspace{2mm}\\
+\hspace*{3zw}\fbox{\color{red}$\left(\dint_a^x f(x)\,dx\right)'=f(x)$}\hspace{1zw}（$a$は定数）
+\item
+微分積分において，最も重要な定理である
+\end{itemize}
+
+\newslide{基本定理の証明}
+
+\vspace*{18mm}
+
+\hypertarget{para7pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para7pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/8}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+$S(x)=\dint_a^x f(x)\,dx$とおく\ $\Rightarrow$\ $S'(x)=f(x)$を示す\vspace{1.8zw}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$S'(x)=$
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+$\dlim_{z \to x}\bunsuu{S(z)-S(x)}{z-x}$
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$S(z)-S(x)$は？\vspace{2mm}\\
+}%
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para7pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/8}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{80}{25}{\scalebox{0.85}{\input{fig/kihon1.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+$S(x)=\dint_a^x f(x)\,dx$とおく\ $\Rightarrow$\ $S'(x)=f(x)$を示す\vspace{1.8zw}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$S'(x)=$
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+$\dlim_{z \to x}\bunsuu{S(z)-S(x)}{z-x}$
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$S(z)-S(x)$は？\vspace{2mm}\\
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para7pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para7pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para7pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/8}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{80}{25}{\scalebox{0.85}{\input{fig/kihon1.tex}}}
+\putnotee{15}{20}{$S(x)$は黒斜線の面積}
+\end{layer}
+
+\begin{itemize}
+\item
+$S(x)=\dint_a^x f(x)\,dx$とおく\ $\Rightarrow$\ $S'(x)=f(x)$を示す\vspace{1.8zw}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$S'(x)=$
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+$\dlim_{z \to x}\bunsuu{S(z)-S(x)}{z-x}$
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$S(z)-S(x)$は？\vspace{2mm}\\
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para7pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para7pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para7pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/8}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{80}{25}{\scalebox{0.85}{\input{fig/kihon1.tex}}}
+\putnotee{15}{20}{$S(x)$は黒斜線の面積}
+\end{layer}
+
+\begin{itemize}
+\item
+$S(x)=\dint_a^x f(x)\,dx$とおく\ $\Rightarrow$\ $S'(x)=f(x)$を示す\vspace{1.8zw}
+\item
+$S'(x)=$
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+$\dlim_{z \to x}\bunsuu{S(z)-S(x)}{z-x}$
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$S(z)-S(x)$は？\vspace{2mm}\\
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para7pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para7pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para7pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/8}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{80}{25}{\scalebox{0.85}{\input{fig/kihon1.tex}}}
+\putnotee{15}{20}{$S(x)$は黒斜線の面積}
+\end{layer}
+
+\begin{itemize}
+\item
+$S(x)=\dint_a^x f(x)\,dx$とおく\ $\Rightarrow$\ $S'(x)=f(x)$を示す\vspace{1.8zw}
+\item
+$S'(x)=$
+$\dlim_{z \to x}\bunsuu{S(z)-S(x)}{z-x}$
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$S(z)-S(x)$は？\vspace{2mm}\\
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para7pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para7pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para7pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/8}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{80}{25}{\scalebox{0.85}{\input{fig/kihon1.tex}}}
+\putnotee{15}{20}{$S(x)$は黒斜線の面積}
+\end{layer}
+
+\begin{itemize}
+\item
+$S(x)=\dint_a^x f(x)\,dx$とおく\ $\Rightarrow$\ $S'(x)=f(x)$を示す\vspace{1.8zw}
+\item
+$S'(x)=$
+$\dlim_{z \to x}\bunsuu{S(z)-S(x)}{z-x}$
+\item
+$S(z)-S(x)$は？\vspace{2mm}\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para7pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para7pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/8}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{80}{25}{\scalebox{0.85}{\input{fig/kihon2.tex}}}
+\putnotee{15}{20}{$S(x)$は黒斜線の面積}
+\putnotee{15}{54}{$S(z)$は赤斜線の面積}
+\end{layer}
+
+\begin{itemize}
+\item
+$S(x)=\dint_a^x f(x)\,dx$とおく\ $\Rightarrow$\ $S'(x)=f(x)$を示す\vspace{1.8zw}
+\item
+$S'(x)=$
+$\dlim_{z \to x}\bunsuu{S(z)-S(x)}{z-x}$
+\item
+$S(z)-S(x)$は？\vspace{2mm}\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para7pg8}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para6pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para7pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para7pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/8}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{80}{25}{\scalebox{0.85}{\input{fig/kihon3.tex}}}
+\putnotee{15}{20}{$S(x)$は黒斜線の面積}
+\putnotee{15}{54}{$S(z)$は赤斜線の面積}
+\putnotee{15}{62}{$S(z)-S(x)$は赤斜線の面積}
+\end{layer}
+
+\begin{itemize}
+\item
+$S(x)=\dint_a^x f(x)\,dx$とおく\ $\Rightarrow$\ $S'(x)=f(x)$を示す\vspace{1.8zw}
+\item
+$S'(x)=$
+$\dlim_{z \to x}\bunsuu{S(z)-S(x)}{z-x}$
+\item
+$S(z)-S(x)$は？\vspace{2mm}\\
+\end{itemize}
+
+\newslide{基本定理の証明(続)}
+
+\vspace*{18mm}
+
+\hypertarget{para8pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/8}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{67}{24}{\scalebox{0.85}{\input{fig/kihon4.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+図より　$S(z)-S(x)\fallingdotseq f(x)(z-x)$\\
+%%[2,-]::　拡大してみる\\
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/8}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{67}{24}{\scalebox{0.85}{\input{fig/kihon4.tex}}}
+\putnotene{1117}{51}{\scalebox{0.85}{\input{fig/kihon4_1.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+図より　$S(z)-S(x)\fallingdotseq f(x)(z-x)$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/8}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{67}{24}{\scalebox{0.85}{\input{fig/kihon4.tex}}}
+\putnotene{117}{51}{\scalebox{0.85}{\input{fig/kihon4_2.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+図より　$S(z)-S(x)\fallingdotseq f(x)(z-x)$\\
+$S(z)-S(x)=f(x_1)(z-x)$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/8}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{67}{24}{\scalebox{0.85}{\input{fig/kihon4.tex}}}
+\putnotene{117}{51}{\scalebox{0.85}{\input{fig/kihon4_2.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+図より　$S(z)-S(x)\fallingdotseq f(x)(z-x)$\\
+$S(z)-S(x)=f(x_1)(z-x)$
+\item
+$S'(x)=\dlim_{z \to x}\bunsuu{S(z)-S(x)}{z-x}$\vspace{2mm}\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/8}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{67}{24}{\scalebox{0.85}{\input{fig/kihon4.tex}}}
+\putnotene{117}{51}{\scalebox{0.85}{\input{fig/kihon4_2.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+図より　$S(z)-S(x)\fallingdotseq f(x)(z-x)$\\
+$S(z)-S(x)=f(x_1)(z-x)$
+\item
+$S'(x)=\dlim_{z \to x}\bunsuu{S(z)-S(x)}{z-x}$\vspace{2mm}\\
+\hspace*{5mm}$=\dlim_{z \to x}\bunsuu{f(x_1)(z-x)}{z-x}$\vspace{2mm}\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/8}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{67}{24}{\scalebox{0.85}{\input{fig/kihon4.tex}}}
+\putnotene{117}{51}{\scalebox{0.85}{\input{fig/kihon4_2.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+図より　$S(z)-S(x)\fallingdotseq f(x)(z-x)$\\
+$S(z)-S(x)=f(x_1)(z-x)$
+\item
+$S'(x)=\dlim_{z \to x}\bunsuu{S(z)-S(x)}{z-x}$\vspace{2mm}\\
+\hspace*{5mm}$=\dlim_{z \to x}\bunsuu{f(x_1)(z-x)}{z-x}$\vspace{2mm}\\
+\hspace*{5mm}$=\dlim_{z \to x}f(x_1)$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/8}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{67}{24}{\scalebox{0.85}{\input{fig/kihon4.tex}}}
+\putnotene{117}{51}{\scalebox{0.85}{\input{fig/kihon4_2.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+図より　$S(z)-S(x)\fallingdotseq f(x)(z-x)$\\
+$S(z)-S(x)=f(x_1)(z-x)$
+\item
+$S'(x)=\dlim_{z \to x}\bunsuu{S(z)-S(x)}{z-x}$\vspace{2mm}\\
+\hspace*{5mm}$=\dlim_{z \to x}\bunsuu{f(x_1)(z-x)}{z-x}$\vspace{2mm}\\
+\hspace*{5mm}$=\dlim_{z \to x}f(x_1)$
+$=f(x)$\vspace{-1mm}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para8pg8}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para7pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para8pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/8}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{67}{24}{\scalebox{0.85}{\input{fig/kihon4.tex}}}
+\putnotene{117}{51}{\scalebox{0.85}{\input{fig/kihon4_2.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+図より　$S(z)-S(x)\fallingdotseq f(x)(z-x)$\\
+$S(z)-S(x)=f(x_1)(z-x)$
+\item
+$S'(x)=\dlim_{z \to x}\bunsuu{S(z)-S(x)}{z-x}$\vspace{2mm}\\
+\hspace*{5mm}$=\dlim_{z \to x}\bunsuu{f(x_1)(z-x)}{z-x}$\vspace{2mm}\\
+\hspace*{5mm}$=\dlim_{z \to x}f(x_1)$
+$=f(x)$\vspace{-1mm}
+\item
+したがって　$S(x)=\dint_a^x f(x)\,dx$は$f(x)$の不定積分
+\end{itemize}
+
+\newslide{定積分の計算公式}
+
+\vspace*{18mm}
+
+\hypertarget{para9pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para9pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+$f(x)$の不定積分の１つを$F(x)$とおく
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+基本定理より　$S(x)=\displaystyle\int_a^x f(x)\,dx$も不定積分
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+したがって　$S(x)=F(x)+C$（$C$は積分定数）
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$x$に$a$を代入すると　$S(a)=F(a)+C$
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$S(a)=\displaystyle\int_a^a f(x)\,dx=0$より　$F(a)+C=0$
+}%
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para9pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para9pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+$f(x)$の不定積分の１つを$F(x)$とおく
+\item
+基本定理より　$S(x)=\displaystyle\int_a^x f(x)\,dx$も不定積分
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+したがって　$S(x)=F(x)+C$（$C$は積分定数）
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$x$に$a$を代入すると　$S(a)=F(a)+C$
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$S(a)=\displaystyle\int_a^a f(x)\,dx=0$より　$F(a)+C=0$
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para9pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para9pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para9pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+$f(x)$の不定積分の１つを$F(x)$とおく
+\item
+基本定理より　$S(x)=\displaystyle\int_a^x f(x)\,dx$も不定積分
+\item
+したがって　$S(x)=F(x)+C$（$C$は積分定数）
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$x$に$a$を代入すると　$S(a)=F(a)+C$
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$S(a)=\displaystyle\int_a^a f(x)\,dx=0$より　$F(a)+C=0$
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para9pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para9pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+$f(x)$の不定積分の１つを$F(x)$とおく
+\item
+基本定理より　$S(x)=\displaystyle\int_a^x f(x)\,dx$も不定積分
+\item
+したがって　$S(x)=F(x)+C$（$C$は積分定数）
+\item
+$x$に$a$を代入すると　$S(a)=F(a)+C$
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$S(a)=\displaystyle\int_a^a f(x)\,dx=0$より　$F(a)+C=0$
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para9pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para8pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para9pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para9pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+$f(x)$の不定積分の１つを$F(x)$とおく
+\item
+基本定理より　$S(x)=\displaystyle\int_a^x f(x)\,dx$も不定積分
+\item
+したがって　$S(x)=F(x)+C$（$C$は積分定数）
+\item
+$x$に$a$を代入すると　$S(a)=F(a)+C$
+\item
+$S(a)=\displaystyle\int_a^a f(x)\,dx=0$より　$F(a)+C=0$
+\end{itemize}
+
+\newslide{定積分の計算公式(続)}
+
+\vspace*{18mm}
+
+\hypertarget{para10pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para10pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para10pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+%%[5,-]::\putnotee{98}{44}{$=\Bigl[F(x)\Bigr]_a^b$}
+\end{layer}
+
+\begin{itemize}
+\item
+これから　$C=-F(a)$
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+したがって　$S(x)=F(x)+C=F(x)-F(a)$
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$x$に$b$を代入すると　$S(b)=F(b)-F(a)$
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+よって　\fbox{$\displaystyle\int_a^b f(x)\,dx=F(b)-F(a)$}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[]\hspace*{2zw}$F(b)-F(a)={\Bigl[F(x)\Bigr]_a^b}$と書く
+}%
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para10pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para10pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para10pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+これから　$C=-F(a)$
+\item
+したがって　$S(x)=F(x)+C=F(x)-F(a)$
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$x$に$b$を代入すると　$S(b)=F(b)-F(a)$
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+よって　\fbox{$\displaystyle\int_a^b f(x)\,dx=F(b)-F(a)$}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[]\hspace*{2zw}$F(b)-F(a)={\Bigl[F(x)\Bigr]_a^b}$と書く
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para10pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para10pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para10pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para10pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+これから　$C=-F(a)$
+\item
+したがって　$S(x)=F(x)+C=F(x)-F(a)$
+\item
+$x$に$b$を代入すると　$S(b)=F(b)-F(a)$
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+よって　\fbox{$\displaystyle\int_a^b f(x)\,dx=F(b)-F(a)$}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[]\hspace*{2zw}$F(b)-F(a)={\Bigl[F(x)\Bigr]_a^b}$と書く
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para10pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para10pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para10pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para10pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+これから　$C=-F(a)$
+\item
+したがって　$S(x)=F(x)+C=F(x)-F(a)$
+\item
+$x$に$b$を代入すると　$S(b)=F(b)-F(a)$
+\item
+よって　\fbox{\color{red}$\displaystyle\int_a^b f(x)\,dx=F(b)-F(a)$}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+[]\hspace*{2zw}$F(b)-F(a)={\Bigl[F(x)\Bigr]_a^b}$と書く
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para10pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para9pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para10pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para10pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para10pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para10pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+これから　$C=-F(a)$
+\item
+したがって　$S(x)=F(x)+C=F(x)-F(a)$
+\item
+$x$に$b$を代入すると　$S(b)=F(b)-F(a)$
+\item
+よって　\fbox{\color{red}$\displaystyle\int_a^b f(x)\,dx=F(b)-F(a)$}
+\item
+[]\hspace*{2zw}$F(b)-F(a)={\color{red}\Bigl[F(x)\Bigr]_a^b}$と書く
+\end{itemize}
+
+\newslide{定積分の計算1}
+
+\vspace*{18mm}
+
+\hypertarget{para11pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para10pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para10pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para11pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para11pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{100}{35}{\input{fig/teiseki1.tex}}
+\end{layer}
+
+\seteda{35}
+\begin{itemize}
+\item
+[(例)]$\dint_0^1x^2\,dx$\vspace{-1mm}
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para11pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para10pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para11pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{100}{35}{\input{fig/teiseki1.tex}}
+\end{layer}
+
+\seteda{35}
+\begin{itemize}
+\item
+[(例)]$\dint_0^1x^2\,dx$\vspace{-1mm}
+\item
+[]不定積分の公式より　$\dint x^2\,dx=\bunsuu{1}{3}x^3+C$\vspace{-1mm}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para11pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para10pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para11pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para11pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para11pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{100}{35}{\input{fig/teiseki1.tex}}
+\end{layer}
+
+\seteda{35}
+\begin{itemize}
+\item
+[(例)]$\dint_0^1x^2\,dx$\vspace{-1mm}
+\item
+[]不定積分の公式より　$\dint x^2\,dx=\bunsuu{1}{3}x^3+C$\vspace{-1mm}
+\item
+[]$\dint_0^1x^2\,dx=\Bigl[\bunsuu{1}{3}x^3\Bigr]_0^1$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para11pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para10pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para11pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para11pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para11pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{100}{35}{\input{fig/teiseki1.tex}}
+\end{layer}
+
+\seteda{35}
+\begin{itemize}
+\item
+[(例)]$\dint_0^1x^2\,dx$\vspace{-1mm}
+\item
+[]不定積分の公式より　$\dint x^2\,dx=\bunsuu{1}{3}x^3+C$\vspace{-1mm}
+\item
+[]$\dint_0^1x^2\,dx=\Bigl[\bunsuu{1}{3}x^3\Bigr]_0^1$
+$=\bunsuu{1}{3}1^3-\bunsuu{1}{3}0^3=\bunsuu{1}{3}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para11pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para10pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para11pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para11pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para11pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para11pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/5}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{100}{35}{\input{fig/teiseki1.tex}}
+\end{layer}
+
+\seteda{35}
+\begin{itemize}
+\item
+[(例)]$\dint_0^1x^2\,dx$\vspace{-1mm}
+\item
+[]不定積分の公式より　$\dint x^2\,dx=\bunsuu{1}{3}x^3+C$\vspace{-1mm}
+\item
+[]$\dint_0^1x^2\,dx=\Bigl[\bunsuu{1}{3}x^3\Bigr]_0^1$
+$=\bunsuu{1}{3}1^3-\bunsuu{1}{3}0^3=\bunsuu{1}{3}$
+\item
+[課題]\monban 次の定積分を計算せよ．\\
+\eda{$\dint_0^2 x^2\,dx$}\eda{$\dint_1^2 x^2\,dx$}
+\end{itemize}
+
+\newslide{定積分の性質}
+
+\vspace*{18mm}
+
+\hypertarget{para12pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para11pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para11pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para12pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para12pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/2}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$\displaystyle\int_a^b\bigl(f(x)+g(x)\bigr)\,dx=\int_a^b f(x)\,dx+\int_a^b g(x)\,dx$
+\item
+$\displaystyle\int_a^b\bigl(f(x)-g(x)\bigr)\,dx=\int_a^b f(x)\,dx-\int_a^b g(x)\,dx$
+\item
+$\displaystyle\int_a^b c f(x)\,dx=c\int_a^b f(x)\,dx$（$c$は定数）
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para12pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para11pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para12pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para12pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para12pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/2}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+$\displaystyle\int_a^b\bigl(f(x)+g(x)\bigr)\,dx=\int_a^b f(x)\,dx+\int_a^b g(x)\,dx$
+\item
+$\displaystyle\int_a^b\bigl(f(x)-g(x)\bigr)\,dx=\int_a^b f(x)\,dx-\int_a^b g(x)\,dx$
+\item
+$\displaystyle\int_a^b c f(x)\,dx=c\int_a^b f(x)\,dx$（$c$は定数）
+\item
+[(注)]最初に不定積分を求めてから計算した方がいい
+\end{itemize}
+
+\newslide{定積分の計算2}
+
+\vspace*{18mm}
+
+\hypertarget{para13pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para12pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para12pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para13pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para13pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(例1)]$\dint_1^2 (2 x+3)\;dx$
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para13pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para12pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para13pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para13pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(例1)]$\dint_1^2 (2 x+3)\;dx$
+$=\Bigl[x^2+3x\Bigr]_1^2$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para13pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para12pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para13pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para13pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para13pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(例1)]$\dint_1^2 (2 x+3)\;dx$
+$=\Bigl[x^2+3x\Bigr]_1^2$\\
+$\phantom{dint_1^2 (2 x+3)\;dx}=(2^2+3\cdot 2)-(1^2+3\cdot 1)$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para13pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para12pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para13pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para13pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para13pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(例1)]$\dint_1^2 (2 x+3)\;dx$
+$=\Bigl[x^2+3x\Bigr]_1^2$\\
+$\phantom{dint_1^2 (2 x+3)\;dx}=(2^2+3\cdot 2)-(1^2+3\cdot 1)$\\
+$\phantom{dint_1^2 (2 x+3)\;dx}=6$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para13pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para12pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para13pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para13pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para13pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(例1)]$\dint_1^2 (2 x+3)\;dx$
+$=\Bigl[x^2+3x\Bigr]_1^2$\\
+$\phantom{dint_1^2 (2 x+3)\;dx}=(2^2+3\cdot 2)-(1^2+3\cdot 1)$\\
+$\phantom{dint_1^2 (2 x+3)\;dx}=6$
+\item
+[(例2)]$\dint_0^1 (3x^2+x)\,dx$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para13pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para12pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para13pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para13pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para13pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(例1)]$\dint_1^2 (2 x+3)\;dx$
+$=\Bigl[x^2+3x\Bigr]_1^2$\\
+$\phantom{dint_1^2 (2 x+3)\;dx}=(2^2+3\cdot 2)-(1^2+3\cdot 1)$\\
+$\phantom{dint_1^2 (2 x+3)\;dx}=6$
+\item
+[(例2)]$\dint_0^1 (3x^2+x)\,dx$
+$=\Bigl[x^3+\bunsuu{1}{2}x^2\Bigr]_0^1$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para13pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para12pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para13pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para13pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para13pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(例1)]$\dint_1^2 (2 x+3)\;dx$
+$=\Bigl[x^2+3x\Bigr]_1^2$\\
+$\phantom{dint_1^2 (2 x+3)\;dx}=(2^2+3\cdot 2)-(1^2+3\cdot 1)$\\
+$\phantom{dint_1^2 (2 x+3)\;dx}=6$
+\item
+[(例2)]$\dint_0^1 (3x^2+x)\,dx$
+$=\Bigl[x^3+\bunsuu{1}{2}x^2\Bigr]_0^1$\\
+$\phantom{\dint_0^1 (3x^2+x)\,dx}=(1+\bunsuu{1}{2})-(0+0)$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para13pg8}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para12pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para13pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para13pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para13pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para13pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/8}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+[(例1)]$\dint_1^2 (2 x+3)\;dx$
+$=\Bigl[x^2+3x\Bigr]_1^2$\\
+$\phantom{dint_1^2 (2 x+3)\;dx}=(2^2+3\cdot 2)-(1^2+3\cdot 1)$\\
+$\phantom{dint_1^2 (2 x+3)\;dx}=6$
+\item
+[(例2)]$\dint_0^1 (3x^2+x)\,dx$
+$=\Bigl[x^3+\bunsuu{1}{2}x^2\Bigr]_0^1$\\
+$\phantom{\dint_0^1 (3x^2+x)\,dx}=(1+\bunsuu{1}{2})-(0+0)$\\
+$\phantom{\dint_0^1 (3x^2+x)\,dx}=\bunsuu{3}{2}$
+\end{itemize}
+
+\newslide{定積分の計算(課題)}
+
+\vspace*{18mm}
+
+\hypertarget{para14pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para13pg8}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{125}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/1}
+\end{layer}
+
+\slidepage
+\seteda{100}
+\begin{itemize}
+\item
+[課題]\monban 次の定積分を計算せよ．\\
+\eda{$\dint_0^1 (3x^2+1)\;dx$}\\
+\eda{$\dint_{-1}^2(-x^2+x+2)\;dx$}\\
+\eda{$\dint_0^1 (x^3+1)\;dx$}\\
+\eda{$\dint_{-1}^1(x^4+x^3+2x^2)\;dx$}
+\end{itemize}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\newslide{区分求積法}
+
+\vspace*{18mm}
+
+\hypertarget{para15pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/7}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+定積分を面積で定義\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para15pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/7}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+定積分を面積で定義\\
+　わかりやすいが数学的には厳密でない\\
+　面積とは？　f(x)の値が負のときは？
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para15pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para15pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/7}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+定積分を面積で定義\\
+　わかりやすいが数学的には厳密でない\\
+　面積とは？　f(x)の値が負のときは？
+\item
+「区分求積法」による定義
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para15pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para15pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/7}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+定積分を面積で定義\\
+　わかりやすいが数学的には厳密でない\\
+　面積とは？　f(x)の値が負のときは？
+\item
+「区分求積法」による定義
+\begin{enumerate}[(1)]\vspace{-2mm}
+\item
+区間を$n$等分する\vspace{-2mm}
+\end{enumerate}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para15pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para15pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/7}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+定積分を面積で定義\\
+　わかりやすいが数学的には厳密でない\\
+　面積とは？　f(x)の値が負のときは？
+\item
+「区分求積法」による定義
+\begin{enumerate}[(1)]\vspace{-2mm}
+\item
+区間を$n$等分する\vspace{-2mm}
+\item
+各区間を長方形で近似\vspace{-2mm}
+\end{enumerate}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para15pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para15pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/7}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+定積分を面積で定義\\
+　わかりやすいが数学的には厳密でない\\
+　面積とは？　f(x)の値が負のときは？
+\item
+「区分求積法」による定義
+\begin{enumerate}[(1)]\vspace{-2mm}
+\item
+区間を$n$等分する\vspace{-2mm}
+\item
+各区間を長方形で近似\vspace{-2mm}
+\item
+$n$を限りなく大きくする\vspace{-2mm}
+\end{enumerate}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para15pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para14pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para15pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para15pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para15pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para15pg7}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para16pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/7}
+\end{layer}
+
+\slidepage
+\begin{itemize}
+\item
+定積分を面積で定義\\
+　わかりやすいが数学的には厳密でない\\
+　面積とは？　f(x)の値が負のときは？
+\item
+「区分求積法」による定義
+\begin{enumerate}[(1)]\vspace{-2mm}
+\item
+区間を$n$等分する\vspace{-2mm}
+\item
+各区間を長方形で近似\vspace{-2mm}
+\item
+$n$を限りなく大きくする\vspace{-2mm}
+\item
+そのときの極限を定積分の値とする\vspace{-2mm}
+\end{enumerate}
+\end{itemize}
+\label{pageend}\mbox{}
+
+\end{document}

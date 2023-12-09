@@ -1,0 +1,7 @@
+quline="Q03::次の関数を微分せよ．	[1]::y=x+cos(x)	[2]::y=xsin(x)	[3]::y=sin(4x)";
+shline="Q03---	[1]y'=  	[2]y'=  	[3]y'=  ";
+caline="Q03::	[1]::y'=1-sin(x)	[2]::y'=sin(x)+xcos(x)	[3]::y'=4cos(4x)";
+mrkline="0	2	2	2";
+mxscline="0	1	1	1";
+sqline="01KA	2	2	2	2CR02NI	2	2	2	2CR03VL	2	2	2	2CR04TO	2	2	2	2CR05RO	2	2	2	2CR06AK	2	2	2	2CR07YK	2	2	2	2CR08MT	2	2	2	2CR09HN	2	2	2	2CR10HH	2	2	2	2CR11KH	2	2	2	2CR12YM	2	2	2	2CR13TY	2	2	2	2CR14KK	2	2	2	2CR15YK	2	2	2	2CR16YT	2	2	2	2";
+ansline="1	01KA	082913:28:2	Q03---	[1]y'=  1-sin(x)	[2]y'=  1	[3]y'=  -4cos(x)CR2	02NI	082914:3:53	Q03---	[1]y'=  1+sin(x)	[2]y'=  	[3]y'=  4cos(4x)CR3	03VL	082913:45:32	Q03---	[1]y'=  1-sin(x)	[2]y'=  xcos(x)+sin(x)	[3]y'=  4sin(4x)CR4	04TO	082914:23:33	Q03---	[1]y'=  1-sin(x)	[2]y'=  cos(x)	[3]y'=  5cos(x)CR5	05RO	未提出CR6	06AK	082913:50:8	Q03---	[1]y'=  1-sin(x)	[2]y'=  sin(x)+xcos(x)	[3]y'=  4cos(4x)CR7	07YK	082912:59:52	Q03---	[1]y'=  1-sin(x)	[2]y'=  xcos(x)+sin(x)	[3]y'=  4cos(4x)CR8	08MT	未提出CR9	09HN	082913:24:47	Q03---	[1]y'=  １-sin(x)	[2]y'=  cos(x)	[3]y'=  cos(4x)CR10	10HH	082913:25:22	Q03---	[1]y'=  1-sin(x)	[2]y'=  1cos(x)	[3]y'=  cos(4x)CR11	11KH	082915:53:21	Q03---	[1]y'=  fr(1,2)x^(2)-sin(x)	[2]y'=  sin(x)-xcos(x)+c	[3]y'=  4cos(4x)+cCR12	12YM	082913:35:15	Q03---	[1]y'=  1-sinx	[2]y'=  cos(x)	[3]y'=  2cos(2x)CR13	13TY	未提出CR14	14KK	未提出CR15	15YK	未提出CR16	16YT	未提出";

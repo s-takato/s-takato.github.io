@@ -1,0 +1,3 @@
+quline="Q06::sin(x),cos(x)の微分公式を書け	[1]:: (sin(x))'=	[2]:: (cos(x))'=	Q07::{\cos^2x}の意味は次のどれか	[]:: 1 cos(x^2)　2 (cos(x))^2　3 (cos)^2x	Q08::tan(x)の微分公式を書け	[]:: (tan(x))'=";
+shline="Q06---	[1] (sin(x))'=  	[2] (cos(x))'=  	Q07---	[] 番号=  	Q08---	[]  (tan(x))'=  ";
+sqline="01KA	2	2	2	2	2	2	2CR02NI	2	2	2	2	2	2	2CR03VL	2	2	2	2	2	2	2CR04TO	2	2	2	2	2	2	2CR05RO	2	2	2	2	2	2	2CR06AK	2	2	2	2	2	2	2CR07YK	2	2	2	2	2	2	2CR08MT	2	2	2	2	2	2	2CR09HN	2	2	2	2	2	2	2CR10HH	2	2	2	2	2	2	2CR11KH	2	2	2	2	2	2	2CR12YM	2	2	2	2	2	2	2CR13TY	2	2	2	2	2	2	2CR14KK	2	2	2	2	2	2	2CR15YK	2	2	2	2	2	2	2CR16YT	2	2	2	2	2	2	2";

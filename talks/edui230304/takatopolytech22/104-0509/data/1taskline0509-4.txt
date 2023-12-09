@@ -1,0 +1,5 @@
+quline="Q04::次の角は第何象限にあるか	[1]:: 400(deg)	[2]:: 600(deg)	[3]:: -550(deg)	[4]:: -750(deg)";
+shline="Q04---	[1]象限= 	[2]象限= 	[3]象限= 	[4]象限= ";
+sqline="01KA	2	2	2	2	2CR02NI	2	2	2	2	2CR03VL	2	2	2	2	2CR04TO	2	2	2	2	2CR05RO	2	2	2	2	2CR06AK	2	2	2	2	2CR07YK	2	2	2	2	2CR08MT	2	2	2	2	2CR09HN	2	2	2	2	2CR10HH	2	2	2	2	2CR11KH	2	2	2	2	2CR12YM	2	2	2	2	2CR13TY	2	2	2	2	2CR14KK	2	2	2	2	2CR15YK	2	2	2	2	2CR16YT	2	2	2	2	2";
+mrkline="0	2	2	2	2";
+mxscline="1	1	1	1	1";

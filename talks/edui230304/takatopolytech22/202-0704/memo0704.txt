@@ -1,0 +1,4 @@
+kettaskorgvのバグ修正
+　　stoknow を入れた
+　　subseditの番号を固定
+　　stok=>stoknowにまとめた

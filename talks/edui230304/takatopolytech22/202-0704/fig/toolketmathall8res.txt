@@ -1,0 +1,8 @@
+NIL
+(%i3) powerdisp:false
+(%i4) display2d:false
+(%i5) linel:1000
+/Users/takatoosetsuo/polytech22.git/202-0704/fig/toolketmathall8res.max:5:995:incorrect syntax: ^ is not a prefix operator
+x+3))),(-(1)/(cos(^(
+                  ^
+(%o6) "/Users/takatoosetsuo/polytech22.git/202-0704/fig/toolketmathall8res.max"

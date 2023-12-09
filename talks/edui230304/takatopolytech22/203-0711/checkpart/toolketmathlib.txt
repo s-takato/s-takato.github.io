@@ -1,0 +1,136 @@
+////  20220716 /////
+
+Dirdata=Dircdy+"data";
+
+quline="";
+shline="";
+caline="";
+reset=0;
+numL=[];
+dispL=[];
+origin="";
+tab=unicode("0009");
+dcm="::";
+posxy0=[8,-4.5];
+posxy=posxy0;
+mp=[-10,-10];
+size=["Size=1.2"];
+clr=size;
+clrb=append(size,"Color=blue");
+
+month(mon):=(
+  regional(out);
+  if(mon=="Jan",out="01");
+  if(mon=="Feb",out="02");
+  if(mon=="Mar",out="03");
+  if(mon=="Apr",out="04");
+  if(mon=="May",out="05");
+  if(mon=="Jun",out="06");
+  if(mon=="Jul",out="07");
+  if(mon=="Aug",out="08");
+  if(mon=="Sep",out="09");
+  if(mon=="Oct",out="10");
+  if(mon=="Nov",out="11");
+  if(mon=="Dec",out="12");
+  out;
+);
+
+Datetimestr():=(
+  regional(out,tmp,tmp1);
+  tmp1=apply(date(),text(#));;
+  out=tmp1_1;
+  tmp=tmp1_2;
+  if(length(tmp)==1,tmp="0"+tmp);
+  out=out+tmp;
+  tmp=tmp1_3;
+  if(length(tmp)==1,tmp="0"+tmp);
+  out=out+tmp;
+  tmp1=apply(time(),text(#));
+  tmp=tmp1_1;
+  if(length(tmp)==1,tmp="0"+tmp);
+  out=out+tmp;
+  tmp=tmp1_2;
+  if(length(tmp)==1,tmp="0"+tmp);
+  out=out+tmp;
+  tmp=tmp1_3;
+  if(length(tmp)==1,tmp="0"+tmp);
+  out=out+tmp;
+  substring(out,4,length(out));
+);
+
+Getcurtime():=Getcurtime(date(),time());
+Getcurtime(ymd,hms):=(
+  regional(out,tmp,tmp1);
+  out=text(ymd_1*10000+ymd_2*100+ymd_3);
+  tmp=text(hms_1*3600+hms_2*60+hms_3);
+  tmp1=substring("0000000",0,5-length(tmp));
+  out=out+tmp1+tmp;
+  out;
+);
+
+Returndatetime(ydtorg):=(
+  regional(ydt,year,date,time,out,tmp,tmp1);
+  ydt=ydtorg;
+  if(!isstring(ydt),ydt=text(ydt));
+  tmp=indexof(ydt,"202");
+  year=substring(ydt,tmp-1,tmp+3);
+  date=substring(ydt,tmp+3,tmp+7);
+  tmp=substring(ydt,tmp+7,length(ydt));
+  if(isstring(tmp),tmp=parse(tmp));
+  out=[floor(tmp/3600)];
+  tmp=mod(tmp,3600);
+  out=append(out,floor(tmp/60));
+  tmp=mod(tmp,60);
+  tmp1=append(out,tmp);
+  out="";
+  forall(tmp1,
+    out=out+text(#)+":";
+  );
+  out=substring(out,0,length(out)-1);
+  [year,date,out];
+);
+
+List2line(stLL):=(
+  regional(tab,nn,nc,tmp,str,st,out);
+  tab=unicode("0009");
+  out="";
+  forall(1..(length(stLL)),nn,
+    st=stLL_nn;
+    str="";
+    forall(1..(length(st)),
+      tmp=st_#;
+      if(!isstring(tmp),tmp=format(tmp,10));
+      str=str+tmp+tab;
+    );
+    str=substring(str,0,length(str)-1);
+    out=out+str;
+    if(nn<length(stLL),out=out+"CR");
+  );
+  out;  
+);
+
+Line2list(strorg):=(
+  regional(tab,stL,st,nn,tL,mx,flg,tmp);
+  tab=unicode("0009");
+  str=replace(strorg,";;",tab);
+  flg=indexof(str,"::");
+  tL=[];
+  if(indexof(str,"CR")>0,
+    stL=tokenize(str,"CR");
+    forall(1..(length(stL)),nn,
+      st=stL_nn;
+      if(!isstring(st),st=format(st,10));
+      stL_nn=tokenize(st,tab);
+    );
+  ,
+    stL=tokenize(str,tab);
+    forall(1..(length(stL)),
+      tmp=stL_#;
+      if(indexof(tmp,"::")>0,
+        tmp=tokenize(tmp,"::")
+      );
+      stL_#=tmp;
+    );
+  );
+  stL;
+);

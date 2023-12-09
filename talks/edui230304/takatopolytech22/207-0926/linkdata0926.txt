@@ -1,0 +1,27 @@
+導関数の意味
+https://s-takato.github.io/polytech22/offlineapp/derivativev11jsoffL.html
+関数のグラフ
+https://s-takato.github.io/polytech22/offlineapp/drawgraphv3vlinejsoffL.html
+三角関数の値
+https://s-takato.github.io/polytech22/offlineapp/trigcalcv1jsoffL.html
+
+縮約版
+https://s-takato.github.io/polytech22/207-0926/presen/presen22207digest.pdf
+
+0926-01増加と減少
+https://s-takato.github.io/polytech22/offline/kettaskv0926-01.html
+0926-02極値点1
+https://s-takato.github.io/polytech22/offline/kettaskv0926-02.html
+0926-03極値点2
+https://s-takato.github.io/polytech22/offline/kettaskv0926-03.html
+0926-04増減表
+https://s-takato.github.io/polytech22/offline/kettaskv0926-04.html
+0926-05曲線と座標軸で囲まれる図形
+https://s-takato.github.io/polytech22/offline/kettaskv0926-05.html
+0926-06 曲線と直線で囲まれる図形
+https://s-takato.github.io/polytech22/offline/kettaskv0926-06.html
+0926-07 2曲線で囲まれる図形
+https://s-takato.github.io/polytech22/offline/kettaskv0926-07.html
+0926-08 2曲線とy軸に平行な直線で囲まれる図形
+https://s-takato.github.io/polytech22/offline/kettaskv0926-08.html
+

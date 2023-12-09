@@ -1,0 +1,7 @@
+quline="Q05::y=sin(x),y=cos(x)の導関数を答えよ	[1]:: y=sin(x)	[2]:: y=cos(x)";
+shline="Q05---	[1] y'= 	[2] y'= ";
+caline="Q05::	[1]::y=cos(x)	[2]::y=-sin(x)";
+mrkline="0	2	2";
+mxscline="0	1	1";
+sqline="01KA	2	2	2CR02NI	2	2	2CR03VL	2	2	2CR04TO	2	2	2CR05RO	2	2	2CR06AK	2	2	2CR07YK	2	2	2CR08MT	2	2	2CR09HN	2	2	2CR10HH	2	2	2CR11KH	2	2	2CR12YM	2	2	2CR13TY	2	2	2CR14KK	2	2	2CR15YK	2	2	2CR16YT	2	2	2";
+ansline="1	01KA	070414:45:2	Q05---	[1] y'= cos(x)	[2] y'= -sin(x)CR2	02NI	070414:29:56	Q05---	[1] y'= cos(x)	[2] y'= -sin(x)CR3	03VL	070414:25:7	Q05---	[1] y'= cos(x)	[2] y'= -sin(x)CR4	04TO	070414:40:5	Q05---	[1] y'= cos(x)	[2] y'= -sin(x)CR5	05RO	未提出CR6	06AK	070414:23:8	Q05---	[1] y'= cos(x)	[2] y'= -sin(x)CR7	07YK	070414:32:8	Q05---	[1] y'= cos(x)	[2] y'= -sin(x)CR8	08MT	070414:33:30	Q05---	[1] y'= cos(x)	[2] y'= -sin(x)CR9	09HN	070414:41:24	Q05---	[1] y'= cos(x)	[2] y'= -sin(x)CR10	10HH	070414:40:46	Q05---	[1] y'= cos(x)	[2] y'= -sin(x)CR11	11KH	070414:30:48	Q05---	[1] y'= cos(x)	[2] y'= -sin(x)CR12	12YM	070414:41:41	Q05---	[1] y'= cos(x)	[2] y'= -sin(x)CR13	13TY	未提出CR14	14KK	未提出CR15	15YK	未提出CR16	16YT	未提出";

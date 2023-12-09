@@ -1,0 +1,9 @@
+writefile("/Users/takatoosetsuo/polytech22.git/202-0711/checkpart/fig/toolketmathall1res.txt")$/*##*/
+powerdisp:false$/*##*/
+display2d:false$/*##*/
+linel:1000$/*##*/
+dtLL:[[no,(cos(x))/(cos(x)),(-sin(x))/(-sin(x)),no,(3)/(2),no,ns],[no,(cos(x))/(cos(x)),(-sin(x))/(-sin(x)),no,(2)/(2),no,ns],[no,(cos(x))/(cos(x)),(-sin(x))/(-sin(x)),no,(2)/(2),no,ns],[no,(cos(x))/(cos(x)),(-sin(x))/(-sin(x)),no,(2)/(2),no,ns],[no,(cos(x))/(cos(x)),(-sin(x))/(-sin(x)),no,(2)/(2),no,ns],[no,(cos(x))/(cos(x)),(-sin(x))/(-sin(x)),no,(2)/(2),no,ns],[no,(cos(x))/(cos(x)),(-sin(x))/(-sin(x)),no,(2)/(2),no,ns],[no,(cos(x))/(cos(x)),(-sin(x))/(-sin(x)),no,(2)/(2),no,ns],[no,(cos(x))/(cos(x)),(-sin(x))/(-sin(x)),no,(3)/(2),no,ns],[no,(cos(x))/(cos(x)),(-sin(x))/(-sin(x)),no,(3)/(2),no,ns],[no,(cos(x))/(cos(x)),(-sin(x))/(-sin(x)),no,(3)/(2),no,ns],[no,(cos(x))/(cos(x)),(-sin(x))/(-sin(x)),no,(1)/(2),no,ns],[],[],[],[]]$/*##*/
+res:ratsimp(dtLL)$/*##*/
+disp(res)$/*##*/
+closefile()$/*##*/
+quit()$/*##*/

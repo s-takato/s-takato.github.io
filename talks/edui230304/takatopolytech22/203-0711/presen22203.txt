@@ -1,0 +1,287 @@
+タイトル::slide0
+::\newcommand{\hiduke}{0711}
+::\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+::\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+::\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+::\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+::\def\rad{\;\mathrm{rad}}
+::\def\deg#1{#1^{\circ}}
+::\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+::\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+::\newcommand{\sfrac}[3][0.65]{\scalebox{#1}{$\frac{#2}{#3}$}}
+::\newcommand{\phn}[1]{\phantom{#1}}
+::\newcommand{\scb}[2][0.6]{\scalebox{#1}{#2}}
+::\newcommand{\dsum}{\displaystyle\sum}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+
+
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+%\putnotee{122}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+
+\newcounter{ban}
+\setcounter{ban}{1}
+
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+%\addtocounter{ban}{1}%
+}
+
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%
+}
+
+\newcounter{edawidth}
+\newcounter{edactr}
+
+\newcommand{\seteda}[1]{% 20220708 modified
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+
+\newcommand{\eda}[2][\theedawidth]{%
+\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+
+%%%%%%%%%%%%
+main:: 復習(課題)
+\slidepage[m]
+
+%%%%%%%%%%%%%
+new::微分係数と導関数
+%repeat=1
+\slidepage
+
+itemize
+item::$a$における微分係数$f'(a)$\\
+\hspace*{2zw}$f'(a)=\dlim_{z\to a}\bunsuu{f(z)-f(a)}{z-a}$
+item::導関数\\
+・微分係数$f'(a)$は$a$の関数\\
+・$a$を$x$と書き，導関数という\\
+・導関数を求めることを「微分する」という
+item::[課題]\monban 導関数の定義式をかけ\\
+$f'(x)=$
+end
+
+%%%%%%%%%%%%%
+new::$x^p$の微分
+%repeat=1
+\slidepage
+
+itemize
+item::[課題]\monban 公式をかけ\\
+$(x^p)'=$
+
+item::[課題]\monban 微分せよ\seteda{38}\\
+\eda{$y=x$}\eda{$y=x^3$}\eda{$y=x^6$}
+item::[課題]\monban 微分せよ\seteda{38}\\
+\eda{$y=x^{\frac{1}{2}}$}\eda{$y=x^{-1}$}\eda{$y=\bunsuu{1}{x^2}$}
+item::[課題]\monban 微分せよ\seteda{50}\\
+\eda{$y=x+\bunsuu{1}{x}$}\eda{$y=\sqrt{x}+\bunsuu{1}{\sqrt{x}}$}
+end
+
+
+%%%%%%%%%%%%%
+new::三角関数の微分
+%repeat=1
+\slidepage
+
+itemize
+item::[課題]\monban $\sin x, \cos x$の微分公式を書け\seteda{45}\\
+\eda{$(\sin x)'=$}\eda{$(\cos x)'=$}
+item::[課題]\monban $\cos^2 x$の意味は次のどれか．番号を答えよ．\\
+1 $\cos(x^2)$　　2 $(\cos x)^2$　　3 $(\cos)^2 x$
+item::[課題]\monban $\tan x$の微分公式を書け\\
+\hspace*{1zw}$(\tan x)'=$
+end
+
+%%%%%%%%%%%%%
+new::積と商の微分
+%repeat=1
+\slidepage
+
+itemize
+item::[課題]\monban 積の微分公式を書け\\
+\hspace*{1zw}$(fg)'=$
+item::[課題]\monban 商の微分公式を書け\vspace{1mm}\\
+\hspace*{1zw}$(\bunsuu{f}{g})'=$\vspace{1mm}
+item::[課題]\monban 次の関数を微分せよ．\seteda{40}\\
+\eda{$y=x^2 \sin x$}\eda{$y=\sin^2 x$}\eda{$y=\bunsuu{\cos x}{\sin x}$}
+end
+
+%%%%%%%%%%%%%
+new:: $f(ax+b)$の微分
+%repeat=1
+\slidepage
+
+{\color{red}\large
+layer::{120}{0}
+\putnotec{44}{10}{\MARU{　}}
+\putnotec{55}{10}{\MARU{　}}
+\qarrowline{44}{8}{10}{0}{15}
+\qarrowline{48}{13}{37}{180}{15}
+\putnotec{37}{18}{そのまま微分}
+end
+}
+
+itemize
+item::\fbox{$f(ax+b)'=a f'(ax+b)$}\vspace{7mm}
+item::$\bigl((2x+3)^5\bigr)'$
+$=2\cdot 5(2x+3)^4$
+$=10(2x+3)^4$
+item::[課題]\monban 次の関数を微分せよ．\seteda{55}\\
+\eda{$y=(-3x+4)^5$}\eda{$y=\sin(2x+\bunsuu{\pi}{4})$}
+end
+
+%%%%%%%%%%%%%
+main::指数関数の微分
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::ネイピア数
+%repeat=5,para
+\slidepage
+
+itemize
+item::$y=a^x$の$(0,1)$での接線の傾きがちょうど1になる$a$
+%[2,-]::item::[課題]\monbannoadd \href{https://s-takato.github.io/polytech22/offlineapp/napierv3jsoffL.html}{ネイピア数}で$a$の値を求めよ
+%[3,-]::item::この$a$を{\color{blue}ネイピア数}といい，$e$で表す\\
+%[4,-]::\hspace*{2zw}$e=2.7182818284\cdots$
+%[5,-]::item::$e$は微分で重要な定数
+end
+%[5]::\addban
+
+%%%%%%%%%%%%
+new::自然対数
+%repeat=4,para
+\slidepage
+
+itemize
+item::ネイピア数$e$を底とする対数を自然対数という
+%[2,-]::item::[]\hspace*{2zw}$y=\log_e x\ \Longleftrightarrow\ e^y=x$
+%[3,-]::item::$\ln x$または底を略して$\log x$と書くこともある．
+%[4,-]::item::自然対数と常用対数の変換\\
+%[4,-]::\hspace*{2zw}$\log_e x=\bunsuu{\log_{10}{x}}{\log_{10}e},\ \log_{10} x=\bunsuu{\log_{e}{x}}{\log_{e}10}$
+end
+
+%%%%%%%%%%%%
+main::関数電卓
+\slidepage[m]
+
+%%%%%%%%%%%%%
+new::関数電卓--自然対数と常用対数
+%repeat=3,para
+\slidepage
+
+layer::{120}{0}
+\putnotes{70}{2}{\includegraphics[bb=0.00 0.00 417.00 360.00,height=70mm]{fig/calkey.pdf}}
+{\color{red}
+%[2,-]::\arrowlineseg{87}{33}{30}{30}
+%[2,-]::\putnotene{113}{18}{\normalsize$\log_{10}$}
+%[3,-]::\arrowlineseg{97}{33}{30}{30}
+%[3,-]::\putnotene{123}{18}{\normalsize$\log_{e}$}
+}
+end
+
+%%%%%%%%%%%%%
+new::関数電卓--対数の計算
+%%repeat=1,para
+\slidepage
+
+\begin{center}
+\includegraphics[bb=0.00 0.00 849.00 595.00,height=70mm]{fig/calclog.pdf}
+\end{center}
+
+%%%%%%%%%%%%%
+new::関数電卓--度とラジアン
+%%repeat=1,para
+\slidepage
+
+\begin{center}
+\includegraphics[bb=0.00 0.00 834.00 587.00,height=70mm]{fig/calctrig.pdf}
+\end{center}
+
+
+%%%%%%%%%%%%%
+new:: 指数関数$e^x$の微分
+%repeat=12,para
+\slidepage
+
+layer::{120}{0}
+%[8,-]::\putnotee{90}{-2}{\fbox{\large\color{red}$\dlim_{z \to 0}\bunsuu{e^z-1}{z}=1$}}
+end
+
+itemize
+%[1]::item::$(e^x)'=\dlim_{z\to x}\bunsuu{e^z-e^x}{z-x}\phantom{=\dlim_{z\to x}\bunsuu{e^{x+(z-x)}-e^x}{z-x}}$\vspace{2mm}\\
+%[2,-]::item::$(e^x)'=\dlim_{z\to x}\bunsuu{e^z-e^x}{z-x}=\dlim_{z\to x}\bunsuu{e^{x+(z-x)}-e^x}{z-x}$\vspace{2mm}\\
+%[3]::$\phantom{(e^x)'}=\dlim_{z\to x}\bunsuu{e^{x}e^{z-x}-e^x}{z-x}\phantom{=\dlim_{z\to x}\bunsuu{e^x(e^{z-x}-1)}{z-x}}$
+%[4,-]::$\phantom{(e^x)'}=\dlim_{z\to x}\bunsuu{e^{x}e^{z-x}-e^x}{z-x}=\dlim_{z\to x}\bunsuu{e^x(e^{z-x}-1)}{z-x}$\vspace{2mm}\\
+%[5,-]::$\phantom{(e^x)'}=e^x\dlim_{z-x\to 0}\bunsuu{e^{z-x}-1}{z-x}=$
+%[7,-]::$e^x\dlim_{{\color{red}z}\to 0}\bunsuu{e^{\color{red}z}-1}{\color{red}z}$
+%[9,-]::$=e^x$
+%[6,-]::item::[]\hspace*{50mm}{\large ($z-x$を$z$と考える)}
+%[10,-]::item::よって\\
+%[11,-]::\hspace*{4zw}\fbox{\color{red}$(e^x)'=e^x$}
+%[12,-]::\hspace{1zw}{\color{red}微分しても同じ関数になる}
+end
+
+%%%%%%%%%%%%%
+new:: $e^{ax+b}$の微分
+%repeat=5,para
+\slidepage
+
+{\color{red}\large
+layer::{120}{0}
+%[2,-]::\putnotec{37}{9.5}{\MARU{　}}
+%[2,-]::\putnotec{43}{8.5}{\MARU{\small　}}
+%[2,-]::\qarrowline{38}{8}{4}{2}{15}
+%[3,-]::\qarrowline{41}{12}{28}{180}{15}
+%[3,-]::\putnotec{32}{18}{そのまま}
+end
+}
+
+itemize
+item::\fbox{$(e^{ax+b})'=a e^{ax+b}$}\vspace{8mm}
+%[4,-]::item::[例] $(e^{2x})'=2e^{2x},\ (e^{-x+3})'=-e^{-x+3}$
+%[5,-]::item::[課題]\monban 次を微分せよ．\seteda{50}\\
+%[5,-]::\eda{$y=e^{5x}$}\eda{$y=e^{-2x}$}\\
+%[5,-]::\eda{$y=e^{3x+1}$}\eda{$y=\bunsuu{e^x+e^{-x}}{2}$}
+end
+
+%%%%%%%%%%%%%n
+new::自然対数$y=\log x$の微分
+%repeat=8
+\slidepage
+
+itemize
+item::\fbox{$(\log x)'=\bunsuu{1}{x}$}
+%[7,-]::　\fbox{$\vphantom{\bunsuu{1}{x}}(\log (ax+b))'=\bunsuu{a}{ax+b}$}
+%[2,-]::item::[証明]$(\log x)'=\dlim_{z \to x}\bunsuu{\log z-\log x}{z-x}$\\
+%[3,-]::{\large\color{blue}　$\log z=w,\ \log x=u$とおくと}
+%[4,-]::\ {\large\color{blue}　$z=e^w,\ x=e^u,\ w\to u$}\\
+%[5,-]::$\phn{(\log x)'}=\dlim_{w \to u}\bunsuu{w-u}{e^w-e^u}$
+%[6,-]::$=\bunsuu{1}{e^u}=\bunsuu{1}{x}$
+%[8,-]::item::[課題]\monban 次の関数を微分せよ．\seteda{40}\\
+%[8,-]::\hspace*{-5mm}\eda{$y=\log(-x)$}
+%[8,-]::\eda[35]{$y=\log 2x$}
+%[8,-]::\eda{$y=\log(x+5)$}
+end

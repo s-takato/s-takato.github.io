@@ -1,0 +1,7 @@
+quline="Q07::{\theta}は鋭角でcos(!{\theta})=fr(1,3)とする．	::sin(!{\theta})を求めよ．	Q08::sin(!{\theta})=fr(2,3)とする．cos(!{\theta})を求めよ．	[1]:: sin(!{\theta})=fr(2,3)，{\theta}が鋭角のとき	[2]:: sin(!{\theta})=fr(2,3)，{\theta}が鈍角のとき";
+shline="Q07---	= 	Q08---	[1]=  	[2]=  ";
+caline="Q07::	::fr(2sq(2),3)	Q08::	[1]::fr(sq(5),3)	[2]::-fr(sq(5),3)";
+mrkline="0	2	0	2	2";
+mxscline="1	1	1	1	1";
+sqline="01KA	2	2	2	2	2CR02NI	2	2	2	2	2CR03VL	2	2	2	2	2CR04TO	2	2	2	2	2CR05RO	2	2	2	2	2CR06AK	2	2	2	2	2CR07YK	2	2	2	2	2CR08MT	2	2	2	2	2CR09HN	2	2	2	2	2CR10HH	2	2	2	2	2CR11KH	2	2	2	2	2CR12YM	2	2	2	2	2CR13TY	2	2	2	2	2CR14KK	2	2	2	2	2CR15YK	2	2	2	2	2CR16YT	2	2	2	2	2";
+ansline="1	01KA	未提出CR2	02NI	042516:29:52	Q07---	= sq(fr(8,9))	Q08---	[1]=  	[2]=  CR3	03VL	050218:30:12	Q07---	= fr(2sq(2),3)	Q08---	[1]=  fr(sq(5),3)	[2]=  41.81CR4	04TO	未提出CR5	05RO	未提出CR6	06AK	042516:17:42	Q07---	= fr(2sq(2),3)	Q08---	[1]=  fr(sq(5),3)	[2]=  fr(sq(5),3)CR7	07YK	042516:30:7	Q07---	= fr(2sq(2),3)	Q08---	[1]=  fr(sq(5),3)	[2]=  fr(sq(5),3)CR8	08MT	042516:17:39	Q07---	= fr(2sq(2),3)	Q08---	[1]=  fr(sq(5),3)	[2]=  -fr(sq(5),3)CR9	09HN	未提出CR10	10HH	未提出CR11	11KH	未提出CR12	12YM	042516:30:42	Q07---	= fr(2sq(2),3)	Q08---	[1]=  fr(sq(5),3)	[2]=  CR13	13TY	未提出CR14	14KK	未提出CR15	15YK	未提出CR16	16YT	未提出";

@@ -1,0 +1,372 @@
+Title::slide0
+::\newcommand{\hiduke}{0516}
+::\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+::\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+::\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+::\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+::\def\rad{\;\mathrm{rad}}
+::\def\deg#1{#1^{\circ}}
+::\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+::\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+
+
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+%\putnotee{122}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+
+\newcounter{ban}
+\setcounter{ban}{1}
+
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+%\addtocounter{ban}{1}%
+}
+
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%%210614
+}
+
+\newcounter{edawidth}
+\newcounter{edactr}
+
+\newcommand{\seteda}[1]{
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+
+\newcommand{\eda}[2][\theedawidth ]{%
+\noindent\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+
+%%%%%%%%%%%%
+main::三角関数のグラフ
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::$y=\sin x$のグラフ
+%repeat=8
+\slidepage
+
+layer::{120}{0}
+%[1..7]::putnote::se{75}{3}::fig221046,0.9
+%[8,-]::putnote::se{75}{3}::fig221046b,0.9
+end
+
+{\color{red}
+layer::{120}{0}
+%[3,-]::\qarrowline[8]{44}{36}{33}{152}{40}
+%[3,-]::\circleline{46}{35}{1}
+%[6,-]::\qarrowline[8]{35}{55}{38}{122}{40}
+%[6,-]::\circleline{37}{55}{1}
+end
+}
+
+itemize
+item::角$x$はラジアンで測る
+item::{\color{red}半径$1$}の円に点$\mathrm{P}(X,Y)$をとる
+%[2,3]::item::[]\hspace*{3zw}$\sin x=\bunsuu{Y}{r}\phantom{=Y}$
+%[4,-]::item::[]\hspace*{3zw}$\sin x=\bunsuu{Y}{r}=Y$
+%[5,-]::item::また弧の長さを$\ell$とすると\\
+%[5,6]::\hspace*{3zw}$x=\bunsuu{\ell}{r}$
+%[7,-]::\hspace*{3zw}$x=\bunsuu{\ell}{r}=\ell$
+%[8,-]::item::$x$は弧(4)の長さ,\ $\sin x$は(2)の長さ
+end
+
+%%%%%%%%%%%%
+new::正弦曲線を描く
+%repeat=1
+\slidepage
+
+itemize
+item::[]アプリ「$y=\sin x$のグラフ」を動かしてみよう\vspace{-2mm}
+item::[(1)]学生番号を入れてOKを押す\vspace{-2mm}
+ item::[(2)]赤い点を動かして$x$を決め，「点を打つ」\\
+ 　＝＞長さが$x$の弧を表示，$(x,\sin x)$に点が打たれる\vspace{-2mm}
+ item::[(3)]いくつかの点を打って「点を結ぶ」\\
+ 　正弦曲線との誤差が表示される\\
+ 　さらに「点を打つ」，「点を結ぶ」を繰り返す．\vspace{-2mm}
+
+ item::[課題]\monban 違いをできるだけ小さくして，{\color{red}点を結ぶ} を押してからRecを押し， 回答にコピペせよ．
+end
+
+%%%%%%%%%%%%
+new::正弦曲線の特徴
+%repeat=4
+\slidepage
+
+layer::{120}{0}
+putnote::s{60}{5}::graphsin
+end
+
+\vspace{30mm}
+
+%[2,-]::itemize
+%[2,-]::item::{\color{red}振幅}は$1$（値の範囲は$-1$から$1$）
+%[3,-]::item::{\color{red}周期}は$2\pi$（$2\pi$で元に戻る）
+%[4,-]::item::原点対称
+%[2,-]::end
+
+
+%%%%%%%%%%%%
+new::正弦曲線
+%repeat=3
+\slidepage
+
+itemize
+item::\href{https://s-takato.github.io/polytech22/offlineapp/drawgraphvjsoffL.html}{関数のグラフ}で振幅と周期を求めよう\seteda{50}\vspace{2mm}\\
+\eda{$y=2\sin x$}\eda{$y=\bunsuu{1}{3}\sin x$}\\
+\eda{$y=\sin 2x$}\eda{$y=4\sin\bunsuu{x}{2}$}\seteda{50}\\
+%[2,-]::\eda{振幅2, 周期$2\pi$}\eda{振幅$\bunsuu{1}{3}$, 周期$2\pi$}\\
+%[2,-]::\eda{振幅1, 周期$\pi$}\eda{振幅4, 周期$4\pi$}
+
+%[3,-]::item::[課題]\monban $y=a\sin bx$の振幅と周期を求めよ\\
+%[3,-]::ただし，$a,\ b$は正の定数である．
+end
+
+%%%%%%%%%%%%
+new::$y=\cos x$のグラフ
+%repeat=8
+\slidepage
+
+layer::{120}{0}
+%[1..7]::putnote::se{75}{3}::fig221046,0.9
+%[8,-]::putnote::se{75}{3}::fig221046b,0.9
+end
+
+{\color{red}
+layer::{120}{0}
+%[3,-]::\qarrowline[8]{44}{36}{33}{152}{40}
+%[3,-]::\circleline{46}{35}{1}
+%[6,-]::\qarrowline[8]{35}{55}{38}{122}{40}
+%[6,-]::\circleline{37}{55}{1}
+end
+}
+
+itemize
+item::角$x$はラジアンで測る
+item::{\color{red}半径$1$}の円に点$\mathrm{P}(X,Y)$をとる
+%[2,3]::item::[]\hspace*{3zw}$\cos x=\bunsuu{X}{r}\phantom{=X}$
+%[4,-]::item::[]\hspace*{3zw}$\cos x=\bunsuu{X}{r}=X$
+%[5,-]::item::また弧の長さを$\ell$とすると\\
+%[5,6]::\hspace*{3zw}$x=\bunsuu{\ell}{r}$
+%[7,-]::\hspace*{3zw}$x=\bunsuu{\ell}{r}=\ell$
+%[8,-]::item::$x$は弧(4)の長さ,\ $\cos x$は(1)の長さ
+end
+
+%%%%%%%%%%%%
+new::$y=\cos x$のグラフ(余弦曲線)
+%repeat=5
+\slidepage
+
+layer::{120}{0}
+putnote::s{62}{6}::graphcos
+\putnoten{118}{6}{\small $y=\cos x$}
+%[5,-]::putnote::s{62}{6}::graphsinadd
+%[5,-]::\putnoten{80}{6}{\color{red}\small $y=\sin x$}
+end
+
+\vspace*{28mm}
+
+itemize
+%thin[2,-]::item::{\color{red}振幅}は$1$（値の範囲は$-1$から$1$）\vspace{-1mm}
+%thin[2,-]::item::{\color{red}周期}は$2\pi$（$2\pi$で元に戻る）\vspace{-1mm}
+%thin[4,-]::item::$\cos x$は$y$軸対称\vspace{-1mm}
+%thin[5,-]::item::$\cos x$は$\sin x$を左に$\frac{\pi}{2}$平行移動（{\color{red}位相}が$\frac{\pi}{2}$進む）
+end
+
+%%%%%%%%%%%%
+new::位相のずれ
+%repeat=1
+\slidepage
+
+itemize
+item::[](1) $y=\sin x$ (2) $y=\cos x$をもとにする
+item::[課題]\monban 次の関数のグラフは(1)からどのくらい位相がずれているか
+（左にずれるときプラスとせよ）\seteda{50}\\
+\eda{$y=\sin(x-1)$}\eda{$y=\sin(x+2)$}\\
+\eda{$y=\sin(x-\pi)$}\eda{$y=\sin(x+\bunsuu{\pi}{2})$}
+item::[課題]\monban 以下では，$a$を定数とする\seteda{110}\\
+\eda{$y=\sin(x-a)$の(1)からの位相のずれを求めよ}\\
+\eda{$y=\cos(x+a)$の(2)からの位相のずれを求めよ}
+end
+
+%%%%%%%%%%%%
+new::角度の和の三角関数
+%repeat=1
+\slidepage
+
+itemize
+item::2つの角を$A,\ B$とする（通常はギリシャ文字 $\alpha,\  \beta$）
+item::$\sin(A+B)=\sin A+\sin B$が成り立つかを考えよう
+item::$\sin\deg{30}+\sin\deg{60}=\sin(\deg{30}+\deg{60})$になるかを調べる
+item::{\large $\sin \deg{90}=1,\ \sin \deg{30}=\bunsuu{1}{2},\ \sin \deg{60}=\bunsuu{\sqrt{3}}{2}$}
+item::[課題]\monban $\sqrt{3}=1.732$を用いて答えよ．\seteda{90}\\
+\eda{$\sin\deg{30}+\sin\deg{60}$を計算せよ}\\
+\eda{$\sin(A+B)=\sin A+\sin B$は成り立つと言えるか}
+end
+
+%%%%%%%%%%%%
+new::加法定理
+%repeat=2
+\slidepage
+
+itemize
+item::[]$\sin(A+B)=\sin A \cos B+\cos A\sin B$
+item::[]$\sin( A- B)=\sin A\cos B-\cos A\sin B$
+item::[]$\cos( A+ B)=\cos A\cos B-\sin A\sin B$
+item::[]$\cos( A- B)=\cos A\cos B+\sin A\sin B$
+end
+
+%%%%%%%%%%%%%%
+%%new::加法定理の証明
+%%%%repeat=2
+%%\slidepage
+%%
+%%layer::{120}{0}
+%%putnote::s{65}{10}::kahoteiri
+%%end
+
+%%%%%%%%%%%%
+new::具体例(テキストP181)
+%repeat=11,para
+\slidepage
+
+itemize
+%[1]::item::{\color{blue}\normalsize $\sin 30\degree=\hako{$\bunsuu{1}{2}$},\ \sin 45\degree=\hako{$\bunsuu{1}{\sqrt{2}}$},\ \sin 60\degree=\hako{$\bunsuu{\sqrt{3}}{2}$}$}\\
+%[2,-]::item::{\color{blue}\normalsize $\sin 30\degree=\hakoa{$\bunsuu{1}{2}$},\ \sin 45\degree=\hakoa{$\bunsuu{1}{\sqrt{2}}$},\ \sin 60\degree=\hakoa{$\bunsuu{\sqrt{3}}{2}$}$}\\
+%[3]::{\color{blue}\normalsize $\cos 30\degree=\hako{$\bunsuu{\sqrt{3}}{2}$},\ \cos 45\degree=\hako{$\bunsuu{1}{\sqrt{2}}$},\ \cos 60\degree=\hako{$\bunsuu{1}{2}$}$}
+%[4,-]::{\color{blue}\normalsize $\cos 30\degree=\hakoa{$\bunsuu{\sqrt{3}}{2}$},\ \cos 45\degree=\hakoa{$\bunsuu{1}{\sqrt{2}}$},\ \cos 60\degree=\hakoa{$\bunsuu{1}{2}$}$}
+%[5,-]::item::$\sin 75\degree$\\
+%[6,-]::$=\sin(45\degree+30\degree)$
+%[7,-]::$=\sin 45\degree \cos 30\degree+\cos 45\degree \sin 30\degree$
+%[8,-]::$=\bunsuu{1}{\sqrt{2}}\bunsuu{\sqrt{3}}{2}+\bunsuu{1}{\sqrt{2}}\bunsuu{1}{2}=$
+%[9,-]::$\bunsuu{\sqrt{3}+1}{2\sqrt{2}}=$
+%[10,-]::$\bunsuu{\sqrt{6}+\sqrt{2}}{4}$
+%[11,-]::item::[課題]\monban 次を求めよ\seteda{50}\\
+%[11,-]::\eda{$\sin 15\degree$}\eda{$\cos 75\degree$}
+end
+
+
+%%%%%%%%%%%%
+new::加法定理による等式証明($-x$)
+%repeat=4
+\slidepage
+
+itemize
+item::{\normalsize\color{blue} $\sin 0=0,\ \cos 0=1,\ \sin\pi=0,\ \cos\pi=-1$}
+item::$\sin(-x)$
+\\
+%[2,-]::$=\sin(0-x)=\sin 0 \cos x-\cos 0\sin x=-\sin x$
+%[3,-]::item::$\cos(-x)$
+%[3,-]::\\
+%[4,-]::$=\cos(0-x)=\cos 0 \cos x+\sin 0\sin x=\cos x$
+end
+
+%%%%%%%%%%%%
+new::グラフでの意味
+%%repeat=2
+\slidepage
+
+layer::{120}{0}
+putnote::s{60}{5}::graphsin,0.9
+\putnotew{55}{5}{\color{red}$\sin(-x)=-\sin x$}
+\putnotee{65}{5}{（奇関数）}
+putnote::s{60}{45}::graphcos,0.9
+\putnotew{55}{40}{\color{red}$\cos(-x)=\cos x$}
+\putnotee{65}{40}{（偶関数）}
+end
+
+%%%%%%%%%%%%
+new::加法定理による等式証明($x+\pi$)
+%repeat=9
+\slidepage
+
+itemize
+item::以下，角をラジアンで表す
+%[2,-]::item::{\normalsize\color{blue} $\sin 0=0,\ \cos 0=1,\ \sin\pi=0,\ \cos\pi=-1$}
+%[3,-]::item::$\sin(x+\pi)=$
+%[4,-]::$\sin x\cos\pi+\cos x\sin\pi$
+%[5,-]::$=-\sin x$
+%[6,-]::item::$\cos(x+\pi)=$
+%[7,-]::$\cos x\cos\pi-\sin x\sin\pi$
+%[8,-]::$=-\cos x$
+%[9,-]::item::[課題]\monban 次はどうなるか\seteda{50}\\
+%[9,-]::\eda{$\sin(\pi-x)$}\eda{$\cos(\pi-x)$}
+end
+
+%%%%%%%%%%%%
+new::グラフでの意味 $x+\pi$
+%%repeat=2
+\slidepage
+
+layer::{120}{0}
+putnote::s{60}{5}::graphsinpi,0.9
+putnote::s{60}{45}::graphcospi,0.9
+end
+
+%%%%%%%%%%%%
+new::単振動の合成
+%repeat=6
+\slidepage
+
+itemize
+item::{\normalsize\color{blue} $\sin\bunsuu{\pi}{4}=\bunsuu{1}{\sqrt{2}},\ \cos\bunsuu{\pi}{4}=\bunsuu{1}{\sqrt{2}}
+,\ \sin\bunsuu{\pi}{3}=\bunsuu{\sqrt{3}}{2},\ \cos\bunsuu{\pi}{3}=\bunsuu{1}{2}$}
+item::$\sin(x+\bunsuu{\pi}{4})=$
+%[2,-]::$\sin x\cos\bunsuu{\pi}{4}+\cos x\sin\bunsuu{\pi}{4}$\\
+%[3,-]::$\phantom{\sin(x+\bunsuu{\pi}{4})}=\bunsuu{1}{\sqrt{2}}\sin x+\bunsuu{1}{\sqrt{2}}\cos x$\\
+%[4,-]::$\phantom{\sin(x+\bunsuu{\pi}{4})}=\bunsuu{1}{\sqrt{2}}(\sin x+\cos x)$\\
+%[5,-]::両辺に$\sqrt{2}$を掛けて左辺と右辺を入れかえると\\
+%[5,-]::\hspace*{2zw}$\sin x+\cos x=\sqrt{2}\sin(x+\bunsuu{\pi}{4})$\\
+%[6,-]::{\color{red}周期の等しい単振動を足すと1つの単振動になる}
+end
+
+%%%%%%%%%%%%
+new::単振動の合成(課題)
+%repeat=1
+\slidepage
+
+itemize
+item::[課題]\monban 次の単振動の和(差)を１つの単振動で表せ．\seteda{80}\\
+\eda{$\sqrt{3}\sin x+\cos x$
+\hspace{2zw}{\large $\sin(x+\bunsuu{\pi}{6})$を展開せよ}}\\
+\eda{$\sin x+\sqrt{3}\cos x$
+\hspace*{2zw}{\large $\sin(x+\bunsuu{\pi}{3})$を展開せよ}}\\
+\eda{$\sin x-\cos x$
+\hspace{3.5zw}{\large $\sin(x-\bunsuu{\pi}{4})$を展開せよ}}%
+item::一般に\\
+\hspace*{1zw}{\color{blue}$a\sin x+b\cos x=\sqrt{a^2+b^2} \sin (x+ A)$\\
+\hspace*{4zw}角$ A$：$\cos A=\bunsuu{a}{a^2+b^2},\ \sin A=\bunsuu{b}{a^2+b^2}$}
+end
+
+%%%%%%%%%%%%
+new::三角関数のグラフ(課題)
+%%repeat=1
+\slidepage
+
+itemize
+item::[課題]\monban アプリで次の関数のグラフをかけ．また，特徴をあげよ．\seteda{57}\\
+\eda{$y=\cos x+\sin x$}\eda{$y=\sin x+\sqrt{3}\cos x$}\\
+\eda{$y=\sin x+\sin 2x$}\eda{$y=\cos^2 x=(\cos x)^2$}\\
+\hfill {\color{blue}\large KeTMathでは\verb|cos(2,x)|と書けばよい}
+end

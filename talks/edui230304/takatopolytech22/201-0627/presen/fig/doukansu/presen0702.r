@@ -1,0 +1,41 @@
+setwd("/Users/takatoosetsuo/Dropbox/2018polytec/lecture/0702/presen/fig/doukansu")##
+source('/Applications/kettex.app/texlive/texmf-dist/scripts/ketcindy/ketlib/ketpiccurrent.r')##
+Ketinit()##
+Setwindow(c((-3),(3)),c((-1),(7)))####
+Sl=c(-3,-2);Assignadd('Sl',Sl)##
+Sr=c(3,-2);Assignadd('Sr',Sr)##
+S=c(-1.71707,-2);Assignadd('S',S)##
+sgSlSr=Listplot(c(Sl,Sr))##
+gr1=Plotdata('x^2','x')##
+sg1=Listplot(c(c(2.8356,8.01361),c(3.1644,9.98639)))##
+sg2=Listplot(c(c(3,9),c(3,0)))##
+pt1=Pointdata(list(c(3,9)))##
+setwd("/Users/takatoosetsuo/Dropbox/2018polytec/lecture/0702/presen/fig/doukansu")##
+size=17##
+cat('',file='all.r',sep='',append=FALSE)##
+for(n in Looprange(1,size)){##
+  tmp=as.character(n)##
+  tmp=paste('0000',tmp,sep='')##
+  tmp=substring(tmp,nchar(tmp)-2,nchar(tmp))##
+  fname=paste('p',tmp,'.r',sep='')##
+  lines=readLines(fname)##
+  if(n>1){##
+    for(j in 1:length(lines)){##
+      tmp=grep('source',lines[j],fixed=TRUE)##
+      if(length(tmp)>0){##
+        lines[j]=paste('#',lines[j],sep='')##
+        lines[j+2]=paste('#',lines[j+2],sep='')##
+        break##
+      }##
+    }##
+  }##
+  lines=lines[1:(length(lines)-1)]##
+  tmp=paste('print(',as.character(n),')',sep='')##
+  lines=c(tmp,lines)##
+  for(j in Looprange(1,length(lines))){##
+    cat(lines[j],file='all.r',sep='\n',append=TRUE)##
+  }##
+}##
+source('all.r')##
+cat('////',file='resultR.txt',sep='')##
+quit()##

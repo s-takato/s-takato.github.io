@@ -1,0 +1,216 @@
+// LIbrary for net materials   20200429
+// StartTime, LogData, QuesData, QuestNo, NewLearn, NewQues, EndQues はグローバル変数
+
+// Startlearning(studentname) stnameと開始の年月日時刻データを追加した文字列を返す
+//       stname==""のときは，"noname"を返す
+// Startquestion(question,correct) 問題番号と問題と正解からQuesDataを新たに作成, NewQues=0
+// Endquestion(studentans,studentscore) QuesDataに解答得点解答時間を追加, NewQues=1,,QuesNo=+1
+// Updatelog() QuesNoが同じ場合はLogDataを更新，そうでなければ追加
+// Log2csv(dt) logdataをCSVのリストにして返す
+
+// Getcurtime() 現在の年月日と時刻データを返す
+// Counttime() 現在の時刻データを返す
+// Returntime(data) dataから時刻の通常データを返す
+// Returndatetime(data) dataから年月日と時刻の通常データのリストを返す
+
+LogData="";
+StartTime=0;
+QuesDataHead="";
+QuesData="";
+QuesNo=0;
+NewLearn=1;
+NewQues=1;
+EndQues=0;
+
+newflg=1;
+quesflg=0;
+quesready=0;
+quesfin=1;
+scoreflg=0;
+scorefin=0;
+recordflg=0;
+recordfin=0;
+
+Getcurtime():=Getcurtime(date(),time());
+Getcurtime(ymd,hms):=(
+  regional(out,tmp,tmp1);
+  out=text(ymd_1*10000+ymd_2*100+ymd_3);
+  tmp=text(hms_1*3600+hms_2*60+hms_3);
+  tmp1=substring("0000000",0,5-length(tmp));
+  out=out+tmp1+tmp;
+  out;
+);
+
+Counttime():=(
+  regional(tmp,tmp1);
+  tmp=time();
+  tmp_1*3600+tmp_2*60+tmp_3;
+);
+
+Returndatetime(data):=(
+  regional(dstr,dt,tm,tmp);
+  dstr=text(data);
+  dt=substring(dstr,0,8);
+  tmp=substring(dstr,8,length(dstr));
+  tm=Returntime(tmp);
+  [dt,tm];
+);
+
+Returntime(timedata):=(
+  regional(tmp,tmp1,out);
+  tmp=timedata;
+  if(isstring(tmp),tmp=parse(tmp));
+  out=[floor(tmp/3600)];
+  tmp=mod(tmp,3600);
+  out=append(out,floor(tmp/60));
+  tmp=mod(tmp,60);
+  tmp1=append(out,tmp);
+  out="";
+  forall(tmp1,
+    out=out+text(#)+":";
+  );
+  out=substring(out,0,length(out)-1);
+  out;
+);
+
+Startlearning(studentname):=(
+  regional(st);
+  //global LogData, QuesNo, QuesData
+  st=studentname;
+  if(length(st)==0,st="noname");
+  LogData=st+";;"+Getcurtime();
+);
+
+Startquestion(question,correct):=(
+  regional(no,ex,ca);
+  StartTime=Counttime();
+  QuesNo=QuesNo+1; //210424
+  no=text(QuesNo);
+  ex=question;
+  if(!isstring(ex),ex=text(ex));
+  ca=correct;
+  if(!isstring(ca),ca=text(ex));
+  QuesDataHead=no+";;"+ex+";;"+ca;
+);
+
+Makequesdata(stans,stscore):=Makequesdata(stans,stscore,0);
+Makequesdata(stans,stscore,ctr):=(
+  regional(ans,score,tm);
+  ans=stans;
+  if(!isstring(ans),ans=text(ans));
+  score=stscore;
+  if(!isstring(score),score=text(score));
+  QuesData=QuesDataHead+";;"+ans+";;"+score;
+  tm=Counttime()-StartTime;
+  QuesData=QuesData+";;"+text(tm);
+  if(ctr>0,
+    QuesData=QuesData+";;"+text(ctr);
+  );
+);
+
+Endquestion(studentans,studentscore):=(
+  regional(ans,score,tm);
+  // global QuesData,StartTime, EndQues
+  if(EndQues==0,
+    ans=studentans;
+    if(!isstring(ans),ans=text(ans));
+    score=studentscore;
+    if(!isstring(score),score=text(score));
+    QuesData=QuesData+";;"+ans+";;"+score;
+    tm=Counttime()-StartTime;
+    QuesData=QuesData+";;"+text(tm);
+    EndQues=1;
+  );
+);
+
+Updatelog():=(
+  regional(tmp,tmp1,tmp2);
+  //global LogData,QuesData
+  if(length(QuesData)>0,
+    tmp=tokenize(LogData,"||");
+    if(length(tmp)>1,
+      tmp1=tmp_(-1);
+      tmp2=tmp_(1..(length(tmp)-1));
+      tmp=tokenize(tmp1,";;");
+      tmp=tmp_1;
+      if(tmp==QuesNo, //210425å
+        LogData=tmp2_1;
+        forall(2..(length(tmp2)),
+          LogData=LogData+"||"+tmp2_#;
+        );
+      );
+    );
+    LogData=LogData+"||"+QuesData;
+  );
+);
+
+Log2csv(dt):=(
+  regional(cL,dL,out,nn,tmp,tmp1,tmp2);
+  cL=[];
+  dL=tokenize(dt,"||");
+  tmp=dL_1;
+  tmp1=tokenize(tmp,";;");
+  tmp=Returndatetime(tmp1_2);
+  out=tmp1_1+","+tmp_1+","+tmp_2;
+  forall(2..(length(dL)),nn,
+    tmp1=tokenize(dL_nn,";;");
+    tmp2=text(tmp1_1)+",";
+    forall(2..(length(tmp1)),
+      tmp=tmp1_#;
+      if(!isstring(tmp),tmp=text(tmp));
+      if(indexof(tmp,",")>0,tmp=Dqq(tmp));
+      tmp2=tmp2+tmp;
+      if(#<length(tmp1),tmp2=tmp2+",");
+    );
+    out=out+","+tmp2;
+  );
+  out;
+);
+
+Displetters(msgLorg):=(
+  regional(msgL,pos,str,size,color);
+  msgL=msgLorg;
+  if(length(msgL)>0,
+    if(isstring(msgL_1),msgL=[msgL]);
+    forall(msgL,
+      pos=#_2;
+      str=#_1;
+      if(length(#)>2,size=#_3,size=16);
+      if(length(#)>3,color=#_4,color=[0,0,0]); 
+      drawtext(pos,str,size->size,color->color);
+    );
+  );
+);
+
+Dispexprs(msgLorg):=(
+  regional(msgL,pos,str,size,color);
+  msgL=msgLorg;
+  if(length(msgL)>0,
+    if(isstring(msgL_1),msgL=[msgL]);
+    forall(msgL,
+      pos=#_2;
+      str="$"+#_1+"$";
+      if(length(#)>2,size=#_3,size=16);
+      if(length(#)>3,color=#_4,color=[0,0,0]);    
+      drawtext(pos,str,size,color);
+    );
+  );
+);
+
+Confirmstudent(st,Students):=(
+  regional(out,tmp,tmp1);
+  if(length(st)==1,st="0"+st);
+  tmp=substring(st,0,2);
+  tmp1=select(Students,indexof(#,tmp)>0);
+  if(length(tmp1)==0,
+    if(st=="noname",
+      out=[1,"番号入力",""];
+    ,
+      out=[2,"番号違い",""];
+    );
+  ,
+    tmp1=tmp1_1;
+    out=[0,"OK=>",tmp1];
+  );
+  out;
+);

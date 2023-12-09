@@ -1,0 +1,48 @@
+setwd("/Users/takatoosetsuo/Dropbox/2018polytec/lecture/0702/presen/fig/bibunkeisuu")##
+source('/Applications/kettex.app/texlive/texmf-dist/scripts/ketcindy/ketlib/ketpiccurrent.r')##
+Ketinit()##
+Setwindow(c((-1),(5)),c((-1),(5)))####
+Sl=c(1,0);Assignadd('Sl',Sl)##
+Sr=c(3.25,0);Assignadd('Sr',Sr)##
+S=c(1,0);Assignadd('S',S)##
+C=c(-0.49508,0.67386);Assignadd('C',C)##
+A=c(1,1);Assignadd('A',A)##
+B=c(3.25,2.5);Assignadd('B',B)##
+D=c(4.48321,4.59323);Assignadd('D',D)##
+sgSlSr=Listplot(c(Sl,Sr))##
+bzo1=Bezier(list(c(-0.49508,0.67386),c(1,1),c(3.25,2.5),c(4.48321,4.59323)),list(c(c(0.25824,0.63831)),c(c(1.74176,1.36169),c(2.56011,1.78831)),c(c(3.93989,3.21169))))##
+lnAB=Lineplot(c(A,B))##
+sg1=Listplot(c(A,c(1,0)))##
+sg2=Listplot(c(B,c(3.25,0)))##
+ln1=Lineplot(c(c(1,0),c(1,1)))##
+ln1=Lineplot(c(c(0.9999,0),c(0.9999,1)))##
+ln2=Lineplot(c(A,c(0.9999,0.99995)))##
+setwd("/Users/takatoosetsuo/Dropbox/2018polytec/lecture/0702/presen/fig/bibunkeisuu")##
+size=17##
+cat('',file='all.r',sep='',append=FALSE)##
+for(n in Looprange(1,size)){##
+  tmp=as.character(n)##
+  tmp=paste('0000',tmp,sep='')##
+  tmp=substring(tmp,nchar(tmp)-2,nchar(tmp))##
+  fname=paste('p',tmp,'.r',sep='')##
+  lines=readLines(fname)##
+  if(n>1){##
+    for(j in 1:length(lines)){##
+      tmp=grep('source',lines[j],fixed=TRUE)##
+      if(length(tmp)>0){##
+        lines[j]=paste('#',lines[j],sep='')##
+        lines[j+2]=paste('#',lines[j+2],sep='')##
+        break##
+      }##
+    }##
+  }##
+  lines=lines[1:(length(lines)-1)]##
+  tmp=paste('print(',as.character(n),')',sep='')##
+  lines=c(tmp,lines)##
+  for(j in Looprange(1,length(lines))){##
+    cat(lines[j],file='all.r',sep='\n',append=TRUE)##
+  }##
+}##
+source('all.r')##
+cat('////',file='resultR.txt',sep='')##
+quit()##

@@ -1,0 +1,15 @@
+0516-08の結果
+6 06AK 0516
+Q08 次の単振動の和(差)を１つの単振動で表せ
+[1]  sq(3)sin(x)+cos(x)
+　正解 2sin(x+fr(pi,6))
+　答え 2sin(x+fr(pi,6))
+　得点 2
+[2]  sin(x)+sq(3)cos(x)
+　正解 2sin(x+fr(pi,3))
+　答え 2sin(x+fr(pi,3))
+　得点 2
+[3]  sin(x)-cos(x)
+　正解 sq(2)sin(x-fr(pi,4))
+　答え sq(2)sin(x-fr(pi,4))
+　得点 2

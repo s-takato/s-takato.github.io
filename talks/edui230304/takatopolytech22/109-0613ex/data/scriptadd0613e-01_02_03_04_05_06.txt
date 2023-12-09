@@ -1,0 +1,18 @@
+if(scriptaddstart==1,
+  ang=arctan(3/4);
+  da=ang/30;
+  dtL=apply(0..30,[cos(da*#),sin(da*#)]);
+  scriptaddstart=0;
+);
+
+if(contains([18,19],nqu),
+  Setwindow([-0.5,4.5],[-0.5,4.5]);
+  Setadjust([10,0],1);
+//  pdrwxy();
+  plistplot("0",dtL);
+  plistplot("1",[[0,0],[4,0],[4,3],[0,0]],["dr,2"]);
+  pletter([2,0],"s2","4");
+  pletter([4,1.5],"e2","3");
+  pletter(0.5*[4,3],"n2w2","5");
+  pletter(1.2*[cos(ang/2),sin(ang/2)],"n1e1","a");
+);

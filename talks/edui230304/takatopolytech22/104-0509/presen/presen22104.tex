@@ -1,0 +1,2785 @@
+%%% Title presen22104
+\documentclass[landscape,10pt]{ujarticle}
+\special{papersize=\the\paperwidth,\the\paperheight}
+\usepackage{ketpic,ketlayer}
+\usepackage{ketslide}
+\usepackage{amsmath,amssymb}
+\usepackage{bm,enumerate}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{color}
+\definecolor{slidecolora}{cmyk}{0.98,0.13,0,0.43}
+\definecolor{slidecolorb}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolorc}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolord}{cmyk}{0.2,0,0,0}
+\definecolor{slidecolore}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolorf}{cmyk}{0,0,0,0.5}
+\definecolor{slidecolori}{cmyk}{0.98,0.13,0,0.43}
+\def\setthin#1{\def\thin{#1}}
+\setthin{0}
+\newcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+\putnotee{122}{-\theketpicctra.05}{\small\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+\usepackage{emath}
+\usepackage{emathEy}
+\usepackage{emathMw}
+\usepackage{pict2e}
+\usepackage{ketlayermorewith2e}
+\usepackage[dvipdfmx,colorlinks=true,linkcolor=blue,filecolor=blue]{hyperref}
+\newcommand{\hiduke}{0509}
+\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+\def\rad{\;\mathrm{rad}}
+\def\deg#1{#1^{\circ}}
+\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+\def\dlim{\displaystyle\lim}
+\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+
+\setmargin{25}{145}{15}{100}
+
+\ketslideinit
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{layer}{120}{0}
+\putnotese{0}{0}{\input{fig/slide0.tex}}
+\end{layer}
+
+\def\mainslidetitley{22}
+\def\ketcletter{slidecolora}
+\def\ketcbox{slidecolorb}
+\def\ketdbox{slidecolorc}
+\def\ketcframe{slidecolord}
+\def\ketcshadow{slidecolore}
+\def\ketdshadow{slidecolorf}
+\def\slidetitlex{6}
+\def\slidetitlesize{1.3}
+\def\mketcletter{slidecolori}
+\def\mketcbox{yellow}
+\def\mketdbox{yellow}
+\def\mketcframe{yellow}
+\def\mslidetitlex{62}
+\def\mslidetitlesize{2}
+
+\color{black}
+\Large\bf\boldmath
+\addtocounter{page}{-1}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+\begin{layer}{118}{0}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+}
+\newcounter{ban}
+\setcounter{ban}{1}
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+}
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%%210614
+}
+\newcounter{edawidth}
+\newcounter{edactr}
+\newcommand{\seteda}[1]{
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+\newcommand{\eda}[2][\theedawidth ]{%
+\noindent\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\mainslide{三角比から三角関数へ}
+
+
+\slidepage[m]
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{三角比(復習)}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{60}{-5}{\scalebox{0.7}{\input{fig/fig22104_1.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+[]$\cos A=\bunsuu{\mbox{AB}}{\mbox{AC}}=\bunsuu{\mbox{底辺}}{\mbox{斜辺}}$
+\item
+[]$\sin A=\bunsuu{\mbox{CB}}{\mbox{AC}}=\bunsuu{\mbox{高さ}}{\mbox{斜辺}}$
+\item
+[]$\tan A=\bunsuu{\mbox{BC}}{\mbox{AB}}=\bunsuu{\mbox{高さ}}{\mbox{底辺}}$
+\item
+辺の比だから，三角形の大きさによらない．
+\item
+[課題 ]\monban 問題図の三角形で以下を求めよ．\seteda{30}\\
+\eda{$\cos A$}\eda{$\sin A$}\eda{$\tan D$}\eda{$\sin D$}
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\newslide{角が$90\degree$より小さい場合(鋭角)}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{8}{\scalebox{0.65}{\input{fig/fig2210431.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+角を$\theta$とおく
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{8}{\scalebox{0.65}{\input{fig/fig2210431.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+角を$\theta$とおく
+\item
+左の角が$\theta$の直角三角形がかける
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{8}{\scalebox{0.65}{\input{fig/fig2210431.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+角を$\theta$とおく
+\item
+左の角が$\theta$の直角三角形がかける
+\item
+斜辺$r$，底辺$x$，高さ$y$とすると\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{8}{\scalebox{0.65}{\input{fig/fig2210431.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+角を$\theta$とおく
+\item
+左の角が$\theta$の直角三角形がかける
+\item
+斜辺$r$，底辺$x$，高さ$y$とすると\\
+　$\cos \theta=\bunsuu{x}{r}$\\
+　$\sin \theta=\bunsuu{y}{r}$\\
+　$\tan \theta=\bunsuu{y}{x}$\\
+\end{itemize}
+
+\newslide{角が$90\degree$より大きい場合}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{8}{\scalebox{0.65}{\input{fig/fig2210432.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+角$\theta$の直角三角形がかけない
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{8}{\scalebox{0.65}{\input{fig/fig2210432.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+角$\theta$の直角三角形がかけない
+\item
+半径$r$の円上に$x$軸との角が$\theta$\\である点Pはとれる
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{8}{\scalebox{0.65}{\input{fig/fig2210432.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+角$\theta$の直角三角形がかけない
+\item
+半径$r$の円上に$x$軸との角が$\theta$\\である点Pはとれる
+\item
+Pの$x$座標は底辺\\
+　　$y$座標は高さに対応\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{8}{\scalebox{0.65}{\input{fig/fig2210432.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+角$\theta$の直角三角形がかけない
+\item
+半径$r$の円上に$x$軸との角が$\theta$\\である点Pはとれる
+\item
+Pの$x$座標は底辺\\
+　　$y$座標は高さに対応\\
+　$\cos \theta=\bunsuu{x}{r}$\\
+　$\sin \theta=\bunsuu{y}{r}$\\
+　$\tan \theta=\bunsuu{y}{x}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{8}{\scalebox{0.65}{\input{fig/fig2210433.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+角$\theta$の直角三角形がかけない
+\item
+半径$r$の円上に$x$軸との角が$\theta$\\である点Pはとれる
+\item
+Pの$x$座標は底辺\\
+　　$y$座標は高さに対応\\
+　$\cos \theta=\bunsuu{x}{r}$\\
+　$\sin \theta=\bunsuu{y}{r}$\\
+　$\tan \theta=\bunsuu{y}{x}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{8}{\scalebox{0.65}{\input{fig/fig2210434.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+角$\theta$の直角三角形がかけない
+\item
+半径$r$の円上に$x$軸との角が$\theta$\\である点Pはとれる
+\item
+Pの$x$座標は底辺\\
+　　$y$座標は高さに対応\\
+　$\cos \theta=\bunsuu{x}{r}$\\
+　$\sin \theta=\bunsuu{y}{r}$\\
+　$\tan \theta=\bunsuu{y}{x}$
+\end{itemize}
+
+\newslide{三角関数の定義($0 \leqq \theta \leqq 360$)}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{8}{\scalebox{0.65}{\input{fig/fig2210433.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+半径$r$の円上に$x$軸との角が$\theta$の点Pをとる
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{8}{\scalebox{0.65}{\input{fig/fig2210433.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+半径$r$の円上に$x$軸との角が$\theta$の点Pをとる
+\item
+Pの座標を$(x,\ y)$とすると\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{8}{\scalebox{0.65}{\input{fig/fig2210433.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+半径$r$の円上に$x$軸との角が$\theta$の点Pをとる
+\item
+Pの座標を$(x,\ y)$とすると\\
+　$\cos \theta=\bunsuu{x}{r}$\\
+　$\sin \theta=\bunsuu{y}{r}$\\
+　$\tan \theta=\bunsuu{y}{x}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{65}{8}{\scalebox{0.65}{\input{fig/fig2210433.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+半径$r$の円上に$x$軸との角が$\theta$の点Pをとる
+\item
+Pの座標を$(x,\ y)$とすると\\
+　$\cos \theta=\bunsuu{x}{r}$\\
+　$\sin \theta=\bunsuu{y}{r}$\\
+　$\tan \theta=\bunsuu{y}{x}$
+\item
+[課題]\monbannoadd 問題図の$\theta$について\\以下を求めよ\seteda{25}\\
+\eda{$\cos\theta$}\eda{$\sin\theta$}\eda{$\tan\theta$}
+\end{itemize}
+\addban
+
+\newslide{三角関数の値の符号}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{8}{\scalebox{0.5}{\input{fig/fig2210431.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+[]\Ltab{20mm}{}\Ctab{15mm}{$\cos\theta$}\Ctab{15mm}{$\sin\theta$}\Ctab{15mm}{$\tan\theta$}
+\item
+第1象限
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{8}{\scalebox{0.5}{\input{fig/fig2210431.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+[]\Ltab{20mm}{}\Ctab{15mm}{$\cos\theta$}\Ctab{15mm}{$\sin\theta$}\Ctab{15mm}{$\tan\theta$}
+\item
+第1象限\Ctab{15mm}{$+$}\Ctab{15mm}{$+$}\Ctab{15mm}{$+$}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{8}{\scalebox{0.5}{\input{fig/fig2210432.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+[]\Ltab{20mm}{}\Ctab{15mm}{$\cos\theta$}\Ctab{15mm}{$\sin\theta$}\Ctab{15mm}{$\tan\theta$}
+\item
+第1象限\Ctab{15mm}{$+$}\Ctab{15mm}{$+$}\Ctab{15mm}{$+$}
+\item
+第2象限
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{8}{\scalebox{0.5}{\input{fig/fig2210432.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+[]\Ltab{20mm}{}\Ctab{15mm}{$\cos\theta$}\Ctab{15mm}{$\sin\theta$}\Ctab{15mm}{$\tan\theta$}
+\item
+第1象限\Ctab{15mm}{$+$}\Ctab{15mm}{$+$}\Ctab{15mm}{$+$}
+\item
+第2象限\Ctab{15mm}{$-$}\Ctab{15mm}{$+$}\Ctab{15mm}{$-$}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{8}{\scalebox{0.5}{\input{fig/fig2210433.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+[]\Ltab{20mm}{}\Ctab{15mm}{$\cos\theta$}\Ctab{15mm}{$\sin\theta$}\Ctab{15mm}{$\tan\theta$}
+\item
+第1象限\Ctab{15mm}{$+$}\Ctab{15mm}{$+$}\Ctab{15mm}{$+$}
+\item
+第2象限\Ctab{15mm}{$-$}\Ctab{15mm}{$+$}\Ctab{15mm}{$-$}
+\item
+第3象限
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{8}{\scalebox{0.5}{\input{fig/fig2210433.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+[]\Ltab{20mm}{}\Ctab{15mm}{$\cos\theta$}\Ctab{15mm}{$\sin\theta$}\Ctab{15mm}{$\tan\theta$}
+\item
+第1象限\Ctab{15mm}{$+$}\Ctab{15mm}{$+$}\Ctab{15mm}{$+$}
+\item
+第2象限\Ctab{15mm}{$-$}\Ctab{15mm}{$+$}\Ctab{15mm}{$-$}
+\item
+第3象限\Ctab{15mm}{$-$}\Ctab{15mm}{$-$}\Ctab{15mm}{$+$}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{8}{\scalebox{0.5}{\input{fig/fig2210434.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+[]\Ltab{20mm}{}\Ctab{15mm}{$\cos\theta$}\Ctab{15mm}{$\sin\theta$}\Ctab{15mm}{$\tan\theta$}
+\item
+第1象限\Ctab{15mm}{$+$}\Ctab{15mm}{$+$}\Ctab{15mm}{$+$}
+\item
+第2象限\Ctab{15mm}{$-$}\Ctab{15mm}{$+$}\Ctab{15mm}{$-$}
+\item
+第3象限\Ctab{15mm}{$-$}\Ctab{15mm}{$-$}\Ctab{15mm}{$+$}
+\item
+第4象限
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{8}{\scalebox{0.5}{\input{fig/fig2210434.tex}}}
+\end{layer}
+
+\begin{itemize}
+\item
+[]\Ltab{20mm}{}\Ctab{15mm}{$\cos\theta$}\Ctab{15mm}{$\sin\theta$}\Ctab{15mm}{$\tan\theta$}
+\item
+第1象限\Ctab{15mm}{$+$}\Ctab{15mm}{$+$}\Ctab{15mm}{$+$}
+\item
+第2象限\Ctab{15mm}{$-$}\Ctab{15mm}{$+$}\Ctab{15mm}{$-$}
+\item
+第3象限\Ctab{15mm}{$-$}\Ctab{15mm}{$-$}\Ctab{15mm}{$+$}
+\item
+第4象限
+\item
+[課題]\monban 第4象限での符号を調べよ
+\end{itemize}
+
+\newslide{三角関数の相互関係}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{90}{6}{\input{fig/presen10310305.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+[(1)\ ]$\tan\theta=\bunsuu{\sin\theta}{\cos\theta}$
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{90}{6}{\input{fig/presen10310305.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+[(1)\ ]$\tan\theta=\bunsuu{\sin\theta}{\cos\theta}$
+\item
+[]以下の証明では$\mathrm{OP}=r$とおく
+\item
+[\color{blue}証)]{\color{blue}$\tan\theta=\bunsuu{y}{x}=\bunsuu{\frac{y}{r}}{\frac{x}{r}}$}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{90}{6}{\input{fig/presen10310305.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+[(1)\ ]$\tan\theta=\bunsuu{\sin\theta}{\cos\theta}$
+\item
+[]以下の証明では$\mathrm{OP}=r$とおく
+\item
+[\color{blue}証)]{\color{blue}$\tan\theta=\bunsuu{y}{x}=\bunsuu{\frac{y}{r}}{\frac{x}{r}}$}
+{\color{blue}$=\bunsuu{\sin\theta}{\cos\theta}$}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{90}{6}{\input{fig/presen10310305.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+[(1)\ ]$\tan\theta=\bunsuu{\sin\theta}{\cos\theta}$
+\item
+[]以下の証明では$\mathrm{OP}=r$とおく
+\item
+[\color{blue}証)]{\color{blue}$\tan\theta=\bunsuu{y}{x}=\bunsuu{\frac{y}{r}}{\frac{x}{r}}$}
+{\color{blue}$=\bunsuu{\sin\theta}{\cos\theta}$}
+\item
+[(2)\ ]$\cos^2\theta+\sin^2\theta=1$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotee{60}{46}{\color{red}$\bigl(\cos(\theta)\bigr)^2$を$\cos^2 \theta$と書く}
+\putnotese{90}{6}{\input{fig/presen10310305.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+[(1)\ ]$\tan\theta=\bunsuu{\sin\theta}{\cos\theta}$
+\item
+[]以下の証明では$\mathrm{OP}=r$とおく
+\item
+[\color{blue}証)]{\color{blue}$\tan\theta=\bunsuu{y}{x}=\bunsuu{\frac{y}{r}}{\frac{x}{r}}$}
+{\color{blue}$=\bunsuu{\sin\theta}{\cos\theta}$}
+\item
+[(2)\ ]$\cos^2\theta+\sin^2\theta=1$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotee{60}{46}{\color{red}$\bigl(\cos(\theta)\bigr)^2$を$\cos^2 \theta$と書く}
+\putnotese{90}{6}{\input{fig/presen10310305.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+[(1)\ ]$\tan\theta=\bunsuu{\sin\theta}{\cos\theta}$
+\item
+[]以下の証明では$\mathrm{OP}=r$とおく
+\item
+[\color{blue}証)]{\color{blue}$\tan\theta=\bunsuu{y}{x}=\bunsuu{\frac{y}{r}}{\frac{x}{r}}$}
+{\color{blue}$=\bunsuu{\sin\theta}{\cos\theta}$}
+\item
+[(2)\ ]$\cos^2\theta+\sin^2\theta=1$
+\item
+[\color{blue}証)]{\color{blue}$\cos^2\theta+\sin^2\theta=\bunsuu{x^2}{r^2}+\bunsuu{y^2}{r^2}$}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotee{60}{46}{\color{red}$\bigl(\cos(\theta)\bigr)^2$を$\cos^2 \theta$と書く}
+\putnotese{90}{6}{\input{fig/presen10310305.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+[(1)\ ]$\tan\theta=\bunsuu{\sin\theta}{\cos\theta}$
+\item
+[]以下の証明では$\mathrm{OP}=r$とおく
+\item
+[\color{blue}証)]{\color{blue}$\tan\theta=\bunsuu{y}{x}=\bunsuu{\frac{y}{r}}{\frac{x}{r}}$}
+{\color{blue}$=\bunsuu{\sin\theta}{\cos\theta}$}
+\item
+[(2)\ ]$\cos^2\theta+\sin^2\theta=1$
+\item
+[\color{blue}証)]{\color{blue}$\cos^2\theta+\sin^2\theta=\bunsuu{x^2}{r^2}+\bunsuu{y^2}{r^2}$}
+{\color{blue}$=\bunsuu{x^2+y^2}{r^2}=1$}
+\end{itemize}
+
+\mainslide{一般角}
+
+
+\slidepage[m]
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{一般角}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+これまで，角$\theta$は2つの線分の間の角だった\\
+\hspace*{2zw}$0^{\circ} \leqq \theta \leqq 360^{\circ}$
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{78}{17}{\input{fig/generalangle200.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+これまで，角$\theta$は2つの線分の間の角だった\\
+\hspace*{2zw}$0^{\circ} \leqq \theta \leqq 360^{\circ}$
+\item
+角を回転を表す量とすると\\
+$\theta$はどんな実数でもよい．
+\begin{itemize}
+\item
+[$\cdot$]$x$軸を始線とする
+\item
+[$\cdot$]$\theta >0^{\circ}$のとき，反時計回り
+\end{itemize}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{78}{17}{\input{fig/generalanglen30.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+これまで，角$\theta$は2つの線分の間の角だった\\
+\hspace*{2zw}$0^{\circ} \leqq \theta \leqq 360^{\circ}$
+\item
+角を回転を表す量とすると\\
+$\theta$はどんな実数でもよい．
+\begin{itemize}
+\item
+[$\cdot$]$x$軸を始線とする
+\item
+[$\cdot$]$\theta >0^{\circ}$のとき，反時計回り
+\item
+[$\cdot$]$\theta<0^{\circ}$のとき，時計回り
+\end{itemize}
+\end{itemize}
+
+\newslide{一般角}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\vspace*{5mm}
+
+\noindent
+アプリ「一般角」で一般角を見てみよう
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{85}{20}{\scalebox{0.7}{\input{fig/presen103xy.tex}}}
+\putnotec{115}{30}{\normalsize\color{red}第１象限}
+\putnotec{95}{30}{\normalsize\color{red}第２象限}
+\putnotec{95}{52}{\normalsize\color{red}第３象限}
+\putnotec{115}{52}{\normalsize\color{red}第４象限}
+\end{layer}
+
+\vspace*{5mm}
+
+\noindent
+アプリ「一般角」で一般角を見てみよう
+\begin{itemize}
+\item
+[課題]\monban 次の角は第何象限にあるか．\seteda{40}\\
+\eda{$\deg{400}$}\eda{$\deg{600}$}\\
+\eda{$\deg{-550}$}\eda{$\deg{-750}$}
+\end{itemize}
+
+\newslide{一般角の三角関数}
+
+\vspace*{18mm}
+
+\hypertarget{para1pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para0pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalangle240.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+座標を使う(鈍角の場合と同じ)
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalangle240.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+座標を使う(鈍角の場合と同じ)
+\item
+[例]$\theta=240^{\circ}$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalangle240.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+座標を使う(鈍角の場合と同じ)
+\item
+[例]$\theta=240^{\circ}$\\
+$r=2, x=-1,\ y=-\sqrt{3}$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalangle240.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+座標を使う(鈍角の場合と同じ)
+\item
+[例]$\theta=240^{\circ}$\\
+$r=2, x=-1,\ y=-\sqrt{3}$\\
+\hspace*{1zw}$\cos\theta=$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalangle240.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+座標を使う(鈍角の場合と同じ)
+\item
+[例]$\theta=240^{\circ}$\\
+$r=2, x=-1,\ y=-\sqrt{3}$\\
+\hspace*{1zw}$\cos\theta=-\bunsuu{1}{2}$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalangle240.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+座標を使う(鈍角の場合と同じ)
+\item
+[例]$\theta=240^{\circ}$\\
+$r=2, x=-1,\ y=-\sqrt{3}$\\
+\hspace*{1zw}$\cos\theta=-\bunsuu{1}{2}$\\
+\hspace*{1zw}$\sin\theta=$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalangle240.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+座標を使う(鈍角の場合と同じ)
+\item
+[例]$\theta=240^{\circ}$\\
+$r=2, x=-1,\ y=-\sqrt{3}$\\
+\hspace*{1zw}$\cos\theta=-\bunsuu{1}{2}$\\
+\hspace*{1zw}$\sin\theta=-\bunsuu{\sqrt{3}}{2}$\vspace{2mm}\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg8}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalangle240.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+座標を使う(鈍角の場合と同じ)
+\item
+[例]$\theta=240^{\circ}$\\
+$r=2, x=-1,\ y=-\sqrt{3}$\\
+\hspace*{1zw}$\cos\theta=-\bunsuu{1}{2}$\\
+\hspace*{1zw}$\sin\theta=-\bunsuu{\sqrt{3}}{2}$\vspace{2mm}\\
+\hspace*{1zw}$\tan\theta=$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para1pg9}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para0pg2}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para1pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 9/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalangle240.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+座標を使う(鈍角の場合と同じ)
+\item
+[例]$\theta=240^{\circ}$\\
+$r=2, x=-1,\ y=-\sqrt{3}$\\
+\hspace*{1zw}$\cos\theta=-\bunsuu{1}{2}$\\
+\hspace*{1zw}$\sin\theta=-\bunsuu{\sqrt{3}}{2}$\vspace{2mm}\\
+\hspace*{1zw}$\tan\theta=\sqrt{3}$
+\end{itemize}
+
+\newslide{一般角の三角関数}
+
+\vspace*{18mm}
+
+\hypertarget{para2pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalanglen30.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+[例]$\theta=-30^{\circ}$\\
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para2pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalanglen30.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+[例]$\theta=-30^{\circ}$\\
+$r=2, x=\sqrt{3},\ y=-1$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para2pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalanglen30.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+[例]$\theta=-30^{\circ}$\\
+$r=2, x=\sqrt{3},\ y=-1$\\
+\hspace*{1zw}$\cos\theta=$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para2pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalanglen30.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+[例]$\theta=-30^{\circ}$\\
+$r=2, x=\sqrt{3},\ y=-1$\\
+\hspace*{1zw}$\cos\theta=\bunsuu{\sqrt{3}}{2}$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para2pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalanglen30.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+[例]$\theta=-30^{\circ}$\\
+$r=2, x=\sqrt{3},\ y=-1$\\
+\hspace*{1zw}$\cos\theta=\bunsuu{\sqrt{3}}{2}$\\
+\hspace*{1zw}$\sin\theta=$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para2pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalanglen30.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+[例]$\theta=-30^{\circ}$\\
+$r=2, x=\sqrt{3},\ y=-1$\\
+\hspace*{1zw}$\cos\theta=\bunsuu{\sqrt{3}}{2}$\\
+\hspace*{1zw}$\sin\theta=-\bunsuu{1}{2}$\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para2pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalanglen30.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+[例]$\theta=-30^{\circ}$\\
+$r=2, x=\sqrt{3},\ y=-1$\\
+\hspace*{1zw}$\cos\theta=\bunsuu{\sqrt{3}}{2}$\\
+\hspace*{1zw}$\sin\theta=-\bunsuu{1}{2}$\\
+\hspace*{1zw}$\tan\theta=$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para2pg8}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalanglen30.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+[例]$\theta=-30^{\circ}$\\
+$r=2, x=\sqrt{3},\ y=-1$\\
+\hspace*{1zw}$\cos\theta=\bunsuu{\sqrt{3}}{2}$\\
+\hspace*{1zw}$\sin\theta=-\bunsuu{1}{2}$\\
+\hspace*{1zw}$\tan\theta=-\bunsuu{1}{\sqrt{3}}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para2pg9}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para1pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para2pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para2pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para2pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 9/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{17}{\input{fig/generalanglen30.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+[例]$\theta=-30^{\circ}$\\
+$r=2, x=\sqrt{3},\ y=-1$\\
+\hspace*{1zw}$\cos\theta=\bunsuu{\sqrt{3}}{2}$\\
+\hspace*{1zw}$\sin\theta=-\bunsuu{1}{2}$\\
+\hspace*{1zw}$\tan\theta=-\bunsuu{1}{\sqrt{3}}$
+\item
+[課題]\monban 次を求めよ\seteda{30}\\
+\eda{$\cos 135\degree$}\eda{$\sin 135\degree$}\eda{$\tan 135\degree$}
+\end{itemize}
+
+\mainslide{弧度法（radian）}
+
+
+\slidepage[m]
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newslide{角度の測り方1}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{90}{10}{\input{fig/kakudo60.tex}}
+\end{layer}
+
+\noindent
+度　${}^{\circ}$\vspace{-1mm}
+\begin{itemize}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+１周を$360^{\circ}$とする
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+半周は$180^{\circ}$とする
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+一周の$\bunsuu{1}{360}$を$1^{\circ}$とする
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+数学的な意味は余りない
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+日常的には使いやすい
+}%
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{90}{10}{\input{fig/kakudo360.tex}}
+\end{layer}
+
+\noindent
+度　${}^{\circ}$\vspace{-1mm}
+\begin{itemize}
+\item
+１周を$360^{\circ}$とする
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+半周は$180^{\circ}$とする
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+一周の$\bunsuu{1}{360}$を$1^{\circ}$とする
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+数学的な意味は余りない
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+日常的には使いやすい
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{90}{10}{\input{fig/kakudo180.tex}}
+\end{layer}
+
+\noindent
+度　${}^{\circ}$\vspace{-1mm}
+\begin{itemize}
+\item
+１周を$360^{\circ}$とする
+\item
+半周は$180^{\circ}$とする
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+一周の$\bunsuu{1}{360}$を$1^{\circ}$とする
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+数学的な意味は余りない
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+日常的には使いやすい
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{90}{10}{\input{fig/kakudo001.tex}}
+\end{layer}
+
+\noindent
+度　${}^{\circ}$\vspace{-1mm}
+\begin{itemize}
+\item
+１周を$360^{\circ}$とする
+\item
+半周は$180^{\circ}$とする
+\item
+一周の$\bunsuu{1}{360}$を$1^{\circ}$とする
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+数学的な意味は余りない
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+日常的には使いやすい
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{90}{10}{\input{fig/kakudo001.tex}}
+\end{layer}
+
+\noindent
+度　${}^{\circ}$\vspace{-1mm}
+\begin{itemize}
+\item
+１周を$360^{\circ}$とする
+\item
+半周は$180^{\circ}$とする
+\item
+一周の$\bunsuu{1}{360}$を$1^{\circ}$とする
+\item
+数学的な意味は余りない
+\item
+日常的には使いやすい
+\end{itemize}
+
+\newslide{角度の測り方2（弧度法）}
+
+\vspace*{18mm}
+
+\hypertarget{para3pg1}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para2pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 1/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{89}{10}{\input{fig/radian.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+弧の長さ$\ell$と半径$r$の比\ $\theta(ラジアン)=\bunsuu{\ell}{r}$\vspace{-2mm}
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg2}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 2/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{89}{10}{\input{fig/radian.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+弧の長さ$\ell$と半径$r$の比\ $\theta(ラジアン)=\bunsuu{\ell}{r}$\vspace{-2mm}
+\item
+半径$r$の円周は
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg3}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg2}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 3/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{89}{10}{\input{fig/radian.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+弧の長さ$\ell$と半径$r$の比\ $\theta(ラジアン)=\bunsuu{\ell}{r}$\vspace{-2mm}
+\item
+半径$r$の円周は$2\pi r$だから\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg4}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg3}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 4/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{89}{10}{\input{fig/radian.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+弧の長さ$\ell$と半径$r$の比\ $\theta(ラジアン)=\bunsuu{\ell}{r}$\vspace{-2mm}
+\item
+半径$r$の円周は$2\pi r$だから\\
+　$\mbox{1周の角}(360^{\circ})=\bunsuu{2\pi r}{r}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg5}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg4}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 5/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{89}{10}{\input{fig/radian.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+弧の長さ$\ell$と半径$r$の比\ $\theta(ラジアン)=\bunsuu{\ell}{r}$\vspace{-2mm}
+\item
+半径$r$の円周は$2\pi r$だから\\
+　$\mbox{1周の角}(360^{\circ})=\bunsuu{2\pi r}{r}=2\pi$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg6}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg5}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 6/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{89}{10}{\input{fig/radian.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+弧の長さ$\ell$と半径$r$の比\ $\theta(ラジアン)=\bunsuu{\ell}{r}$\vspace{-2mm}
+\item
+半径$r$の円周は$2\pi r$だから\\
+　$\mbox{1周の角}(360^{\circ})=\bunsuu{2\pi r}{r}=2\pi$
+\item
+$\mbox{半周の角}(180^{\circ})$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg7}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg6}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 7/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{89}{10}{\input{fig/radian.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+弧の長さ$\ell$と半径$r$の比\ $\theta(ラジアン)=\bunsuu{\ell}{r}$\vspace{-2mm}
+\item
+半径$r$の円周は$2\pi r$だから\\
+　$\mbox{1周の角}(360^{\circ})=\bunsuu{2\pi r}{r}=2\pi$
+\item
+$\mbox{半周の角}(180^{\circ})=\pi$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg8}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg7}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 8/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{89}{10}{\input{fig/radian.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+弧の長さ$\ell$と半径$r$の比\ $\theta(ラジアン)=\bunsuu{\ell}{r}$\vspace{-2mm}
+\item
+半径$r$の円周は$2\pi r$だから\\
+　$\mbox{1周の角}(360^{\circ})=\bunsuu{2\pi r}{r}=2\pi$
+\item
+$\mbox{半周の角}(180^{\circ})=\pi$
+\item
+比なので単位はない（$\sin$などと同じ）\\
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\hypertarget{para3pg9}{}
+
+\begin{layer}{120}{0}
+\putnotew{96}{73}{\hyperlink{para2pg5}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut||\!\lhd$}}}}}
+\putnotew{101}{73}{\hyperlink{para3pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut|\!\lhd$}}}}}
+\putnotew{108}{73}{\hyperlink{para3pg8}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\!\lhd\!\!$}}}}}
+\putnotew{115}{73}{\hyperlink{para3pg9}{\fbox{\Ctab{4.5mm}{\scalebox{1}{\scriptsize $\mathstrut\!\rhd\!$}}}}}
+\putnotew{120}{73}{\hyperlink{para3pg9}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!|$}}}}}
+\putnotew{125}{73}{\hyperlink{para4pg1}{\fbox{\Ctab{2.5mm}{\scalebox{1}{\scriptsize $\mathstrut \!\rhd\!\!||$}}}}}
+\putnotee{126}{73}{\scriptsize\color{blue} 9/9}
+\end{layer}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{89}{10}{\input{fig/radian.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+弧の長さ$\ell$と半径$r$の比\ $\theta(ラジアン)=\bunsuu{\ell}{r}$\vspace{-2mm}
+\item
+半径$r$の円周は$2\pi r$だから\\
+　$\mbox{1周の角}(360^{\circ})=\bunsuu{2\pi r}{r}=2\pi$
+\item
+$\mbox{半周の角}(180^{\circ})=\pi$
+\item
+比なので単位はない（$\sin$などと同じ）\\
+　度と区別するときは，ラジアン(rad)を付ける
+\end{itemize}
+
+\newslide{弧度法による角度の例}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$\deg{60}$は$\deg{180}$の\phantom{$\bunsuu{1}{3}$}，したがって　$\deg{60}=\phantom{\bunsuu{\pi}{3}}$
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$\deg{90}$は$\deg{180}$の$\bunsuu{1}{2}$，したがって　$\deg{90}=\phantom{\bunsuu{\pi}{2}}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$\deg{90}$は$\deg{180}$の$\bunsuu{1}{2}$，したがって　$\deg{90}=\bunsuu{\pi}{2}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$\deg{90}$は$\deg{180}$の$\bunsuu{1}{2}$，したがって　$\deg{90}=\bunsuu{\pi}{2}$
+\item
+$\deg{60}$は$\deg{180}$の\phantom{$\bunsuu{1}{3}$}，したがって　$\deg{60}=\phantom{\bunsuu{\pi}{3}}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$\deg{90}$は$\deg{180}$の$\bunsuu{1}{2}$，したがって　$\deg{90}=\bunsuu{\pi}{2}$
+\item
+$\deg{60}$は$\deg{180}$の$\bunsuu{1}{3}$，したがって　$\deg{60}=\phantom{\bunsuu{\pi}{3}}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$\deg{90}$は$\deg{180}$の$\bunsuu{1}{2}$，したがって　$\deg{90}=\bunsuu{\pi}{2}$
+\item
+$\deg{60}$は$\deg{180}$の$\bunsuu{1}{3}$，したがって　$\deg{60}=\bunsuu{\pi}{3}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$\deg{90}$は$\deg{180}$の$\bunsuu{1}{2}$，したがって　$\deg{90}=\bunsuu{\pi}{2}$
+\item
+$\deg{60}$は$\deg{180}$の$\bunsuu{1}{3}$，したがって　$\deg{60}=\bunsuu{\pi}{3}$
+\item
+[課題]\monban 次の角をラジアンで表せ．\seteda{38}\\
+\eda{$\deg{30}$}\eda{$\deg{45}$}\eda{$\deg{120}$}
+\end{itemize}
+
+\newslide{換算式}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+[]1つの角について，$\deg{x}=y$(ラジアン)とする
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+[]1つの角について，$\deg{x}=y$(ラジアン)とする
+\item
+[]比例関係$\bunsuu{y}{\pi}=\bunsuu{x}{180}$\vspace{-2mm}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+[]1つの角について，$\deg{x}=y$(ラジアン)とする
+\item
+[]比例関係$\bunsuu{y}{\pi}=\bunsuu{x}{180}$\vspace{-2mm}
+\item
+[]これから　\fbox{$y=\bunsuu{\pi}{180}\;x$}（ラジアンを求める式）\vspace{-2mm}
+\item
+[]　　　　　\fbox{$x=\bunsuu{180}{\pi}\;y$}（度を求める式）
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+[]1つの角について，$\deg{x}=y$(ラジアン)とする
+\item
+[]比例関係$\bunsuu{y}{\pi}=\bunsuu{x}{180}$\vspace{-2mm}
+\item
+[]これから　\fbox{$y=\bunsuu{\pi}{180}\;x$}（ラジアンを求める式）\vspace{-2mm}
+\item
+[]　　　　　\fbox{$x=\bunsuu{180}{\pi}\;y$}（度を求める式）
+\item
+[課題]\monban 次の角を変換せよ(小数でよい)\seteda{30}\\
+\eda{$3.1416$}\eda{$\deg{70}$}\eda{$10$}\eda{$\deg{10}$}
+\end{itemize}
+
+\newslide{正弦関数と正弦曲線}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+一般角を$x$とおく．
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+一般角を$x$とおく．
+\item
+任意の$x$に対して，$y=\sin x$の値が定まる．
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+一般角を$x$とおく．
+\item
+任意の$x$に対して，$y=\sin x$の値が定まる．
+\item
+これを正弦関数という(三角関数の１つ)．
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+一般角を$x$とおく．
+\item
+任意の$x$に対して，$y=\sin x$の値が定まる．
+\item
+これを正弦関数という(三角関数の１つ)．
+\item
+$y=\sin x$のグラフを正弦曲線という．
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+一般角を$x$とおく．
+\item
+任意の$x$に対して，$y=\sin x$の値が定まる．
+\item
+これを正弦関数という(三角関数の１つ)．
+\item
+$y=\sin x$のグラフを正弦曲線という．
+\item
+{\color{red}$x$はラジアンとする．}\vspace{-2mm}
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\end{layer}
+
+\begin{itemize}
+\item
+一般角を$x$とおく．
+\item
+任意の$x$に対して，$y=\sin x$の値が定まる．
+\item
+これを正弦関数という(三角関数の１つ)．
+\item
+$y=\sin x$のグラフを正弦曲線という．
+\item
+{\color{red}$x$はラジアンとする．}\vspace{-2mm}
+\item
+[]　横軸を度とすると
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{65}{70}{\input{fig/fig221045.tex}}
+\end{layer}
+
+\begin{itemize}
+\item
+一般角を$x$とおく．
+\item
+任意の$x$に対して，$y=\sin x$の値が定まる．
+\item
+これを正弦関数という(三角関数の１つ)．
+\item
+$y=\sin x$のグラフを正弦曲線という．
+\item
+{\color{red}$x$はラジアンとする．}\vspace{-2mm}
+\item
+[]　横軸を度とすると
+\end{itemize}
+
+\newslide{$y=\sin x$のグラフ}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{3}{\scalebox{0.9}{\input{fig/fig221046.tex}}}
+\end{layer}
+
+{\color{red}
+
+\begin{layer}{120}{0}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+{\color{red}半径$1$}の円に点$\mathrm{P}(X,Y)$をとる
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{3}{\scalebox{0.9}{\input{fig/fig221046.tex}}}
+\end{layer}
+
+{\color{red}
+
+\begin{layer}{120}{0}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+{\color{red}半径$1$}の円に点$\mathrm{P}(X,Y)$をとる
+\item
+[]\hspace*{3zw}$\sin x=\bunsuu{Y}{r}\phantom{=Y}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{3}{\scalebox{0.9}{\input{fig/fig221046.tex}}}
+\end{layer}
+
+{\color{red}
+
+\begin{layer}{120}{0}
+\qarrowline[8]{43}{26}{33}{150}{40}
+\circleline{46}{25}{1}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+{\color{red}半径$1$}の円に点$\mathrm{P}(X,Y)$をとる
+\item
+[]\hspace*{3zw}$\sin x=\bunsuu{Y}{r}\phantom{=Y}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{3}{\scalebox{0.9}{\input{fig/fig221046.tex}}}
+\end{layer}
+
+{\color{red}
+
+\begin{layer}{120}{0}
+\qarrowline[8]{43}{26}{33}{150}{40}
+\circleline{46}{25}{1}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+{\color{red}半径$1$}の円に点$\mathrm{P}(X,Y)$をとる
+\item
+[]\hspace*{3zw}$\sin x=\bunsuu{Y}{r}=Y$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{3}{\scalebox{0.9}{\input{fig/fig221046.tex}}}
+\end{layer}
+
+{\color{red}
+
+\begin{layer}{120}{0}
+\qarrowline[8]{43}{26}{33}{150}{40}
+\circleline{46}{25}{1}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+{\color{red}半径$1$}の円に点$\mathrm{P}(X,Y)$をとる
+\item
+[]\hspace*{3zw}$\sin x=\bunsuu{Y}{r}=Y$
+\item
+また弧の長さを$\ell$とすると\\
+\hspace*{3zw}$x=\bunsuu{\ell}{r}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{3}{\scalebox{0.9}{\input{fig/fig221046.tex}}}
+\end{layer}
+
+{\color{red}
+
+\begin{layer}{120}{0}
+\qarrowline[8]{43}{26}{33}{150}{40}
+\circleline{46}{25}{1}
+\qarrowline[8]{35}{43}{38}{122}{40}
+\circleline{37}{44}{1}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+{\color{red}半径$1$}の円に点$\mathrm{P}(X,Y)$をとる
+\item
+[]\hspace*{3zw}$\sin x=\bunsuu{Y}{r}=Y$
+\item
+また弧の長さを$\ell$とすると\\
+\hspace*{3zw}$x=\bunsuu{\ell}{r}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{3}{\scalebox{0.9}{\input{fig/fig221046.tex}}}
+\end{layer}
+
+{\color{red}
+
+\begin{layer}{120}{0}
+\qarrowline[8]{43}{26}{33}{150}{40}
+\circleline{46}{25}{1}
+\qarrowline[8]{35}{43}{38}{122}{40}
+\circleline{37}{44}{1}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+{\color{red}半径$1$}の円に点$\mathrm{P}(X,Y)$をとる
+\item
+[]\hspace*{3zw}$\sin x=\bunsuu{Y}{r}=Y$
+\item
+また弧の長さを$\ell$とすると\\
+\hspace*{3zw}$x=\bunsuu{\ell}{r}=\ell$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotese{75}{3}{\scalebox{0.9}{\input{fig/fig221046b.tex}}}
+\end{layer}
+
+{\color{red}
+
+\begin{layer}{120}{0}
+\qarrowline[8]{43}{26}{33}{150}{40}
+\circleline{46}{25}{1}
+\qarrowline[8]{35}{43}{38}{122}{40}
+\circleline{37}{44}{1}
+\end{layer}
+
+}
+\begin{itemize}
+\item
+{\color{red}半径$1$}の円に点$\mathrm{P}(X,Y)$をとる
+\item
+[]\hspace*{3zw}$\sin x=\bunsuu{Y}{r}=Y$
+\item
+また弧の長さを$\ell$とすると\\
+\hspace*{3zw}$x=\bunsuu{\ell}{r}=\ell$
+\item
+[課題]\monban $x,\ \sin x$は\\(1)-(4)のどの長さで表されるか．\seteda{40}\\
+\eda{$x$は}\eda{$\sin x$は}
+\end{itemize}
+
+\newslide{正弦曲線を描く}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+アプリ「$y=\sin x$のグラフ」を動かしてみよう\vspace{-2mm}
+\item
+使い方\vspace{-2mm}
+\begin{enumerate}[(1)]
+\item
+学生番号を入れる\vspace{-2mm}
+\item
+赤い点を動かして$x$を決め，「点を打つ」\\
+　長さが$x$の弧を表示して$(x,\sin x)$に点を打つ．\vspace{-2mm}
+\item
+いくつかの点を打って「点を結ぶ」\\
+　正弦曲線との違いが表示される\\
+　さらに「点を打つ」，「点を結ぶ」を繰り返す．\vspace{-2mm}
+\end{enumerate}
+\item
+[課題]\monban 「REC」を押して表示されるデータを提出せよ．
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\newslide{正弦曲線の特徴}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{60}{5}{\input{fig/graphsin.tex}}
+\end{layer}
+
+\vspace{30mm}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{60}{5}{\input{fig/graphsin.tex}}
+\end{layer}
+
+\vspace{30mm}
+\begin{itemize}
+\item
+{\color{red}周期}は
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{60}{5}{\input{fig/graphsin.tex}}
+\end{layer}
+
+\vspace{30mm}
+\begin{itemize}
+\item
+{\color{red}周期}は$2\pi$（$2\pi$で元に戻る）
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{60}{5}{\input{fig/graphsin.tex}}
+\end{layer}
+
+\vspace{30mm}
+\begin{itemize}
+\item
+{\color{red}周期}は$2\pi$（$2\pi$で元に戻る）
+\item
+{\color{red}振幅}は
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{60}{5}{\input{fig/graphsin.tex}}
+\end{layer}
+
+\vspace{30mm}
+\begin{itemize}
+\item
+{\color{red}周期}は$2\pi$（$2\pi$で元に戻る）
+\item
+{\color{red}振幅}は$1$（値の範囲は$-1$から$1$）
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{60}{5}{\input{fig/graphsin.tex}}
+\end{layer}
+
+\vspace{30mm}
+\begin{itemize}
+\item
+{\color{red}周期}は$2\pi$（$2\pi$で元に戻る）
+\item
+{\color{red}振幅}は$1$（値の範囲は$-1$から$1$）
+\item
+原点対称
+\end{itemize}
+
+\newslide{正弦曲線(課題)}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+[課題]\monban アプリ「関数のグラフ」で次の関数のグラフをかき，周期と振幅を答えよ．\seteda{50}\vspace{2mm}\\
+\eda{$y=2\sin x$}\eda{$y=\bunsuu{1}{3}\sin x$}\\
+\eda{$y=\sin 2x$}\eda{$y=4\sin\bunsuu{x}{2}$}
+\end{itemize}
+\ifnum 1=0
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\newslide{$y=\cos x$のグラフ(余弦曲線)}
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{62}{6}{\input{fig/graphcos.tex}}
+\putnoten{118}{6}{\small $y=\cos x$}
+\end{layer}
+
+\vspace*{28mm}
+\begin{itemize}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+{周期}は$2\pi$（$2\pi$で元に戻る）\vspace{-1mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+{振幅}は$1$（値の範囲は$-1$から$1$）\vspace{-1mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$\cos x$は$y$軸対称\vspace{-1mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$\cos x$は$\sin x$を左に$\frac{\pi}{2}$平行移動（{位相}が$\frac{\pi}{2}$進む）
+}%
+\end{itemize}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{62}{6}{\input{fig/graphcos.tex}}
+\putnoten{118}{6}{\small $y=\cos x$}
+\end{layer}
+
+\vspace*{28mm}
+\begin{itemize}
+\item
+{\color{red}周期}は$2\pi$（$2\pi$で元に戻る）\vspace{-1mm}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+{振幅}は$1$（値の範囲は$-1$から$1$）\vspace{-1mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$\cos x$は$y$軸対称\vspace{-1mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$\cos x$は$\sin x$を左に$\frac{\pi}{2}$平行移動（{位相}が$\frac{\pi}{2}$進む）
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{62}{6}{\input{fig/graphcos.tex}}
+\putnoten{118}{6}{\small $y=\cos x$}
+\end{layer}
+
+\vspace*{28mm}
+\begin{itemize}
+\item
+{\color{red}周期}は$2\pi$（$2\pi$で元に戻る）\vspace{-1mm}
+\item
+{\color{red}振幅}は$1$（値の範囲は$-1$から$1$）\vspace{-1mm}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$\cos x$は$y$軸対称\vspace{-1mm}
+}%
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$\cos x$は$\sin x$を左に$\frac{\pi}{2}$平行移動（{位相}が$\frac{\pi}{2}$進む）
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{62}{6}{\input{fig/graphcos.tex}}
+\putnoten{118}{6}{\small $y=\cos x$}
+\end{layer}
+
+\vspace*{28mm}
+\begin{itemize}
+\item
+{\color{red}周期}は$2\pi$（$2\pi$で元に戻る）\vspace{-1mm}
+\item
+{\color{red}振幅}は$1$（値の範囲は$-1$から$1$）\vspace{-1mm}
+\item
+$\cos x$は$y$軸対称\vspace{-1mm}
+{\color[cmyk]{\thin,\thin,\thin,\thin}%
+\item
+$\cos x$は$\sin x$を左に$\frac{\pi}{2}$平行移動（{位相}が$\frac{\pi}{2}$進む）
+}%
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+
+\begin{layer}{120}{0}
+\putnotes{62}{6}{\input{fig/graphcos.tex}}
+\putnoten{118}{6}{\small $y=\cos x$}
+\putnotes{62}{6}{\input{fig/graphsinadd.tex}}
+\putnoten{80}{6}{\color{red}\small $y=\sin x$}
+\end{layer}
+
+\vspace*{28mm}
+\begin{itemize}
+\item
+{\color{red}周期}は$2\pi$（$2\pi$で元に戻る）\vspace{-1mm}
+\item
+{\color{red}振幅}は$1$（値の範囲は$-1$から$1$）\vspace{-1mm}
+\item
+$\cos x$は$y$軸対称\vspace{-1mm}
+\item
+$\cos x$は$\sin x$を左に$\frac{\pi}{2}$平行移動（{\color{red}位相}が$\frac{\pi}{2}$進む）
+\end{itemize}
+
+\newslide{振幅・位相・周期}
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\sin x$の振幅は$1$，周期は$2\pi$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\sin x$の振幅は$1$，周期は$2\pi$
+\item
+$y=A \sin x$の振幅は$\phantom{A}$，周期は$\phantom{2\pi}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\sin x$の振幅は$1$，周期は$2\pi$
+\item
+$y=A \sin x$の振幅は$A$，周期は$\phantom{2\pi}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\sin x$の振幅は$1$，周期は$2\pi$
+\item
+$y=A \sin x$の振幅は$A$，周期は$2\pi$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\sin x$の振幅は$1$，周期は$2\pi$
+\item
+$y=A \sin x$の振幅は$A$，周期は$2\pi$
+\item
+$y=\sin(x+c)$の位相は$y=\sin x$から$\phantom{-c}$だけずれている
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\sin x$の振幅は$1$，周期は$2\pi$
+\item
+$y=A \sin x$の振幅は$A$，周期は$2\pi$
+\item
+$y=\sin(x+c)$の位相は$y=\sin x$から$-c$だけずれている
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\sin x$の振幅は$1$，周期は$2\pi$
+\item
+$y=A \sin x$の振幅は$A$，周期は$2\pi$
+\item
+$y=\sin(x+c)$の位相は$y=\sin x$から$-c$だけずれている
+\item
+$y=\sin(bx)$の周期は$\phantom{\bunsuu{2\pi}{b}}$
+\end{itemize}
+
+\sameslide
+
+\vspace*{18mm}
+
+\slidepage
+\begin{itemize}
+\item
+$y=\sin x$の振幅は$1$，周期は$2\pi$
+\item
+$y=A \sin x$の振幅は$A$，周期は$2\pi$
+\item
+$y=\sin(x+c)$の位相は$y=\sin x$から$-c$だけずれている
+\item
+$y=\sin(bx)$の周期は$\bunsuu{2\pi}{b}$
+\end{itemize}
+\fi
+\label{pageend}\mbox{}
+
+\end{document}

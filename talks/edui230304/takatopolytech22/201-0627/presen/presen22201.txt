@@ -1,0 +1,468 @@
+タイトル::slide0
+::\newcommand{\hiduke}{0627}
+::\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+::\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+::\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+::\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+::\def\rad{\;\mathrm{rad}}
+::\def\deg#1{#1^{\circ}}
+::\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+::\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+::\newcommand{\sfrac}[3][0.65]{\scalebox{#1}{$\frac{#2}{#3}$}}
+::\newcommand{\phn}[1]{\phantom{#1}}
+::\newcommand{\scb}[2][0.6]{\scalebox{#1}{#2}}
+::\newcommand{\dsum}{\displaystyle\sum}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+
+
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+%\putnotee{122}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+
+\newcounter{ban}
+\setcounter{ban}{1}
+
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+%\addtocounter{ban}{1}%
+}
+
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%
+}
+
+\newcounter{edawidth}
+\newcounter{edactr}
+
+\newcommand{\seteda}[1]{
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+
+\newcommand{\eda}[1]{%
+\Ltab{\theedawidth mm}{[\theedactr]\ #1}%
+\addtocounter{edactr}{1}%
+}
+
+%%%%%%%%%%%%
+main:: 平均変化率
+\slidepage[m]
+
+%%%%%%%%%%%%%
+new::平均変化率の意味
+%repeat=7,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{80}{10}::henka1,0.7
+%[3,-]::putnote::se{80}{10}::henka2,0.7
+end
+
+itemize
+item::関数$y=f(x)$,\ 区間$[a,\ b]$
+%[2,-]::item::$f(x)$の$[a,\ b]$での変化量は\\
+%[3,-]::\hspace*{2zw}$f(b)-f(a)$
+%[4,-]::item::[]区間幅$b-a$で割る\\
+%[5,-]::\hspace*{2zw}$\bunsuu{f(b)-f(a)}{b-a}$
+%[6,-]::item::[]これを{\color{red}平均変化率}という
+%[7,-]::item::平均変化率は直線ABの傾き
+end
+
+%%%%%%%%%%%%%
+new::平均変化率の計算例
+%repeat=9,para
+\slidepage
+
+itemize
+item::$f(x)=x^2$の$[1,3]$での平均変化率($r$とおく)\\
+%[2,-]::\hspace*{1zw}$r=\bunsuu{f(3)-f(1)}{3-1}=$
+%[3]::$\bunsuu{3^2-1^2}{3-1}=\phantom{\bunsuu{9-1}{3-1}=4}$
+%[4]::$\bunsuu{3^2-1^2}{3-1}=\bunsuu{9-1}{3-1}=\phantom{4}$
+%[5,-]::$\bunsuu{3^2-1^2}{3-1}=\bunsuu{9-1}{3-1}=4$
+%[6,-]::item::$f(x)=x^2$の$[a,b]$での平均変化率\\
+%[7,-]::\hspace*{1zw}$r=\bunsuu{b^2-a^2}{b-a}=$
+%[8]::$\bunsuu{(b-a)(b+a)}{b-a}=\phantom{b+a}$
+%[9,-]::$\bunsuu{(b-a)(b+a)}{b-a}=b+a$
+end
+
+%%%%%%%%%%%%%
+new::$b$を$a$に近づけたときの変化率
+%repeat=9,para
+\slidepage
+
+layer::{120}{0}
+%[1]::putnote::se{83}{11}::henka1,0.8
+%[2]::putnote::se{83}{11}::henka2,0.8
+%[3,-]::putnote::se{83}{11}::henka3,0.8
+%[1]::\shadeboxse{115}{24}{4}{4}{white}{black}
+end
+
+itemize
+item::関数$y=x^2$の$[a,b]$での平均変化率\\
+%[2,-]::\hspace*{1zw}$r=\bunsuu{b^2-a^2}{b-a}$
+%[3,-]::item::[]$[1,b]$のとき\\
+%[4,-]::\hspace*{1zw}$r=\bunsuu{b^2-1}{b-1}$
+%[5..7]::item::$b=2$のとき　$r=\hako{3}$
+%[8,-]::item::$b=2$のとき　$r=\hakoa{3}$
+%[9,-]::item::[課題]\monban \href{https://s-takato.github.io/polytech22/offlineapp/henka3mainoff.html}%
+%[9,-]::{1点における変化率}を動かして答えよ\\
+%[9,-]::・$b=1$における$r$はどうなるか
+end
+
+%%%%%%%%%%%%%
+new::割り算（分数）の意味
+%repeat=6,para
+\slidepage
+
+itemize
+item::$a \div b\ \ \Bigl(\bunsuu{a}{b}\Bigr)$とは
+%[2,-]::item::[]例)$x=\bunsuu{6}{2}$
+%[3,-]::$\Longleftrightarrow\ 2x=6$となる$x$のこと
+%[4,-]::item::[]例)$x=\bunsuu{3}{5}$
+%[5,-]::$\Longleftrightarrow\ 5x=3$となる$x$のこと
+%[6,-]::item::{\color{red}$x=\bunsuu{a}{b}\ \Longleftrightarrow\ bx=a$となる$x$のこと}
+end
+
+%%%%%%%%%%%%%
+new::分母が$0$になると？
+%repeat=8,para
+\slidepage
+
+itemize
+%[1..3]::item::[(1)]$\bunsuu{1}{0}$は\;\hako{求まらない}
+%[4,-]::item::[(1)]$\bunsuu{1}{0}$は\;\hakoa{求まらない}
+%[1..6]::item::[(2)]$\bunsuu{0}{0}$は\;\hako{決まらない}
+%[7,-]::item::[(2)]$\bunsuu{0}{0}$は\;\hakoa{決まらない}
+{\normalsize\color{blue}
+%[2]::item::[]$x=\bunsuu{1}{0}\ \Longleftrightarrow\  \hako{0}\;x= \hako{1}$
+%[3,-]::item::[]$x=\bunsuu{1}{0}\ \Longleftrightarrow\  \hakoa{0}\;x= \hakoa{1}$
+%[5]::item::[]$x=\bunsuu{0}{0}\ \Longleftrightarrow\  \hako{0}\;x= \hako{0}$
+%[6,-]::item::[]$x=\bunsuu{0}{0}\ \Longleftrightarrow\  \hakoa{0}\;x= \hakoa{0}$
+}
+%[8,-]::item::{\color{red}分母が0となる分数は考えない}
+end
+
+%%%%%%%%%%%%%
+new::1点における変化率
+%repeat=3,para
+\slidepage
+
+itemize
+item::区間$[a,b]$の平均変化率$r=\bunsuu{f(b)-f(a)}{b-a}$
+%[2,-]::item::1点$a$における変化率$r=\bunsuu{f(a)-f(a)}{a-a}$\\
+%[2,-]::\hspace*{3zw}{\color{red}分母が0になってしまう}
+%[3,-]::item::1点における変化率はどうやって求めればいいか
+end
+
+%%%%%%%%%%%%%
+main::微分係数
+\slidepage[m]
+
+%%%%%%%%%%%%%
+new::関数の極限
+%repeat=6,para
+\slidepage
+
+itemize
+item::$x$が$a$に\underline{限りなく近づく}とする（{\color{red}$x\to a$}）\\
+%[2,-]::\hspace*{2zw}{\color{blue}$a$に等しくはないが，いくらでも近くなること}\vspace{-1mm}
+%[3,-]::item::$f(x)$が$\alpha$に近づくとき，$\alpha$を{\color{red}極限値}という\\
+%[4,-]::\hspace*{2zw}{\color{blue}$\dlim_{x \to a}f(x)=\alpha$}と書く\vspace{-1mm}
+%[5]::item::[例]$\dlim_{x \to 1}(2x+3)=$
+%[6,-]::item::[例]$\dlim_{x \to 1}(2x+3)=5$
+end
+
+%%%%%%%%%%%%%
+new::$y=\bunsuu{x^2-4}{x-2}$のグラフ
+%repeat=5,para
+\slidepage
+
+layer::{120}{0}
+%[4]::putnote::se{85}{25}::graphfr
+%[5,-]::putnote::se{85}{25}::graphfr2
+end
+
+\vspace{6mm}
+
+itemize
+item::$y=\bunsuu{x^2-4}{x-2}=$
+%[2,-]::$\bunsuu{(x-2)(x+2)}{x-2}$\vspace{2mm}\\
+%[3,-]::$\phantom{y}=x+2$
+%[4,-]::item::[課題]\monbannoadd $y=\bunsuu{x^2-4}{x-2}$のグラフとして\\図は正しくない．理由を述べよ．
+%[5,-]::item::正しくは\ $\Longrightarrow$
+end
+%[5]::\addban
+
+%%%%%%%%%%%%%
+new::分母が0に近づくときの極限
+%repeat=6,para
+\slidepage
+
+itemize
+item::[例]\hspace{-1mm}2)\ $\dlim_{x \to 2}\bunsuu{x^2-4}{x-2}$\ \ 
+%thin[2,-]::item::$x\to 2$とすると，分母も分子も0に近づく
+%thin[3,-]::item::そのままでは極限値がわからない
+%thin[4,-]::item::$x^2-4=(x-2)(x+2)$と因数分解して\\
+%thin[4,-]::\hspace*{2zw}$\dlim_{x \to 2}\bunsuu{(x-2)(x+2)}{x-2}$
+%[5]::$=\dlim_{x \to 2}\bunsuu{x+2}{1}=\hako{4}$
+%[6,-]::$=\dlim_{x \to 2}\bunsuu{x+2}{1}=\hakoa{4}$
+end
+
+%%%%%%%%%%%%%
+new::$a$における変化率
+%repeat=4,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{70}{5}::shunkanhenkaritsu,0.8
+end
+
+itemize
+item::$a$の近くに$z$をとる
+%[2,-]::item::$[a,\ z]$での平均変化率は\\
+%[2,-]::\hspace*{2zw}$\bunsuu{f(z)-f(a)}{z-a}$
+%[3,-]::item::$z \to a$の極限値\\
+%[3,-]::\hspace*{2zw}$\dlim_{z\to a}\bunsuu{f(z)-f(a)}{z-a}$
+%[4,-]::item::これを$a$における{\color{red}微分係数}といい，$f'(a)$と書く
+end
+
+%%%%%%%%%%%%%
+new::微分係数の計算例
+%repeat=6,para
+\slidepage
+
+{\color[cmyk]{1,0,0,0}
+layer::{120}{0}
+%[4,-]::\lineseg{93}{29}{13}{-13}
+%[4,-]::\lineseg{85}{36}{13}{-13}
+end
+}
+
+itemize
+item::[例]$f(x)=x^2$の$1$における微分係数$f'(1)$
+item::[]$f'(1)=\dlim_{z\to 1}\bunsuu{f(z)-f(1)}{z-1}$\\
+%[2,-]::$\phantom{f'(1)}=\dlim_{z\to 1}\bunsuu{z^2-1}{z-1}=$
+%[3,-]::$\dlim_{z\to 1}\bunsuu{(z+1)(z-1)}{z-1}$\vspace{2mm}
+%[4,-]::\hspace*{2zw}\\$\phantom{f'(1)}=\dlim_{z\to 1}(z+1)$
+%[5,-]::$=2$
+%thin[6]::item::[課題]\monbannoadd 次を求めよ\seteda{100}\\
+%thin[6]::\eda{$f(x)=2x^2$のとき，$f'(1)$}\\
+%thin[6]::\eda{$f(x)=3x$のとき，$f'(2)$}
+end
+%[6]::\addban
+
+%%%%%%%%%%%%%
+new::微分係数の図形的意味
+%repeat=3,para
+\slidepage
+
+itemize
+item::[課題]\monbannoadd \href{https://s-takato.github.io/polytech22/offlineapp/bibunkeisuumainoff.html}%
+{微分係数の意味}を動かせ\\
+・$a$における微分係数の値$f'(a)$を求めよ
+%[2,-]::item::微分係数$f'(a)$は\\
+%[3,-]::\hspace*{1zw}Aにおける接線の傾き
+end
+%[3]::\addban
+
+%%%%%%%%%%%%%
+new::微分係数の定義式の別形
+%repeat=4,para
+\slidepage
+
+itemize
+item::$f'(a)=\dlim_{x\to a}\bunsuu{f(z)-f(a)}{z-a}$\hfill(1)
+%[2,-]::item::$z-a=h$とおくと　$z=a+h,\ h \to 0$\vspace{1mm}\\
+%[3,-]::\hspace*{1zw}$f'(a)=\dlim_{h\to 0}\bunsuu{f(a+h)-f(a)}{h}$\hfill(2)
+%[4,-]::item::(2)はよく用いられるが，(1)がおすすめ
+end
+
+%%%%%%%%%%%%%
+main::導関数
+\slidepage[m]
+
+%%%%%%%%%%%%%
+new::導関数
+%repeat=,para=doukansu:{0}:se{80}{14}:input,0.7
+\slidepage
+
+itemize
+item::微分係数$f'(a)$
+item::$a$を動かすと，$f'(a)$も変わる\\
+\hspace*{2zw}$\Longrightarrow$\ $f'(a)$は$a$の関数
+end
+
+%%%%%%%%%%%%%
+new::導関数2
+%repeat=3,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{80}{14}::doukansu/p017,0.7
+end
+
+itemize
+item::{\normalsize \url{s-takato.github.io/polytech/n107/doukansuumainoff.html}}
+item::微分係数$f'(a)$
+item::$a$を動かすと，$f'(a)$も変わる\\
+\hspace*{2zw}$\Longrightarrow$\ $f'(a)$は$a$の関数
+%[2,-]::item::$a$を$x$と置き換えて\\
+%[2,-]::$f'(x)$を$f(x)$の{\color{red}導関数}という
+%[3,-]::item::導関数を求めることを「{\color{red}微分する}」
+end
+
+
+%%%%%%%%%%%%%
+new::導関数の定義式
+%repeat=3,para
+\slidepage
+
+itemize
+item::$f'(a)=\dlim_{z \to a}\bunsuu{f(z)-f(a)}{z-a}$
+%thin[2,-]::item::$a$を$x$で置き換える\\
+%thin[3,-]::\hspace*{1zw}\fbox{$f'(x)=\dlim_{z \to x}\bunsuu{f(z)-f(x)}{z-x}$}
+end
+
+%%%%%%%%%%%%%
+new::導関数の意味(課題)
+%repeat=1,para
+\slidepage
+
+itemize
+item::[課題]\monban「導関数の意味」を実行して導関数を求めよ．\seteda{50}\\
+\eda{$y=x^2-x$}\eda{$y=x^2-3$}\\
+\eda{$y=x^3-x$}\eda{$y=x^3+2x^2+x$}
+end
+
+%%%%%%%%%%%%%
+new::導関数の計算
+%repeat=4,para
+\slidepage
+
+itemize
+item::[例)]$f(x)=x^2$を微分する
+%thin[2,-]::item::[]$f'(x)=\dlim_{z \to x}\bunsuu{f(z)-f(x)}{z-x}\\\phantom{f'(x)}=\lim_{z \to x}\bunsuu{z^2-x^2}{z-x}$\\
+%thin[3,-]::$\phantom{f'(x)}=\dlim_{z \to x}\bunsuu{(z+x)(z-x)}{z-x}\vspace{1mm}\\\phantom{f'(x)}=\lim_{z \to x}(z+x)=2x$\\
+%thin[4,-]::{\color{red}$(x^2)'=2x$}
+end
+
+
+%%%%%%%%%%%%%
+new::導関数の計算2
+%repeat=3,para
+\slidepage
+
+itemize
+item::[例)]$f(x)=x^3$を微分する
+%thin[2,-]::item::因数分解$a^3-b^3=(a-b)(a^2+ab+b^2)$を用いる\\
+%[2,-]::{\color{blue}%
+%thin[3,-]::\hspace*{2zw}$a^3-b^3=a^2(a-b)+a^2b-b^3$\\
+%thin[3,-]::\hspace*{2zw}$\phantom{a^3-b^3}=(a-b)a^2+(a^2-b^2)b$\\
+%thin[3,-]::\hspace*{2zw}$\phantom{a^3-b^3}=(a-b)a^2+(a-b)(a+b)b$\\
+%thin[3,-]::\hspace*{2zw}$\phantom{a^3-b^3}=(a-b)\bigl(a^2+(a+b)b\bigr)$\\
+%thin[3,-]::\hspace*{2zw}$\phantom{a^3-b^3}=(a-b)(a^2+ab+b^2)$\\
+%[2,-]::}%
+end
+
+%%%%%%%%%%%%%
+new::導関数の計算2(続)
+%repeat=5,para
+\slidepage
+
+itemize
+item::[例)]$f(x)=x^3$
+%thin[1,-]::item::因数分解$a^3-b^3=(a-b)(a^2+ab+b^2)$を用いる
+%thin[2,-]::item::$f'(x)=\dlim_{z\to x}\bunsuu{z^3-x^3}{z-x}$
+%thin[3,-]::item::[]$\phantom{f'(x)}=\dlim_{z\to x}\bunsuu{(z-x)(z^2+z x+x^2)}{z-x}$\vspace{2mm}\\
+%thin[4,-]::$\phantom{f'(x)}=\dlim_{z\to x}(z^2+z x+x^2)=3x^2$\\
+%thin[5,-]::{\color{red}$(x^3)'=3x^2$}
+end
+
+%%%%%%%%%%%%%
+new::導関数の定義式の別形
+%repeat=4,para
+\slidepage
+
+itemize
+item::$f'(x)=\dlim_{z \to x}\bunsuu{f(z)-f(x)}{z-x}$
+%[3,-]::$=\dlim_{\varDelta x \to 0}\bunsuu{\varDelta y}{\varDelta x}$
+%thin[2,-]::item::$z-x=\varDelta x$とおく（$x$の変化量でデルタ$x$と読む）
+%thin[2,-]::item::$f(z)-f(x)=\varDelta y$とおく（$y$の変化量）
+%thin[2,-]::item::$z \to x$より　$\varDelta x \to 0$
+%thin[4,-]::item::$z=x+\varDelta x$より\\
+%[4,-]::\hspace*{2zw}$f'(x)=\dlim_{\varDelta x \to 0}\bunsuu{f(x+\varDelta x)-f(x)}{\varDelta x}$（教科書）
+end
+
+%%%%%%%%%%%%%
+new::微分の公式
+%repeat=6,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{72}{5}::bibun4,0.9
+end
+
+itemize
+item::定数関数$f(x)=c$（$c$は定数）\\
+\hspace*{1zw}$(c)'=0$
+%[2,-]::item::$f(x)=x$\\
+%[2,-]::\hspace*{1zw}$(x)'=\dlim_{z \to x}\bunsuu{z-x}{z-x}=1$
+%[3,-]::item::$(x^2)'=2x$
+%[4,-]::item::$(x^3)'=3x^2$
+%[5]::item::一般に　$(x^n)'=\hako{$n x^{n-1}$}$
+%[6,-]::item::一般に　$(x^n)'=\hakoa{$n x^{n-1}$}$
+end
+
+%%%%%%%%%%%%%
+new::微分の性質
+%repeat=5
+\slidepage
+
+\vspace{2mm}
+...
+
+\noindent
+$f(x),\ g(x)$と定数$c$について
+
+itemize
+%thin[2,-]::item::$(f+g)'=f'+g',\ (f-g)'=f'-g'$
+%thin[2,-]::item::$(c f)'=c f'$
+%thin[3,-]::item::[例]\hspace{-1mm})\ $(x^2+3x+4)'=(x^2)'+(3x)'+(4)'$
+%thin[4,-]::$=2x+3$
+%thin[5,-]::item::[課題]\monbannoadd 次を微分せよ\hfill TextP7\seteda{58}\\
+%thin[5,-]::\eda{$y=3x^2+3x-3$}\eda{$y=2x^2-5x+4$}\\
+%thin[5,-]::\eda{$y=-4x^2+3x-2$}\eda{$y=\frac{5}{3}x^3+\frac{3}{4}x^2-\frac{1}{3}x$}\\
+end
+%[5]::\addban
+
+%%%%%%%%%%%%%
+new::導関数の書き方
+%repeat=4,para
+\slidepage
+
+itemize
+item::関数$y=f(x)$を変数$x$で微分する\\
+\hspace*{1zw}$y',\ f'(x),\ f',\ \bigl(f(x)\bigr)'$（ラグランジュ）\vspace{2mm}\\
+%thin[2,-]::\hspace*{1zw}$\bunsuu{dy}{dx},\ \bunsuu{df}{dx},\ \bunsuu{d}{dx}\bigl(f(x)\bigr)$（ライプニッツ）
+%thin[3,-]::item::[例]\hspace{-1mm})\ $y=f(x)=x^3$\\
+%thin[4,-]::\hspace*{1zw}$y'=f'(x)=f'=\bigl(x^3\bigr)'=3x^2$\vspace{2mm}\\
+%thin[4,-]::\hspace*{1zw}$\bunsuu{dy}{dx}=\bunsuu{df}{dx}=\bunsuu{d}{dx}f(x)=\bunsuu{d}{dx}(x^3)=3x^2$
+end

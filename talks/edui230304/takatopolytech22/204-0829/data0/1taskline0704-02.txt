@@ -1,0 +1,3 @@
+quline="Q02::問いに答えよ	[]::(x^(tfr(1,3)))'を求めよ　ヒントw^3-u^3=(w-u)(w^2+wu+u^2)";
+shline="Q02---	[]y'=lim(z,x,!fr(z^(tfr(1,3))-x^(tfr(1,3)),z-x))= ";
+sqline="01KA	2	2CR02NI	2	2CR03VL	2	2CR04TO	2	2CR05RO	2	2CR06AK	2	2CR07YK	2	2CR08MT	2	2CR09HN	2	2CR10HH	2	2CR11KH	2	2CR12YM	2	2CR13TY	2	2CR14KK	2	2CR15YK	2	2CR16YT	2	2";

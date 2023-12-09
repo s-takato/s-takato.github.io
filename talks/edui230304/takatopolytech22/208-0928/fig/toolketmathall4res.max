@@ -1,0 +1,9 @@
+writefile("/Users/takatoosetsuo/polytech22.git/208-0928/fig/toolketmathall4res.txt")$/*##*/
+powerdisp:false$/*##*/
+display2d:false$/*##*/
+linel:1000$/*##*/
+dtLL:[[no,(3*x^(2)-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^(2)-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^(2)-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^(2)-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^(2)-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^(2)-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^(2)-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^(2)-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^(2)-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^(2)-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^(2)-6*x)/(3*x^2-6*x),ns,ns],[no,(3*x^(2)-6*x)/(3*x^2-6*x),ns,ns],[],[],[],[]]$/*##*/
+res:ratsimp(dtLL)$/*##*/
+disp(res)$/*##*/
+closefile()$/*##*/
+quit()$/*##*/

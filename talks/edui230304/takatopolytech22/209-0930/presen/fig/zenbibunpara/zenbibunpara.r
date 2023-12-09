@@ -1,0 +1,84 @@
+setwd("/Users/takatoosetsuo/Dropbox/2018polytec/lecture/0920/presen/fig/zenbibunpara")##
+source('/Applications/kettex.app/texlive/texmf-dist/scripts/ketcindy/ketlib/ketpiccurrent.r')##
+Ketinit()##
+Setwindow(c((-2.752525),(5.941065)),c((-1.166094),(5.622523)))####
+TH=c(-1.25,-1.75);Assignadd('TH',TH)##
+FI=c(1.75,-2.25);Assignadd('FI',FI)##
+O=c(0,0);Assignadd('O',O)##
+Oz=c(8.69359,0);Assignadd('Oz',Oz)##
+X=c(4.09576,-0.74226);Assignadd('X',X)##
+Xz=c(12.78935,0);Assignadd('Xz',Xz)##
+Y=c(2.86788,1.06006);Assignadd('Y',Y)##
+Yz=c(11.56147,0);Assignadd('Yz',Yz)##
+Z=c(0,4.82963);Assignadd('Z',Z)##
+Zz=c(8.69359,5);Assignadd('Zz',Zz)##
+A=c(-3.5,2.5);Assignadd('A',A)##
+O3d=c(0,0,0);Assignadd('O3d',O3d)##
+Ofix=1;Assignadd('Ofix',Ofix)##
+X3d=c(5,0,0);Assignadd('X3d',X3d)##
+Xfix=1;Assignadd('Xfix',Xfix)##
+Y3d=c(0,5,0);Assignadd('Y3d',Y3d)##
+Yfix=1;Assignadd('Yfix',Yfix)##
+Z3d=c(0,0,5);Assignadd('Z3d',Z3d)##
+Zfix=1;Assignadd('Zfix',Zfix)##
+x1=0.75;Assignadd('x1',x1)##
+x2=2.5;Assignadd('x2',x2)##
+y1=0.75;Assignadd('y1',y1)##
+y2=2.5;Assignadd('y2',y2)##
+Fun<-function(X,Y){z=1/8*(Y^0.1*X^1.5+X^0.2*Y^1.8)+3;return(z)}##
+sgth=Listplot(c(c(-5,-1.75),c(4,-1.75)))##
+sgph=Listplot(c(c(-5,-2.25),c(4,-2.25)))##
+Setangle(75,305)##
+sgx=Listplot(c(c(-6,0),c(-3,0)))##
+sgy=Listplot(c(c(-6,0),c(-6,3)))##
+fr1=Framedata(c(-4.38,1.63),0.88,0.88)##
+Setangle(75,270)##
+ax3d=Xyzax3data("x=c(0,5)","y=c(0,5)","z=c(0,5)")##
+sl3dvc2=Spaceline(c(c(2.5,0.75,0),c(2.5,0.75,3.56955)))##
+sl3dvc3=Spaceline(c(c(2.5,2.5,0),c(2.5,2.5,4.32277)))##
+sl3dvc4=Spaceline(c(c(0.75,2.5,0),c(0.75,2.5,3.70305)))##
+sc3d1=Spacecurve(Assign('c(x,y1,Fun(x,y1))'),'x=c(x1,x2)','Num=5')##
+sc3d2=Spacecurve(Assign('c(x1,y,Fun(x1,y))'),'y=c(y1,y2)','Num=5')##
+sc3d3=Spacecurve(Assign('c(x,y2,Fun(x,y2))'),'x=c(x1,x2)','Num=5')##
+sc3d4=Spacecurve(Assign('c(x2,y,Fun(x2,y))'),'y=c(y1,y2)','Num=5')##
+sl3d1=Spaceline(c(c(0.75,0.75,0),c(2.5,0.75,0),c(2.5,2.5,0),c(0.75,2.5,0),c(0.75,0.75,0)))##
+sl3dva1=Spaceline(c(c(0.75,0.75,0),c(0.75,0.75,3.1492)))##
+sl3d2=Spaceline(c(c(0.75,0.75,3.1492),c(2.5,0.75,3.1492),c(2.5,2.5,3.1492),c(0.75,2.5,3.1492),c(0.75,0.75,3.1492)))##
+sl3d3=Spaceline(c(c(0.75,0.75,3.1492),c(2.5,0.75,3.45812),c(2.5,2.5,3.77184),c(0.75,2.5,3.46292),c(0.75,0.75,3.1492)))##
+sl3dva2=Spaceline(c(c(2.5,0.75,0),c(2.5,0.75,3.1492)))##
+sl3dva3=Spaceline(c(c(2.5,2.5,0),c(2.5,2.5,3.1492)))##
+sl3dva4=Spaceline(c(c(0.75,2.5,0),c(0.75,2.5,3.1492)))##
+sl3dvb2=Spaceline(c(c(2.5,0.75,0),c(2.5,0.75,3.45812)))##
+sl3dvb3=Spaceline(c(c(2.5,2.5,0),c(2.5,2.5,3.77184)))##
+sl3dvb4=Spaceline(c(c(0.75,2.5,0),c(0.75,2.5,3.46292)))##
+sk3d1=Skeletonpara3data(list(ax3d,sl3dvc2,sl3dvc3,sl3dvc4,sc3d1,sc3d2,sc3d3,sc3d4,sl3d1,sl3dva1,sl3d2,sl3dva2,sl3dva3,sl3dva4,sl3dvb2,sl3dvb3,sl3dvb4),list(ax3d,sl3dvc2,sl3dvc3,sl3dvc4,sc3d1,sc3d2,sc3d3,sc3d4,sl3d1,sl3dva1,sl3d2,sl3d3,sl3dva2,sl3dva3,sl3dva4,sl3dvb2,sl3dvb3,sl3dvb4),1)##
+sk3d2=Skeletonpara3data(list(sl3d3),list(ax3d,sl3dvc2,sl3dvc3,sl3dvc4,sc3d1,sc3d2,sc3d3,sc3d4,sl3d1,sl3dva1,sl3d2,sl3d3,sl3dva2,sl3dva3,sl3dva4,sl3dvb2,sl3dvb3,sl3dvb4),1)##
+setwd("/Users/takatoosetsuo/Dropbox/2018polytec/lecture/0920/presen/fig/zenbibunpara")##
+size=8##
+cat('',file='all.r',sep='',append=FALSE)##
+for(n in Looprange(1,size)){##
+  tmp=as.character(n)##
+  tmp=paste('0000',tmp,sep='')##
+  tmp=substring(tmp,nchar(tmp)-2,nchar(tmp))##
+  fname=paste('p',tmp,'.r',sep='')##
+  lines=readLines(fname)##
+  if(n>1){##
+    for(j in 1:length(lines)){##
+      tmp=grep('source',lines[j],fixed=TRUE)##
+      if(length(tmp)>0){##
+        lines[j]=paste('#',lines[j],sep='')##
+        lines[j+2]=paste('#',lines[j+2],sep='')##
+        break##
+      }##
+    }##
+  }##
+  lines=lines[1:(length(lines)-1)]##
+  tmp=paste('print(',as.character(n),')',sep='')##
+  lines=c(tmp,lines)##
+  for(j in Looprange(1,length(lines))){##
+    cat(lines[j],file='all.r',sep='\n',append=TRUE)##
+  }##
+}##
+source('all.r')##
+cat('////',file='resultR.txt',sep='')##
+quit()##

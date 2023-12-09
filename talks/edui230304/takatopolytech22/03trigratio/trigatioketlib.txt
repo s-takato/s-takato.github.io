@@ -1,0 +1,135 @@
+Seteditable(9,["ID=","Size=20","Width=150"]);//no ketjs on
+Seteditable(10,["","Size=18","Width=60"]);
+Seteditable(11,["","Size=18","Width=60"]);
+Seteditable(12,["","Size=18","Width=60"]);
+Seteditable(13,["","Size=18","Width=60"]);
+Seteditable(14,["","Size=18","Width=60"]);
+Seteditable(15,["","Size=18","Width=60"]);
+Seteditable(62,["","Size=18","Width=700"]);
+inspect(Text31,"colorfill",0);
+inspect(Text32,"colorfill",0);
+inspect(Text33,"colorfill",0);
+inspect(A,"ptsize",5.5);//no ketjs off
+
+Eps=0.1;
+Inf=10^6;
+pO=[0,0];
+
+Makeques():=(
+  regional(ang,rot,tmp,tmp1);
+  Dist=randomint(3)+3;
+  tmp=randomint(6)+2;
+  Angle=tmp*10;
+  tmp=(90-Angle)/10;
+  tmp1=randomint(tmp)+1;
+  Rot=tmp1*10;
+  if(QuesNo==0,Rot=0);
+  Choice=randomint(1);
+  if(QuesNo<=1,Choice=0);
+  if(QuesNo==2,Choice=1);
+  ang=Angle*pi/180;
+  pA0=Dist*[cos(ang),sin(ang)];
+  pC0=Dist*[cos(ang),0];
+  rot=Rot*pi/180;
+  pA1=Rotatepoint(pA0,rot,pO);
+  pC1=Rotatepoint(pC0,rot,pO);
+  if(Choice==0,
+    Ex=text([Dist,Angle,Rot,Choice]);
+    Ca=text([cos(ang),sin(ang),tan(ang)]);
+  ,
+    Ex=text([pC1,Dist,90^Angle]);
+    ang=pi/2-ang;
+    Ca=text([cos(ang),sin(ang),tan(ang)]);
+  );
+  cr1=apply(0..20,Dist*[cos(#/20*pi/2),sin(#/20*pi/2)]);
+  Putpoint("A",pA1);
+  Subsedit(10,"");
+  Subsedit(11,"");
+  Subsedit(12,"");
+  Subsedit(13,"");
+  Subsedit(14,"");
+  Subsedit(15,"");
+);
+
+Drawfig():=(
+  regional(tmp,ang);
+  tmp=Crossprod(pA1,A.xy)/(|pA1|*|A.xy|);
+  ang=arcsin(tmp);
+  pC2=Rotatepoint(pC1,ang,pO);
+  Listplot("1",[pO,A.xy,pC2,pO],["dr,2"]);
+  if(Choice==0,
+    Anglemark("1",[pC2,pO,A.xy],[1.3]);
+  ,
+    Anglemark("1",[pO,A.xy,pC2],[1.3]);
+  );
+);
+
+Scoring():=(
+  regional(ans,csn,csd,snn,snd,tnn,tnd,inf,eps,
+      stans,pos,size,clr,tmp,tmp1,tmp2);
+  pos=[7,0]; size=20; clr=[1,0,0];
+  inf=10^5; eps=0.1;
+  csn=inf; csd=inf; snn=inf; snd=inf; tnn=inf; tnd=inf;
+  stans=""; score=0;
+  tmp=Textedit(10,"");
+  if(length(tmp)>0,csn=parse(Tocindyform(tmp)));
+  tmp=Textedit(11,"");
+  if(length(tmp)>0,csd=parse(Tocindyform(tmp)));
+  tmp=Textedit(12,"");
+  if(length(tmp)>0,snn=parse(Tocindyform(tmp)));
+  tmp=Textedit(13,"");
+  if(length(tmp)>0,snd=parse(Tocindyform(tmp)));
+  tmp=Textedit(14,"");
+  if(length(tmp)>0,tnn=parse(Tocindyform(tmp)));
+  tmp=Textedit(15,"");
+  if(length(tmp)>0,tnd=parse(Tocindyform(tmp)));
+  if((csn==inf)%(csd==inf)%(snn==inf)%(snd==inf)%(tnn==inf)%(tnd==inf),
+    Msgsc=["未入力",pos,size,clr];
+    stans="na";
+    score=-2;
+  ,
+    ans=parse(Ca);
+    stans=Assign("csn/csd",["csn",csn,"csd",csd])+",";
+    stans=stans+Assign("snn/snd",["snn",snn,"snd",snd])+",";
+    stans=stans+Assign("tnn/tnd",["tnn",tnn,"tnd",tnd]);
+    if((csd==0)%(snd==0)%(tnd==0),
+      Msgsc=["分母0",pos,size,clr];
+      score=-1;
+    ,
+      if(|csn/csd-ans_1|+|snn/snd-ans_2|+|tnn/tnd-ans_3|<eps,
+        Msgsc=["正解",pos,size,clr];
+        score=1;
+      ,
+        Msgsc=["不正解",pos,size,clr];
+        score=0;
+      );
+    );
+  );
+  [stans,score];
+);
+
+Drwaxes():=(
+  regional(tL);
+  tL=[];
+  forall(1..10,
+    tL=concat(tL,[#/2,text(#)]);
+  );
+  Htickmark(tL);
+  Vtickmark(tL);
+);
+
+Dispinitial():=(
+  regional(op,opc,pos,dpos,posM,dpoM,tmp);
+  pos=3.6;dpos=1.2;
+  if(quesgiven==1,
+    if(Choice==0,tmp=Angle,tmp=90-Angle);
+    Drwexpr([5,pos+1],"\theta="+text(tmp)+"^{\circ}",20);
+  );
+  Drwexpr([5,pos],"\cos\theta=",20);
+  Drwexpr([5,pos-1*dpos],"\sin\theta=",20);
+  Drwexpr([5,pos-2*dpos],"\tan\theta=",20);
+  pos=pos+0.1;
+  Listplot("cs",[[6,pos],[7.3,pos]],["dr,1.5"]);
+  Listplot("sn",[[6,pos-dpos],[7.3,pos-dpos]],["dr,1.5"]);
+  Listplot("tn",[[6,pos-2*dpos],[7.3,pos-2*dpos]],["dr,1.5"]);
+);

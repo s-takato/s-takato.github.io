@@ -1,0 +1,9 @@
+writefile("/Users/takatoosetsuo/polytech22.git/204-0829/fig/toolketmathall3res.txt")$/*##*/
+powerdisp:false$/*##*/
+display2d:false$/*##*/
+linel:1000$/*##*/
+dtLL:[[no,(1-sin(x))/(1-sin(x)),(1)/(sin(x)+x*cos(x)),(-4*cos(x))/(4*cos(4*x))],[no,(1+sin(x))/(1-sin(x)),na,(4*cos(4*x))/(4*cos(4*x))],[no,(1-sin(x))/(1-sin(x)),(x*cos(x)+sin(x))/(sin(x)+x*cos(x)),(4*sin(4*x))/(4*cos(4*x))],[no,(1-sin(x))/(1-sin(x)),(cos(x))/(sin(x)+x*cos(x)),(5*cos(x))/(4*cos(4*x))],[],[no,(1-sin(x))/(1-sin(x)),(sin(x)+x*cos(x))/(sin(x)+x*cos(x)),(4*cos(4*x))/(4*cos(4*x))],[no,(1-sin(x))/(1-sin(x)),(x*cos(x)+sin(x))/(sin(x)+x*cos(x)),(4*cos(4*x))/(4*cos(4*x))],[],[no,(１-sin(x))/(1-sin(x)),(cos(x))/(sin(x)+x*cos(x)),(cos(4*x))/(4*cos(4*x))],[no,(1-sin(x))/(1-sin(x)),(1*cos(x))/(sin(x)+x*cos(x)),(cos(4*x))/(4*cos(4*x))],[no,((1)/(2)*x^(2)-sin(x))/(1-sin(x)),(sin(x)-x*cos(x)+c)/(sin(x)+x*cos(x)),(4*cos(4*x)+c)/(4*cos(4*x))],[no,(1-s*i*n*x)/(1-sin(x)),(cos(x))/(sin(x)+x*cos(x)),(2*cos(2*x))/(4*cos(4*x))],[],[],[],[]]$/*##*/
+res:ratsimp(dtLL)$/*##*/
+disp(res)$/*##*/
+closefile()$/*##*/
+quit()$/*##*/

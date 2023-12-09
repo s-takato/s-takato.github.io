@@ -1,0 +1,3 @@
+LinkL=[
+  ["img src","loaded/0928-05.png",""]
+];

@@ -1,0 +1,4 @@
+queslist0606-02.txt
+[Q02,S,n,a_kを求めよ．]
+[[1], S=sum(k=1,4,!fr(1,k))]
+[[2], 2+4+6+(cdot)+(cdot)+(cdot)+10=sum(k=1,n,!a_k)]

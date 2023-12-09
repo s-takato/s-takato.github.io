@@ -1,0 +1,12 @@
+kmL=[
+  "x^2+fr(b,a)x+fr(c,a)=0",
+  "(x+fr(b,2a))^2-fr(b^2,4a^2)+fr(c,a)=0",
+  "(x+fr(b,2a))^2=fr(b^2-4ac,4a^2)",
+  "x+fr(b,2a)={\pm}sq(fr(b^2-4ac,4a^2))"
+];
+dyex=3.2;
+tmp=T1.y+2;
+forall(1..(nqu-2),
+  Expr([50,tmp],"e",Totexform(kmL_#),["Size=1.3","Color=blue"]);
+  tmp=tmp-dyex;
+);

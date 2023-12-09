@@ -1,0 +1,3 @@
+LinkL=[
+  ["https://s-takato.github.io/polytech22/offlineapp/bibunkeisuumainoff.html","微分係数の意味"]
+];

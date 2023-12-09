@@ -1,0 +1,14 @@
+if(scriptaddstart==1,
+
+scriptaddstart=0;
+);
+
+Setwindow([-4.5,2],[0,4]);
+Addax(0);
+Setadjust([-1,3],1.2);
+pp1=Adjust([0,3]);
+pdp=[0,5];
+Expr(pp1,"e","\sin 30{}^{\circ}=\dfrac{1}{2}",["Size=1.3"]);
+Expr(pp1-pdp,"e","\sin 60{}^{\circ}=\dfrac{\sqrt{3}}{2}",["Size=1.3"]);
+Expr(pp1-2*pdp,"e","\sin 90{}^{\circ}=1",["Size=1.3"]);
+Expr(pp1-3*pdp,"e","\sqrt{3}=1.732",["Size=1.3"]);

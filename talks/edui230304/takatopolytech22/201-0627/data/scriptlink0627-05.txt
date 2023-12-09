@@ -1,0 +1,3 @@
+LinkL=[
+  ["https://s-takato.github.io/polytech22/offlineapp/derivativejsoffL.html","導関数の意味"]
+];

@@ -1,0 +1,504 @@
+Title::slide0
+::\newcommand{\hiduke}{0523}
+::\newcommand{\hako}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,\phantom{#2}\,}}
+::\newcommand{\hakoa}[2][1]{\fbox{\raisebox{#1mm}{\mbox{}}\raisebox{-#1mm}{\mbox{}}\,#2\,}}
+::\newcommand{\hakom}[2][1]{\hako[#1]{$#2$}}
+::\newcommand{\hakoma}[2][1]{\hakoa[#1]{$#2$}}
+::\def\rad{\;\mathrm{rad}}
+::\def\deg#1{#1^{\circ}}
+::\newcommand{\sbunsuu}[2]{\scalebox{0.6}{$\bunsuu{#1}{#2}$}}
+::\def\pow{$\hspace{-1.5mm}＾\hspace{-1mm}$}
+::\def\dlim{\displaystyle\lim}
+::\newcommand{\brd}[2][1]{\scalebox{#1}{\color{red}\fbox{\color{black}$#2$}}}
+::\newcommand\down[1][0.5zw]{\vspace{#1}\\}
+::\newcommand{\sfrac}[3][0.65]{\scalebox{#1}{$\frac{#2}{#3}$}}
+
+\def\MARU{}
+\renewcommand{\MARU}[1]{{\ooalign{\hfil$#1$\/\hfil\crcr\raise.167ex\hbox{\mathhexbox20D}}}}
+
+
+\renewcommand{\slidepage}[1][s]{%
+\setcounter{ketpicctra}{18}%
+\if#1m \setcounter{ketpicctra}{1}\fi
+\hypersetup{linkcolor=black}%
+
+\begin{layer}{118}{0}
+%\putnotee{122}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\putnotee{115}{-\theketpicctra.05}{\small\hiduke-\thepage/\pageref{pageend}}
+\end{layer}\hypersetup{linkcolor=blue}
+
+}
+
+\newcounter{ban}
+\setcounter{ban}{1}
+
+\newcommand{\monban}[1][\hiduke]{%
+#1-\theban\ %
+\addtocounter{ban}{1}%
+}
+
+\newcommand{\monbannoadd}[1][\hiduke]{%
+#1-\theban\ %
+%\addtocounter{ban}{1}%
+}
+
+\newcommand{\addban}{%
+\addtocounter{ban}{1}%%210614
+}
+
+\newcounter{edawidth}
+\newcounter{edactr}
+
+\newcommand{\seteda}[1]{
+\setcounter{edawidth}{#1}
+\setcounter{edactr}{1}
+}
+
+\newcommand{\eda}[2][\theedawidth ]{%
+\noindent\Ltab{#1 mm}{[\theedactr]\ #2}%
+\addtocounter{edactr}{1}%
+}
+
+%%%%%%%%%%%%
+main::指数関数
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::指数関数$y=a^x$
+%repeat=14,para
+\slidepage
+
+{\color{blue}
+layer::{120}{0}
+%[4,-]::\putnotec{21}{47}{$2$}
+%[5,-]::\putnotec{29}{47}{$4$}
+%[6,-]::\putnotec{37}{47}{$8$}
+%[7,-]::\putnotec{46}{47}{$16$}
+%[8,-]::\putnotec{56}{47}{$32$}
+%[9,-]::\putnotec{66}{47}{$64$}
+%[10,-]::\putnotec{77}{47}{$128$}
+%[11,-]::\putnotec{89}{47}{$256$}
+%[12,-]::\putnotec{101}{47}{$512$}
+%[13,-]::\putnotec{113}{47}{$1024$}
+end
+}
+
+itemize
+item::$a$は正の定数，$x$は変数
+%[2,-]::item::$a$を{\color{red}底}，$x$を{\color{red}(べき)指数}という．
+%[3,-]::item::[(例)]$y=2^x$\vspace{2mm}\\
+%[3,-]::\input{fig/sisuuhyo1}
+%[14,-]::item::$x$が正の整数以外の場合でも$a^x$の値を定める
+end
+
+%%%%%%%%%%%%
+new::指数法則
+%repeat=14,para
+\slidepage
+
+layer::{120}{0}
+%[13,-]::\putnotese{30}{33}{
+%[13,-]::\fbox{$\begin{array}{l}
+%[13,-]::(1)\ \ a^p a^{q}=a^{p+q}\\
+%[13,-]::(2)\ \ (a^p)^{q}=a^{pq}\\
+%[13,-]::(3)\ \ (ab)^p=a^p b^p
+%[13,-]::\end{array}$}}
+%[13,-]::\putnotese{85}{43}{(指数法則)}
+end
+
+\vspace*{-2mm}
+...
+
+itemize
+item::元になるのは，指数の性質（指数法則）\\
+%[2,-]::\hspace*{0.5zw}$a^3a^2$
+%[3,-]::$=(aaa)(aa)$
+%[4,-]::$=a^5=a^{3+2}$
+%[5,-]::\ ({\color{red}指数の足し算})\\
+%[6,-]::\hspace*{0.5zw}$(a^3)^2$
+%[7,-]::$=(aaa)(aaa)$
+%[8,-]::$=a^6=a^{3\times 2}$
+%[9,-]::\ ({\color{red}指数の掛け算})
+%[10,-]::\hspace*{0.5zw}$(ab)^3$
+%[11,-]::$=(ab)(ab)(ab)$
+%[12,-]::$=a^3b^3$
+\vspace{23mm}
+...
+
+%[14,-]::item::[課題]\monban 指数法則の具体例を書け\seteda{33}\\
+%[14,-]::\eda{(1)の例}\eda{(2)の例}\eda{(3)の例}
+end
+
+%%%%%%%%%%%%
+new::指数の拡張１ $a$の0乗
+%repeat=12,para
+\slidepage
+
+{\color{blue}
+layer::{120}{0}
+%[7,-]::\lineseg{18}{43}{5}{-45}
+%[7,-]::\lineseg{36}{43}{5}{-45}
+end
+}
+
+itemize
+item::指数法則が成り立つように正の整数以外の指数を定める
+%[2,-]::item::$a\neqq 0$とする．
+%[3,-]::item::$a^p a^{q}=a^{p+q}$
+%[4,-]::　$p=1,\ q=0$とすると\\
+%[5,-]::\hspace*{2zw}$a^1a^0=a^{1+0}$\\
+%[6,-]::\hspace*{2zw}$a\;a^0=a$\\
+%[7,-]::$a$は0でないから，両辺を$a$で割って\\
+%[8,-]::\hspace*{2zw}{\color{red}\fbox{$a^0=1$}}
+%[9]::item::[(例)]$2^0=\phantom{1},\ 3^0=\phantom{1},\ 10^0=\phantom{1}$
+%[10]::item::[(例)]$2^0=1,\ 3^0=\phantom{1},\ 10^0=\phantom{1}$
+%[11]::item::[(例)]$2^0=1,\ 3^0=1,\ 10^0=\phantom{1}$
+%[12,-]::item::[(例)]$2^0=1,\ 3^0=1,\ 10^0=1$
+end
+
+%%%%%%%%%%%%
+new::指数の拡張２ $a$のマイナス乗
+%repeat=13,para
+\slidepage
+
+itemize
+item::$a\neqq 0$とする．
+%[2,-]::item::$a^p a^{q}=a^{p+q}$
+%[3,-]::　$q=-p$とすると\\
+%[4,-]::\hspace*{2zw}$a^p a^{-p}=a^{p+(-p)}$
+%[5,-]::$=a^0=1$\\
+%[6,-]::\hspace*{2zw}$a^p a^{-q}=1$\\
+%[7]::両辺を$a^p$で割って\phantom{\hspace*{1zw}{\color{red}\fbox{$a^{-p}=\bunsuu{1}{a^p}$}}}
+%[8,-]::両辺を$a^p$で割って\hspace*{1zw}{\color{red}\fbox{$a^{-p}=\bunsuu{1}{a^p}$}}
+%[9]::item::[(例)]$2^{-1}=\phantom{\bunsuu{1}{2}},\ 3^{-2}=\phantom{\bunsuu{1}{3^2}}=\phantom{\bunsuu{1}{9}}$
+%[10]::item::[(例)]$2^{-1}=\bunsuu{1}{2},\ 3^{-2}=\phantom{\bunsuu{1}{3^2}}=\phantom{\bunsuu{1}{9}}$
+%[11]::item::[(例)]$2^{-1}=\bunsuu{1}{2},\ 3^{-2}=\bunsuu{1}{3^2}=\phantom{\bunsuu{1}{9}}$
+%[12,-]::item::[(例)]$2^{-1}=\bunsuu{1}{2},\ 3^{-2}=\bunsuu{1}{3^2}=\bunsuu{1}{9}$
+%[13,-]::item::[課題]\monban $5^0,4^{-1},2^{-2},3^{-3}$の値を求めよ．
+end
+
+%%%%%%%%%%%%
+new::指数関数の表
+%repeat=13,para
+\slidepage
+
+layer::{120}{0}
+putnote::se{5}{5}::sisuuhyo1
+putnote::se{5}{25}::sisuuhyo2
+end
+
+{\color{blue}
+layer::{120}{0}
+%[2,-]::\putnotec{17}{17}{$2$}
+%[2,-]::\putnotec{25}{17}{$4$}
+%[2,-]::\putnotec{34}{17}{$8$}
+%[2,-]::\putnotec{42}{17}{$16$}
+%[2,-]::\putnotec{52}{17}{$32$}
+%[2,-]::\putnotec{62}{17}{$64$}
+%[2,-]::\putnotec{73}{17}{$128$}
+%[2,-]::\putnotec{85}{17}{$256$}
+%[2,-]::\putnotec{97}{17}{$512$}
+%[2,-]::\putnotec{109}{17}{$1024$}
+
+%[3,-]::\putnotec{119}{39}{$1$}
+%[4,-]::\putnotec{111}{39}{$\bunsuu{1}{2}$}
+%[5,-]::\putnotec{103}{39}{$\bunsuu{1}{4}$}
+%[6,-]::\putnotec{95}{39}{$\bunsuu{1}{8}$}
+%[7,-]::\putnotec{86}{39}{$\bunsuu{1}{16}$}
+%[8,-]::\putnotec{76}{39}{$\bunsuu{1}{32}$}
+%[9,-]::\putnotec{66}{39}{$\bunsuu{1}{64}$}
+%[10,-]::\putnotec{55}{39}{$\bunsuu{1}{128}$}
+%[11,-]::\putnotec{43}{39}{$\bunsuu{1}{256}$}
+%[12,-]::\putnotec{31}{39}{$\bunsuu{1}{512}$}
+%[13,-]::\putnotec{19}{39}{$\bunsuu{1}{1024}$}
+end
+}
+
+%%%%%%%%%%%%
+new::指数関数のグラフ
+%repeat=2,para
+\slidepage
+
+itemize
+item::アプリ「指数関数のグラフ」を用いる
+  enumerate::[(1)]
+  item::下にある点を$y=2^x$の上に動かそう．
+  item::$y=2^x$のグラフをかこう．
+  end
+%[2,-]::item::[課題]\monban $2^{-2},2^{-1},2^0,2^1,2^2,2^3$の値を書け
+end
+
+%%%%%%%%%%%%
+new::$x$が整数でない場合(グラフから)
+%repeat=4,para
+\slidepage
+
+layer::{120}{0}
+putnote::s{90}{5}::sisuugraph2,0.9
+%[2,-]::putnote::s{90}{5}::sisuugraph3,0.9
+end
+
+%[3,-]::itemize
+%[3,-]::item::[課題]\monbannoadd\\\hspace*{0.5zw}$2^{0.5},2^{1.5},2^{2.5}$\\はどうなりそうか
+%[4,-]::item::[]{\color{blue}$2^{0.5}=\sqrt{2}$}
+%[4,-]::item::[]{\color{blue}$2^{1.5}=2\sqrt{2}$}
+%[4,-]::item::[]{\color{blue}$2^{2.5}=4\sqrt{2}$}
+%[3,-]::end
+
+%[4,-]::\addban
+
+%%%%%%%%%%%%
+new::$x$が整数でない場合(指数法則から)
+%repeat=16,para
+\slidepage
+
+itemize
+item::$(a^p)^{q}=a^{pq}$で，$p=0.5,\ q=2$とする\\
+\hspace*{2zw}$(2^{0.5})^2$
+%[2,-]::$=a^{0.5\times 2}$
+%[3,-]::$=2^1=2$
+%[4,-]::item::[]$2^{0.5}$は2乗すると2になる数だから，
+%[5,-]::$\pm\sqrt{2}$のどちらか
+%[6,-]::\\$2^{0.5}>0$と決めると
+%[7]::\\\hspace*{2zw}\fbox{\color{red}$2^{0.5}=\sqrt{2}$}\phantom{\hspace{1zw}または\hspace{1zw}\fbox{\color{red}$2^{\sfrac{1}{2}}=\sqrt{2}$}}
+%[8,-]::\\\hspace*{2zw}\fbox{\color{red}$2^{0.5}=\sqrt{2}$}\hspace{1zw}または\hspace{1zw}\fbox{\color{red}$2^{\sfrac{1}{2}}=\sqrt{2}$}
+%[9]::item::$2^{1.5}\phantom{=2^{1+0.5}==2^1\cdot 2^{0.5}=2\sqrt{2}}$
+%[10]::item::$2^{1.5}=2^{1+0.5}\phantom{=2^1\cdot 2^{0.5}=2\sqrt{2}}$
+%[11]::item::$2^{1.5}=2^{1+0.5}=2^1\cdot 2^{0.5}\phantom{=2\sqrt{2}}$
+%[12,-]::item::$2^{1.5}=2^{1+0.5}=2^1\cdot 2^{0.5}=2\sqrt{2}$
+%[13]::item::$2^{2.5}\phantom{=2^{2+0.5}=2^2\cdot 2^{0.5}=4\sqrt{2}}$
+%[14]::item::$2^{2.5}=2^{2+0.5}\phantom{=2^2\cdot 2^{0.5}=4\sqrt{2}}$
+%[15]::item::$2^{2.5}=2^{2+0.5}=2^2\cdot 2^{0.5}\phantom{=4\sqrt{2}}$
+%[16,-]::item::$2^{2.5}=2^{2+0.5}=2^2\cdot 2^{0.5}=4\sqrt{2}$
+end
+
+%%%%%%%%%%%%
+new::指数法則と$n$乗根
+%repeat=5,para
+\slidepage
+
+itemize
+item::\fbox{$\begin{array}{l}
+(1)\ \ a^p a^{q}=a^{p+q}\\
+(2)\ \ (a^p)^{q}=a^{pq}\\
+(3)\ \ (ab)^p=a^p b^p
+\end{array}$}（$a>0,\ b>0$）
+%[2,-]::item::$a^{\sfrac{1}{3}}$は3乗すると$a$になる正の数
+%[3,-]::item::[]これを$\sqrt[3]{a}$と書く（3乗根）\\
+%[4,-]::\hspace*{2zw}\fbox{\color{red}$2^{\frac{1}{3}}=\sqrt[3]{2}$}
+%[5,-]::item::[課題]\monban $3^{\sfrac{1}{2}},\ 5^{\sfrac{1}{2}},\ 4^{\sfrac{1}{3}},\ 8^{\sfrac{1}{3}}$を求めよ
+end
+
+%%%%%%%%%%%%
+new::指数の計算(TextP188)
+%repeat=13,para
+\slidepage
+
+enumerate::[(1)]
+%[1]::item::$8^{\sfrac{2}{3}}$
+%[2,-]::item::$8^{\sfrac{2}{3}}=(2^3)^{\sfrac{2}{3}}$
+%[3,-]::$=2^{3\cdot \sfrac{2}{3}}$
+%[4,-]::$=2^2=4$
+%[4]::item::$(64^{\sfrac{1}{2}})^{\sfrac{1}{3}}$
+%[5,-]::item::$(64^{\sfrac{1}{2}})^{\sfrac{1}{3}}=((2^6)^{\sfrac{1}{2}})^{\sfrac{1}{3}}$
+%[6,-]::$=2^{6\times\sfrac{1}{2}\times\sfrac{1}{3}}$
+%[7,-]::$=2^1=2$
+%[8]::item::$(8^{\sfrac{1}{6}})^{-2}$
+%[9,-]::item::$(8^{\sfrac{1}{6}})^{-2}=((2^3)^{\sfrac{1}{6}})^{-2}$
+%[10,-]::$=2^{3\times\sfrac{1}{6}\times(-2)}$
+%[11,-]::=$2^{-1}$
+%thin[12,-]::$=\bunsuu{1}{2}$
+%[13,-]::item::[課題]\monban 計算せよ\hfill TextP188\seteda{60}\\
+%[13,-]::\eda{$32^{\tfrac{2}{5}}$}\eda{$\sqrt[3]{27}$}\\
+%[13,-]::\eda{$(\sqrt[2]{4})^{\tfrac{1}{2}}$}\eda{$(\sqrt[2]{4})^{-\sfrac{1}{2}}$}
+end
+
+%%%%%%%%%%%%
+new::指数関数のグラフの特徴
+%repeat=1,para
+\slidepage
+
+itemize
+item::[課題]\monban $y=2^x,\ y=3^x,\ y=(\frac{1}{2})^x,\ y=1^x$のグラフをかき、（　）に当てはまる言葉を入れよ．
+　
+item::指数関数$y=a^x$の特徴
+  itemize
+  item::[[1\!\!]] $y$の値はいつでも(\hspace{4zw})
+  item::[[2\!\!]] $a>1$のとき，グラフは右(\hspace{4zw}) 
+  item::[[3\!\!]] $0<a<1$のとき，グラフは右(\hspace{4zw})
+  item::[[4\!\!]] $a=1$のとき，グラフは(\hspace{4zw})
+  end
+end
+
+%%%%%%%%%%%%
+new::指数方程式(TextP191)
+%repeat=10,para
+\slidepage
+
+\vspace{3mm}
+...
+
+\begin{minipage}[t]{60mm}
+(1)\ $16^x=8$\\
+%[2,-]::\hspace*{2zw}$(2^4)^x=2^3$\\
+%[3,-]::\hspace*{2zw}$2^{4x}=2^3$\\
+%[4,-]::\hspace*{1zw}指数を等しいとおいて\\
+%[4,-]::\hspace*{2zw}$4x=3$\\
+%[5,-]::\hspace*{1zw}よって　$x=\dfrac{3}{4}$
+\end{minipage}
+\hspace*{5mm}\begin{minipage}[t]{60mm}
+(2)\ $8^x=2^{x+1}$\\
+%[6,-]::\hspace*{2zw}$(2^3)^x=2^{x+1}$\\
+%[7,-]::\hspace*{2zw}$2^{3x}=2^{x+1}$\\
+%[8,-]::\hspace*{1zw}指数を等しいとおいて\\
+%[8,-]::\hspace*{2zw}$3x=x+1$\\
+%[9,-]::\hspace*{1zw}よって　$x=\dfrac{1}{2}$
+\end{minipage}
+
+\vspace{-5mm}
+...
+
+\seteda{55}
+%[10,-]::itemize
+%[10,-]::item::[課題]\monban 次の方程式を解け\hfill TextP191\\
+%[10,-]::\eda{$8^{x}=\bunsuu{1}{32}$}\eda{$81^x=3^{3-2x}$}
+%[10,-]::end
+
+
+%%%%%%%%%%%%
+main::対数関数
+\slidepage[m]
+
+%%%%%%%%%%%%
+new::対数の定義
+%repeat=10,para
+\slidepage
+
+%%\noindent
+%%$a$は1でない正の定数とする
+
+itemize
+item::$y=\log_a x$\\
+%[2,-]::\hspace*{4zw}$a$を{\color{red}底}，$x$を{\color{red}真数}\\
+%[3,-]::\hspace*{4zw}$y$を$a$を底とする$x$の{\color{red}対数}という．
+%[4,-]::item::対数$y$は，$a$を何乗したら$x$になるかという数\\
+%[5]::\hspace*{4zw}$a^{\fbox{\phantom{$y$}}}=x$となる\;\fbox{\phantom{$\mathstrut y$}}\;のこと
+%[6,-]::\hspace*{4zw}$a^{\fbox{$y$}}=x$となる\;\fbox{$\mathstrut y$}\;のこと
+%[7,-]::item::[例)]$y=\log_3 9$\\
+%[8,-]::\hspace*{1zw}$3^{\fbox{$y$}}=9$となる$y$のこと\\
+%[9,-]::\hspace*{1zw}$3^2=9$だから
+%[10,-]::\hspace*{1zw}$y=\log_3 9=2$
+end
+
+%%%%%%%%%%%%
+new::対数の値を求める
+%repeat=6,para
+\slidepage
+
+
+itemize
+item::\fbox{$y=\log_a x \Longleftrightarrow a^y=x$}
+%[2,-]::item::[(例)]$y=\log_2 16$
+%[3,-]::$\Longleftrightarrow 2^y=16$
+%[4,-]::$=2^4$\\
+%[5,-]:: $y=4$となるから　$\log_2 16=4$
+\seteda{30}
+%[6,-]::item::[課題]\monban 次の値を求めよ．\\
+%[6,-]::\eda{$\log_2 8$ }\eda{$\log_3 3$}\eda{$\log_5 \bunsuu{1}{5}$}\eda{$\log_2 \bunsuu{1}{4}$}
+end
+
+%%%%%%%%%%%%
+new::対数法則
+%repeat=10,para
+\slidepage
+
+{\color{blue}
+layer::{120}{0}
+%[2,-]::\putnotee{80}{10}{\normalsize$\log_4 2+\log_4 8=\log_4 16=2$}
+%[3,-]::\putnotee{80}{21}{\normalsize$\log_3 15-\log_3 5=\log_3\dfrac{15}{5}=1$}
+%[4,-]::\putnotee{80}{32}{\normalsize$\log_2 4^5=5\log_2 2=5$}
+end
+}
+
+itemize
+item::[(1)]$\log_a b+\log_a c=\log_a(bc)$\vspace{-1mm}
+item::[(2)]$\log_a b-\log_a c=\log_a\bunsuu{\ b\ }{c}$\vspace{-1mm}
+item::[(3)]$\log_a b^{\,p}=p\log_a b$\vspace{-1mm}
+%[5,-]::item::[課題]\monbannoadd 対数法則の具体例を書け\seteda{33}\\
+%[5,-]::\eda{(1)の例}\eda{(2)の例}\eda{(3)の例}
+%[6,-]::item::[証明](1)
+%[7,-]::$\log_a b=x,\log_a c=x$とおくと \ %
+%[8,-]::$a^x=b,a^y=c$\\
+%[9,-]::\phantom{(1)} $a^{x+y}=a^x a^y=bc$となるから\ %
+%[10,-]::$x+y=\log_a{bc}$
+end
+
+%[10]::\addban
+
+%%%%%%%%%%%%
+new::対数の計算
+%repeat=12,para
+\slidepage
+
+itemize
+item::[(1)]$\log_{10} 5+\log_{10} 2$
+%[2,-]::item::[]与式$=\log_{10}(5\times 2)$
+%[3,-]::$=\log_{10} 10$
+%[4,-]::$=1$
+%[5,-]::item::[(2)]$\log_2 12-\log_2 3$
+%[6,-]::item::[]与式$=\log_2(\bunsuu{12}{3})$
+%[7,-]::$=\log_2 4$
+%[8,-]::$=2$
+%[9,-]::item::[(3)]$2\log_3 4+\log_3 4-\log_3 8$
+%[10,-]::item::[]与式$=\log_3 4^2+\log_3 4-\log_3 8$\\
+%[11,-]::\phantom{与式}$=\log_3 \frac{16\times 4}{8}$
+%[12,-]::$=\log_3 8$
+end
+
+%%%%%%%%%%%%
+new::対数の計算(課題)
+%%repeat=4
+\slidepage
+
+
+itemize
+item::[課題]\monban 次の計算をせよ．\hfill TextP192\seteda{100}\\
+\eda{$2\log_4 3-\log_4 36$}\\
+\eda{$\log_3 \bunsuu{3}{4}+\log_3 24-\log_3 2$}\\
+\eda{$\log_3 18+\log_3 8-4\log_3 2$}\\
+\eda{$\log_3 4+\log_3 18- 3\log_3 2$}
+end
+
+%%%%%%%%%%%%
+new::底・真数・対数の条件
+%repeat=10,para
+\slidepage
+
+itemize
+item::$y=\log_a x \Longleftrightarrow a^y=x$
+%[1,-]::item::$\log_a 1$
+%[2,-]::$=0$
+%[3,-]::item::$\log_a a$
+%[4,-]::$=1$
+%[5,-]::item::底$a$の条件は
+%[6,-]::\hspace{1zw}\fbox{$a>0,a\neqq 1$}
+%[7,-]::item::真数$x$の条件は
+%[8,-]::\hspace{1zw}\fbox{$x>0$}
+%[9,-]::item::対数$y=\log_a x$の範囲は
+%[10,-]::\hspace{1zw}\fbox{実数全部}
+end
+
+%%%%%%%%%%%%
+new::対数関数のグラフ
+%repeat=1
+\slidepage
+
+itemize
+item::$y=\log_a x$\hspace*{2zw}KeTMathでは\ \verb|log(a,x)|
+item::アプリ「関数のグラフ」でかいてみよう
+item::$x$の範囲が全実数でない　\verb|x=0.01,10|などとする．
+item::[課題]\monban グラフをかいて，問いに答えよ\seteda{90}\\
+\eda{$y=\log_2 x,\ \log_4 x,\ \log_{\frac{1}{2}}x,\ \log_2(-x)$}\\
+\eda{$y=\log_a x$の$a$を変えるとどうなるか}\\
+\eda{$y=\log_a x$と$y=\log_a(-x)$はどのような関係か}
+end

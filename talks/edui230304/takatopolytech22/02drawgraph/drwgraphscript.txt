@@ -1,0 +1,83 @@
+Ketinit();
+Setketcindyjs(["Grid=1"]);// no ketjs
+//Ketcindyjsmain(["<pf5/fp>_;三角関数のグラフを描こう"]);// no ketjs
+
+Addax(0);
+Gridpaper();
+nameL=Keyname();
+Keytable(0,dxL,6,dy,poskey,[1,1,0],nameL,nmove,22);
+nameL2=Keyname2();
+Keytable(0,dxL,2,dy,poskey+[0,1.6*6],[0.8,0.8,0],nameL2,nmove,22);
+
+Setwindow([-10,10],[-10,10]);
+
+if(funflg==1,
+  if(contains(Manifun,name),
+    parse(name+";");
+  ,
+    if(name!="y=", //220515
+      tmp=indexof(Str,"?");
+      if(tmp>0,npos=tmp,npos=length(Str));
+      out=Addfunstr(name,npos,Str);
+      tmp=length(out_1)-length(Str);
+      npos=npos+tmp;
+      Str=out_1; //npos=out_2;
+      if(npos<length(Str),
+        tmp=replace(Str,"?","");
+        tmp1=substring(tmp,0,npos-1)+"?";
+        Str=tmp1+substring(tmp,npos-1,length(tmp));
+      );
+    , //220515from
+      Str=replace(Str,"?","");
+      if(Str!="y=",Str=Str+"//y=");
+    ); //220515to
+  );
+  Subsedit(5,Str);
+  funflg=0;
+);
+
+//Str=Textedit(5,"sin(x)x=-5,5","");
+Str=Textedit(5,"","");
+
+Str=replace(Str,"///","//");
+Str=replace(Str,"frfr(","tfr("); //220523
+//if(substring(Str,length(Str)-2,length(Str))=="//",
+//  Str=Str+"y=";
+//);
+Strnq=replace(Str,"?","");
+if(Strnq!=Strnow,
+  if(length(StrpltL)==0,
+//    dispflg=0;
+  );
+  Strnow=Strnq;
+);
+
+StrL=Strsplit(Strnq,"//");
+StrtL=apply(StrL,Gettexform(#));
+StrpltL=GetplotL(Strnq);
+
+tmp=tpos;
+forall(StrtL,
+  Letter(tmp,"e",#,["Size=1.5"]);
+  tmp=tmp+dpos;
+);
+
+if(dispflg==1,
+  ctr=1;
+  forall(StrpltL,fs,
+//    tmp1=fs_1;
+    tmp1=Assign(fs_1,["x","(x/2)"]);//220701
+    tmp1="2*("+tmp1+")"; //220701
+    Plotdata(text(ctr),tmp1,fs_2,
+         ["dr,1.5",fs_3,fs_4,fs_5,"Dis=4"]);
+    ctr=ctr+1;
+  );
+);
+
+if(recordflg==1,
+  Subsedit(116,Strnq);
+  recordflg=0;
+);
+
+Windispg();
+

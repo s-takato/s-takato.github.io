@@ -1,0 +1,9 @@
+writefile("/polytech22.git/108-0606/fig/toolketmathallres.txt")$/*##*/
+powerdisp:false$/*##*/
+display2d:false$/*##*/
+linel:1000$/*##*/
+dtLL:[[ns,ns,ns,ns,(sqrt(a^(2)+b^(2)))/(a^2+b^2),(sqrt(c^(2)+d^(2)))/(c^2+d^2),(実部a,c虚部b,d)/((a*c-b*d)+(a*d+b*c)*i),(a*c^(4)-a*d^(4)-b*c^(4)+b*d^(4))/((a*c-b*d)^2+(a*d+b*c)^2),ns],[ns,ns,ns,ns,(a^(2),b^(2))/(a^2+b^2),(c^(2),d^(2))/(c^2+d^2),((a*c-b*d)+(a*d+b*c)*i-b*d)/((a*c-b*d)+(a*d+b*c)*i),(a^(2)*c^(2)+b^(2)*d^(2)+a^(2)*d^(2)+b^(2)*c^(2))/((a*c-b*d)^2+(a*d+b*c)^2),ns],[],[ns,ns,ns,ns,(a^(2)+2*a*b+b^(2))/(a^2+b^2),(c^(2)+2*c*d+d^(2))/(c^2+d^2),((a*c+b*d)+(a*d+b*c)*i)/((a*c-b*d)+(a*d+b*c)*i),((a^(2)*c^(2)+b^(2)*d^(2))+(a^(2)*d^(2)+b^(2)*c^(2)))/((a*c-b*d)^2+(a*d+b*c)^2),ns],[ns,ns,ns,ns,(a^(2)+2*a*b+b^(2))/(a^2+b^2),(c^(2)+2*c*d+d^(2))/(c^2+d^2),((a*c-b*d)+(a*d+b*c)*i)/((a*c-b*d)+(a*d+b*c)*i),(a^(2)*c^(2)+b^(2)*d^(2)+a^(2)*d^(2)+b^(2)*c^(2))/((a*c-b*d)^2+(a*d+b*c)^2),ns],[ns,ns,ns,ns,(a^(2)+b^(2))/(a^2+b^2),(c^(2)+d^(2))/(c^2+d^2),(a*c-b*d+(a*d+b*c)*i)/((a*c-b*d)+(a*d+b*c)*i),((a^(2)+b^(2))*(c^(2)+d^(2)))/((a*c-b*d)^2+(a*d+b*c)^2),ns],[ns,ns,ns,ns,(a^(2)+b^(2))/(a^2+b^2),(c^(2)+d^(2))/(c^2+d^2),((a*c-b*d)+(a*d+b*c)*i)/((a*c-b*d)+(a*d+b*c)*i),((a^(2)+b^(2))*(c^(2)+d^(2)))/((a*c-b*d)^2+(a*d+b*c)^2),ns],[ns,ns,ns,ns,(a^(2)+2*a*b+b^(2))/(a^2+b^2),(c^(2)+2*c*d+d^(2))/(c^2+d^2),((a*c-b*d)+(a*d+b*c)*i)/((a*c-b*d)+(a*d+b*c)*i),(a^(2)*c^(2)+b^(2)*d^(2)+a^(2)*d^(2)+b^(2)*c^(2))/((a*c-b*d)^2+(a*d+b*c)^2),ns],[],[],[ns,ns,ns,ns,(a^(2)-b^(2)+2*a*b*i)/(a^2+b^2),(c^(2)-d^(2)+2*c*d*i)/(c^2+d^2),(a*c-b*d,a*d+b*c)/((a*c-b*d)+(a*d+b*c)*i),(a^(2)*c^(2)+b^(2)*d^(2)+a^(2)*d^(2)+b^(2)*c^(2))/((a*c-b*d)^2+(a*d+b*c)^2),ns],[ns,ns,ns,ns,(a^(2)+2*a*b*i-b^(2))/(a^2+b^2),(c^(2)+2*c*d*i-d^(2))/(c^2+d^2),(a*c-b*d,a*d+c*b)/((a*c-b*d)+(a*d+b*c)*i),((a^(2)+b^(2))*(c^(2)+d^(2)))/((a*c-b*d)^2+(a*d+b*c)^2),ns],[],[],[],[]]$/*##*/
+res:ratsimp(dtLL)$/*##*/
+disp(res)$/*##*/
+closefile()$/*##*/
+quit()$/*##*/
