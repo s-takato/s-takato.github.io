@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     
-    <title>zodiac2024.cdy</title>
+    <title>zodiac2024E.cdy</title>
     <style type="text/css">
         * {
             margin: 0px;
@@ -2991,33 +2991,34 @@ forall(1..N,
   Letter(tmp1_1,"c",EtoL_#,tmp2);
 );
 
-Letter([4,3],"c","干支環円 Zodiac Circles",["Size=2"]);
+Letter([4,3],"c","Zodiac Circles",["Size=2"]);
 
 pos=[2.7,2.5];
 dy=0.3;
 op=["Size=1.2"];
 opr=append(op,"Color=red");
 zoL=[
- "子ね Rat, 丑うし Ox",
- "寅とら Tiger, 卯う Rabbit",
- "辰たつ Dragon(2024)",
- "巳み Snake, 午うま Horse",
- "未ひつじ Sheep, 申さる Monkey",
- "酉とり Rooster, 戌いぬ Dog",
- "亥い Boar",
+ "子 ね Rat, 丑 うし Ox",
+ "寅 とら Tiger, 卯 う Rabbit",
+ "辰 たつ Dragon (this year)",
+ "巳 み Snake, 午 うま Horse",
+ "未 ひつじ Sheep, 申 さる Monkey",
+ "酉 とり Rooster, 戌 いぬ Dog",
+ "亥 い Boar",
  " "
 ];
 stL=[
- "1.赤い点を動かして回転できます",
- "2.緑色の干支の年が表示されます",
- "3.白枠に半角数字で年を入力して",
- "　 YEARのボタンを押して下さい",
- "4.直近の辰年の年に変わります"
+ "1.Rotate the small point clockwise.",
+ "2.The green number is the year.",
+ "3,Change the number in the box.",
+ "       Then click 'YEAR'.",
+ "4.The number will change to",
+ "       the most recent Dragon year."
 ];
 op=["Size=1.2"];
 opr=["Size=1.2","Color=red"];
 forall(1..(length(zoL)),
-  if(#==+3,
+  if(#==3,
     Letter(pos,"e",zoL_#,opr);
   ,
     Letter(pos,"e",zoL_#,op);
@@ -3055,10 +3056,10 @@ var cdy = CindyJS({
     {name: "Text2", type: "Button", pos: [-0.5555555555555556, -4.0, -1.1111111111111112], color: [0.0, 0.0, 0.0], fillcolor: [1.0, 0.0, 0.0], fillalpha: 0.41025641025641024, script: "okflg=1;", text: "YEAR", textsize: 18.0}
   ],
   ports: [{
-    width: 920,
-    height: 539,
+    width: 911,
+    height: 543,
     id: "CSCanvas",
-    transform: [{visibleRect: [-3.3879725605297093, 4.0119287348437425, 6.682899024889782, -1.8882884222661545]}],
+    transform: [{visibleRect: [-3.3879725605297093, 4.0119287348437425, 6.58437962894546, -1.9320748204636304]}],
     background: "rgb(247,247,247)"
   }],
   csconsole: false,
