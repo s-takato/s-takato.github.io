@@ -226,6 +226,10 @@ Strictmove(pCorg,sep):=(
 Addax(param):=(
   ADDAXES=text(param);
 );
+Dqq(str):=DqDq(str); //18.02.11
+DqDq(str):=(
+  unicode("0022")+str+unicode("0022");
+);
 Subsedit(no,str):=(
  regional(tmp,tmp1);
  if(isstring(str),
@@ -2282,10 +2286,6 @@ Lettermove(dir,str):=(
   if(length(out)==0,out=0,out=parse(out));
   out;
 );
-Dqq(str):=DqDq(str); //18.02.11
-DqDq(str):=(
-  unicode("0022")+str+unicode("0022");
-);
 Windispg():=(
   if(ADDAXES=="1", //181215from
     Drwxy();
@@ -2893,6 +2893,8 @@ Ketinit(1.2);
 
 Addax("0");
 
+Letter(NE.xy-[3,-0.3],"w","{<a href="+Dqq("indexe.html")+">English");
+
 if(startflg==1,
   mang(t):=(
    tan(t*pi/180/2);
@@ -3068,5 +3070,6 @@ var cdy = CindyJS({
 </head>
 <body>
     <div id="CSCanvas"></div>
+    <font size="10"><p style="text-align: center"><a href="zodiac2024E.html">English</a></p></font>
 </body>
 </html>
